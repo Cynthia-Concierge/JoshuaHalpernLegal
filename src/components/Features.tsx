@@ -24,7 +24,7 @@ const Features: React.FC = () => {
                 <p>Or hope nothing goes wrong.</p>
                 <p className="font-semibold text-slate-900">That's how small issues turn into expensive problems.</p>
                 <p>
-                  This gives you direct access to a business lawyer — so you can make the right decisions <span className="font-semibold text-slate-900">before</span> problems happen.
+                  This gives you direct access to a business lawyer so you can make the right decisions <span className="font-semibold text-slate-900">before</span> problems happen.
                 </p>
               </div>
             </div>

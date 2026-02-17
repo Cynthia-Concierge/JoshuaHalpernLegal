@@ -16,7 +16,7 @@ const FAQS: FAQItem[] = [
   {
     question: "How does your flat-fee pricing work?",
     answer:
-      "We charge a transparent flat fee for each package or service—no hourly billing, no hidden charges. You'll know exactly what you're paying for before any work begins.",
+      "We charge a transparent flat fee for each package or service. No hourly billing, no hidden charges. You'll know exactly what you're paying for before any work begins.",
   },
   {
     question: "Can I speak directly with an attorney?",
@@ -26,7 +26,7 @@ const FAQS: FAQItem[] = [
   {
     question: "Do you offer custom contracts or just templates?",
     answer:
-      "All contracts are custom-drafted or tailored to your business and specific needs. We don't just hand you a template—we make sure the agreement actually fits what you're doing and protects your interests.",
+      "All contracts are custom-drafted or tailored to your business and specific needs. We don't just hand you a template. We make sure the agreement actually fits what you're doing and protects your interests.",
   },
   {
     question: "Can you help if I'm in a different state?",
@@ -36,7 +36,7 @@ const FAQS: FAQItem[] = [
   {
     question: "Is everything done virtually?",
     answer:
-      "Yes. We operate a modern virtual law firm—meaning everything is handled securely through phone, email, and video calls. We work around your schedule and handle everything without the need for in-person meetings.",
+      "Yes. We operate a modern virtual law firm, meaning everything is handled securely through phone, email, and video calls. We work around your schedule and handle everything without the need for in-person meetings.",
   },
   {
     question: "Do you offer ongoing legal support or just one-time packages?",
@@ -51,12 +51,12 @@ const FAQS: FAQItem[] = [
   {
     question: "What if I need help with something not listed?",
     answer:
-      "Just reach out. We offer custom services and can usually create a solution or refer you to the right resource. If it's a legal issue you're facing, we're here to help—or get you to someone who can.",
+      "Just reach out. We offer custom services and can usually create a solution or refer you to the right resource. If it's a legal issue you're facing, we're here to help, or get you to someone who can.",
   },
   {
     question: "Do you handle litigation or disputes?",
     answer:
-      "We focus on proactive legal services—meaning we help you avoid problems before they happen. If you're facing a dispute or lawsuit, we'll connect you with a trusted litigation attorney in our network.",
+      "We focus on proactive legal services, meaning we help you avoid problems before they happen. If you're facing a dispute or lawsuit, we'll connect you with a trusted litigation attorney in our network.",
   },
 ];
 
@@ -172,7 +172,7 @@ const FAQ: React.FC = () => {
                 Still Have Questions?
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Book a free 15-minute call. No sales pitch—just a straight
+                Book a free 15-minute call. No sales pitch, just a straight
                 conversation about what you need.
               </p>
               <Link

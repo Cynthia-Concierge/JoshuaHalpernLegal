@@ -61,7 +61,7 @@ const Home: React.FC = () => {
 
               <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 LLC formation, estate planning, contracts, and IP
-                protection—handled by a former BigLaw attorney at flat fees you
+                protection, handled by a former BigLaw attorney at flat fees you
                 can actually afford.
               </p>
 
@@ -85,9 +85,8 @@ const Home: React.FC = () => {
                 <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-sm text-slate-400 font-medium">
                   {[
                     "Former BigLaw Attorney",
-                    "500+ Businesses Formed",
+                    "Trusted by 500+ Businesses",
                     "Flat-Fee Guarantee",
-                    "Licensed in Multiple States",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-400/70" />
@@ -114,8 +113,8 @@ const Home: React.FC = () => {
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-slate-900 font-bold text-sm">500+</p>
-                  <p className="text-slate-500 text-xs">Businesses Protected</p>
+                  <p className="text-slate-900 font-bold text-sm leading-tight">Strategic Counsel to</p>
+                  <p className="text-slate-500 text-xs">Founders and Entrepreneurs</p>
                 </div>
               </div>
             </div>
@@ -147,22 +146,36 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight">
-              Hiring a Lawyer Shouldn't Feel Like Getting a Second Mortgage
+              Hiring a Lawyer Shouldn't Feel Like Signing a Blank Check
             </h2>
 
             <div className="space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed">
               <p>
-                Traditional law firms charge $300–$600/hour. A simple LLC costs
-                $2,500+. Estate planning? $5,000 minimum. And you still don't
-                know what you're actually paying for until the bill arrives.
+                Traditional firms bill $300 to $600 per hour, sometimes more.
+                A straightforward LLC formation or thoughtful estate plan can
+                cost you thousands. And the meter is always running.
               </p>
               <p>
-                Meanwhile, LegalZoom gives you templates and zero legal advice.
+                On the other end of the spectrum, online platforms and AI tools
+                generate documents without real legal judgment, no strategy,
+                and no one accountable to you.
               </p>
               <p className="font-semibold text-slate-900 text-xl md:text-2xl">
-                There's a middle ground: Real legal work by a real attorney, at
-                prices that make sense.
+                There's a better way.
               </p>
+              <p>
+                Legal Halp delivers sophisticated, business-minded legal counsel
+                with transparent, flat-fee pricing and ongoing access when you
+                actually need it.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                {["Big-firm training.", "Modern structure.", "No billing surprises."].map((item, i) => (
+                  <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
+                    <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -373,7 +386,7 @@ const Home: React.FC = () => {
                   icon: Star,
                   title: "Big-Firm Experience",
                   description:
-                    "I spent years at one of the nation's largest law firms advising companies on million-dollar deals. You get that same legal rigor—without the bloated fees.",
+                    "I spent years at one of the nation's largest law firms advising companies on million-dollar deals. You get that same legal rigor, without the bloated fees.",
                 },
                 {
                   icon: DollarSign,
@@ -385,7 +398,7 @@ const Home: React.FC = () => {
                   icon: UserCheck,
                   title: "Direct Attorney Access",
                   description:
-                    "No paralegals. No junior associates. No call centers. When you hire Legal Halp, you work with me directly—every step.",
+                    "No paralegals. No junior associates. No call centers. When you hire Legal Halp, you work with me directly. Every step.",
                 },
               ].map((item, index) => (
                 <div key={index} className="text-center md:text-left">

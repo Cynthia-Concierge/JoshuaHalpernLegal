@@ -199,10 +199,10 @@ const VideoCarousel: React.FC = () => {
                 Social Media
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                Quick legal tips you can use today
+                Get to Know Legal Halp
               </h2>
               <p className="text-slate-500 text-lg mt-2">
-                Short videos breaking down real business law topics.
+                Short videos breaking down how we think about law and help businesses like yours.
               </p>
             </div>
 

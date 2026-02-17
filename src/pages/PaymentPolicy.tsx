@@ -55,7 +55,7 @@ const PaymentPolicy = () => {
                   .
                 </li>
                 <li>
-                  <strong>After work has begun:</strong> Once substantive legal work has commenced—including but not limited to research, drafting, filing, or consultation—payments are non-refundable. This applies regardless of whether final deliverables have been provided.
+                  <strong>After work has begun:</strong> Once substantive legal work has commenced, including but not limited to research, drafting, filing, or consultation, payments are non-refundable. This applies regardless of whether final deliverables have been provided.
                 </li>
                 <li>
                   <strong>Digital products and templates:</strong> All sales of downloadable legal templates, guides, and digital materials are final and non-refundable once the product has been delivered or access has been granted.

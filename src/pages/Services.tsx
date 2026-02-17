@@ -66,7 +66,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "30-minute attorney consultation + email support",
         ],
         notIncluded: [
-          "State filing fees ($50–$300 depending on state)—disclosed before we start.",
+          "State filing fees ($50 to $300 depending on state), disclosed before we start.",
         ],
         stripeLink: "https://buy.stripe.com/cNi9ATgqm8Mh7G19Gy3oA03",
       },
@@ -123,7 +123,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "1-hour consultation + ongoing support",
         ],
         whyItMatters:
-          "Wills go through probate—a public, expensive, months-long court process. A trust bypasses all of that. Your family gets assets faster, privately, and without lawyers eating into your estate.",
+          "Wills go through probate, a public, expensive, months-long court process. A trust bypasses all of that. Your family gets assets faster, privately, and without lawyers eating into your estate.",
         stripeLink: "https://buy.stripe.com/bJefZh3DA2nTbWhf0S3oA04",
       },
     ],
@@ -226,7 +226,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Upgrade credit toward full trademark filing",
         ],
         whyItMatters:
-          "A brand without legal protection is just a name—and names get stolen every day. Lock yours down before someone else does.",
+          "A brand without legal protection is just a name, and names get stolen every day. Lock yours down before someone else does.",
         stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
       },
     ],
@@ -383,7 +383,7 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
         rel={pkg.stripeLink ? "noopener noreferrer" : undefined}
         className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
       >
-        Get Started — {pkg.price}
+        Get Started - {pkg.price}
         <ArrowRight className="w-4 h-4" />
       </a>
     </div>
@@ -426,7 +426,7 @@ const Services: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Real legal work. Real attorney. Real prices—disclosed upfront.
+              Real legal work. Real attorney. Real prices, disclosed upfront.
             </p>
           </div>
         </div>

@@ -55,7 +55,7 @@ const Terms = () => {
                 5. Intellectual Property
               </h2>
               <p>
-                All content on this Site—including but not limited to text, videos, logos, graphics, and legal templates—is the intellectual property of Legal Halp and is protected by copyright, trademark, and other applicable laws. Unauthorized use or reproduction of this content is strictly prohibited.
+                All content on this Site, including but not limited to text, videos, logos, graphics, and legal templates, is the intellectual property of Legal Halp and is protected by copyright, trademark, and other applicable laws. Unauthorized use or reproduction of this content is strictly prohibited.
               </p>
 
               <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">

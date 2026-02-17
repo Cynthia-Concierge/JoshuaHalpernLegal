@@ -7,9 +7,9 @@ const ContractDrafting: React.FC = () => (
     icon={PenTool}
     title="Contract Drafting"
     price="$550"
-    subtitle="Custom contracts drafted or reviewed by a real attorney — not a template generator."
+    subtitle="Custom contracts drafted or reviewed by a real attorney. Not a template generator."
     whoItsFor="Freelancers, consultants, agencies, and anyone who needs a contract drafted or reviewed to protect their business and their interests."
-    description="A bad contract — or no contract at all — is one of the fastest ways to lose money, clients, or control of your own work. We draft and review service agreements, NDAs, partnership agreements, influencer deals, licensing agreements, and more. Every contract is tailored to your situation."
+    description="A bad contract, or no contract at all, is one of the fastest ways to lose money, clients, or control of your own work. We draft and review service agreements, NDAs, partnership agreements, influencer deals, licensing agreements, and more. Every contract is tailored to your situation."
     includes={[
       "Custom contract drafting OR thorough review of existing contract",
       "Plain-English explanation of key terms",

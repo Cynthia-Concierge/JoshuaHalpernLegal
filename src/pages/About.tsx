@@ -267,7 +267,7 @@ const About: React.FC = () => {
                 Book a Free 15-Minute Call
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Let's talk about what you need. No pitch, no pressure—just a
+                Let's talk about what you need. No pitch, no pressure, just a
                 conversation.
               </p>
               <Link

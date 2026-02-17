@@ -95,7 +95,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-lg mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center tracking-tight">
-              Ask your question now — it's free.
+              Ask your question now. It's free.
             </h2>
             <LeadForm onSubmit={handleFormSubmit} />
           </div>

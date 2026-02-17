@@ -7,7 +7,7 @@ const RealEstateLLC: React.FC = () => (
     icon={Building2}
     title="Real Estate LLC"
     price="$2,500"
-    subtitle="Hold your rental properties in an LLC for liability protection — set up correctly from the start."
+    subtitle="Hold your rental properties in an LLC for liability protection, set up correctly from the start."
     whoItsFor="Landlords and rental property owners who want to hold real estate in an LLC for liability protection and separate their personal assets from their investment properties."
     description="If you own rental property in your personal name, you're one lawsuit away from losing everything. We set up a real estate-specific LLC, transfer the deed, handle county recording, and make sure your mortgage and tax situation is properly addressed."
     includes={[

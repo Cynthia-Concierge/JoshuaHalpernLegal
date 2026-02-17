@@ -60,7 +60,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-2xl font-bold text-slate-900 font-serif">
-            Ask your question now — it's free.
+            Ask your question now. It's free.
           </h3>
           <Shield className="w-5 h-5 text-blue-500 opacity-60" />
         </div>

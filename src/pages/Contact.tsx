@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
                       </h2>
                     </div>
                     <p className="text-slate-500 text-sm">
-                      Pick a time that works for you — 15 minutes, no obligation.
+                      Pick a time that works for you. 15 minutes, no obligation.
                     </p>
                   </div>
 

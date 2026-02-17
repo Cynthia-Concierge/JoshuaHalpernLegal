@@ -29,7 +29,7 @@ const DashboardShowcase: React.FC = () => {
                 {
                   step: "1",
                   title: "Your question is reviewed by a business attorney",
-                  description: "A real lawyer reviews your specific situation — not a chatbot, not an assistant.",
+                  description: "A real lawyer reviews your specific situation. Not a chatbot, not an assistant.",
                   icon: FileText,
                 },
                 {

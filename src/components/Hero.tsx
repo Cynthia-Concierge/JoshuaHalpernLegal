@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ onFormSubmit }) => {
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight font-serif">
-              Finally — A Business Lawyer You Can Ask Questions <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 underline decoration-blue-400/60 underline-offset-8 decoration-4">Without Paying $500/hour</span>
+              Finally, A Business Lawyer You Can Ask Questions <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 underline decoration-blue-400/60 underline-offset-8 decoration-4">Without Paying $500/hour</span>
             </h1>
 
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">

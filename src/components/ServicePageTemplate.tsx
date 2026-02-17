@@ -61,7 +61,7 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-slate-900/30 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
                 >
-                  Get Started — {price}
+                  Get Started - {price}
                   <ArrowRight className="w-5 h-5" />
                 </a>
               ) : (

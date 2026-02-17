@@ -7,13 +7,15 @@ interface VideoItem {
   title: string;
 }
 
+const VIDEO_BASE =
+  "https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos";
+
 const VIDEOS: VideoItem[] = [
-  { id: 1, src: "/1.mp4", title: "" },
-  { id: 2, src: "/3.mp4", title: "" },
-  { id: 3, src: "/halpern.mp4", title: "" },
-  { id: 4, src: "/2.mp4", title: "" },
-  { id: 5, src: "/5.mp4", title: "" },
-  { id: 6, src: "/6.mp4", title: "" },
+  { id: 1, src: `${VIDEO_BASE}/1.mp4`, title: "" },
+  { id: 2, src: `${VIDEO_BASE}/3.mp4`, title: "" },
+  { id: 3, src: `${VIDEO_BASE}/2.mp4`, title: "" },
+  { id: 4, src: `${VIDEO_BASE}/5.mp4`, title: "" },
+  { id: 5, src: `${VIDEO_BASE}/6.mp4`, title: "" },
 ];
 
 const VideoCard: React.FC<{ video: VideoItem }> = ({ video }) => {

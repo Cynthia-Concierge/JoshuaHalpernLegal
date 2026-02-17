@@ -54,7 +54,7 @@ const ValueStack: React.FC<ValueStackProps> = ({ onGetDocumentsClick }) => {
             <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
             
             <div className="relative z-10">
-              <Shield className="w-12 h-12 text-amber-400 mx-auto mb-6" />
+              <Shield className="w-12 h-12 text-blue-400 mx-auto mb-6" />
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Ask your question now
               </h3>
@@ -63,7 +63,7 @@ const ValueStack: React.FC<ValueStackProps> = ({ onGetDocumentsClick }) => {
               </p>
               <button 
                 onClick={handleScrollToForm}
-                className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(245,158,11,0.3)] transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg mx-auto"
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg mx-auto"
               >
                 <Check className="w-6 h-6" />
                 Submit Your Question

@@ -5,6 +5,7 @@ import DashboardShowcase from "@/components/DashboardShowcase";
 import ValueStack from "@/components/ValueStack";
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
+import VideoCarousel from "@/components/VideoCarousel";
 
 declare global {
   interface Window {
@@ -88,6 +89,7 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Hero onFormSubmit={handleFormSubmit} />
       <Features />
+      <VideoCarousel />
 
       <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">

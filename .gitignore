@@ -15,6 +15,11 @@ dist-ssr/
 *.log
 npm-debug.log*
 
+# Video files (too large for GitHub — host externally)
+*.mp4
+*.mov
+*.webm
+
 # OS and editors
 .DS_Store
 .idea

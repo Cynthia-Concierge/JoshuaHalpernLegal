@@ -13,13 +13,13 @@ const Footer: React.FC = () => {
         <div className="flex justify-center gap-6 mb-8 text-sm">
           <a 
             href="#" 
-            className="hover:text-amber-400 transition-colors"
+            className="hover:text-blue-400 transition-colors"
           >
             Privacy Policy
           </a>
           <a 
             href="#" 
-            className="hover:text-amber-400 transition-colors"
+            className="hover:text-blue-400 transition-colors"
           >
             Terms of Service
           </a>

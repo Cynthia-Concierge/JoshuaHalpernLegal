@@ -76,7 +76,7 @@ const DashboardShowcase: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest mb-4">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest mb-4">
                 Experience You Can Trust
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">

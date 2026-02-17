@@ -28,19 +28,19 @@ const ThankYou = () => {
             </h3>
             <div className="space-y-4 text-left max-w-md mx-auto">
               <div className="flex items-start gap-4">
-                <Mail className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                <Mail className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span className="text-slate-700">
                   Keep an eye on your email for a direct response
                 </span>
               </div>
               <div className="flex items-start gap-4">
-                <Phone className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                <Phone className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span className="text-slate-700">
                   If your question is urgent, you may receive a call directly
                 </span>
               </div>
               <div className="flex items-start gap-4">
-                <CheckCircle className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span className="text-slate-700">
                   Most responses arrive within a few hours
                 </span>
@@ -56,7 +56,7 @@ const ThankYou = () => {
               href={SCHEDULE_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5"
             >
               <Calendar className="w-5 h-5" />
               Schedule a Call

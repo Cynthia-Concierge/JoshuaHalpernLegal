@@ -55,14 +55,14 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
   return (
     <div className="bg-white/90 border border-slate-200 p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-xl relative overflow-hidden ring-1 ring-slate-900/5" id="enter-your-info-form">
       {/* Top accent bar */}
-      <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-slate-800 via-slate-700 to-amber-500"></div>
+      <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-slate-800 via-slate-700 to-blue-500"></div>
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-2xl font-bold text-slate-900 font-serif">
             Ask your question now — it's free.
           </h3>
-          <Shield className="w-5 h-5 text-amber-500 opacity-60" />
+          <Shield className="w-5 h-5 text-blue-500 opacity-60" />
         </div>
 
         <form className="space-y-5" onSubmit={handleSubmit}>

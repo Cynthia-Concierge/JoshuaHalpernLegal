@@ -26,15 +26,15 @@ import WebsiteCompliance from "./pages/services/WebsiteCompliance";
 
 const Layout = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/" || location.pathname === "/thank-you";
+  const hideNavbar = location.pathname === "/askmeanything" || location.pathname === "/thank-you";
 
   return (
     <>
       <ScrollToTop />
       {!hideNavbar && <Navbar />}
       <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/askmeanything" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />

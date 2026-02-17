@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Scale, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { to: "/home", label: "Home" },
+  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/faq", label: "FAQ" },
@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
-            to="/home"
+            to="/"
             className="flex items-center gap-2 group"
             onClick={() => setMobileOpen(false)}
           >

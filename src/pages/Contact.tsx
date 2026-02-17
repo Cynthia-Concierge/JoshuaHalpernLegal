@@ -7,6 +7,7 @@ import {
   Clock,
   Calendar,
   Linkedin,
+  Instagram,
   MessageSquare,
 } from "lucide-react";
 
@@ -155,6 +156,25 @@ const Contact: React.FC = () => {
                       </p>
                       <p className="text-slate-900 font-semibold text-sm">
                         Joshua Halpern
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/legalhalp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
+                  >
+                    <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
+                      <Instagram className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400 font-medium">
+                        Instagram
+                      </p>
+                      <p className="text-slate-900 font-semibold text-sm">
+                        @legalhalp
                       </p>
                     </div>
                   </a>

@@ -121,21 +121,82 @@ const FormationIntake: React.FC = () => {
     const form = e.currentTarget;
     const get = (name: string) => (form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value || "";
 
+    const first_name = get("first_name");
+    const last_name = get("last_name");
+    const email = get("email");
+    const phone = get("phone");
+    const entity_type = get("entity_type");
+    const state_of_formation = get("state_of_formation");
+    const business_industry = get("business_industry");
+    const business_description = get("business_description");
+    const desired_business_name = get("desired_business_name");
+    const backup_business_name = get("backup_business_name");
+    const irs_responsible_party = get("irs_responsible_party");
+    const management_structure = get("management_structure");
+    const business_email = get("business_email");
+    const business_phone = get("business_phone");
+    const signature_contact = get("signature_contact");
+    const business_address = get("business_address");
+    const mailing_address = mailingAddressSame === "no" ? get("mailing_address") : "Same as business address";
+    const registered_agent_preference = get("registered_agent_preference");
+    const need_ein = get("need_ein");
+    const expected_employees = get("expected_employees");
+    const hiring_90_days = get("hiring_90_days");
+    const pay_contractors = get("pay_contractors");
+    const scorp_election = get("scorp_election");
+    const scorp_effective_date = get("scorp_effective_date");
+    const bank_account_help = get("bank_account_help");
+    const additional_account_access = get("additional_account_access");
+    const previous_business_owner = get("previous_business_owner");
+    const filed_bankruptcy = get("filed_bankruptcy");
+    const tax_debt = get("tax_debt");
+    const converting_entity = get("converting_entity");
+
+    const lines: string[] = [
+      "--- BUSINESS SETUP ---",
+      `Entity: ${entity_type} | State: ${state_of_formation} | Industry: ${business_industry}`,
+      `Business description: ${business_description}`,
+      `Desired name: ${desired_business_name}${backup_business_name ? ` | Backup: ${backup_business_name}` : ""}`,
+      "",
+      "--- OWNERS ---",
+      ...owners.slice(0, ownerCount).map((o, i) =>
+        `Owner ${i + 1}: ${o.fullName} | ${o.ownershipPct} | ${o.role} | DOB: ${o.dob} | ${o.address}`
+      ),
+      `IRS Responsible Party: ${irs_responsible_party} | Management: ${management_structure}`,
+      "",
+      "--- CONTACT & ADDRESS ---",
+      `Business email: ${business_email} | Phone: ${business_phone} | Signature contact: ${signature_contact}`,
+      `Business address: ${business_address} | Mailing: ${mailing_address}`,
+      `Registered agent: ${registered_agent_preference}`,
+      "",
+      "--- EIN & EMPLOYMENT ---",
+      `Need EIN: ${need_ein} | Expected employees: ${expected_employees} | Hiring in 90 days: ${hiring_90_days} | Pay contractors: ${pay_contractors}`,
+      "",
+      "--- TAX & BANKING ---",
+      `S-Corp election: ${scorp_election} | Effective: ${scorp_effective_date}`,
+      `Bank help: ${bank_account_help} | Other account access: ${additional_account_access}`,
+      `Additional filings: ${selectedFilings.join(", ") || "None"}`,
+      "",
+      "--- COMPLIANCE ---",
+      `Prior business: ${previous_business_owner} | Bankruptcy: ${filed_bankruptcy} | Tax debt: ${tax_debt} | Converting entity: ${converting_entity}`,
+      `Marketing consent: ${agreeMarketing ? "Yes" : "No"}`,
+    ];
+    const intake_summary = lines.join("\n");
+
     const payload = {
-      first_name: get("first_name"),
-      last_name: get("last_name"),
-      email: get("email"),
-      phone: get("phone"),
-
-      entity_type: get("entity_type"),
-      state_of_formation: get("state_of_formation"),
-      business_industry: get("business_industry"),
-      business_description: get("business_description"),
-      desired_business_name: get("desired_business_name"),
-      backup_business_name: get("backup_business_name"),
-
+      first_name,
+      last_name,
+      email,
+      phone,
+      intake_summary,
+      entity_type,
+      state_of_formation,
+      business_industry,
+      business_description,
+      desired_business_name,
+      backup_business_name,
       owner_count: ownerCount,
-      owners: owners.map((o, i) => ({
+      owners: owners.slice(0, ownerCount).map((o, i) => ({
         owner_number: i + 1,
         full_name: o.fullName,
         ownership_pct: o.ownershipPct,
@@ -144,34 +205,28 @@ const FormationIntake: React.FC = () => {
         dob: o.dob,
         address: o.address,
       })),
-      irs_responsible_party: get("irs_responsible_party"),
-      management_structure: get("management_structure"),
-
-      business_email: get("business_email"),
-      business_phone: get("business_phone"),
-      signature_contact: get("signature_contact"),
-
-      business_address: get("business_address"),
+      irs_responsible_party,
+      management_structure,
+      business_email,
+      business_phone,
+      signature_contact,
+      business_address,
       mailing_address_same: mailingAddressSame,
-      mailing_address: mailingAddressSame === "no" ? get("mailing_address") : "Same as business address",
-      registered_agent_preference: get("registered_agent_preference"),
-
-      need_ein: get("need_ein"),
-      expected_employees: get("expected_employees"),
-      hiring_90_days: get("hiring_90_days"),
-      pay_contractors: get("pay_contractors"),
-
-      scorp_election: get("scorp_election"),
-      scorp_effective_date: get("scorp_effective_date"),
-
-      bank_account_help: get("bank_account_help"),
-      additional_account_access: get("additional_account_access"),
+      mailing_address,
+      registered_agent_preference,
+      need_ein,
+      expected_employees,
+      hiring_90_days,
+      pay_contractors,
+      scorp_election,
+      scorp_effective_date,
+      bank_account_help,
+      additional_account_access,
       additional_filings: selectedFilings.join(", "),
-      previous_business_owner: get("previous_business_owner"),
-      filed_bankruptcy: get("filed_bankruptcy"),
-      tax_debt: get("tax_debt"),
-      converting_entity: get("converting_entity"),
-
+      previous_business_owner,
+      filed_bankruptcy,
+      tax_debt,
+      converting_entity,
       agree_terms: agreeTerms,
       agree_marketing: agreeMarketing,
       source: "Formation Intake Form",

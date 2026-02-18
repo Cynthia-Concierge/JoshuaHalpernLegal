@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Scale, Shield, Phone, ChevronDown, HelpCircle } from "lucide-react";
+import { Shield, Phone, ChevronDown, HelpCircle } from "lucide-react";
 
 interface FAQItem {
   question: string;
@@ -193,10 +193,7 @@ const FAQ: React.FC = () => {
       <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-col items-center mb-6">
-            <Scale className="w-8 h-8 text-slate-600 mb-2" />
-            <span className="text-lg font-serif text-slate-300 tracking-widest uppercase">
-              Legal Halp
-            </span>
+            <img src="/logo.png" alt="Legal Halp" className="h-10 brightness-0 invert opacity-80 mb-1" />
             <p className="text-sm text-slate-500 mt-1">
               by Joshua Halpern, Esq.
             </p>

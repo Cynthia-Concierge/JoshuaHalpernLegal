@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Scale } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 text-center">
         <div className="flex flex-col items-center mb-8">
-          <Scale className="w-8 h-8 text-slate-600 mb-2" />
-          <span className="text-lg font-serif text-slate-300 tracking-widest uppercase">Halpern Legal</span>
+          <img src="/logo.png" alt="Legal Halp" className="h-10 brightness-0 invert opacity-80" />
         </div>
         
         <div className="flex justify-center gap-6 mb-8 text-sm">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Scale, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
@@ -24,10 +24,7 @@ const Navbar: React.FC = () => {
             className="flex items-center gap-2 group"
             onClick={() => setMobileOpen(false)}
           >
-            <Scale className="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors" />
-            <span className="text-lg font-serif font-semibold text-slate-900 tracking-wide">
-              Legal Halp
-            </span>
+            <img src="/logo.png" alt="Legal Halp" className="h-8" />
           </Link>
 
           {/* Desktop Nav */}

@@ -154,7 +154,6 @@ const Formation: React.FC = () => {
                     controls
                     playsInline
                     preload="metadata"
-                    crossOrigin="anonymous"
                     poster="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/josh-formation-vsl.jpg"
                     className="w-full h-full object-cover"
                   >
@@ -164,7 +163,7 @@ const Formation: React.FC = () => {
                     />
                     <track
                       kind="captions"
-                      src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/josh-formation-vsl.vtt"
+                      src="/josh-formation-vsl.vtt"
                       srcLang="en"
                       label="English"
                       default

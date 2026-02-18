@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Shield,
   Scale,
@@ -81,6 +81,7 @@ const checkboxCls =
   "w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/40 mt-0.5 flex-shrink-0";
 
 const FormationIntake: React.FC = () => {
+  const navigate = useNavigate();
   const [ownerCount, setOwnerCount] = useState(1);
   const [owners, setOwners] = useState<OwnerFields[]>([emptyOwner()]);
   const [selectedFilings, setSelectedFilings] = useState<string[]>([]);
@@ -171,7 +172,7 @@ const FormationIntake: React.FC = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                alert("Form submitted! We'll connect this to your backend.");
+                navigate("/formation/thank-you");
               }}
               className="space-y-6"
             >

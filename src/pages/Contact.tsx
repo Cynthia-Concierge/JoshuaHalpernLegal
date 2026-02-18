@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
 
                   <div
                     className="calendly-inline-widget"
-                    data-url="https://calendly.com/legalhalp/15-minute-legal-consult"
+                    data-url="https://calendly.com/legalhalp/15-minute-legal-consult?hide_event_type_details=1"
                     style={{ minWidth: "320px", height: "700px" }}
                   />
                 </div>

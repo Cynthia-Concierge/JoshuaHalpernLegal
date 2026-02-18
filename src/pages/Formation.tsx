@@ -216,25 +216,13 @@ const Formation: React.FC = () => {
                     <div className="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-slate-800 group-hover:text-white transition-all duration-300">
                       <type.icon className="w-6 h-6" />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-900">
-                        {type.title}
-                      </h3>
-                      <p className="text-blue-600 font-bold text-lg">
-                        {type.price}
-                      </p>
-                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 pt-2.5">
+                      {type.title}
+                    </h3>
                   </div>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     {type.description}
                   </p>
-                  <Link
-                    to={type.slug}
-                    className="inline-flex items-center gap-1.5 text-slate-700 font-semibold text-sm hover:text-blue-600 transition-colors"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
                 </div>
               ))}
             </div>

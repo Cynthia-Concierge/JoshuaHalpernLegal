@@ -5,7 +5,8 @@ import {
   Scale,
   Users,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Heart,
 } from 'lucide-react';
 
 const DashboardShowcase: React.FC = () => {
@@ -94,6 +95,7 @@ const DashboardShowcase: React.FC = () => {
                 { icon: Users, title: "Structure partnerships", description: "Set up partnerships properly so everyone knows the terms." },
                 { icon: Shield, title: "Avoid legal exposure", description: "Identify and close gaps in your legal protection." },
                 { icon: CheckCircle2, title: "Protect growing companies", description: "As you scale, stay protected at every stage." },
+                { icon: Heart, title: "Prepare estate plans", description: "Protect your assets, family, and investments." },
               ].map((item, index) => (
                 <div 
                   key={index}

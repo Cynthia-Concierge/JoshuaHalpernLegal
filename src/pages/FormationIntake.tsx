@@ -8,7 +8,6 @@ import {
   UserCheck,
   CheckCircle2,
   Clock,
-  Upload,
 } from "lucide-react";
 
 const US_STATES = [
@@ -30,16 +29,6 @@ const INDUSTRIES = [
 ];
 
 const ENTITY_TYPES = ["LLC", "S-Corporation", "C-Corporation", "Partnership"];
-
-const ADDITIONAL_FILINGS = [
-  "DBA/Fictitious Name",
-  "Local business license search",
-  "Annual report reminders",
-  "Operating Agreement",
-  "Corporate Bylaws",
-  "Banking Resolution",
-  "Ownership Ledger & Certificates",
-];
 
 interface OwnerFields {
   fullName: string;
@@ -87,7 +76,6 @@ const FormationIntake: React.FC = () => {
   const navigate = useNavigate();
   const [ownerCount, setOwnerCount] = useState(1);
   const [owners, setOwners] = useState<OwnerFields[]>([emptyOwner()]);
-  const [selectedFilings, setSelectedFilings] = useState<string[]>([]);
   const [mailingAddressSame, setMailingAddressSame] = useState("yes");
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [agreeMarketing, setAgreeMarketing] = useState(false);
@@ -106,12 +94,6 @@ const FormationIntake: React.FC = () => {
 
   const updateOwner = (idx: number, field: keyof OwnerFields, val: string) => {
     setOwners((prev) => prev.map((o, i) => (i === idx ? { ...o, [field]: val } : o)));
-  };
-
-  const toggleFiling = (f: string) => {
-    setSelectedFilings((prev) =>
-      prev.includes(f) ? prev.filter((x) => x !== f) : [...prev, f]
-    );
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -143,14 +125,6 @@ const FormationIntake: React.FC = () => {
     const expected_employees = get("expected_employees");
     const hiring_90_days = get("hiring_90_days");
     const pay_contractors = get("pay_contractors");
-    const scorp_election = get("scorp_election");
-    const scorp_effective_date = get("scorp_effective_date");
-    const bank_account_help = get("bank_account_help");
-    const additional_account_access = get("additional_account_access");
-    const previous_business_owner = get("previous_business_owner");
-    const filed_bankruptcy = get("filed_bankruptcy");
-    const tax_debt = get("tax_debt");
-    const converting_entity = get("converting_entity");
 
     const lines: string[] = [
       "--- BUSINESS SETUP ---",
@@ -172,13 +146,6 @@ const FormationIntake: React.FC = () => {
       "--- EIN & EMPLOYMENT ---",
       `Need EIN: ${need_ein} | Expected employees: ${expected_employees} | Hiring in 90 days: ${hiring_90_days} | Pay contractors: ${pay_contractors}`,
       "",
-      "--- TAX & BANKING ---",
-      `S-Corp election: ${scorp_election} | Effective: ${scorp_effective_date}`,
-      `Bank help: ${bank_account_help} | Other account access: ${additional_account_access}`,
-      `Additional filings: ${selectedFilings.join(", ") || "None"}`,
-      "",
-      "--- COMPLIANCE ---",
-      `Prior business: ${previous_business_owner} | Bankruptcy: ${filed_bankruptcy} | Tax debt: ${tax_debt} | Converting entity: ${converting_entity}`,
       `Marketing consent: ${agreeMarketing ? "Yes" : "No"}`,
     ];
     const intake_summary = lines.join("\n");
@@ -218,15 +185,6 @@ const FormationIntake: React.FC = () => {
       expected_employees,
       hiring_90_days,
       pay_contractors,
-      scorp_election,
-      scorp_effective_date,
-      bank_account_help,
-      additional_account_access,
-      additional_filings: selectedFilings.join(", "),
-      previous_business_owner,
-      filed_bankruptcy,
-      tax_debt,
-      converting_entity,
       agree_terms: agreeTerms,
       agree_marketing: agreeMarketing,
       source: "Formation Intake Form",
@@ -661,180 +619,6 @@ const FormationIntake: React.FC = () => {
                       <option value="yes">Yes</option>
                       <option value="no">No</option>
                     </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 6 */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>6</div>
-                  <h3 className={sectionTitleCls}>Tax Elections</h3>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className={labelCls}>
-                      Would you like us to file your S-Corp tax election? <span className="text-red-500">*</span>
-                    </label>
-                    <select name="scorp_election" className={selectCls} required>
-                      <option value="">Select</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                      <option value="unsure">Not sure, let's discuss</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className={labelCls}>
-                      If electing S-Corp, when should it take effect? <span className="text-red-500">*</span>
-                    </label>
-                    <select name="scorp_effective_date" className={selectCls} required>
-                      <option value="">Select</option>
-                      <option value="asap">As soon as possible</option>
-                      <option value="next-year">Beginning of next tax year</option>
-                      <option value="specific">Specific date (we'll follow up)</option>
-                      <option value="na">Not applicable</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 7 */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>7</div>
-                  <h3 className={sectionTitleCls}>Banking & Additional Filings</h3>
-                </div>
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className={labelCls}>
-                        Would you like help setting up your business bank account? <span className="text-red-500">*</span>
-                      </label>
-                      <select name="bank_account_help" className={selectCls} required>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>
-                        Will anyone besides the owners need access to the account? <span className="text-red-500">*</span>
-                      </label>
-                      <select name="additional_account_access" className={selectCls} required>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className={labelCls}>
-                      Which additional filings do you want us to handle for you? <span className="text-red-500">*</span>
-                    </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-                      {ADDITIONAL_FILINGS.map((f) => (
-                        <label key={f} className="flex items-center gap-3 cursor-pointer bg-slate-50 rounded-lg border border-slate-100 px-4 py-3 hover:border-blue-300 hover:bg-blue-50/30 transition-all">
-                          <input
-                            type="checkbox"
-                            className={checkboxCls}
-                            checked={selectedFilings.includes(f)}
-                            onChange={() => toggleFiling(f)}
-                          />
-                          <span className="text-sm text-slate-700">{f}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className={labelCls}>
-                        Has any owner previously owned a business? <span className="text-red-500">*</span>
-                      </label>
-                      <select name="previous_business_owner" className={selectCls} required>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>
-                        Has any owner filed bankruptcy? <span className="text-red-500">*</span>
-                      </label>
-                      <select name="filed_bankruptcy" className={selectCls} required>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>
-                        Does any owner owe federal or state tax debt? <span className="text-red-500">*</span>
-                      </label>
-                      <select name="tax_debt" className={selectCls} required>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>
-                        Are we converting from an existing entity? <span className="text-red-500">*</span>
-                      </label>
-                      <select name="converting_entity" className={selectCls} required>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* File Uploads */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>
-                    <Upload className="w-4 h-4" />
-                  </div>
-                  <h3 className={sectionTitleCls}>Document Uploads</h3>
-                </div>
-                <div className="space-y-6">
-                  <div>
-                    <label className={labelCls}>
-                      Upload government ID for each owner <span className="text-red-500">*</span>
-                    </label>
-                    <p className="text-xs text-slate-500 mb-3">Driver's license or passport</p>
-                    <div className="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center hover:border-blue-400 hover:bg-blue-50/30 transition-all cursor-pointer">
-                      <Upload className="w-8 h-8 text-slate-300 mx-auto mb-3" />
-                      <p className="text-sm font-medium text-slate-600">Click to upload or drag and drop</p>
-                      <p className="text-xs text-slate-400 mt-1">PDF, JPG, or PNG</p>
-                      <input type="file" className="hidden" multiple accept="image/*,.pdf" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className={labelCls}>
-                      Upload proof of address (if required by state) <span className="text-red-500">*</span>
-                    </label>
-                    <p className="text-xs text-slate-500 mb-3">Utility bill, bank statement, etc.</p>
-                    <div className="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center hover:border-blue-400 hover:bg-blue-50/30 transition-all cursor-pointer">
-                      <Upload className="w-8 h-8 text-slate-300 mx-auto mb-3" />
-                      <p className="text-sm font-medium text-slate-600">Click to upload or drag and drop</p>
-                      <p className="text-xs text-slate-400 mt-1">PDF, JPG, or PNG</p>
-                      <input type="file" className="hidden" multiple accept="image/*,.pdf" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className={labelCls}>Upload any previous business documents (optional)</label>
-                    <div className="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center hover:border-blue-400 hover:bg-blue-50/30 transition-all cursor-pointer">
-                      <Upload className="w-8 h-8 text-slate-300 mx-auto mb-3" />
-                      <p className="text-sm font-medium text-slate-600">Click to upload or drag and drop</p>
-                      <p className="text-xs text-slate-400 mt-1">PDF, JPG, PNG, DOC, or DOCX</p>
-                      <input type="file" className="hidden" multiple accept="image/*,.pdf,.doc,.docx" />
-                    </div>
                   </div>
                 </div>
               </div>

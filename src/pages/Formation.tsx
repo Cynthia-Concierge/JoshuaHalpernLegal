@@ -150,25 +150,13 @@ const Formation: React.FC = () => {
                   </span>
                 </div>
                 <div className="aspect-video">
-                  <video
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/josh-formation-vsl.jpg"
-                    className="w-full h-full object-cover"
-                  >
-                    <source
-                      src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/josh-formation-vsl.mp4"
-                      type="video/mp4"
-                    />
-                    <track
-                      kind="captions"
-                      src="/josh-formation-vsl.vtt"
-                      srcLang="en"
-                      label="English"
-                      default
-                    />
-                  </video>
+                  <iframe
+                    src="https://www.youtube.com/embed/112KFGQaFcg?rel=0"
+                    title="Watch Before You Form Your LLC"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
                 </div>
               </div>
             </div>

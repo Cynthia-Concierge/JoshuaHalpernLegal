@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   Clock,
 } from "lucide-react";
+import { GHL_WEBHOOK_URL } from "@/config";
 
 const US_STATES = [
   "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
@@ -34,7 +35,6 @@ interface OwnerFields {
   fullName: string;
   ownershipPct: string;
   role: string;
-  ssn: string;
   dob: string;
   address: string;
 }
@@ -43,7 +43,6 @@ const emptyOwner = (): OwnerFields => ({
   fullName: "",
   ownershipPct: "",
   role: "",
-  ssn: "",
   dob: "",
   address: "",
 });
@@ -69,9 +68,6 @@ const sectionTitleCls = "text-lg font-bold text-slate-900";
 const checkboxCls =
   "w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/40 mt-0.5 flex-shrink-0";
 
-const GHL_WEBHOOK_URL =
-  "https://services.leadconnectorhq.com/hooks/BcV5yPPiVfG1L72P10vq/webhook-trigger/51abadf6-ec0c-4e72-b07e-4a1ea786b368";
-
 const FormationIntake: React.FC = () => {
   const navigate = useNavigate();
   const [ownerCount, setOwnerCount] = useState(1);
@@ -80,6 +76,7 @@ const FormationIntake: React.FC = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [agreeMarketing, setAgreeMarketing] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleOwnerCountChange = (val: string) => {
     const count = parseInt(val, 10) || 1;
@@ -121,10 +118,6 @@ const FormationIntake: React.FC = () => {
     const business_address = get("business_address");
     const mailing_address = mailingAddressSame === "no" ? get("mailing_address") : "Same as business address";
     const registered_agent_preference = get("registered_agent_preference");
-    const need_ein = get("need_ein");
-    const expected_employees = get("expected_employees");
-    const hiring_90_days = get("hiring_90_days");
-    const pay_contractors = get("pay_contractors");
 
     const lines: string[] = [
       "--- BUSINESS SETUP ---",
@@ -142,9 +135,6 @@ const FormationIntake: React.FC = () => {
       `Business email: ${business_email} | Phone: ${business_phone} | Signature contact: ${signature_contact}`,
       `Business address: ${business_address} | Mailing: ${mailing_address}`,
       `Registered agent: ${registered_agent_preference}`,
-      "",
-      "--- EIN & EMPLOYMENT ---",
-      `Need EIN: ${need_ein} | Expected employees: ${expected_employees} | Hiring in 90 days: ${hiring_90_days} | Pay contractors: ${pay_contractors}`,
       "",
       `Marketing consent: ${agreeMarketing ? "Yes" : "No"}`,
     ];
@@ -168,7 +158,6 @@ const FormationIntake: React.FC = () => {
         full_name: o.fullName,
         ownership_pct: o.ownershipPct,
         role: o.role,
-        ssn: o.ssn,
         dob: o.dob,
         address: o.address,
       })),
@@ -181,24 +170,30 @@ const FormationIntake: React.FC = () => {
       mailing_address_same: mailingAddressSame,
       mailing_address,
       registered_agent_preference,
-      need_ein,
-      expected_employees,
-      hiring_90_days,
-      pay_contractors,
       agree_terms: agreeTerms,
       agree_marketing: agreeMarketing,
       source: "Formation Intake Form",
     };
 
+    setSubmitError(null);
     try {
-      await fetch(GHL_WEBHOOK_URL, {
+      const res = await fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-        mode: "no-cors",
       });
-    } catch {
-      // Webhook fire-and-forget; navigate regardless
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("GHL webhook failed", res.status, text);
+        setSubmitError("We couldn't save your submission. Please try again or contact us directly.");
+        setSubmitting(false);
+        return;
+      }
+    } catch (err) {
+      console.error("Form submit error", err);
+      setSubmitError("Something went wrong. Please check your connection and try again, or contact us directly.");
+      setSubmitting(false);
+      return;
     }
 
     navigate("/formation/thank-you");
@@ -432,16 +427,6 @@ const FormationIntake: React.FC = () => {
                           />
                         </div>
                         <div>
-                          <label className={labelCls}>SSN / ITIN</label>
-                          <input
-                            type="text"
-                            className={inputCls}
-                            placeholder="XXX-XX-XXXX"
-                            value={owner.ssn}
-                            onChange={(e) => updateOwner(idx, "ssn", e.target.value)}
-                          />
-                        </div>
-                        <div>
                           <label className={labelCls}>Date of Birth</label>
                           <input
                             type="date"
@@ -571,58 +556,6 @@ const FormationIntake: React.FC = () => {
                 </div>
               </div>
 
-              {/* SECTION 5 */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>5</div>
-                  <h3 className={sectionTitleCls}>EIN Setup</h3>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className={labelCls}>
-                      Do you need us to obtain your EIN? <span className="text-red-500">*</span>
-                    </label>
-                    <select name="need_ein" className={selectCls} required>
-                      <option value="">Select</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No, I already have one</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className={labelCls}>
-                      Expected employees in next 12 months <span className="text-red-500">*</span>
-                    </label>
-                    <select name="expected_employees" className={selectCls} required>
-                      <option value="">Select</option>
-                      <option value="0">0 (just me / owners)</option>
-                      <option value="1-5">1 - 5</option>
-                      <option value="6-20">6 - 20</option>
-                      <option value="20+">20+</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className={labelCls}>
-                      Planning to hire employees in the next 90 days? <span className="text-red-500">*</span>
-                    </label>
-                    <select name="hiring_90_days" className={selectCls} required>
-                      <option value="">Select</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className={labelCls}>
-                      Will you pay contractors? <span className="text-red-500">*</span>
-                    </label>
-                    <select name="pay_contractors" className={selectCls} required>
-                      <option value="">Select</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
               {/* Confirmations */}
               <div className={sectionCardCls}>
                 <div className={sectionHeadCls}>
@@ -686,6 +619,11 @@ const FormationIntake: React.FC = () => {
 
               {/* Submit */}
               <div className="pt-2 pb-4">
+                {submitError && (
+                  <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm font-medium">
+                    {submitError}
+                  </div>
+                )}
                 <button
                   type="submit"
                   disabled={submitting}

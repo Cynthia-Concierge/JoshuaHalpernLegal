@@ -120,6 +120,9 @@ const FormationIntake: React.FC = () => {
     const registered_agent_preference = get("registered_agent_preference");
 
     const lines: string[] = [
+      "--- LEAD CONTACT ---",
+      `Name: ${first_name} ${last_name} | Email: ${email} | Phone: ${phone}`,
+      "",
       "--- BUSINESS SETUP ---",
       `Entity: ${entity_type} | State: ${state_of_formation} | Industry: ${business_industry}`,
       `Business description: ${business_description}`,
@@ -136,6 +139,8 @@ const FormationIntake: React.FC = () => {
       `Business address: ${business_address} | Mailing: ${mailing_address}`,
       `Registered agent: ${registered_agent_preference}`,
       "",
+      "--- CONSENT ---",
+      `Terms & privacy agreed: ${agreeTerms ? "Yes" : "No"}`,
       `Marketing consent: ${agreeMarketing ? "Yes" : "No"}`,
     ];
     const intake_summary = lines.join("\n");
@@ -188,6 +193,11 @@ const FormationIntake: React.FC = () => {
         setSubmitError("We couldn't save your submission. Please try again or contact us directly.");
         setSubmitting(false);
         return;
+      }
+
+      // Fire Facebook Lead event for conversion tracking (Meta Pixel)
+      if (typeof window !== "undefined" && typeof (window as Window & { fbq?: (a: string, b: string) => void }).fbq === "function") {
+        (window as Window & { fbq: (a: string, b: string) => void }).fbq("track", "Lead");
       }
     } catch (err) {
       console.error("Form submit error", err);

@@ -31,22 +31,6 @@ const INDUSTRIES = [
 
 const ENTITY_TYPES = ["LLC", "S-Corporation", "C-Corporation", "Partnership"];
 
-interface OwnerFields {
-  fullName: string;
-  ownershipPct: string;
-  role: string;
-  dob: string;
-  address: string;
-}
-
-const emptyOwner = (): OwnerFields => ({
-  fullName: "",
-  ownershipPct: "",
-  role: "",
-  dob: "",
-  address: "",
-});
-
 const TRUST_ITEMS = [
   { icon: Shield, label: "Secure & Confidential" },
   { icon: Scale, label: "Licensed Attorney" },
@@ -65,33 +49,11 @@ const sectionHeadCls =
 const sectionNumberCls =
   "w-9 h-9 rounded-xl bg-slate-900 text-white text-sm font-bold flex items-center justify-center flex-shrink-0";
 const sectionTitleCls = "text-lg font-bold text-slate-900";
-const checkboxCls =
-  "w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/40 mt-0.5 flex-shrink-0";
 
 const FormationIntake: React.FC = () => {
   const navigate = useNavigate();
-  const [ownerCount, setOwnerCount] = useState(1);
-  const [owners, setOwners] = useState<OwnerFields[]>([emptyOwner()]);
-  const [mailingAddressSame, setMailingAddressSame] = useState("yes");
-  const [agreeTerms, setAgreeTerms] = useState(false);
-  const [agreeMarketing, setAgreeMarketing] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-
-  const handleOwnerCountChange = (val: string) => {
-    const count = parseInt(val, 10) || 1;
-    setOwnerCount(count);
-    setOwners((prev) => {
-      if (count > prev.length) {
-        return [...prev, ...Array.from({ length: count - prev.length }, emptyOwner)];
-      }
-      return prev.slice(0, count);
-    });
-  };
-
-  const updateOwner = (idx: number, field: keyof OwnerFields, val: string) => {
-    setOwners((prev) => prev.map((o, i) => (i === idx ? { ...o, [field]: val } : o)));
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -110,14 +72,6 @@ const FormationIntake: React.FC = () => {
     const business_description = get("business_description");
     const desired_business_name = get("desired_business_name");
     const backup_business_name = get("backup_business_name");
-    const irs_responsible_party = get("irs_responsible_party");
-    const management_structure = get("management_structure");
-    const business_email = get("business_email");
-    const business_phone = get("business_phone");
-    const signature_contact = get("signature_contact");
-    const business_address = get("business_address");
-    const mailing_address = mailingAddressSame === "no" ? get("mailing_address") : "Same as business address";
-    const registered_agent_preference = get("registered_agent_preference");
 
     const lines: string[] = [
       "--- LEAD CONTACT ---",
@@ -127,21 +81,6 @@ const FormationIntake: React.FC = () => {
       `Entity: ${entity_type} | State: ${state_of_formation} | Industry: ${business_industry}`,
       `Business description: ${business_description}`,
       `Desired name: ${desired_business_name}${backup_business_name ? ` | Backup: ${backup_business_name}` : ""}`,
-      "",
-      "--- OWNERS ---",
-      ...owners.slice(0, ownerCount).map((o, i) =>
-        `Owner ${i + 1}: ${o.fullName} | ${o.ownershipPct} | ${o.role} | DOB: ${o.dob} | ${o.address}`
-      ),
-      `IRS Responsible Party: ${irs_responsible_party} | Management: ${management_structure}`,
-      "",
-      "--- CONTACT & ADDRESS ---",
-      `Business email: ${business_email} | Phone: ${business_phone} | Signature contact: ${signature_contact}`,
-      `Business address: ${business_address} | Mailing: ${mailing_address}`,
-      `Registered agent: ${registered_agent_preference}`,
-      "",
-      "--- CONSENT ---",
-      `Terms & privacy agreed: ${agreeTerms ? "Yes" : "No"}`,
-      `Marketing consent: ${agreeMarketing ? "Yes" : "No"}`,
     ];
     const intake_summary = lines.join("\n");
 
@@ -157,27 +96,6 @@ const FormationIntake: React.FC = () => {
       business_description,
       desired_business_name,
       backup_business_name,
-      owner_count: ownerCount,
-      owners: owners.slice(0, ownerCount).map((o, i) => ({
-        owner_number: i + 1,
-        full_name: o.fullName,
-        ownership_pct: o.ownershipPct,
-        role: o.role,
-        dob: o.dob,
-        address: o.address,
-      })),
-      irs_responsible_party,
-      management_structure,
-      business_email,
-      business_phone,
-      signature_contact,
-      business_address,
-      mailing_address_same: mailingAddressSame,
-      mailing_address,
-      registered_agent_preference,
-      agree_terms: agreeTerms,
-      agree_marketing: agreeMarketing,
-      source: "Formation Intake Form",
     };
 
     setSubmitError(null);
@@ -369,261 +287,6 @@ const FormationIntake: React.FC = () => {
                       <input type="text" name="backup_business_name" className={inputCls} placeholder="In case the first name is taken" />
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* SECTION 2 */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>2</div>
-                  <h3 className={sectionTitleCls}>Owners & Responsible Party</h3>
-                </div>
-                <div className="space-y-6">
-                  <div>
-                    <label className={labelCls}>
-                      How many owners/members are in this business? <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      className={selectCls}
-                      value={ownerCount}
-                      onChange={(e) => handleOwnerCountChange(e.target.value)}
-                      required
-                    >
-                      {[1, 2, 3, 4, 5].map((n) => (
-                        <option key={n} value={n}>{n}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {owners.map((owner, idx) => (
-                    <div key={idx} className="bg-slate-50 rounded-xl border border-slate-200 p-5 md:p-6 space-y-5">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-slate-800 text-white text-xs font-bold flex items-center justify-center">
-                          {idx + 1}
-                        </div>
-                        <p className="text-sm font-bold text-slate-800">
-                          Owner {idx + 1}
-                        </p>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                          <label className={labelCls}>Full Legal Name</label>
-                          <input
-                            type="text"
-                            className={inputCls}
-                            placeholder="Full name"
-                            value={owner.fullName}
-                            onChange={(e) => updateOwner(idx, "fullName", e.target.value)}
-                          />
-                        </div>
-                        <div>
-                          <label className={labelCls}>Ownership %</label>
-                          <input
-                            type="text"
-                            className={inputCls}
-                            placeholder="e.g. 50%"
-                            value={owner.ownershipPct}
-                            onChange={(e) => updateOwner(idx, "ownershipPct", e.target.value)}
-                          />
-                        </div>
-                        <div>
-                          <label className={labelCls}>Title / Role</label>
-                          <input
-                            type="text"
-                            className={inputCls}
-                            placeholder="e.g. Managing Member"
-                            value={owner.role}
-                            onChange={(e) => updateOwner(idx, "role", e.target.value)}
-                          />
-                        </div>
-                        <div>
-                          <label className={labelCls}>Date of Birth</label>
-                          <input
-                            type="date"
-                            className={inputCls}
-                            value={owner.dob}
-                            onChange={(e) => updateOwner(idx, "dob", e.target.value)}
-                          />
-                        </div>
-                        <div>
-                          <label className={labelCls}>Home Address</label>
-                          <input
-                            type="text"
-                            className={inputCls}
-                            placeholder="Full address"
-                            value={owner.address}
-                            onChange={(e) => updateOwner(idx, "address", e.target.value)}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className={labelCls}>
-                        Select your IRS "Responsible Party" <span className="text-red-500">*</span>
-                      </label>
-                      <select name="irs_responsible_party" className={selectCls} required>
-                        <option value="">Select responsible party</option>
-                        {owners.map((o, i) => (
-                          <option key={i} value={o.fullName || `Owner ${i + 1}`}>
-                            {o.fullName || `Owner ${i + 1}`}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>
-                        Management structure: <span className="text-red-500">*</span>
-                      </label>
-                      <select name="management_structure" className={selectCls} required>
-                        <option value="">Select management structure</option>
-                        <option value="member-managed">Member-Managed</option>
-                        <option value="manager-managed">Manager-Managed</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 3 */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>3</div>
-                  <h3 className={sectionTitleCls}>Contact Information</h3>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className={labelCls}>
-                      Primary business email <span className="text-red-500">*</span>
-                    </label>
-                    <input type="email" name="business_email" className={inputCls} placeholder="business@email.com" required />
-                  </div>
-                  <div>
-                    <label className={labelCls}>
-                      Primary business phone number <span className="text-red-500">*</span>
-                    </label>
-                    <input type="tel" name="business_phone" className={inputCls} placeholder="(555) 123-4567" required />
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className={labelCls}>
-                      Who should we contact for any required signatures? <span className="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="signature_contact" className={inputCls} placeholder="Full name" required />
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 4 */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>4</div>
-                  <h3 className={sectionTitleCls}>Business Address</h3>
-                </div>
-                <div className="space-y-6">
-                  <div>
-                    <label className={labelCls}>
-                      Business physical address <span className="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="business_address" className={inputCls} placeholder="Street, City, State, ZIP" required />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className={labelCls}>
-                        Is your mailing address the same? <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        className={selectCls}
-                        value={mailingAddressSame}
-                        onChange={(e) => setMailingAddressSame(e.target.value)}
-                        required
-                      >
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>
-                        Registered Agent preference <span className="text-red-500">*</span>
-                      </label>
-                      <select name="registered_agent_preference" className={selectCls} required>
-                        <option value="">Select preference</option>
-                        <option value="legal-halp">Legal Halp will arrange a Registered Agent for me</option>
-                        <option value="self">I will serve as my own Registered Agent</option>
-                        <option value="other">I already have a Registered Agent</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {mailingAddressSame === "no" && (
-                    <div>
-                    <label className={labelCls}>Mailing address</label>
-                    <input type="text" name="mailing_address" className={inputCls} placeholder="Street, City, State, ZIP" />
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Confirmations */}
-              <div className={sectionCardCls}>
-                <div className={sectionHeadCls}>
-                  <div className={sectionNumberCls}>
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                  <h3 className={sectionTitleCls}>Review & Confirm</h3>
-                </div>
-                <div className="space-y-5">
-                  <label className="flex items-start gap-3 cursor-pointer bg-slate-50 rounded-xl border border-slate-100 p-4 hover:border-blue-300 transition-colors">
-                    <input type="checkbox" className={checkboxCls} required />
-                    <span className="text-sm text-slate-700">
-                      Confirm that owner names & spellings are correct <span className="text-red-500">*</span>
-                    </span>
-                  </label>
-
-                  <label className="flex items-start gap-3 cursor-pointer bg-slate-50 rounded-xl border border-slate-100 p-4 hover:border-blue-300 transition-colors">
-                    <input type="checkbox" className={checkboxCls} required />
-                    <span className="text-sm text-slate-700">
-                      Confirm ownership totals equal 100% <span className="text-red-500">*</span>
-                    </span>
-                  </label>
-
-                  <label className="flex items-start gap-3 cursor-pointer bg-slate-50 rounded-xl border border-slate-100 p-4 hover:border-blue-300 transition-colors">
-                    <input type="checkbox" className={checkboxCls} required />
-                    <span className="text-sm text-slate-700">
-                      Confirm you are ready for us to file your business formation <span className="text-red-500">*</span>
-                    </span>
-                  </label>
-
-                  <div className="border-t border-slate-200 pt-5 mt-5">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        className={checkboxCls}
-                        checked={agreeTerms}
-                        onChange={(e) => setAgreeTerms(e.target.checked)}
-                        required
-                      />
-                      <span className="text-xs text-slate-600 leading-relaxed">
-                        By checking this box, I confirm that I have read and agree to the Legal Halp{" "}
-                        <Link to="/privacy" className="text-blue-600 underline">Privacy Policy</Link> and{" "}
-                        <Link to="/terms" className="text-blue-600 underline">Terms of Service</Link>. I understand that Legal Halp is a brand of LH LAW HOLDINGS LLC. I authorize LH LAW HOLDINGS LLC d/b/a Legal Halp ("Legal Halp") to collect, store, and process my personal and business information, including any documents I upload, for the purpose of preparing and submitting my business formation and EIN filings. I understand that Legal Halp may act as an authorized third-party designee with the IRS for EIN registration, and that I am responsible for reviewing all information I provide for accuracy. <span className="text-red-500">*</span>
-                      </span>
-                    </label>
-                  </div>
-
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className={checkboxCls}
-                      checked={agreeMarketing}
-                      onChange={(e) => setAgreeMarketing(e.target.checked)}
-                    />
-                    <span className="text-xs text-slate-600 leading-relaxed">
-                      By checking this box, I consent to receive marketing and informational communications from Legal Halp, a brand of LH LAW HOLDINGS LLC, via email and SMS, including special offers, compliance reminders, and service updates. Message frequency may vary. Message and data rates may apply. I understand that I can reply HELP for help or STOP to opt out at any time. Consent is not a condition of purchase.
-                    </span>
-                  </label>
                 </div>
               </div>
 

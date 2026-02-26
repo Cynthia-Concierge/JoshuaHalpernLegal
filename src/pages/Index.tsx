@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
+import { GHL_WEBHOOK_URL } from "@/config";
 import {
   Scale,
   AlertCircle,
@@ -22,6 +25,8 @@ import {
 const ANIMATION_DELAY = 120;
 
 const Index = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const whatYouGet = [
     { icon: FileCheck, label: "Contract review" },
     { icon: PenLine, label: "Contract drafting" },
@@ -38,6 +43,45 @@ const Index = () => {
     "Real estate investors",
     "People signing contracts regularly",
   ];
+
+  const handleModalSubmit = async (formData: {
+    name: string;
+    email: string;
+    phone: string;
+  }) => {
+    try {
+      // Split name into first and last
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0];
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Submit to GoHighLevel webhook
+      const response = await fetch(GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email: formData.email,
+          phone: formData.phone,
+          source: 'Website - AskMeAnything Modal'
+        })
+      });
+
+      if (response.ok) {
+        setIsModalOpen(false);
+        navigate('/thank-you');
+      } else {
+        console.error('Failed to submit form');
+        alert('There was an error submitting your information. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your information. Please try again.');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white pb-20 md:pb-0">
@@ -101,13 +145,13 @@ const Index = () => {
             </div>
 
             <div className="pt-8">
-              <Link
-                to="/contact"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
               >
                 Get Started Now
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -339,14 +383,14 @@ const Index = () => {
             >
               You'll leave knowing exactly how it works and what it costs.
             </p>
-            <Link
-              to="/contact"
+            <button
+              onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center justify-center gap-2 bg-white text-slate-900 font-semibold text-lg px-8 py-4 rounded-xl hover:bg-slate-100 hover:scale-[1.02] transition-all duration-300 shadow-xl animate-fade-in-up"
               style={{ animationDelay: "280ms" }}
             >
               Book Free Call
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -355,14 +399,20 @@ const Index = () => {
 
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-white/95 backdrop-blur-sm border-t border-slate-200 shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
-        <Link
-          to="/contact"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-6 rounded-xl transition-colors"
         >
           <Phone className="w-5 h-5" />
           Book Free Call
-        </Link>
+        </button>
       </div>
+
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleModalSubmit}
+      />
     </div>
   );
 };

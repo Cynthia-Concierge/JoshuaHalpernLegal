@@ -16,6 +16,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Shield,
+  Briefcase,
 } from "lucide-react";
 
 const ANIMATION_DELAY = 120;
@@ -40,9 +41,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white pb-20 md:pb-0">
-      {/* ⸻ Hero */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-900">
-        {/* Background layers */}
+      {/* Hero */}
+      <section className="relative pt-16 pb-20 lg:pt-28 lg:pb-36 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div
           className="absolute inset-0 z-0 opacity-[0.04]"
@@ -55,85 +55,63 @@ const Index = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full filter blur-[120px]" />
           <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-blue-400/8 rounded-full filter blur-[100px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-600/10 rounded-full filter blur-[150px]" />
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            {/* Left Content */}
-            <div className="flex-1 text-center lg:text-left space-y-8">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                <Scale className="w-4 h-4" />
-                For business owners
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
-                A Lawyer You Can Actually Use
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                  — Without Hourly Billing
-                </span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Flat monthly pricing. Fast answers. Real legal help for business owners who don't want surprises.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
-                >
-                  Book Free Call
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-
-              {/* Trust Bar */}
-              <div className="pt-4">
-                <p className="text-sm text-slate-400 max-w-md mx-auto lg:mx-0">
-                  We'll answer your questions and give you clear pricing. No obligation.
-                </p>
-              </div>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <Briefcase className="w-4 h-4" />
+              Business Formation
             </div>
 
-            {/* Right — Photo */}
-            <div className="flex-shrink-0 relative hidden lg:block">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-blue-400/5 rounded-3xl blur-2xl" />
-                <img
-                  src="/joshua-halpern-hero.png"
-                  alt="Joshua Halpern"
-                  className="relative w-[300px] h-[400px] xl:w-[340px] xl:h-[450px] rounded-2xl object-cover object-top shadow-2xl shadow-black/40 border-2 border-white/10"
-                />
-              </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-6 bg-white rounded-xl shadow-lg shadow-black/10 px-4 py-3 flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-white" />
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
+              Modern Legal Help for{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
+                Real Life
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-white/90 font-semibold">
+              Quality legal guidance. Clear pricing. No BS.
+            </p>
+
+            <p className="text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              Whether you're forming an LLC, planning your estate, handling real
+              estate, or need ongoing legal access, we've got you.
+            </p>
+
+            {/* Video embed */}
+            <div className="pt-6 max-w-2xl mx-auto">
+              <div className="bg-slate-800 border-2 border-blue-400/30 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/10">
+                <div className="px-4 py-2 bg-slate-800 border-b border-slate-700 flex items-center gap-2">
+                  <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">
+                    ▶ Watch Before You Form Your LLC
+                  </span>
                 </div>
-                <div>
-                  <p className="text-slate-900 font-bold text-sm leading-tight">500+ Businesses</p>
-                  <p className="text-slate-500 text-xs">Protected</p>
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/112KFGQaFcg?rel=0&modestbranding=1"
+                    title="Watch Before You Form Your LLC"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Mobile Photo */}
-            <div className="lg:hidden relative mx-auto">
-              <div className="relative">
-                <div className="absolute -inset-3 bg-gradient-to-br from-blue-500/20 to-blue-400/5 rounded-3xl blur-xl" />
-                <img
-                  src="/joshua-halpern-hero.png"
-                  alt="Joshua Halpern"
-                  className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-2xl object-cover object-top shadow-2xl shadow-black/40 border-2 border-white/10 mx-auto"
-                />
-              </div>
+            <div className="pt-8">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
+              >
+                Get Started Now
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom fade to white */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
       </section>
 

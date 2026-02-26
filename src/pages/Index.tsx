@@ -15,6 +15,7 @@ import {
   Phone,
   ArrowRight,
   CheckCircle2,
+  Shield,
 } from "lucide-react";
 
 const ANIMATION_DELAY = 120;

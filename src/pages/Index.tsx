@@ -109,9 +109,9 @@ const Index = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
-              Modern Legal Help for{" "}
+              Legal Help Without the{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                Real Life
+                Legal Headache
               </span>
             </h1>
 

@@ -330,6 +330,20 @@ const Home: React.FC = () => {
                   description: "On-demand legal counsel, monthly retainer",
                   slug: "/services/lawyer-on-call",
                 },
+                {
+                  icon: FileText,
+                  title: "Trademark Filing",
+                  price: "$1,250",
+                  description: "Federal trademark registration + monitoring",
+                  slug: "/services/trademark-filing",
+                },
+                {
+                  icon: Briefcase,
+                  title: "Business Exit Strategy",
+                  price: "$1,500",
+                  description: "Dissolution, sales, succession planning",
+                  slug: "/services/business-exit",
+                },
               ].map((service, index) => (
                 <div
                   key={index}

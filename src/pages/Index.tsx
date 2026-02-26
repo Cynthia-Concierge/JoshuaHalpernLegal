@@ -72,7 +72,7 @@ const Index = () => {
 
       if (response.ok) {
         setIsModalOpen(false);
-        navigate('/thank-you');
+        navigate('/contact');
       } else {
         console.error('Failed to submit form');
         alert('There was an error submitting your information. Please try again.');

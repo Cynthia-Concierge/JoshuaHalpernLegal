@@ -48,11 +48,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           }}
         />
 
-        {/* Scanning lines */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent animate-scan-down" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent animate-scan-up" />
-        </div>
       </div>
 
       {/* Center content */}
@@ -72,16 +67,67 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           <div className="absolute inset-0 bg-blue-400/50 blur-[80px] rounded-full animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
           <div className="absolute inset-0 bg-blue-300/30 blur-[60px] rounded-full animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
 
-          {/* Logo with enhanced brightness and contrast */}
-          <div className="relative z-10 p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/20">
-            <img
-              src="/logo.png"
-              alt="Legal Halp"
-              className="w-72 h-72 md:w-96 md:h-96 object-contain filter brightness-125 contrast-110 drop-shadow-[0_0_40px_rgba(255,255,255,0.5)]"
-              style={{
-                filter: 'brightness(1.3) contrast(1.15) drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(96,165,250,0.4))'
-              }}
-            />
+          {/* Scanning lines centered on logo */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="relative w-full h-full">
+              <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/60 to-transparent animate-scan-down-centered" style={{ top: '40%' }} />
+              <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/60 to-transparent animate-scan-up-centered" style={{ top: '60%' }} />
+            </div>
+          </div>
+
+          {/* Modern hexagonal tech frame */}
+          <div className="relative z-10 p-8">
+            {/* Hexagonal frame corners */}
+            <div className="absolute -top-2 -left-2 w-20 h-20">
+              <svg viewBox="0 0 80 80" className="w-full h-full text-blue-400 animate-pulse-glow">
+                <path d="M 0 40 L 20 20 L 40 20 L 40 0 M 20 20 L 20 40 L 0 40"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      className="drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+              </svg>
+            </div>
+            <div className="absolute -top-2 -right-2 w-20 h-20">
+              <svg viewBox="0 0 80 80" className="w-full h-full text-blue-400 animate-pulse-glow" style={{ animationDelay: '0.2s' }}>
+                <path d="M 80 40 L 60 20 L 40 20 L 40 0 M 60 20 L 60 40 L 80 40"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      className="drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+              </svg>
+            </div>
+            <div className="absolute -bottom-2 -left-2 w-20 h-20">
+              <svg viewBox="0 0 80 80" className="w-full h-full text-blue-400 animate-pulse-glow" style={{ animationDelay: '0.4s' }}>
+                <path d="M 0 40 L 20 60 L 40 60 L 40 80 M 20 60 L 20 40 L 0 40"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      className="drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+              </svg>
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-20 h-20">
+              <svg viewBox="0 0 80 80" className="w-full h-full text-blue-400 animate-pulse-glow" style={{ animationDelay: '0.6s' }}>
+                <path d="M 80 40 L 60 60 L 40 60 L 40 80 M 60 60 L 60 40 L 80 40"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      className="drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+              </svg>
+            </div>
+
+            {/* Center glass panel with gradient border */}
+            <div className="relative bg-gradient-to-br from-white/10 via-blue-500/5 to-white/10 backdrop-blur-md rounded-2xl p-1 shadow-[0_0_50px_rgba(96,165,250,0.3)]">
+              <div className="bg-slate-900/40 backdrop-blur-sm rounded-xl p-6">
+                <img
+                  src="/logo.png"
+                  alt="Legal Halp"
+                  className="w-72 h-72 md:w-96 md:h-96 object-contain filter brightness-125 contrast-110 drop-shadow-[0_0_40px_rgba(255,255,255,0.5)]"
+                  style={{
+                    filter: 'brightness(1.3) contrast(1.15) drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(96,165,250,0.4))'
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
 

@@ -341,6 +341,34 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes scan-down-centered {
+    0% {
+      transform: translateY(-200%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(200%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scan-up-centered {
+    0% {
+      transform: translateY(200%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-200%);
+      opacity: 0;
+    }
+  }
+
   @keyframes loading-bar {
     0% {
       transform: translateX(-100%);
@@ -375,5 +403,13 @@ All colors MUST be HSL.
 
   .animate-loading-bar {
     animation: loading-bar 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .animate-scan-down-centered {
+    animation: scan-down-centered 8s linear infinite;
+  }
+
+  .animate-scan-up-centered {
+    animation: scan-up-centered 8s linear infinite;
   }
 }

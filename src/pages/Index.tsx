@@ -36,58 +36,60 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const whatYouGet = [
-    { icon: FileCheck, label: "Contract drafting, review, and negotiation (vendor agreements, partnerships, customer contracts)" },
-    { icon: Users, label: "Employment law guidance (hiring, firing, equity plans, IP assignment)" },
-    { icon: Shield, label: "IP strategy and protection (trademarks, copyrights, trade secrets)" },
-    { icon: BookOpen, label: "Compliance and regulatory guidance (GDPR, CCPA, industry-specific regs)" },
-    { icon: Handshake, label: "M&A readiness and due diligence support" },
-    { icon: Target, label: "Board and investor advisory (cap table, governance, fundraising docs)" },
-    { icon: MessageCircle, label: "Unlimited access via Slack, email, or phone — no billable hours" },
+    { icon: FileCheck, label: "Contract review and drafting (vendor agreements, client contracts, NDAs)" },
+    { icon: Users, label: "Employment law support (offer letters, terminations, handbooks, equity plans)" },
+    { icon: Shield, label: "Trademark and copyright protection (filings, infringement defense)" },
+    { icon: BookOpen, label: "Website legal compliance (privacy policies, terms of service, disclaimers)" },
+    { icon: Briefcase, label: "Business structure advice (LLC vs S-Corp, operating agreements)" },
+    { icon: MessageCircle, label: "Direct access via Slack, email, or phone — no surprise bills" },
   ];
 
   const whoFor = [
-    "Growth-stage startups (Series A-B)",
-    "Profitable businesses (5-50 employees)",
-    "Companies spending $5k-$25k/month on legal",
-    "Solo founders who need strategic guidance",
+    "Small businesses (5-20 employees) that need legal support but can't afford $400/hr",
+    "Startups that have customers and revenue (post-launch)",
+    "Solo founders spending $500-$3k/month on ad-hoc legal work",
+    "Business owners tired of hourly billing and surprise invoices",
   ];
 
   const pricingTiers = [
     {
-      name: "On-Demand Counsel Lite",
-      price: "$5k",
-      hours: "Up to 20 hours/month",
+      name: "Essential Retainer",
+      price: "$1,500",
+      hours: "Up to 5 hours/month",
       features: [
-        "Contract review and drafting (standard agreements)",
-        "Email/Slack support (24-hour response time)",
-        "Strategic counsel on business decisions",
+        "Contract review (NDAs, vendor agreements, client contracts)",
+        "Email/Slack support (48-hour response time)",
+        "Basic employment guidance (offer letters, terminations)",
+        "Simple IP filings (trademark search, basic copyright)",
       ],
-      bestFor: "Established businesses with predictable legal needs",
+      bestFor: "Small businesses with occasional legal needs",
     },
     {
-      name: "On-Demand Counsel Pro",
-      price: "$8k",
-      hours: "Up to 40 hours/month",
+      name: "Business Retainer",
+      price: "$2,500",
+      hours: "Up to 10 hours/month",
       features: [
-        "Complex contract negotiation and M&A prep",
-        "Priority access (same-day response)",
-        "Quarterly strategy sessions",
-        "All Lite features included",
+        "Contract drafting and negotiation",
+        "Priority email/Slack support (24-hour response time)",
+        "Employment law guidance (equity plans, handbooks)",
+        "IP protection strategy (trademarks, copyrights)",
+        "Quarterly legal checkup calls",
       ],
-      bestFor: "High-growth companies with frequent legal needs",
+      bestFor: "Growing businesses with regular legal needs",
       highlighted: true,
     },
     {
-      name: "On-Demand General Counsel",
-      price: "$12k",
-      hours: "Unlimited access",
+      name: "Full-Service Retainer",
+      price: "$5,000",
+      hours: "Up to 20 hours/month",
       features: [
-        "Board meeting attendance and investor advisory",
-        "IP strategy and compliance buildout",
-        "Dedicated Slack channel + weekly check-ins",
-        "All Pro features included",
+        "Everything in Business Retainer",
+        "Same-day response time",
+        "M&A readiness and due diligence prep",
+        "Compliance buildout (privacy policies, terms of service)",
+        "Monthly strategy sessions",
       ],
-      bestFor: "Series A+ startups or established businesses ($5M+ revenue)",
+      bestFor: "Established businesses ($1M+ revenue) with frequent legal needs",
     },
   ];
 
@@ -162,18 +164,18 @@ const Index = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
-              Legal Counsel That Doesn't{" "}
+              Business Legal Help That Doesn't{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                Cost $20k/Month
+                Cost $400/Hour
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 font-semibold">
-              AI-enabled legal support for growing businesses. Get senior-level counsel without the enterprise price tag.
+              Flat-rate legal retainers for small businesses. Stop paying hourly rates for contracts, employment issues, and IP protection.
             </p>
 
             <p className="text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Same legal protection. Better response time. 40-60% cost savings.
+              Starting at $1,500/month. No surprise bills. No billable hours.
             </p>
 
             <div className="pt-8">
@@ -207,20 +209,20 @@ const Index = () => {
                 <TrendingDown className="w-6 h-6" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-                Your Legal Team Is Costing You More Than Money
+                You Need Legal Help, But Can't Afford $400/Hour
               </h2>
             </div>
             <div className="space-y-4 pl-1 border-l-2 border-slate-200 ml-6 animate-fade-in-up" style={{ animationDelay: "80ms" }}>
-              <p className="text-slate-600">You're paying $10k-$25k/month for a law firm that takes 3 days to review a simple contract.</p>
-              <p className="text-slate-600">Your outside counsel doesn't understand your business — they're reactive, not strategic.</p>
-              <p className="text-slate-600">Junior associates bill $400/hour to do research that AI can do in 30 seconds.</p>
-              <p className="text-slate-600">You're stuck in billable-hour billing that punishes you for asking questions.</p>
+              <p className="text-slate-600">Every time you call a lawyer, the meter starts running — $400-$600/hour adds up fast.</p>
+              <p className="text-slate-600">You're avoiding asking legal questions because you don't want another $2,000 invoice.</p>
+              <p className="text-slate-600">You need contracts reviewed, employment docs drafted, and IP protected — but hourly billing makes it unaffordable.</p>
+              <p className="text-slate-600">You're stuck Googling legal answers or using templates that don't fit your business.</p>
             </div>
             <p
               className="text-slate-700 text-lg font-bold mt-8 animate-fade-in-up"
               style={{ animationDelay: "160ms" }}
             >
-              There's a better way — and it costs 60% less.
+              There's a better way — flat-rate legal retainers starting at $1,500/month.
             </p>
           </div>
         </div>
@@ -320,7 +322,7 @@ const Index = () => {
               className="mt-10 text-slate-700 font-bold text-lg animate-fade-in-up border-t border-slate-200 pt-8"
               style={{ animationDelay: "400ms" }}
             >
-              Think of me as your general counsel — just without the $250k salary + benefits.
+              Think of me as your business attorney on retainer — predictable pricing, no hourly billing.
             </p>
           </div>
         </div>
@@ -492,40 +494,40 @@ const Index = () => {
                 <thead className="bg-slate-900 text-white">
                   <tr>
                     <th className="px-6 py-4 text-left font-semibold">Service</th>
-                    <th className="px-6 py-4 text-center font-semibold">Traditional Law Firm</th>
-                    <th className="px-6 py-4 text-center font-semibold bg-blue-600">On-Demand Counsel</th>
+                    <th className="px-6 py-4 text-center font-semibold">Hourly Billing</th>
+                    <th className="px-6 py-4 text-center font-semibold bg-blue-600">Flat-Rate Retainer</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
                   <tr>
                     <td className="px-6 py-4 font-medium text-slate-900">Monthly Cost</td>
-                    <td className="px-6 py-4 text-center text-slate-700">$15k-$30k</td>
-                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">$5k-$12k</td>
+                    <td className="px-6 py-4 text-center text-slate-700">$3k-$8k (unpredictable)</td>
+                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">$1.5k-$5k (fixed)</td>
                   </tr>
                   <tr className="bg-slate-50">
                     <td className="px-6 py-4 font-medium text-slate-900">Response Time</td>
                     <td className="px-6 py-4 text-center text-slate-700">2-5 days</td>
-                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Same day</td>
+                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">24-48 hours</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">Billable Hours</td>
-                    <td className="px-6 py-4 text-center text-slate-700">Yes ($400-$800/hr)</td>
-                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">No — flat fee</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">Asking Questions</td>
+                    <td className="px-6 py-4 text-center text-slate-700">Costs $400/hr</td>
+                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Included — no extra charge</td>
                   </tr>
                   <tr className="bg-slate-50">
-                    <td className="px-6 py-4 font-medium text-slate-900">Junior Associates</td>
-                    <td className="px-6 py-4 text-center text-slate-700">Yes (you pay for training)</td>
-                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">No — work directly with me</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">Surprise Bills</td>
+                    <td className="px-6 py-4 text-center text-slate-700">Common ($2k-$5k invoices)</td>
+                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Never — one flat fee</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">AI-Enabled Workflow</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">Who You Work With</td>
+                    <td className="px-6 py-4 text-center text-slate-700">Junior associates</td>
+                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Licensed attorney (Josh)</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="px-6 py-4 font-medium text-slate-900">AI-Enabled Speed</td>
                     <td className="px-6 py-4 text-center text-slate-700">No</td>
-                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Yes</td>
-                  </tr>
-                  <tr className="bg-slate-50">
-                    <td className="px-6 py-4 font-medium text-slate-900">Strategic Partnership</td>
-                    <td className="px-6 py-4 text-center text-slate-700">Reactive</td>
-                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Proactive</td>
+                    <td className="px-6 py-4 text-center font-bold text-blue-700 bg-blue-50">Yes — faster turnaround</td>
                   </tr>
                 </tbody>
               </table>

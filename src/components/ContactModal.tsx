@@ -185,10 +185,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   >
                     <option value="">Select one...</option>
                     <option value="$0 - No current legal support">$0 - No current legal support</option>
-                    <option value="$1k-$5k/month">$1k-$5k/month</option>
-                    <option value="$5k-$15k/month">$5k-$15k/month</option>
-                    <option value="$15k-$25k/month">$15k-$25k/month</option>
-                    <option value="$25k+/month">$25k+/month</option>
+                    <option value="$500-$2k/month (ad-hoc)">$500-$2k/month (ad-hoc hourly work)</option>
+                    <option value="$2k-$5k/month">$2k-$5k/month</option>
+                    <option value="$5k-$10k/month">$5k-$10k/month</option>
+                    <option value="$10k+/month">$10k+/month</option>
                   </select>
                 </div>
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Sparkles } from 'lucide-react';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -9,17 +8,17 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [stage, setStage] = useState<'loading' | 'expanding' | 'complete'>('loading');
 
   useEffect(() => {
-    // Stage 1: Show logo with animation (3.5 seconds)
+    // Stage 1: Show logo with animation (5 seconds)
     const timer1 = setTimeout(() => {
       setStage('expanding');
-    }, 3500);
+    }, 5000);
 
-    // Stage 2: Expand and fade out (1.2 seconds)
+    // Stage 2: Expand and fade out (1.5 seconds)
     const timer2 = setTimeout(() => {
       setStage('complete');
       // Wait for animation to complete before calling onComplete
-      setTimeout(onComplete, 500);
-    }, 4700);
+      setTimeout(onComplete, 700);
+    }, 6500);
 
     return () => {
       clearTimeout(timer1);
@@ -77,31 +76,14 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             alt="Legal Halp"
             className="relative z-10 w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl"
           />
-
-          {/* Floating particles around logo */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(8)].map((_, i) => (
-              <Sparkles
-                key={i}
-                className="absolute text-blue-400/60 animate-float-particle"
-                style={{
-                  top: `${Math.sin((i / 8) * Math.PI * 2) * 120 + 120}px`,
-                  left: `${Math.cos((i / 8) * Math.PI * 2) * 120 + 120}px`,
-                  animationDelay: `${i * 0.2}s`,
-                  width: '16px',
-                  height: '16px',
-                }}
-              />
-            ))}
-          </div>
         </div>
 
         {/* Text below logo */}
         <div
-          className={`mt-8 text-center transition-all duration-1000 ${
+          className={`mt-8 text-center transition-all duration-1500 ${
             stage === 'loading' ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
-          style={{ transitionDelay: '1s' }}
+          style={{ transitionDelay: '1.5s' }}
         >
           <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-wide">
             Legal Halp

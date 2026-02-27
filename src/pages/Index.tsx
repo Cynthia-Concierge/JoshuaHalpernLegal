@@ -28,12 +28,15 @@ import {
   Rocket,
   BookOpen,
   GraduationCap,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 const ANIMATION_DELAY = 120;
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const navigate = useNavigate();
   const whatYouGet = [
     { icon: FileCheck, label: "Contract review and drafting (vendor agreements, client contracts, NDAs)" },
@@ -49,6 +52,41 @@ const Index = () => {
     "Startups that have customers and revenue (post-launch)",
     "Solo founders spending $500-$3k/month on ad-hoc legal work",
     "Business owners tired of hourly billing and surprise invoices",
+  ];
+
+  const faqs = [
+    {
+      question: "Why can't I just use ChatGPT or other AI tools for legal questions?",
+      answer: "AI tools like ChatGPT can provide general information, but they can't give you legal advice tailored to your specific situation, jurisdiction, or business. They don't understand the nuances of your contracts, your state's employment laws, or how recent case law affects you. I use AI to work faster—not to replace legal judgment. You get a licensed attorney (me) who uses AI tools to research faster, draft more efficiently, and deliver better value. AI makes me faster. My law license makes it legally sound."
+    },
+    {
+      question: "Is a real attorney actually involved, or is this all automated?",
+      answer: "Yes—I'm Josh Halpern, a licensed attorney, and I personally handle every client. AI tools help me draft contracts faster, research precedent instantly, and spot issues in documents more efficiently. But every piece of work is reviewed, customized, and delivered by me. You're not talking to a chatbot—you're working with a real lawyer who happens to use better tools than most law firms."
+    },
+    {
+      question: "How does it actually work? What's the process?",
+      answer: "Simple: you reach out via email, Slack, or phone with a legal question or project. I respond within 24-48 hours (same-day for urgent matters on higher-tier plans). I draft contracts, review documents, provide guidance, and handle your legal needs just like an in-house counsel would—except you pay a flat monthly fee instead of hourly. No timers, no invoices for every email. Just ongoing legal support when you need it."
+    },
+    {
+      question: "What exactly does the flat monthly fee include?",
+      answer: "Everything within your plan's scope: contract review and drafting, employment law guidance (offer letters, terminations, equity plans), trademark filings and IP strategy, compliance work (privacy policies, terms of service), general business legal advice, and unlimited questions via email/Slack. What's NOT included: courtroom litigation (I'm counsel, not trial representation), regulatory filings that require specialized licensing (SEC, patent prosecution), and one-off projects outside your plan tier."
+    },
+    {
+      question: "What if I need more than what my plan includes?",
+      answer: "You can upgrade to a higher tier anytime, or we can scope additional work on a project basis. Most clients find that the Business Retainer ($2,500/month) covers 90% of their needs. If you're hitting the limits consistently, we'll talk about moving up—but there are no surprise bills. You'll always know the cost upfront."
+    },
+    {
+      question: "Can I cancel anytime?",
+      answer: "Yes. Month-to-month, no long-term contracts. If it's not working for you, you can cancel with 30 days' notice. Most clients stay because the flat-rate model saves them thousands compared to hourly billing."
+    },
+    {
+      question: "How is this different from LegalZoom or other online legal services?",
+      answer: "LegalZoom sells templates. I'm your attorney. You get personalized legal strategy, custom contract drafting, real-time advice, and someone who understands your business. When something complex comes up, you're not filling out a form—you're calling me. The difference is having an actual legal partner vs. buying documents off a shelf."
+    },
+    {
+      question: "Do you handle litigation or represent clients in court?",
+      answer: "No. I focus on transactional work and business counsel—contracts, compliance, employment, IP. If you need courtroom representation, I can refer you to trial attorneys I trust. This retainer model is designed for ongoing preventive legal work, not active lawsuits."
+    }
   ];
 
   const pricingTiers = [
@@ -361,6 +399,39 @@ const Index = () => {
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ⸻ FAQ */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
+              Common Questions
+            </h2>
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between bg-white hover:bg-slate-50 transition-colors"
+                  >
+                    <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                    {openFaqIndex === index ? (
+                      <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaqIndex === index && (
+                    <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
+                      <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

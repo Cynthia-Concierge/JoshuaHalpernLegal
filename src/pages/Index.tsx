@@ -95,6 +95,9 @@ const Index = () => {
     name: string;
     email: string;
     phone: string;
+    businessType?: string;
+    currentLegalSpend?: string;
+    mainNeed?: string;
   }) => {
     try {
       // Split name into first and last
@@ -102,7 +105,7 @@ const Index = () => {
       const firstName = nameParts[0];
       const lastName = nameParts.slice(1).join(' ') || '';
 
-      // Submit to GoHighLevel webhook
+      // Submit to GoHighLevel webhook with qualification data
       const response = await fetch(GHL_WEBHOOK_URL, {
         method: 'POST',
         headers: {
@@ -113,7 +116,10 @@ const Index = () => {
           last_name: lastName,
           email: formData.email,
           phone: formData.phone,
-          source: 'Website - On-Demand Counsel Audit'
+          source: 'Website - On-Demand Counsel Audit',
+          business_type: formData.businessType || '',
+          current_legal_spend: formData.currentLegalSpend || '',
+          main_need: formData.mainNeed || '',
         })
       });
 
@@ -320,7 +326,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ⸻ Who This Is For */}
+      {/* ⸻ Is This Right For You? (Pre-Qualification) */}
       <section className="py-20 md:py-28 bg-slate-50/80 border-b border-slate-100">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-2xl mx-auto">
@@ -332,25 +338,62 @@ const Index = () => {
                 <Users className="w-6 h-6" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-                Who This Is For
+                Is This Right For You?
               </h2>
             </div>
-            <div className="flex flex-wrap gap-3 mb-10 animate-fade-in-up" style={{ animationDelay: "80ms" }}>
-              {whoFor.map((item, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 font-medium text-sm shadow-sm"
-                >
-                  {item}
-                </span>
-              ))}
+
+            <div className="space-y-6 mb-10">
+              {/* ✅ Perfect Fits */}
+              <div className="p-6 bg-emerald-50 border-2 border-emerald-200 rounded-xl animate-fade-in-up" style={{ animationDelay: "80ms" }}>
+                <p className="text-emerald-900 font-bold mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5" />
+                  You're a Perfect Fit If:
+                </p>
+                <ul className="space-y-2 text-emerald-800 text-sm">
+                  {whoFor.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-emerald-600" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* ❌ Not a Fit */}
+              <div className="p-6 bg-red-50 border-2 border-red-200 rounded-xl animate-fade-in-up" style={{ animationDelay: "160ms" }}>
+                <p className="text-red-900 font-bold mb-4 flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5" />
+                  This Probably Isn't For You If:
+                </p>
+                <ul className="space-y-2 text-red-800 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>You need a trial attorney for active litigation (I'm counsel, not courtroom representation)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>You're a pre-revenue startup with no customers yet (start with business formation, come back when you're scaling)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>You need one-off project work (this is for ongoing legal partnership)</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="mt-8 p-6 bg-red-50 border border-red-200 rounded-xl animate-fade-in-up" style={{ animationDelay: "160ms" }}>
-              <p className="text-red-900 font-bold mb-2">Who This ISN'T For:</p>
-              <ul className="space-y-1 text-red-800 text-sm">
-                <li>• Companies with complex litigation needs (I'm counsel, not trial attorney)</li>
-                <li>• Early-stage startups with no revenue (start with business formation, come back when you're scaling)</li>
-              </ul>
+
+            {/* Clear Next Step */}
+            <div className="text-center p-6 bg-white border-2 border-slate-200 rounded-xl animate-fade-in-up" style={{ animationDelay: "240ms" }}>
+              <p className="text-slate-700 font-semibold mb-4">
+                If you checked the boxes above, let's talk.
+              </p>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-8 rounded-lg transition-all"
+              >
+                Book Free Legal Cost Audit
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>

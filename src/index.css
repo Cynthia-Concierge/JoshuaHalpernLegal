@@ -354,26 +354,26 @@ All colors MUST be HSL.
   }
 
   .animate-fade-in-scale {
-    animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: fade-in-scale 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
+    animation: pulse-glow 4s ease-in-out infinite;
   }
 
   .animate-float-particle {
-    animation: float-particle 3s ease-in-out infinite;
+    animation: float-particle 4s ease-in-out infinite;
   }
 
   .animate-scan-down {
-    animation: scan-down 3s linear infinite;
+    animation: scan-down 4s linear infinite;
   }
 
   .animate-scan-up {
-    animation: scan-up 3s linear infinite;
+    animation: scan-up 4s linear infinite;
   }
 
   .animate-loading-bar {
-    animation: loading-bar 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: loading-bar 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 }

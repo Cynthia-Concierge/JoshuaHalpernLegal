@@ -9,17 +9,17 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [stage, setStage] = useState<'loading' | 'expanding' | 'complete'>('loading');
 
   useEffect(() => {
-    // Stage 1: Show logo with animation (2 seconds)
+    // Stage 1: Show logo with animation (3.5 seconds)
     const timer1 = setTimeout(() => {
       setStage('expanding');
-    }, 2000);
+    }, 3500);
 
-    // Stage 2: Expand and fade out (0.8 seconds)
+    // Stage 2: Expand and fade out (1.2 seconds)
     const timer2 = setTimeout(() => {
       setStage('complete');
       // Wait for animation to complete before calling onComplete
-      setTimeout(onComplete, 300);
-    }, 2800);
+      setTimeout(onComplete, 500);
+    }, 4700);
 
     return () => {
       clearTimeout(timer1);
@@ -98,10 +98,10 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
         {/* Text below logo */}
         <div
-          className={`mt-8 text-center transition-all duration-700 ${
+          className={`mt-8 text-center transition-all duration-1000 ${
             stage === 'loading' ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
-          style={{ animationDelay: '0.5s' }}
+          style={{ transitionDelay: '1s' }}
         >
           <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-wide">
             Legal Halp

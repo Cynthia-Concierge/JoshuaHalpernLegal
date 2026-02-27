@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import SplashScreen from "@/components/SplashScreen";
 import { GHL_WEBHOOK_URL } from "@/config";
 import {
   Scale,
@@ -35,21 +34,7 @@ const ANIMATION_DELAY = 120;
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
   const navigate = useNavigate();
-
-  // Check if user has seen splash screen in this session
-  useEffect(() => {
-    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
-    if (hasSeenSplash) {
-      setShowSplash(false);
-    }
-  }, []);
-
-  const handleSplashComplete = () => {
-    sessionStorage.setItem('hasSeenSplash', 'true');
-    setShowSplash(false);
-  };
   const whatYouGet = [
     { icon: FileCheck, label: "Contract review and drafting (vendor agreements, client contracts, NDAs)" },
     { icon: Users, label: "Employment law support (offer letters, terminations, handbooks, equity plans)" },
@@ -154,10 +139,7 @@ const Index = () => {
   };
 
   return (
-    <>
-      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
-
-      <div className="min-h-screen bg-white pb-20 md:pb-0">
+    <div className="min-h-screen bg-white pb-20 md:pb-0">
       {/* Hero */}
       <section className="relative pt-16 pb-20 lg:pt-28 lg:pb-36 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
@@ -646,7 +628,6 @@ const Index = () => {
         onSubmit={handleModalSubmit}
       />
     </div>
-    </>
   );
 };
 

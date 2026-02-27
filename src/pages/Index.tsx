@@ -48,10 +48,9 @@ const Index = () => {
   ];
 
   const whoFor = [
-    "Small businesses (5-20 employees) that need legal support but can't afford $400/hr",
-    "Startups that have customers and revenue (post-launch)",
-    "Solo founders spending $500-$3k/month on ad-hoc legal work",
-    "Business owners tired of hourly billing and surprise invoices",
+    "Small businesses that need legal support without hourly billing",
+    "Founders and entrepreneurs building revenue-generating businesses",
+    "Business owners spending $500-$3k/month on ad-hoc legal work",
   ];
 
   const faqs = [
@@ -345,15 +344,15 @@ const Index = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1 animate-emerald-glow">5x</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-1">5x</div>
                 <div className="text-sm text-slate-600">Faster turnaround</div>
               </div>
               <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1 animate-emerald-glow">60%</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
                 <div className="text-sm text-slate-600">Lower cost</div>
               </div>
               <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1 animate-emerald-glow">24hr</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
                 <div className="text-sm text-slate-600">Response time</div>
               </div>
             </div>
@@ -391,21 +390,18 @@ const Index = () => {
       <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
               Who This Is For
             </h2>
 
-            <div className="bg-white p-8 rounded-lg shadow-sm mb-6">
-              <p className="text-lg font-semibold text-slate-900 mb-4">Perfect for:</p>
-              <ul className="space-y-3 text-left max-w-2xl mx-auto">
-                {whoFor.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-emerald-600 animate-emerald-glow" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="space-y-4 text-left max-w-2xl mx-auto mb-8">
+              {whoFor.map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-lg text-slate-700">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5 text-emerald-600 animate-emerald-glow" />
+                  <span className="font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
 
             <button
               onClick={() => setIsModalOpen(true)}

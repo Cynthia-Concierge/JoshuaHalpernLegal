@@ -269,6 +269,14 @@ const Index = () => {
               Full-service legal support at a fraction of traditional law firm costs. No hourly billing. No surprise invoices.
             </p>
 
+            {/* Tech Advantage Banner */}
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full">
+              <Zap className="w-5 h-5 text-emerald-400" />
+              <span className="text-slate-200 font-medium">
+                Powered by <span className="text-emerald-400 font-semibold">Claude Opus</span>, <span className="text-emerald-400 font-semibold">GPT-4</span>, and advanced legal research tools traditional firms don't have
+              </span>
+            </div>
+
             <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -325,11 +333,25 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              AI-Enabled Legal Counsel
+              Next-Generation Legal Technology
             </h2>
-            <p className="text-xl text-slate-600">
-              I use AI tools to work faster and deliver more value at a lower cost. What used to take 5 hours now takes 1. You get the same quality, faster turnaround, better pricing.
+            <p className="text-xl text-slate-600 mb-8">
+              I leverage the latest AI models (Claude Opus, GPT-4, specialized legal research systems) that most law firms don't have access to or don't know how to use. Contract review that used to take 5 hours now takes 1. Legal research that cost $2,000 in associate time now happens in minutes.
             </p>
+            <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="p-4 bg-white rounded-lg border border-slate-200">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">5x</div>
+                <div className="text-sm text-slate-600">Faster turnaround</div>
+              </div>
+              <div className="p-4 bg-white rounded-lg border border-slate-200">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
+                <div className="text-sm text-slate-600">Lower cost</div>
+              </div>
+              <div className="p-4 bg-white rounded-lg border border-slate-200">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
+                <div className="text-sm text-slate-600">Response time</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

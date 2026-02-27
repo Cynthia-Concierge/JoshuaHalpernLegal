@@ -194,10 +194,13 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <Scale className="w-6 h-6 text-slate-900" />
-              <span className="text-lg font-bold text-slate-900">Josh Halpern Legal</span>
-            </div>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Legal Halp"
+                className="h-8"
+              />
+            </Link>
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-8">

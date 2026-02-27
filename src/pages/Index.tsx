@@ -329,7 +329,7 @@ const Index = () => {
           </div>
         </div>
         {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
       {/* ⸻ Solution */}
@@ -383,7 +383,7 @@ const Index = () => {
           </div>
         </div>
         {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
       {/* ⸻ Is This Right For You? */}
@@ -413,7 +413,7 @@ const Index = () => {
           </div>
         </div>
         {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
       {/* ⸻ About Josh */}
@@ -443,7 +443,7 @@ const Index = () => {
           </div>
         </div>
         {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
       {/* ⸻ Pricing */}
@@ -494,7 +494,7 @@ const Index = () => {
           </div>
         </div>
         {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
       {/* ⸻ FAQ */}
@@ -529,7 +529,7 @@ const Index = () => {
           </div>
         </div>
         {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
       {/* ⸻ Final CTA */}

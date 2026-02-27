@@ -282,28 +282,28 @@ const Index = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 animate-emerald-glow" />
                 <span className="font-medium">Flat monthly rate</span>
               </div>
               <span className="text-slate-600">•</span>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 animate-emerald-glow" />
                 <span className="font-medium">Unlimited questions</span>
               </div>
               <span className="text-slate-600">•</span>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 animate-emerald-glow" />
                 <span className="font-medium">Same-day response</span>
               </div>
             </div>
 
             <div className="text-3xl md:text-4xl font-bold text-white">
-              Starting at <span className="text-emerald-400">$1,500/mo</span>
+              Starting at <span className="text-emerald-400 animate-emerald-glow">$1,500/mo</span>
             </div>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg animate-emerald-glow"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
@@ -325,7 +325,7 @@ const Index = () => {
               Every email costs money. Every phone call adds up. You avoid asking questions because the meter is always running.
             </p>
             <p className="text-xl text-slate-900 font-semibold">
-              <span className="text-emerald-600">Flat monthly rate.</span> Unlimited questions. No surprise invoices.
+              <span className="text-emerald-600 animate-emerald-glow">Flat monthly rate.</span> Unlimited questions. No surprise invoices.
             </p>
           </div>
         </div>
@@ -345,15 +345,15 @@ const Index = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">5x</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-1 animate-emerald-glow">5x</div>
                 <div className="text-sm text-slate-600">Faster turnaround</div>
               </div>
               <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-1 animate-emerald-glow">60%</div>
                 <div className="text-sm text-slate-600">Lower cost</div>
               </div>
               <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-1 animate-emerald-glow">24hr</div>
                 <div className="text-sm text-slate-600">Response time</div>
               </div>
             </div>
@@ -362,7 +362,7 @@ const Index = () => {
       </section>
 
       {/* ⸻ What You Get */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
@@ -383,10 +383,12 @@ const Index = () => {
             </div>
           </div>
         </div>
+        {/* Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
       </section>
 
       {/* ⸻ Is This Right For You? */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
@@ -398,7 +400,7 @@ const Index = () => {
               <ul className="space-y-3 text-left max-w-2xl mx-auto">
                 {whoFor.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-emerald-600" />
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-emerald-600 animate-emerald-glow" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -407,17 +409,19 @@ const Index = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg transition-all shadow-lg"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 animate-emerald-glow"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
+        {/* Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
       </section>
 
       {/* ⸻ About Josh */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -442,10 +446,12 @@ const Index = () => {
             </div>
           </div>
         </div>
+        {/* Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
       </section>
 
       {/* ⸻ Pricing */}
-      <section id="pricing" className="py-20 bg-slate-50">
+      <section id="pricing" className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
@@ -461,7 +467,7 @@ const Index = () => {
                   }`}
                 >
                   {tier.highlighted && (
-                    <div className="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
+                    <div className="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 animate-emerald-glow">
                       MOST POPULAR
                     </div>
                   )}
@@ -473,7 +479,7 @@ const Index = () => {
                   <ul className="space-y-2 text-left">
                     {tier.features.map((feature, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5 animate-emerald-glow" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -484,17 +490,19 @@ const Index = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
+        {/* Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
       </section>
 
       {/* ⸻ FAQ */}
-      <section id="faq" className="py-20 bg-white">
+      <section id="faq" className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
@@ -524,6 +532,8 @@ const Index = () => {
             </div>
           </div>
         </div>
+        {/* Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
       </section>
 
       {/* ⸻ Final CTA */}
@@ -538,7 +548,7 @@ const Index = () => {
             </p>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5 animate-emerald-glow"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />

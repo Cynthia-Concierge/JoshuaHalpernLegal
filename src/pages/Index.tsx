@@ -321,11 +321,11 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               Stop Paying $400/Hour for Legal Work
             </h2>
-            <p className="text-xl text-slate-600 mb-8">
-              Traditional law firms charge hourly. That means every email, every call, every question adds up. You avoid reaching out because you're scared of the bill.
+            <p className="text-xl text-slate-600 mb-4">
+              Hourly billing means every question costs money. You avoid calling your lawyer because you're scared of the bill.
             </p>
             <p className="text-xl text-slate-900 font-semibold">
-              We charge a <span className="text-emerald-600">flat monthly rate</span>. Ask unlimited questions. No surprise bills.
+              <span className="text-emerald-600">Flat monthly rate.</span> Unlimited questions. No surprise bills.
             </p>
           </div>
         </div>
@@ -339,7 +339,7 @@ const Index = () => {
               Next-Generation Legal Technology
             </h2>
             <p className="text-xl text-slate-600 mb-8">
-              I leverage the latest AI models (Claude Opus, GPT-4, specialized legal research systems) that most law firms don't have access to or don't know how to use. Contract review that used to take 5 hours now takes 1. Legal research that cost $2,000 in associate time now happens in minutes.
+              I use AI tools most law firms don't have: Claude Opus, GPT-4, and specialized legal research systems. What used to take 5 hours takes 1.
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <div className="p-4 bg-white rounded-lg border border-slate-200">

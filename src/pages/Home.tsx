@@ -272,7 +272,7 @@ const Home: React.FC = () => {
                 Services & Pricing
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Legal Packages Built for Real Life
+                Transparent Legal Services
               </h2>
             </div>
 

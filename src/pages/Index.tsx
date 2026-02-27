@@ -319,13 +319,13 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              Stop Paying $3,000-$8,000/Month for Legal Work
+              Stop Paying Over $500/Hour for Legal Services
             </h2>
             <p className="text-xl text-slate-600 mb-4">
-              Traditional firms charge $300-$600/hour. Just 10 hours a month = $3,000-$6,000. And you still can't ask unlimited questions without watching the clock.
+              Every email costs money. Every phone call adds up. You avoid asking questions because the meter is always running.
             </p>
             <p className="text-xl text-slate-900 font-semibold">
-              Get the same work for <span className="text-emerald-600">$1,500/month</span> with unlimited questions and no billing surprises.
+              <span className="text-emerald-600">Flat monthly rate.</span> Unlimited questions. No surprise invoices.
             </p>
           </div>
         </div>

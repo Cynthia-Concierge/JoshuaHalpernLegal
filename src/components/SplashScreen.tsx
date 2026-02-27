@@ -75,12 +75,31 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             </div>
           </div>
 
-          {/* Logo with enhanced brightness */}
+          {/* Logo with enhanced brightness and modern accents */}
           <div className="relative z-10">
+            {/* Accent lines around logo */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Top accent line */}
+              <div className="absolute top-8 left-1/2 -translate-x-1/2 w-48 h-[2px]">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent animate-shimmer" />
+              </div>
+              {/* Bottom accent line */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-48 h-[2px]">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent animate-shimmer" style={{ animationDelay: '1s' }} />
+              </div>
+              {/* Left accent dot */}
+              <div className="absolute top-1/2 left-4 -translate-y-1/2 w-2 h-2 bg-blue-400 rounded-full animate-pulse-dot" />
+              {/* Right accent dot */}
+              <div className="absolute top-1/2 right-4 -translate-y-1/2 w-2 h-2 bg-blue-400 rounded-full animate-pulse-dot" style={{ animationDelay: '0.5s' }} />
+            </div>
+
+            {/* Holographic shimmer overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-purple-400/10 rounded-full animate-holographic pointer-events-none" />
+
             <img
               src="/logo.png"
               alt="Legal Halp"
-              className="w-80 h-80 md:w-[28rem] md:h-[28rem] object-contain"
+              className="w-80 h-80 md:w-[28rem] md:h-[28rem] object-contain relative z-10"
               style={{
                 filter: 'brightness(1.4) contrast(1.2) drop-shadow(0 0 60px rgba(255,255,255,0.8)) drop-shadow(0 0 100px rgba(255,255,255,0.6)) drop-shadow(0 0 140px rgba(96,165,250,0.4))'
               }}

@@ -57,7 +57,7 @@ const Index = () => {
   const faqs = [
     {
       question: "Why can't I just use ChatGPT or other AI tools for legal questions?",
-      answer: "AI tools like ChatGPT can provide general information, but they can't give you legal advice tailored to your specific situation, jurisdiction, or business. They don't understand the nuances of your contracts, your state's employment laws, or how recent case law affects you. I use AI to work faster—not to replace legal judgment. You get a licensed attorney (me) who uses AI tools to research faster, draft more efficiently, and deliver better value. AI makes me faster. My law license makes it legally sound."
+      answer: "You can read a medical textbook and diagnose your symptoms, but you still see a doctor when it matters. ChatGPT can explain legal concepts—it might even give you a contract template—but it can't assess the risk in your specific situation, spot the missing clause that will cost you later, or know which state law applies to your business. Legal work isn't about having access to information. It's about knowing which information matters, what to do with it, and when you're exposed. I use AI to research faster and draft more efficiently, but I bring 10+ years of judgment, malpractice insurance, and a law license. When something goes wrong, AI isn't liable. I am."
     },
     {
       question: "Is a real attorney actually involved, or is this all automated?",

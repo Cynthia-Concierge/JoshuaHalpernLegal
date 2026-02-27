@@ -173,10 +173,73 @@ const Index = () => {
     }
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Height of sticky nav
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white pb-20 md:pb-0">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <Scale className="w-6 h-6 text-slate-900" />
+              <span className="text-lg font-bold text-slate-900">Josh Halpern Legal</span>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="hidden md:flex items-center gap-8">
+              <button
+                onClick={() => scrollToSection('how-it-works')}
+                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                How It Works
+              </button>
+              <button
+                onClick={() => scrollToSection('services')}
+                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                Pricing
+              </button>
+              <button
+                onClick={() => scrollToSection('faq')}
+                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                FAQ
+              </button>
+            </div>
+
+            {/* CTA Button */}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-lg transition-all text-sm"
+            >
+              Book Consultation
+            </button>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero */}
-      <section className="relative pt-16 pb-20 lg:pt-28 lg:pb-36 overflow-hidden bg-slate-900">
+      <section id="hero" className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div
           className="absolute inset-0 z-0 opacity-[0.04]"
@@ -241,7 +304,7 @@ const Index = () => {
       </section>
 
       {/* ⸻ Problem */}
-      <section className="py-20 bg-white">
+      <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
@@ -272,7 +335,7 @@ const Index = () => {
       </section>
 
       {/* ⸻ What You Get */}
-      <section className="py-20 bg-white">
+      <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
@@ -355,7 +418,7 @@ const Index = () => {
       </section>
 
       {/* ⸻ Pricing */}
-      <section className="py-20 bg-slate-50">
+      <section id="pricing" className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
@@ -404,7 +467,7 @@ const Index = () => {
       </section>
 
       {/* ⸻ FAQ */}
-      <section className="py-20 bg-white">
+      <section id="faq" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">

@@ -208,7 +208,7 @@ const Index = () => {
                 onClick={() => scrollToSection('how-it-works')}
                 className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
               >
-                How It Works
+                The Difference
               </button>
               <button
                 onClick={() => scrollToSection('services')}

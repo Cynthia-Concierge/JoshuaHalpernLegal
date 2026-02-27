@@ -163,34 +163,61 @@ const Index = () => {
               On-Demand In-House Counsel
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
-              Business Legal Help That Doesn't{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                Cost $400/Hour
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Legal Support Without the{" "}
+              <span className="relative inline-block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-400 animate-gradient bg-[length:200%_auto]">
+                  $400/Hour
+                </span>
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-400/0 via-blue-400/60 to-blue-400/0 blur-sm"></span>
               </span>
+              {" "}Price Tag
             </h1>
 
-            <p className="text-lg md:text-xl text-white/90 font-semibold">
-              Flat-rate legal retainers for small businesses. Stop paying hourly rates for contracts, employment issues, and IP protection.
+            <p className="text-lg md:text-xl text-white/95 font-semibold leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Flat-rate legal counsel for growing businesses.{" "}
+              <span className="text-blue-300">Stop the billing clock.</span>
             </p>
 
-            <p className="text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Starting at $1,500/month. No surprise bills. No billable hours.
+            <p className="text-base md:text-lg text-slate-300/90 leading-relaxed max-w-2xl mx-auto animate-fade-in-up flex items-center justify-center gap-3" style={{ animationDelay: '300ms' }}>
+              <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                From $1,500/mo
+              </span>
+              <span className="text-slate-400">•</span>
+              <span>No surprise invoices</span>
+              <span className="text-slate-400">•</span>
+              <span>Unlimited questions</span>
             </p>
 
-            <div className="pt-8">
+            <div className="pt-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
+                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold py-4 px-10 rounded-xl shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_12px_40px_rgba(59,130,246,0.5)] transform hover:-translate-y-1 transition-all text-lg overflow-hidden"
               >
-                Book Free Legal Cost Audit
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
+                {/* Shine effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
 
-            <p className="text-sm text-slate-400 pt-4">
-              See exactly where you're overpaying and how much you'd save with on-demand counsel
-            </p>
+                <span className="relative z-10">Book Free Legal Cost Audit</span>
+                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              {/* Trust indicators */}
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <div className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>No commitment</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>30-min call</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>See your savings</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

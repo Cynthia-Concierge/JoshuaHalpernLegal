@@ -55,7 +55,6 @@ const Index = () => {
     {
       name: "Essential Retainer",
       price: "$1,500",
-      hours: "Up to 5 hours/month",
       features: [
         "Contract review (NDAs, vendor agreements, client contracts)",
         "Email/Slack support (48-hour response time)",
@@ -67,7 +66,6 @@ const Index = () => {
     {
       name: "Business Retainer",
       price: "$2,500",
-      hours: "Up to 10 hours/month",
       features: [
         "Contract drafting and negotiation",
         "Priority email/Slack support (24-hour response time)",
@@ -81,7 +79,6 @@ const Index = () => {
     {
       name: "Full-Service Retainer",
       price: "$5,000",
-      hours: "Up to 20 hours/month",
       features: [
         "Everything in Business Retainer",
         "Same-day response time",
@@ -158,26 +155,43 @@ const Index = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 px-4 py-2 rounded-full text-sm font-semibold text-blue-300">
+            <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/30 px-4 py-2 rounded-full text-sm font-semibold text-emerald-300">
               <Sparkles className="w-4 h-4" />
               AI-Enabled Legal Counsel
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-              Replace Your Entire Legal Team
+              Your Legal Department for a Flat Monthly Fee
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">
-              Full-service legal support at a fraction of the cost. One flat monthly fee. No hourly billing.
+              Full-service legal support at a fraction of traditional law firm costs. No hourly billing. No surprise invoices.
             </p>
 
+            <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <span className="font-medium">Flat monthly rate</span>
+              </div>
+              <span className="text-slate-600">•</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <span className="font-medium">Unlimited questions</span>
+              </div>
+              <span className="text-slate-600">•</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <span className="font-medium">Same-day response</span>
+              </div>
+            </div>
+
             <div className="text-3xl md:text-4xl font-bold text-white">
-              $1,500/mo
+              Starting at <span className="text-emerald-400">$1,500/mo</span>
             </div>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
@@ -199,7 +213,7 @@ const Index = () => {
               Traditional law firms charge hourly. That means every email, every call, every question adds up. You avoid reaching out because you're scared of the bill.
             </p>
             <p className="text-xl text-slate-900 font-semibold">
-              We charge a flat monthly rate. Ask unlimited questions. No surprise bills.
+              We charge a <span className="text-emerald-600">flat monthly rate</span>. Ask unlimited questions. No surprise bills.
             </p>
           </div>
         </div>
@@ -265,7 +279,7 @@ const Index = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-8 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg transition-all shadow-lg"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
@@ -315,20 +329,19 @@ const Index = () => {
                 <div
                   key={i}
                   className={`p-8 rounded-lg bg-white ${
-                    tier.highlighted ? "border-2 border-blue-500 shadow-lg" : "border border-slate-200"
+                    tier.highlighted ? "border-2 border-emerald-500 shadow-lg" : "border border-slate-200"
                   }`}
                 >
                   {tier.highlighted && (
-                    <div className="inline-block bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
+                    <div className="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
                       MOST POPULAR
                     </div>
                   )}
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{tier.name}</h3>
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <span className="text-4xl font-bold text-slate-900">{tier.price}</span>
                     <span className="text-slate-600">/mo</span>
                   </div>
-                  <p className="text-sm text-slate-600 mb-6">{tier.hours}</p>
                   <ul className="space-y-2 text-left">
                     {tier.features.map((feature, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
@@ -343,7 +356,7 @@ const Index = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
@@ -364,7 +377,7 @@ const Index = () => {
             </p>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-8 py-4 rounded-lg hover:bg-slate-100 transition-all shadow-lg"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />

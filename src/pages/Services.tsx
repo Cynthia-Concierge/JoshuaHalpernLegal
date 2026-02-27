@@ -87,6 +87,62 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "50% of business partnerships end in disputes. A solid Operating Agreement prevents lawsuits, buyout nightmares, and dead equity. This is the document you'll wish you had when things go sideways.",
         stripeLink: "https://buy.stripe.com/cNi9ATgqm8Mh7G19Gy3oA03",
       },
+      {
+        name: "S-Corp Election & Formation",
+        price: "$1,800",
+        whoItsFor:
+          "Business owners making $60k+ profit who want to save on self-employment taxes.",
+        includes: [
+          "S-Corp election (Form 2553) filing with IRS",
+          "Complete LLC or Corporation formation",
+          "Operating Agreement or Corporate Bylaws",
+          "Federal EIN",
+          "Registered agent service enrollment",
+          "Payroll setup guidance (reasonable salary requirements)",
+          "Tax savings analysis and compliance checklist",
+          "60-minute consultation on S-Corp strategy",
+        ],
+        whyItMatters:
+          "S-Corps can save $10k-$30k annually in self-employment taxes for profitable businesses. But you need proper setup and payroll compliance to avoid IRS issues.",
+        stripeLink: "https://buy.stripe.com/cNi9ATgqm8Mh7G19Gy3oA03",
+      },
+      {
+        name: "Non-Profit Formation (501c3)",
+        price: "$2,500",
+        whoItsFor:
+          "Mission-driven founders who want to launch a tax-exempt charitable organization.",
+        includes: [
+          "Complete Articles of Incorporation (state filing)",
+          "IRS Form 1023 (501c3 tax-exempt application)",
+          "Corporate Bylaws for non-profit governance",
+          "Conflict of Interest Policy",
+          "Dissolution clause (required by IRS)",
+          "Federal EIN",
+          "Board structure and compliance guidance",
+          "State charitable registration (if applicable)",
+          "90-minute strategy session + ongoing email support",
+        ],
+        whyItMatters:
+          "501c3 status unlocks tax-deductible donations, grants, and credibility. But the IRS rejects 40% of applications for compliance issues. Get it right the first time.",
+        stripeLink: "https://buy.stripe.com/cNi9ATgqm8Mh7G19Gy3oA03",
+      },
+      {
+        name: "Foreign LLC Registration",
+        price: "$850",
+        whoItsFor:
+          "Business owners expanding operations to a new state.",
+        includes: [
+          "Foreign qualification filing in target state",
+          "Certificate of Good Standing from home state",
+          "Registered agent enrollment in new state",
+          "State compliance review",
+          "Filing fee payment coordination",
+          "30-minute consultation on multi-state operations",
+        ],
+        whyItMatters:
+          "Operating in a state without proper registration can result in fines, inability to sue, and back taxes. Stay compliant before you scale.",
+        stripeLink: "https://buy.stripe.com/cNi9ATgqm8Mh7G19Gy3oA03",
+      },
     ],
   },
   {
@@ -125,6 +181,60 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         whyItMatters:
           "Wills go through probate, a public, expensive, months-long court process. A trust bypasses all of that. Your family gets assets faster, privately, and without lawyers eating into your estate.",
+        stripeLink: "https://buy.stripe.com/bJefZh3DA2nTbWhf0S3oA04",
+      },
+      {
+        name: "Minor's Trust",
+        price: "$1,500",
+        whoItsFor:
+          "Parents who want to set aside money for their children with control over when and how funds are distributed.",
+        includes: [
+          "Irrevocable or Revocable Minor's Trust",
+          "Trustee appointment and successor provisions",
+          "Distribution schedule (age-based or milestone-based)",
+          "Asset protection provisions",
+          "Tax guidance (kiddie tax considerations)",
+          "Transfer instructions for funding the trust",
+          "1-hour consultation",
+        ],
+        whyItMatters:
+          "Without a trust, minors inherit at 18 with no restrictions. A Minor's Trust lets you control distribution (college, 25, 30, etc.) and protect assets from creditors and bad decisions.",
+        stripeLink: "https://buy.stripe.com/bJefZh3DA2nTbWhf0S3oA04",
+      },
+      {
+        name: "Special Needs Trust",
+        price: "$2,200",
+        whoItsFor:
+          "Families with disabled loved ones who want to provide for them without jeopardizing government benefits.",
+        includes: [
+          "Special Needs Trust (SNT) drafting",
+          "Trustee appointment and management guidelines",
+          "SSI/Medicaid preservation provisions",
+          "Distribution guidelines for supplemental care",
+          "Coordination with existing estate plans",
+          "Beneficiary designation updates",
+          "1-hour consultation + benefits compliance review",
+        ],
+        whyItMatters:
+          "Direct inheritance can disqualify a disabled person from SSI, Medicaid, and other benefits. A Special Needs Trust protects their eligibility while improving their quality of life.",
+        stripeLink: "https://buy.stripe.com/bJefZh3DA2nTbWhf0S3oA04",
+      },
+      {
+        name: "Gun Trust / NFA Trust",
+        price: "$750",
+        whoItsFor:
+          "Firearms enthusiasts who own or plan to purchase NFA-regulated items (suppressors, SBRs, machine guns).",
+        includes: [
+          "NFA Gun Trust drafting",
+          "Trustee and successor trustee designations",
+          "ATF Form 1 and Form 4 preparation guidance",
+          "Legal possession sharing among trustees",
+          "Compliance with state and federal firearms laws",
+          "Trust funding instructions",
+          "30-minute consultation + email support",
+        ],
+        whyItMatters:
+          "NFA items require ATF approval. A Gun Trust simplifies the process, allows multiple people to legally possess your firearms, and avoids probate headaches when you pass away.",
         stripeLink: "https://buy.stripe.com/bJefZh3DA2nTbWhf0S3oA04",
       },
     ],
@@ -170,6 +280,66 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
       },
+      {
+        name: "SaaS Terms of Service Package",
+        price: "$1,200",
+        whoItsFor:
+          "Software companies, app developers, and subscription-based businesses.",
+        includes: [
+          "Custom Terms of Service for your platform",
+          "Subscription and billing terms",
+          "Usage restrictions and acceptable use policy",
+          "Limitation of liability and warranty disclaimers",
+          "Termination and refund provisions",
+          "DMCA safe harbor compliance (if applicable)",
+          "Privacy Policy integration guidance",
+          "2 rounds of revisions + 30-minute consultation",
+        ],
+        whyItMatters:
+          "Generic ToS templates leave you exposed. Custom terms protect you from liability, chargebacks, and user abuse while staying compliant with platform requirements (Apple, Google, Stripe).",
+        stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
+      },
+      {
+        name: "Lease Agreement Drafting/Review",
+        price: "$650",
+        whoItsFor:
+          "Landlords, property managers, and commercial tenants.",
+        includes: [
+          "Residential or commercial lease drafting OR review",
+          "Security deposit and rent escalation clauses",
+          "Maintenance and repair responsibilities",
+          "Termination and default provisions",
+          "State-specific compliance review",
+          "Pet policies, subletting, and other addendums",
+          "Attorney consultation + 2 rounds of revisions",
+        ],
+        commonItems: [
+          "Residential leases",
+          "Commercial leases",
+          "Office space agreements",
+          "Equipment leases",
+          "Ground leases",
+        ],
+        stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
+      },
+      {
+        name: "Vendor/Supplier Agreement",
+        price: "$750",
+        whoItsFor:
+          "Business owners who need to formalize relationships with vendors, suppliers, or manufacturers.",
+        includes: [
+          "Custom vendor or supplier agreement",
+          "Pricing, payment terms, and delivery schedules",
+          "Quality standards and inspection rights",
+          "Warranties and defect remedies",
+          "Termination and dispute resolution clauses",
+          "Confidentiality and IP ownership provisions",
+          "2 rounds of revisions + attorney consultation",
+        ],
+        whyItMatters:
+          "Handshake deals with suppliers fall apart when quality drops or deliveries are late. A solid agreement protects your supply chain and gives you recourse when things go wrong.",
+        stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
+      },
     ],
   },
   {
@@ -207,6 +377,63 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Misclassifying employees as contractors can trigger IRS audits, back taxes, and penalties. Get it right from the start.",
         stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
       },
+      {
+        name: "Employee Termination Package",
+        price: "$950",
+        whoItsFor:
+          "Business owners who need to let someone go (voluntary or involuntary) without getting sued.",
+        includes: [
+          "Severance Agreement with release of claims",
+          "Non-disparagement and confidentiality clauses",
+          "Final paycheck compliance review",
+          "Unemployment insurance guidance",
+          "Return of company property documentation",
+          "Reference and communication protocols",
+          "Attorney consultation on termination strategy",
+        ],
+        whyItMatters:
+          "Wrongful termination lawsuits are expensive. A proper severance agreement with a release protects you from future claims while maintaining goodwill.",
+        stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
+      },
+      {
+        name: "Equity Compensation Package",
+        price: "$1,500",
+        whoItsFor:
+          "Startups and growing companies offering stock options, RSUs, or equity grants to employees.",
+        includes: [
+          "Stock Option Plan (ISO or NSO)",
+          "Option Grant Agreements",
+          "Vesting schedule documentation (4-year with 1-year cliff, custom)",
+          "83(b) election guidance",
+          "Board resolution templates",
+          "Exercise and repurchase provisions",
+          "Tax implications overview",
+          "1-hour consultation on equity strategy",
+        ],
+        whyItMatters:
+          "Equity compensation is a powerful retention tool, but improper setup can trigger tax nightmares and disputes. Get the structure right from day one.",
+        stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
+      },
+      {
+        name: "Employee Handbook Creation",
+        price: "$1,200",
+        whoItsFor:
+          "Growing businesses (10+ employees) who need formal policies to stay compliant and avoid HR disasters.",
+        includes: [
+          "Custom Employee Handbook (30-50 pages)",
+          "At-will employment statement",
+          "Anti-discrimination and harassment policies",
+          "PTO, sick leave, and benefits policies",
+          "Code of conduct and social media guidelines",
+          "Disciplinary procedures and termination process",
+          "State-specific compliance (meal breaks, overtime, etc.)",
+          "Employee acknowledgment form",
+          "1-hour consultation + 2 rounds of revisions",
+        ],
+        whyItMatters:
+          "Without a handbook, you're exposed to HR lawsuits, inconsistent treatment claims, and compliance violations. A handbook protects you and sets clear expectations.",
+        stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
+      },
     ],
   },
   {
@@ -228,6 +455,67 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         whyItMatters:
           "A brand without legal protection is just a name, and names get stolen every day. Lock yours down before someone else does.",
+        stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
+      },
+      {
+        name: "Full Trademark Filing (USPTO)",
+        price: "$1,500",
+        whoItsFor:
+          "Business owners ready to file a federal trademark application and protect their brand nationwide.",
+        includes: [
+          "Comprehensive trademark search (USPTO + common law)",
+          "Trademark application preparation (TEAS Plus or Standard)",
+          "Class selection and goods/services description",
+          "Filing with USPTO",
+          "Office Action response (1 included)",
+          "Monitoring for first 6 months post-filing",
+          "Attorney representation throughout process",
+        ],
+        notIncluded: [
+          "USPTO filing fees ($250-$350 per class, paid separately to USPTO).",
+        ],
+        whyItMatters:
+          "Federal trademark registration gives you nationwide protection, the right to sue infringers, and the ® symbol. DIY filings get rejected 50% of the time.",
+        stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
+      },
+      {
+        name: "Copyright Registration",
+        price: "$450",
+        whoItsFor:
+          "Authors, artists, photographers, software developers, and content creators who need to protect their original works.",
+        includes: [
+          "Copyright application preparation and filing",
+          "Work categorization and registration strategy",
+          "Filing with U.S. Copyright Office",
+          "Certificate of Registration (when issued)",
+          "Legal ownership documentation",
+          "30-minute consultation on copyright strategy",
+        ],
+        notIncluded: [
+          "U.S. Copyright Office filing fee ($65 per work, paid separately).",
+        ],
+        whyItMatters:
+          "You own copyright automatically, but registration is required to sue infringers and recover statutory damages ($150k per work). Protect your work before someone steals it.",
+        stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
+      },
+      {
+        name: "Domain Name Dispute Resolution",
+        price: "$2,000",
+        whoItsFor:
+          "Brand owners whose domain name was taken by a cybersquatter or competitor.",
+        includes: [
+          "UDRP (Uniform Domain-Name Dispute-Resolution Policy) complaint drafting",
+          "Evidence gathering and bad faith analysis",
+          "Filing with ICANN arbitration provider (WIPO, NAF)",
+          "Full representation through arbitration process",
+          "Domain transfer coordination upon win",
+          "Strategic consultation on likelihood of success",
+        ],
+        notIncluded: [
+          "UDRP filing fee (~$1,500, paid separately to arbitration provider).",
+        ],
+        whyItMatters:
+          "Cybersquatters buy domains similar to your brand and hold them hostage for $10k-$100k. UDRP is faster and cheaper than a lawsuit — and you can win back your domain in 60 days.",
         stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
       },
     ],
@@ -253,6 +541,39 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         whyItMatters:
           "Most businesses don't need a full-time lawyer, but they do need one they can call. The Lawyer-on-Call retainer gives you ongoing access to experienced legal counsel at a predictable monthly cost, so you can make confident decisions without racking up surprise bills.",
+      },
+      {
+        name: "Premium Retainer (10+ Hours/Month)",
+        price: "From $2,000/mo",
+        whoItsFor:
+          "High-growth companies, funded startups, or businesses with frequent legal needs.",
+        includes: [
+          "10-20 hours of legal counsel per month",
+          "Same-day priority response",
+          "Complex contract negotiation and M&A support",
+          "Board meeting attendance (as needed)",
+          "Investor and financing documentation review",
+          "Strategic planning sessions",
+          "Dedicated attorney relationship",
+        ],
+        whyItMatters:
+          "Hiring a general counsel costs $200k-$300k/year. A premium retainer gives you senior-level support at a fraction of the cost, with the flexibility to scale up or down.",
+      },
+      {
+        name: "Litigation Support Add-On",
+        price: "$1,500/mo",
+        whoItsFor:
+          "Existing retainer clients facing lawsuits, disputes, or pre-litigation threats.",
+        includes: [
+          "Demand letter drafting and response",
+          "Settlement negotiation strategy",
+          "Discovery coordination and document review",
+          "Litigation counsel and co-counsel coordination",
+          "Case strategy sessions",
+          "Mediation and arbitration preparation",
+        ],
+        whyItMatters:
+          "Litigation is expensive. This add-on gives you strategic support without hiring a full litigation team, helping you resolve disputes faster and cheaper.",
       },
     ],
   },
@@ -280,6 +601,61 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "If a tenant sues you personally, they can come after your house, car, and savings. An LLC creates a legal shield between your rental property and your personal assets.",
         stripeLink: "https://buy.stripe.com/dRmaEXfmi9Ql9O9g4W3oA07",
       },
+      {
+        name: "1031 Exchange Documentation",
+        price: "$1,500",
+        whoItsFor:
+          "Real estate investors selling a property and want to defer capital gains taxes by reinvesting in another property.",
+        includes: [
+          "1031 Exchange legal structure review",
+          "Qualified Intermediary (QI) coordination",
+          "Identification and closing timeline compliance",
+          "Exchange agreement review",
+          "Deed and title documentation review",
+          "IRS compliance checklist",
+          "Attorney consultation throughout process",
+        ],
+        whyItMatters:
+          "A 1031 exchange lets you defer capital gains taxes indefinitely. But strict IRS timelines (45 days to identify, 180 days to close) mean one mistake can blow the deal. Get expert guidance.",
+        stripeLink: "https://buy.stripe.com/dRmaEXfmi9Ql9O9g4W3oA07",
+      },
+      {
+        name: "Rental Property Purchase Review",
+        price: "$850",
+        whoItsFor:
+          "Real estate investors buying rental properties who need contract review and due diligence support.",
+        includes: [
+          "Purchase agreement review and redlining",
+          "Title and survey review",
+          "Inspection contingency strategy",
+          "Lease assignment review (if tenants in place)",
+          "Financing and closing coordination",
+          "Risk analysis and negotiation strategy",
+          "Attorney consultation + closing support",
+        ],
+        whyItMatters:
+          "Buying rental property without legal review is like buying a car without an inspection. Hidden title issues, bad leases, and unclear terms can cost you tens of thousands.",
+        stripeLink: "https://buy.stripe.com/dRmaEXfmi9Ql9O9g4W3oA07",
+      },
+      {
+        name: "Lease Agreement Templates Package",
+        price: "$950",
+        whoItsFor:
+          "Landlords with multiple properties who need state-compliant lease templates they can reuse.",
+        includes: [
+          "Residential lease template (state-specific)",
+          "Month-to-month rental agreement",
+          "Pet addendum and security deposit riders",
+          "Lease renewal and termination notices",
+          "Tenant screening and application forms",
+          "Late fee and eviction provisions",
+          "Landlord-tenant law compliance overview",
+          "30-minute consultation + unlimited template use",
+        ],
+        whyItMatters:
+          "Using generic leases from the internet leaves you exposed to state law violations. Custom templates protect you and ensure compliance across all your properties.",
+        stripeLink: "https://buy.stripe.com/dRmaEXfmi9Ql9O9g4W3oA07",
+      },
     ],
   },
   {
@@ -304,6 +680,61 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         whyItMatters:
           "GDPR fines can hit €20 million. ADA lawsuits are surging. One missing privacy policy can tank your business. Get compliant before you get caught.",
+        stripeLink: "https://buy.stripe.com/4gM6oHca6d2x2lH6um3oA08",
+      },
+      {
+        name: "DMCA Agent Registration",
+        price: "$350",
+        whoItsFor:
+          "Online platforms, marketplaces, and content hosts who want safe harbor protection from copyright infringement claims.",
+        includes: [
+          "DMCA agent registration with U.S. Copyright Office",
+          "Designated agent contact information setup",
+          "DMCA takedown policy drafting",
+          "Implementation guidance for your platform",
+          "Copyright Office filing",
+        ],
+        notIncluded: [
+          "U.S. Copyright Office filing fee ($6, paid separately).",
+        ],
+        whyItMatters:
+          "Without DMCA safe harbor, you're liable for every piece of infringing content users post. Registration protects you from lawsuits as long as you follow takedown procedures.",
+        stripeLink: "https://buy.stripe.com/4gM6oHca6d2x2lH6um3oA08",
+      },
+      {
+        name: "Affiliate Program Legal Setup",
+        price: "$1,200",
+        whoItsFor:
+          "E-commerce brands and SaaS companies launching affiliate or referral programs.",
+        includes: [
+          "Affiliate Agreement (terms for partners)",
+          "Commission structure and payment terms",
+          "FTC disclosure compliance (affiliate link disclosures)",
+          "Trademark and brand usage guidelines",
+          "Termination and fraud prevention provisions",
+          "Cookie tracking and attribution policies",
+          "30-minute consultation + 2 rounds of revisions",
+        ],
+        whyItMatters:
+          "Affiliates can damage your brand if they spam, mislead, or violate FTC rules. A solid agreement protects you and sets clear boundaries for partners.",
+        stripeLink: "https://buy.stripe.com/4gM6oHca6d2x2lH6um3oA08",
+      },
+      {
+        name: "Influencer/Creator Legal Package",
+        price: "$950",
+        whoItsFor:
+          "Influencers, YouTubers, and content creators who need legal protection for brand deals and content monetization.",
+        includes: [
+          "Influencer-Brand Deal Agreement template",
+          "FTC disclosure compliance guidance",
+          "Content ownership and licensing terms",
+          "Sponsorship deliverables and approval process",
+          "Payment terms and termination clauses",
+          "Platform-specific compliance (Instagram, YouTube, TikTok)",
+          "30-minute consultation + unlimited template use",
+        ],
+        whyItMatters:
+          "Brands will try to own your content, limit your other deals, and delay payment. A solid agreement protects your rights and ensures you get paid on time.",
         stripeLink: "https://buy.stripe.com/4gM6oHca6d2x2lH6um3oA08",
       },
     ],

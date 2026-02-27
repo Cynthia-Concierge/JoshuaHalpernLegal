@@ -158,36 +158,55 @@ const Index = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-3xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Zap className="w-4 h-4" />
-              On-Demand In-House Counsel
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 via-blue-400/20 to-purple-500/20 backdrop-blur-sm border border-blue-400/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(59,130,246,0.3)] animate-fade-in-up">
+              <Zap className="w-4 h-4 text-blue-300 animate-pulse" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300 animate-gradient bg-[length:200%_auto]">
+                On-Demand In-House Counsel
+              </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              Legal Support Without the{" "}
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-400 animate-gradient bg-[length:200%_auto]">
-                  $400/Hour
+              <span className="inline-block">Legal Support</span>{" "}
+              <span className="inline-block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-slate-100 animate-gradient bg-[length:200%_auto]">
+                  That Scales
                 </span>
-                <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-400/0 via-blue-400/60 to-blue-400/0 blur-sm"></span>
               </span>
-              {" "}Price Tag
+              <br />
+              <span className="relative inline-block mt-2">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-400 animate-gradient bg-[length:200%_auto]">
+                  Without the $400/Hr Rate
+                </span>
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-400/0 via-blue-400/70 to-blue-400/0 blur-sm animate-pulse"></span>
+              </span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/95 font-semibold leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Flat-rate legal counsel for growing businesses.{" "}
-              <span className="text-blue-300">Stop the billing clock.</span>
+              Predictable{" "}
+              <span className="relative inline-block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300 animate-gradient bg-[length:200%_auto]">
+                  flat-rate counsel
+                </span>
+              </span>
+              {" "}for businesses that move fast.{" "}
+              <span className="inline-block text-emerald-300 animate-pulse">Ask unlimited questions.</span>
             </p>
 
-            <p className="text-base md:text-lg text-slate-300/90 leading-relaxed max-w-2xl mx-auto animate-fade-in-up flex items-center justify-center gap-3" style={{ animationDelay: '300ms' }}>
-              <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold">
-                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                From $1,500/mo
+            <p className="text-base md:text-lg text-slate-300/90 leading-relaxed max-w-2xl mx-auto animate-fade-in-up flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: '300ms' }}>
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-emerald-400/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold border border-emerald-400/30">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]"></span>
+                Starting at $1,500/mo
               </span>
-              <span className="text-slate-400">•</span>
-              <span>No surprise invoices</span>
-              <span className="text-slate-400">•</span>
-              <span>Unlimited questions</span>
+              <span className="text-slate-500">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                Zero surprise bills
+              </span>
+              <span className="text-slate-500">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                Same-day response
+              </span>
             </p>
 
             <div className="pt-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>

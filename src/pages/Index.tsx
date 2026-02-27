@@ -276,7 +276,7 @@ const Index = () => {
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full">
               <Zap className="w-5 h-5 text-emerald-400" />
               <span className="text-slate-200 font-medium">
-                Powered by <span className="text-emerald-400 font-semibold">Claude Opus</span>, <span className="text-emerald-400 font-semibold">GPT-4</span>, and advanced legal research tools traditional firms don't have
+                Powered by <span className="text-emerald-400 font-semibold">Claude Opus</span>, <span className="text-emerald-400 font-semibold">LexisNexis AI</span>, and advanced legal research tools traditional firms don't have
               </span>
             </div>
 
@@ -339,7 +339,7 @@ const Index = () => {
               Next-Generation Legal Technology
             </h2>
             <p className="text-xl text-slate-600 mb-8">
-              I use AI tools most law firms don't have: Claude Opus, GPT-4, and specialized legal research systems. What used to take 5 hours takes 1.
+              I use tools most law firms don't have: Claude Opus, LexisNexis AI, Casetext CoCounsel, and Westlaw Precision. What used to take 5 hours takes 1.
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <div className="p-4 bg-white rounded-lg border border-slate-200">

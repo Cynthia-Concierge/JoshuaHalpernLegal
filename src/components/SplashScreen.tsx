@@ -67,15 +67,22 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
               : 'scale-150 opacity-0'
           }`}
         >
-          {/* Glow effect behind logo */}
-          <div className="absolute inset-0 bg-blue-500/30 blur-3xl rounded-full animate-pulse-glow" />
+          {/* Multiple layered glows for dramatic effect */}
+          <div className="absolute inset-0 bg-white/40 blur-[100px] rounded-full animate-pulse-glow" />
+          <div className="absolute inset-0 bg-blue-400/50 blur-[80px] rounded-full animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
+          <div className="absolute inset-0 bg-blue-300/30 blur-[60px] rounded-full animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
 
-          {/* Logo */}
-          <img
-            src="/logo.png"
-            alt="Legal Halp"
-            className="relative z-10 w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl"
-          />
+          {/* Logo with enhanced brightness and contrast */}
+          <div className="relative z-10 p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/20">
+            <img
+              src="/logo.png"
+              alt="Legal Halp"
+              className="w-72 h-72 md:w-96 md:h-96 object-contain filter brightness-125 contrast-110 drop-shadow-[0_0_40px_rgba(255,255,255,0.5)]"
+              style={{
+                filter: 'brightness(1.3) contrast(1.15) drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(96,165,250,0.4))'
+              }}
+            />
+          </div>
         </div>
 
         {/* Text below logo */}

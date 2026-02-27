@@ -54,7 +54,7 @@ const Index = () => {
 
   const pricingTiers = [
     {
-      name: "Fractional Counsel Lite",
+      name: "On-Demand Counsel Lite",
       price: "$5k",
       hours: "Up to 20 hours/month",
       features: [
@@ -65,7 +65,7 @@ const Index = () => {
       bestFor: "Established businesses with predictable legal needs",
     },
     {
-      name: "Fractional Counsel Pro",
+      name: "On-Demand Counsel Pro",
       price: "$8k",
       hours: "Up to 40 hours/month",
       features: [
@@ -78,7 +78,7 @@ const Index = () => {
       highlighted: true,
     },
     {
-      name: "Fractional General Counsel",
+      name: "On-Demand General Counsel",
       price: "$12k",
       hours: "Unlimited access",
       features: [
@@ -113,7 +113,7 @@ const Index = () => {
           last_name: lastName,
           email: formData.email,
           phone: formData.phone,
-          source: 'Website - Fractional Counsel Audit'
+          source: 'Website - On-Demand Counsel Audit'
         })
       });
 
@@ -152,7 +152,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <Zap className="w-4 h-4" />
-              Fractional In-House Counsel
+              On-Demand In-House Counsel
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
@@ -181,7 +181,7 @@ const Index = () => {
             </div>
 
             <p className="text-sm text-slate-400 pt-4">
-              See exactly where you're overpaying and how much you'd save with fractional counsel
+              See exactly where you're overpaying and how much you'd save with on-demand counsel
             </p>
           </div>
         </div>
@@ -232,7 +232,7 @@ const Index = () => {
                 <Zap className="w-6 h-6" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-                Fractional In-House Counsel, Powered by AI
+                On-Demand In-House Counsel, Powered by AI
               </h2>
             </div>
             <div className="space-y-5 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -450,7 +450,7 @@ const Index = () => {
                   <tr>
                     <th className="px-6 py-4 text-left font-semibold">Service</th>
                     <th className="px-6 py-4 text-center font-semibold">Traditional Law Firm</th>
-                    <th className="px-6 py-4 text-center font-semibold bg-blue-600">Fractional Counsel</th>
+                    <th className="px-6 py-4 text-center font-semibold bg-blue-600">On-Demand Counsel</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
@@ -539,7 +539,7 @@ const Index = () => {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
-                <span>How fractional counsel would work for your business</span>
+                <span>How on-demand counsel would work for your business</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />

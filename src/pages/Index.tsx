@@ -60,7 +60,15 @@ const Index = () => {
     },
     {
       question: "Is a real attorney actually involved, or is this all automated?",
-      answer: "Yes—I'm Josh Halpern, a licensed attorney, and I personally handle every client. AI tools help me draft contracts faster, research precedent instantly, and spot issues in documents more efficiently. But every piece of work is reviewed, customized, and delivered by me. You're not talking to a chatbot—you're working with a real lawyer who happens to use better tools than most law firms."
+      answer: (
+        <>
+          Yes—I'm Josh Halpern, a licensed attorney, and I personally handle every client. AI tools help me draft contracts faster, research precedent instantly, and spot issues in documents more efficiently. But every piece of work is reviewed, customized, and delivered by me. You're not talking to a chatbot—you're working with a real lawyer who happens to use better tools than most law firms.{" "}
+          <a href="http://www.legalhalplaw.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+            Learn more at www.legalhalplaw.com
+          </a>
+          .
+        </>
+      )
     },
     {
       question: "How does it actually work? What's the process?",
@@ -495,7 +503,7 @@ const Index = () => {
                   </button>
                   {openFaqIndex === index && (
                     <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
-                      <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
+                      <div className="text-slate-700 leading-relaxed">{faq.answer}</div>
                     </div>
                   )}
                 </div>

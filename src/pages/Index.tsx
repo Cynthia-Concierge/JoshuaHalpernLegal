@@ -240,7 +240,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-lg transition-all text-sm"
             >
-              See If You Qualify
+              See If This Is a Fit
             </button>
           </div>
         </div>
@@ -324,7 +324,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg animate-emerald-glow"
             >
-              See If You Qualify
+              See If This Is a Fit
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -424,7 +424,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 animate-emerald-glow"
             >
-              See If You Qualify
+              See If This Is a Fit
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -475,7 +475,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
-              See If You Qualify
+              See If This Is a Fit
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -527,13 +527,13 @@ const Index = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-300">
-              Book a free 15-minute call. No pressure, no commitment.
+              Quick 15-minute call to discuss your needs and see if this is a fit.
             </p>
             <button
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5 animate-emerald-glow"
             >
-              See If You Qualify
+              See If This Is a Fit
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>

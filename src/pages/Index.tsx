@@ -55,6 +55,10 @@ const Index = () => {
 
   const faqs = [
     {
+      question: "Why is availability limited?",
+      answer: "This service operates at a level of personalization and quality that traditional law firms can't match—largely because we leverage cutting-edge AI tools like Claude Opus and LexisNexis AI to dramatically reduce costs and turnaround times. However, maintaining that standard requires careful client selection. With high demand for a flat-rate legal model that eliminates hourly billing, we limit enrollment to ensure every client receives the attention and responsiveness they deserve. We're not trying to be exclusive for its own sake—we're protecting the quality of service that makes this model work."
+    },
+    {
       question: "Why can't I just use ChatGPT or other AI tools for legal questions?",
       answer: "You can read a medical textbook and diagnose your symptoms, but you still see a doctor when it matters. ChatGPT can explain legal concepts—it might even give you a contract template—but it can't assess the risk in your specific situation, spot the missing clause that will cost you later, or know which state law applies to your business. Legal work isn't about having access to information. It's about knowing which information matters, what to do with it, and when you're exposed. I use AI to research faster and draft more efficiently, but I bring 10+ years of judgment, malpractice insurance, and a law license. When something goes wrong, AI isn't liable. I am."
     },

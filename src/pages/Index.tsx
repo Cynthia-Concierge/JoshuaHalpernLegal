@@ -44,7 +44,7 @@ const Index = () => {
     { icon: Shield, label: "Trademark and copyright protection (filings, infringement defense)" },
     { icon: BookOpen, label: "Website legal compliance (privacy policies, terms of service, disclaimers)" },
     { icon: Briefcase, label: "Business structure advice (LLC vs S-Corp, operating agreements)" },
-    { icon: MessageCircle, label: "Direct access via Slack, email, or phone — no surprise bills" },
+    { icon: MessageCircle, label: "Direct access via text, email, or phone — no surprise bills" },
   ];
 
   const whoFor = [
@@ -64,11 +64,11 @@ const Index = () => {
     },
     {
       question: "How does it actually work? What's the process?",
-      answer: "Simple: you reach out via email, Slack, or phone with a legal question or project. I respond within 24-48 hours (same-day for urgent matters on higher-tier plans). I draft contracts, review documents, provide guidance, and handle your legal needs just like an in-house counsel would—except you pay a flat monthly fee instead of hourly. No timers, no invoices for every email. Just ongoing legal support when you need it."
+      answer: "Simple: you reach out via email, text, or phone with a legal question or project. I respond within 24-48 hours (same-day for urgent matters on higher-tier plans). I draft contracts, review documents, provide guidance, and handle your legal needs just like an in-house counsel would—except you pay a flat monthly fee instead of hourly. No timers, no invoices for every email. Just ongoing legal support when you need it."
     },
     {
       question: "What exactly does the flat monthly fee include?",
-      answer: "Everything within your plan's scope: contract review and drafting, employment law guidance (offer letters, terminations, equity plans), trademark filings and IP strategy, compliance work (privacy policies, terms of service), general business legal advice, and unlimited questions via email/Slack. What's NOT included: courtroom litigation (I'm counsel, not trial representation), regulatory filings that require specialized licensing (SEC, patent prosecution), and one-off projects outside your plan tier."
+      answer: "Everything within your plan's scope: contract review and drafting, employment law guidance (offer letters, terminations, equity plans), trademark filings and IP strategy, compliance work (privacy policies, terms of service), general business legal advice, and unlimited questions via email/text. What's NOT included: courtroom litigation (I'm counsel, not trial representation), regulatory filings that require specialized licensing (SEC, patent prosecution), and one-off projects outside your plan tier."
     },
     {
       question: "What if I need more than what my plan includes?",
@@ -94,7 +94,7 @@ const Index = () => {
       price: "$1,500",
       features: [
         "Contract review (NDAs, vendor agreements, client contracts)",
-        "Email/Slack support (48-hour response time)",
+        "Email/text support (48-hour response time)",
         "Basic employment guidance (offer letters, terminations)",
         "Simple IP filings (trademark search, basic copyright)",
       ],
@@ -105,7 +105,7 @@ const Index = () => {
       price: "$2,500",
       features: [
         "Contract drafting and negotiation",
-        "Priority email/Slack support (24-hour response time)",
+        "Priority email/text support (24-hour response time)",
         "Employment law guidance (equity plans, handbooks)",
         "IP protection strategy (trademarks, copyrights)",
         "Quarterly legal checkup calls",
@@ -274,7 +274,7 @@ const Index = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">
-              Full-service legal support at a fraction of traditional law firm costs. No hourly billing. No surprise invoices.
+              Full-service legal support at a fraction of traditional law firm costs.
             </p>
 
             {/* Video Embed */}
@@ -302,7 +302,7 @@ const Index = () => {
             <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400 animate-emerald-glow" />
-                <span className="font-medium">Flat monthly rate</span>
+                <span className="font-medium">No hourly billing</span>
               </div>
               <span className="text-slate-600">•</span>
               <div className="flex items-center gap-2">

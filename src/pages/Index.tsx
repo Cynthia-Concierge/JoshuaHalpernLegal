@@ -321,7 +321,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
       </section>
 
-      {/* ⸻ The Difference */}
+      {/* ⸻ How It Works */}
       <section id="how-it-works" className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
@@ -360,7 +360,7 @@ const Index = () => {
       </section>
 
       {/* ⸻ What You Get */}
-      <section id="services" className="py-20 bg-white relative">
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">

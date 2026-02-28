@@ -334,15 +334,15 @@ const Index = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="p-4 bg-slate-50 rounded-lg">
+              <div className="p-4 bg-slate-50 rounded-lg transition-all hover:-translate-y-1 hover:shadow-md cursor-default">
                 <div className="text-3xl font-bold text-emerald-600 mb-1">5x</div>
                 <div className="text-sm text-slate-600">Faster turnaround</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-lg">
+              <div className="p-4 bg-slate-50 rounded-lg transition-all hover:-translate-y-1 hover:shadow-md cursor-default">
                 <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
                 <div className="text-sm text-slate-600">Lower cost</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-lg">
+              <div className="p-4 bg-slate-50 rounded-lg transition-all hover:-translate-y-1 hover:shadow-md cursor-default">
                 <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
                 <div className="text-sm text-slate-600">Response time</div>
               </div>

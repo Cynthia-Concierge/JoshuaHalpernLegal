@@ -6,7 +6,7 @@ const LawyerOnCall: React.FC = () => (
   <ServicePageTemplate
     icon={PhoneCall}
     title="Lawyer-on-Call"
-    price="From $500/mo"
+    price="From $1,500/mo"
     subtitle="Ongoing, on-demand access to a real business attorney at a flat monthly rate."
     whoItsFor="Business owners, founders, and entrepreneurs who need reliable legal support on an ongoing basis without the cost of hiring in-house counsel or paying $400+/hour every time a question comes up."
     description="The Lawyer-on-Call retainer gives you a dedicated attorney you can reach whenever you need one. Whether you need a contract reviewed, a deal negotiated, compliance guidance, or just a trusted advisor to bounce ideas off of, you get direct access at a predictable monthly cost tailored to your budget."

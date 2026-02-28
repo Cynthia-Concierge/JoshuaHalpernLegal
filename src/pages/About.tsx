@@ -169,6 +169,14 @@ const About: React.FC = () => {
                   icon: ScrollText,
                   text: "1,000+ estate plans drafted",
                 },
+                {
+                  icon: Building2,
+                  text: "500+ businesses protected",
+                },
+                {
+                  icon: Briefcase,
+                  text: "$250M+ in transactions closed",
+                },
               ].map((item, index) => (
                 <div
                   key={index}

@@ -176,7 +176,7 @@ const Index = () => {
 
       if (response.ok) {
         setIsModalOpen(false);
-        navigate('/contact');
+        navigate('/lawyeroncall/thank-you');
       } else {
         console.error('Failed to submit form');
         alert('There was an error submitting your information. Please try again.');

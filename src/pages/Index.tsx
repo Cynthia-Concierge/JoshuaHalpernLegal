@@ -277,6 +277,20 @@ const Index = () => {
               Full-service legal support at a fraction of traditional law firm costs. No hourly billing. No surprise invoices.
             </p>
 
+            {/* Video Embed */}
+            <div className="w-full max-w-3xl mx-auto">
+              <div className="aspect-video bg-slate-800/50 rounded-xl shadow-2xl border border-slate-700/50 flex items-center justify-center backdrop-blur-sm">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-emerald-500/20 border-2 border-emerald-400/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-10 h-10 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-slate-400 font-medium">Video Coming Soon</p>
+                </div>
+              </div>
+            </div>
+
             {/* Tech Advantage Banner */}
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full">
               <Zap className="w-5 h-5 text-emerald-400" />
@@ -317,34 +331,6 @@ const Index = () => {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
-      </section>
-
-      {/* ⸻ Video Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                How the Monthly Retainer Works
-              </h2>
-              <p className="text-lg text-slate-600">
-                Watch this short video to see how you can get unlimited legal support for a flat monthly fee.
-              </p>
-            </div>
-
-            {/* Video placeholder - replace with actual YouTube embed */}
-            <div className="aspect-video bg-slate-100 rounded-xl shadow-lg border border-slate-200 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <p className="text-slate-500 font-medium">Video Coming Soon</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* ⸻ The Difference */}

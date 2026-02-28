@@ -149,6 +149,7 @@ const Index = () => {
     businessType?: string;
     currentLegalSpend?: string;
     mainNeed?: string;
+    state?: string;
   }) => {
     try {
       // Split name into first and last
@@ -171,6 +172,7 @@ const Index = () => {
           business_type: formData.businessType || '',
           current_legal_spend: formData.currentLegalSpend || '',
           main_need: formData.mainNeed || '',
+          state: formData.state || '',
         })
       });
 

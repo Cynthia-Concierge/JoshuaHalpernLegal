@@ -218,6 +218,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy policy)</option>
                     <option value="Vendor/client agreement templates">Vendor/client agreement templates</option>
                     <option value="Partnership/operating agreements">Partnership/operating agreements</option>
+                    <option value="Estate planning (trusts, wills, power of attorney)">Estate planning (trusts, wills, power of attorney)</option>
+                    <option value="General business legal advice">General business legal advice</option>
+                    <option value="Strategic legal counsel">Strategic legal counsel</option>
                     <option value="M&A or fundraising prep">M&A or fundraising prep</option>
                     <option value="Ongoing general counsel">Ongoing general counsel</option>
                   </select>

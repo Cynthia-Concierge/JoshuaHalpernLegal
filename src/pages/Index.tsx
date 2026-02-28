@@ -227,12 +227,12 @@ const Index = () => {
               >
                 FAQ
               </button>
-              <Link
-                to="/about"
+              <a
+                href="https://www.legalhalplaw.com"
                 className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
               >
-                About
-              </Link>
+                The Firm
+              </a>
             </div>
 
             {/* CTA Button */}

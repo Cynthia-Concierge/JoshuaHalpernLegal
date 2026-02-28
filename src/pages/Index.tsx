@@ -236,7 +236,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-lg transition-all text-sm"
             >
-              See If This Is a Fit
+              Apply for Ongoing Counsel
             </button>
           </div>
         </div>
@@ -316,11 +316,17 @@ const Index = () => {
               Starting at <span className="text-emerald-400 animate-emerald-glow">$1,500/mo</span>
             </div>
 
+            {/* Exclusivity Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm text-slate-300">
+              <Shield className="w-4 h-4 text-emerald-400" />
+              <span className="font-medium">Limited Availability — By Application Only</span>
+            </div>
+
             <button
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg animate-emerald-glow"
             >
-              See If This Is a Fit
+              Apply for Ongoing Counsel
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -394,7 +400,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 animate-emerald-glow"
             >
-              See If This Is a Fit
+              Apply for Ongoing Counsel
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -471,7 +477,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
-              See If This Is a Fit
+              Apply for Ongoing Counsel
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -529,7 +535,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5 animate-emerald-glow"
             >
-              See If This Is a Fit
+              Apply for Ongoing Counsel
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>

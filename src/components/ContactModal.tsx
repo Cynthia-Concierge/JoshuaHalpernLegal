@@ -165,10 +165,17 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   >
                     <option value="">Select one...</option>
                     <option value="SaaS/Tech Startup">SaaS/Tech Startup</option>
-                    <option value="E-commerce">E-commerce</option>
-                    <option value="Professional Services">Professional Services (Consulting, Agency, etc.)</option>
+                    <option value="E-commerce/Retail">E-commerce/Retail</option>
+                    <option value="Professional Services">Professional Services (Consulting, Agency)</option>
                     <option value="Real Estate">Real Estate</option>
-                    <option value="Healthcare">Healthcare</option>
+                    <option value="Healthcare/Medical">Healthcare/Medical</option>
+                    <option value="Financial Services">Financial Services</option>
+                    <option value="Marketing/Advertising">Marketing/Advertising</option>
+                    <option value="Construction/Trades">Construction/Trades</option>
+                    <option value="Food & Beverage">Food & Beverage (Restaurant, Catering)</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Creative/Media">Creative/Media (Design, Production)</option>
+                    <option value="Nonprofit">Nonprofit/Social Enterprise</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -206,9 +213,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     <option value="Contract review & negotiation">Contract review & negotiation</option>
                     <option value="Employment/HR legal guidance">Employment/HR legal guidance</option>
                     <option value="IP protection (trademarks, copyrights)">IP protection (trademarks, copyrights)</option>
+                    <option value="Business formation (LLC, Corp)">Business formation (LLC, Corp)</option>
                     <option value="Compliance & regulatory help">Compliance & regulatory help</option>
+                    <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy policy)</option>
+                    <option value="Vendor/client agreement templates">Vendor/client agreement templates</option>
+                    <option value="Partnership/operating agreements">Partnership/operating agreements</option>
                     <option value="M&A or fundraising prep">M&A or fundraising prep</option>
-                    <option value="General counsel relationship">General counsel relationship</option>
+                    <option value="Ongoing general counsel">Ongoing general counsel</option>
                   </select>
                 </div>
 

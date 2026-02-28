@@ -319,51 +319,42 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
       </section>
 
-      {/* ⸻ Problem */}
+      {/* ⸻ The Difference */}
       <section id="how-it-works" className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               Stop Paying Over $500/Hour for Legal Services
             </h2>
-            <p className="text-xl text-slate-600 mb-4">
+            <p className="text-xl text-slate-600 mb-6">
               Every email costs money. Every phone call adds up. You avoid asking questions because the meter is always running.
             </p>
-            <p className="text-xl text-slate-900 font-semibold">
+            <p className="text-xl text-slate-900 font-semibold mb-8">
               <span className="text-emerald-600 animate-emerald-glow">Flat monthly rate.</span> Unlimited questions. No surprise invoices.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="p-4 bg-slate-50 rounded-lg">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">5x</div>
+                <div className="text-sm text-slate-600">Faster turnaround</div>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-lg">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
+                <div className="text-sm text-slate-600">Lower cost</div>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-lg">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
+                <div className="text-sm text-slate-600">Response time</div>
+              </div>
+            </div>
+
+            <p className="text-base text-slate-600 mt-8">
+              Powered by Claude Opus, LexisNexis AI, and Westlaw Precision — tools most law firms don't have.
             </p>
           </div>
         </div>
         {/* Divider */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
-      </section>
-
-      {/* ⸻ Solution */}
-      <section className="py-20 bg-slate-50 relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              Next-Generation Legal Technology
-            </h2>
-            <p className="text-xl text-slate-600 mb-8">
-              I use tools most law firms don't have: Claude Opus, LexisNexis AI, Casetext CoCounsel, and Westlaw Precision. What used to take 5 hours takes 1.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">5x</div>
-                <div className="text-sm text-slate-600">Faster turnaround</div>
-              </div>
-              <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
-                <div className="text-sm text-slate-600">Lower cost</div>
-              </div>
-              <div className="p-4 bg-white rounded-lg border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
-                <div className="text-sm text-slate-600">Response time</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* ⸻ What You Get */}

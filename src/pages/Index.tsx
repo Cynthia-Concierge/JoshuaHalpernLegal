@@ -559,8 +559,8 @@ const Index = () => {
           onClick={() => setIsModalOpen(true)}
           className="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-6 rounded-xl transition-colors"
         >
-          <Phone className="w-5 h-5" />
-          Book Free Audit
+          <ArrowRight className="w-5 h-5" />
+          Apply for Ongoing Counsel
         </button>
       </div>
 

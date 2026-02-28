@@ -40,9 +40,9 @@ const Index = () => {
   const navigate = useNavigate();
   const whatYouGet = [
     { icon: FileCheck, label: "Contract review and drafting (vendor agreements, client contracts, NDAs)" },
+    { icon: Handshake, label: "Deal negotiation and strategic counsel (partnerships, vendor terms, key agreements)" },
     { icon: Users, label: "Employment law support (offer letters, terminations, handbooks, equity plans)" },
-    { icon: Shield, label: "Trademark and copyright protection (filings, infringement defense)" },
-    { icon: BookOpen, label: "Website legal compliance (privacy policies, terms of service, disclaimers)" },
+    { icon: Shield, label: "Brand protection (trademarks, copyrights, website terms, privacy policies)" },
     { icon: Briefcase, label: "Business structure advice (LLC vs S-Corp, operating agreements)" },
     { icon: MessageCircle, label: "Direct access via text, email, or phone — no surprise bills" },
   ];

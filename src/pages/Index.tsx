@@ -405,13 +405,19 @@ const Index = () => {
               Who This Is For
             </h2>
 
-            <ul className="space-y-4 text-left max-w-2xl mx-auto mb-8">
-              {whoFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-lg text-slate-700">
-                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5 text-emerald-600 animate-emerald-glow" />
-                  <span className="font-medium">{item}</span>
-                </li>
-              ))}
+            <ul className="space-y-4 text-center max-w-2xl mx-auto mb-8">
+              <li className="text-lg text-slate-700">
+                <span className="font-bold text-emerald-600">Small businesses</span>{" "}
+                <span className="font-medium">that need legal support without hourly billing</span>
+              </li>
+              <li className="text-lg text-slate-700">
+                <span className="font-bold text-emerald-600">Founders and entrepreneurs</span>{" "}
+                <span className="font-medium">building revenue-generating businesses</span>
+              </li>
+              <li className="text-lg text-slate-700">
+                <span className="font-bold text-emerald-600">Business owners</span>{" "}
+                <span className="font-medium">who know they need legal help but are tired of being overcharged</span>
+              </li>
             </ul>
 
             <button

@@ -240,7 +240,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-lg transition-all text-sm"
             >
-              Book Consultation
+              See If You Qualify
             </button>
           </div>
         </div>
@@ -324,7 +324,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-lg animate-emerald-glow"
             >
-              Book Free Consultation
+              See If You Qualify
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -424,7 +424,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 animate-emerald-glow"
             >
-              Book Free Consultation
+              See If You Qualify
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -475,7 +475,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
-              Book Free Consultation
+              See If You Qualify
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -533,7 +533,7 @@ const Index = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5 animate-emerald-glow"
             >
-              Book Free Consultation
+              See If You Qualify
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>

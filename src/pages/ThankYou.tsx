@@ -90,8 +90,8 @@ const ThankYou = () => {
               </p>
               <p className="text-slate-400 text-xs">
                 If you don't see it, check your spam folder or reach out directly at{" "}
-                <a href="mailto:josh@legalhalplaw.com" className="text-emerald-400 hover:text-emerald-300 underline">
-                  josh@legalhalplaw.com
+                <a href="mailto:josh@legalhalp.com" className="text-emerald-400 hover:text-emerald-300 underline">
+                  josh@legalhalp.com
                 </a>
               </p>
             </div>
@@ -104,11 +104,11 @@ const ThankYou = () => {
             Questions in the meantime? Email us directly:
           </p>
           <a
-            href="mailto:josh@legalhalplaw.com"
+            href="mailto:josh@legalhalp.com"
             className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors underline"
           >
             <Mail className="w-4 h-4" />
-            <span>josh@legalhalplaw.com</span>
+            <span>josh@legalhalp.com</span>
           </a>
         </div>
 

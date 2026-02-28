@@ -327,7 +327,7 @@ const Index = () => {
               Stop Paying Over $500/Hour for Legal Services
             </h2>
             <p className="text-xl text-slate-600 mb-6">
-              Every email costs money. Every phone call adds up. You avoid asking questions because the meter is always running.
+              Every email costs money. Every phone call adds up. The meter is always running.
             </p>
             <p className="text-xl text-slate-900 font-semibold mb-8">
               <span className="text-emerald-600 animate-emerald-glow">Flat monthly rate.</span> Unlimited questions. No surprise invoices.
@@ -349,7 +349,7 @@ const Index = () => {
             </div>
 
             <p className="text-base text-slate-600 mt-8">
-              Powered by Claude Opus, LexisNexis AI, and Westlaw Precision — tools most law firms don't have.
+              Next-generation legal technology: Claude Opus, LexisNexis AI, and Westlaw Precision.
             </p>
           </div>
         </div>

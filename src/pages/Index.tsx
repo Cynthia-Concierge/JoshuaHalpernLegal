@@ -207,13 +207,7 @@ const Index = () => {
                 onClick={() => scrollToSection('how-it-works')}
                 className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
               >
-                The Difference
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
-              >
-                Services
+                How It Works
               </button>
               <button
                 onClick={() => scrollToSection('pricing')}
@@ -227,12 +221,6 @@ const Index = () => {
               >
                 FAQ
               </button>
-              <a
-                href="https://www.legalhalplaw.com"
-                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
-              >
-                The Firm
-              </a>
             </div>
 
             {/* CTA Button */}

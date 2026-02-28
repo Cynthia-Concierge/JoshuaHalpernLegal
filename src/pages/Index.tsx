@@ -212,7 +212,7 @@ const Index = () => {
               <img
                 src="/logo.png"
                 alt="Legal Halp"
-                className="h-8"
+                className="h-10"
               />
             </Link>
 

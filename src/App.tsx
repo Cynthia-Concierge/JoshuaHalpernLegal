@@ -33,7 +33,7 @@ import PaymentPolicy from "./pages/PaymentPolicy";
 
 const Layout = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/askmeanything" || location.pathname === "/thank-you" || location.pathname === "/formation/intake" || location.pathname === "/formation/thank-you";
+  const hideNavbar = location.pathname === "/lawyeroncall" || location.pathname === "/thank-you" || location.pathname === "/formation/intake" || location.pathname === "/formation/thank-you";
 
   return (
     <>
@@ -41,7 +41,7 @@ const Layout = () => {
       {!hideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/askmeanything" element={<Index />} />
+        <Route path="/lawyeroncall" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />

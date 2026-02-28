@@ -527,7 +527,7 @@ const Index = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-300">
-              Book a free 30-minute call. No pressure, no commitment.
+              Book a free 15-minute call. No pressure, no commitment.
             </p>
             <button
               onClick={() => setIsModalOpen(true)}

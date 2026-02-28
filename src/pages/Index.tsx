@@ -227,6 +227,12 @@ const Index = () => {
               >
                 FAQ
               </button>
+              <Link
+                to="/about"
+                className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                About
+              </Link>
             </div>
 
             {/* CTA Button */}
@@ -410,36 +416,6 @@ const Index = () => {
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
             </button>
-          </div>
-        </div>
-        {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
-      </section>
-
-      {/* ⸻ About Josh */}
-      <section className="py-20 bg-white relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="flex-shrink-0">
-                <img
-                  src="/joshua-halpern-hero.png"
-                  alt="Josh Halpern"
-                  className="w-48 h-60 rounded-lg object-cover object-top shadow-lg"
-                />
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-3xl font-bold text-slate-900">
-                  About Josh
-                </h2>
-                <p className="text-lg text-slate-700">
-                  Licensed attorney helping businesses get legal support without hourly billing.
-                </p>
-                <p className="text-lg text-slate-700">
-                  No billing clock. No surprise invoices. Just clear legal help when you need it.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
         {/* Divider */}

@@ -50,7 +50,7 @@ const Index = () => {
   const whoFor = [
     "Small businesses that need legal support without hourly billing",
     "Founders and entrepreneurs building revenue-generating businesses",
-    "Business owners spending $500-$3k/month on ad-hoc legal work",
+    "Business owners who know they need legal help but are tired of being overcharged",
   ];
 
   const faqs = [

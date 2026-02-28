@@ -359,32 +359,6 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
       </section>
 
-      {/* ⸻ What You Get */}
-      <section className="py-20 bg-white relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
-              What's Included
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {whatYouGet.map((item, i) => {
-                const Icon = item.icon;
-                return (
-                  <div key={i} className="flex items-start gap-4 p-5 bg-slate-50 rounded-lg">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-slate-700 font-medium">{item.label}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        {/* Divider */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
-      </section>
-
       {/* ⸻ Is This Right For You? */}
       <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
@@ -415,6 +389,32 @@ const Index = () => {
               See If This Is a Fit
               <ArrowRight className="w-5 h-5" />
             </button>
+          </div>
+        </div>
+        {/* Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-emerald-glow"></div>
+      </section>
+
+      {/* ⸻ What You Get */}
+      <section className="py-20 bg-white relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
+              What's Included
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {whatYouGet.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div key={i} className="flex items-start gap-4 p-5 bg-slate-50 rounded-lg">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-slate-700 font-medium">{item.label}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         {/* Divider */}

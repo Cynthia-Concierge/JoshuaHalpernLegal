@@ -210,13 +210,16 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center cursor-pointer"
+            >
               <img
                 src="/logo.png"
                 alt="Legal Halp"
                 className="h-10"
               />
-            </Link>
+            </button>
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-8">

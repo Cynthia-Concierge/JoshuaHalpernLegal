@@ -456,7 +456,7 @@ const Index = () => {
               {pricingTiers.map((tier, i) => (
                 <div
                   key={i}
-                  className={`p-8 rounded-lg bg-white ${
+                  className={`p-8 rounded-lg bg-white transition-all hover:-translate-y-1 hover:shadow-xl cursor-default ${
                     tier.highlighted ? "border-2 border-emerald-500 shadow-lg" : "border border-slate-200"
                   }`}
                 >

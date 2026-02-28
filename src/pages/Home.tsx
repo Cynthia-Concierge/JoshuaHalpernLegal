@@ -130,6 +130,16 @@ const Home: React.FC = () => {
                   className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-2xl object-cover object-top shadow-2xl shadow-black/40 border-2 border-white/10 mx-auto"
                 />
               </div>
+              {/* Floating badge — mobile version */}
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-lg shadow-black/10 px-4 py-3 flex items-center gap-3">
+                <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-slate-900 font-bold text-sm leading-tight">500+ Businesses</p>
+                  <p className="text-slate-500 text-xs">Protected</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

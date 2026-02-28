@@ -98,20 +98,17 @@ const ThankYou = () => {
           </div>
         </div>
 
-        {/* Optional: Book Call CTA */}
+        {/* Optional: Direct Contact */}
         <div className="text-center">
           <p className="text-slate-400 text-sm mb-4">
-            Want to skip the wait and book your free audit call now?
+            Questions in the meantime? Email us directly:
           </p>
           <a
-            href={SCHEDULE_CALL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-emerald-900/20 transition-all duration-200 transform hover:-translate-y-0.5"
+            href="mailto:josh@legalhalplaw.com"
+            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors underline"
           >
-            <Calendar className="w-5 h-5" />
-            <span>Book Free Audit Call</span>
-            <ArrowRight className="w-5 h-5" />
+            <Mail className="w-4 h-4" />
+            <span>josh@legalhalplaw.com</span>
           </a>
         </div>
 

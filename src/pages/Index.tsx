@@ -300,8 +300,8 @@ const Index = () => {
             </div>
 
             {/* Tech Advantage Banner */}
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full">
-              <Zap className="w-5 h-5 text-emerald-400" />
+            <div className="inline-flex items-start gap-3 bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full">
+              <Zap className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
               <span className="text-slate-200 font-medium">
                 Powered by <span className="text-emerald-400 font-semibold">Casetext CoCounsel</span>, <span className="text-emerald-400 font-semibold">LexisNexis AI</span>, and advanced legal research tools traditional firms don't have
               </span>

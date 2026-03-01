@@ -543,7 +543,7 @@ const Index = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-300">
-              Quick 15-minute call to discuss your needs and see if this is a fit.
+              Submit your application and we'll review your business needs to see if this is a good fit.
             </p>
             <button
               onClick={() => setIsModalOpen(true)}

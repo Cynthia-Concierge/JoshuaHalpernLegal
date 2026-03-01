@@ -48,9 +48,10 @@ const Index = () => {
   ];
 
   const whoFor = [
-    "Small businesses that need legal support without hourly billing",
-    "Founders and entrepreneurs building revenue-generating businesses",
-    "Business owners who know they need legal help but are tired of being overcharged",
+    "Founders doing $500k–$10M/year who need consistent legal support without the BigLaw price tag",
+    "Operators with real teams & deals navigating contracts, partnerships, and growth decisions",
+    "Growth-oriented business owners who need strategic counsel, not just document templates",
+    "Entrepreneurs launching new ventures who want legal infrastructure done right from day one",
   ];
 
   const faqs = [

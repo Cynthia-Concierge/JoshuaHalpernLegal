@@ -56,7 +56,7 @@ const Index = () => {
   const faqs = [
     {
       question: "Why is availability limited?",
-      answer: "This service operates at a level of personalization and quality that traditional law firms can't match—largely because we leverage cutting-edge AI tools like Claude Opus and LexisNexis AI to dramatically reduce costs and turnaround times. However, maintaining that standard requires careful client selection. With high demand for a flat-rate legal model that eliminates hourly billing, we limit enrollment to ensure every client receives the attention and responsiveness they deserve. We're not trying to be exclusive for its own sake—we're protecting the quality of service that makes this model work."
+      answer: "This service operates at a level of personalization and quality that traditional law firms can't match—largely because we leverage cutting-edge AI tools like Casetext CoCounsel and LexisNexis AI to dramatically reduce costs and turnaround times. However, maintaining that standard requires careful client selection. With high demand for a flat-rate legal model that eliminates hourly billing, we limit enrollment to ensure every client receives the attention and responsiveness they deserve. We're not trying to be exclusive for its own sake—we're protecting the quality of service that makes this model work."
     },
     {
       question: "Why can't I just use ChatGPT or other AI tools for legal questions?",
@@ -303,7 +303,7 @@ const Index = () => {
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full">
               <Zap className="w-5 h-5 text-emerald-400" />
               <span className="text-slate-200 font-medium">
-                Powered by <span className="text-emerald-400 font-semibold">Claude Opus</span>, <span className="text-emerald-400 font-semibold">LexisNexis AI</span>, and advanced legal research tools traditional firms don't have
+                Powered by <span className="text-emerald-400 font-semibold">Casetext CoCounsel</span>, <span className="text-emerald-400 font-semibold">LexisNexis AI</span>, and advanced legal research tools traditional firms don't have
               </span>
             </div>
 
@@ -379,7 +379,7 @@ const Index = () => {
             </div>
 
             <p className="text-base text-slate-600 mt-8">
-              Next-generation legal technology: Claude Opus, LexisNexis AI, and Westlaw Precision.
+              Next-generation legal technology: Casetext CoCounsel, LexisNexis AI, and Westlaw Precision.
             </p>
           </div>
         </div>

@@ -24,14 +24,24 @@ export default async function handler(req, res) {
   const { tags, ...formData } = req.body;
   const headers = ghlHeaders(GHL_API_KEY);
 
-  // Separate core contact fields from custom fields
+  // Fields that map to standard GHL contact properties (not custom fields)
   const coreKeys = new Set([
-    'first_name', 'last_name', 'email', 'phone', 'source',
+    'first_name', 'last_name', 'email', 'phone', 'source', 'state',
   ]);
+
+  // Map form field names → GHL custom field keys where they differ
+  const fieldKeyMap = {
+    intake_summary: 'contact.full_intake_summary',
+    state_of_formation: 'contact.choose_your_state_of_formation',
+    desired_business_name: 'contact.desired_legal_business_name',
+    backup_business_name: 'contact.backup_business_name_optional',
+  };
+
   const customFields = [];
   for (const [key, value] of Object.entries(formData)) {
     if (!coreKeys.has(key) && value) {
-      customFields.push({ key, field_value: value });
+      const ghlKey = fieldKeyMap[key] || `contact.${key}`;
+      customFields.push({ key: ghlKey, field_value: value });
     }
   }
 
@@ -43,6 +53,7 @@ export default async function handler(req, res) {
     source: formData.source || 'Website',
     tags: tags || [],
     locationId: GHL_LOCATION_ID,
+    ...(formData.state && { state: formData.state }),
     ...(customFields.length && { customFields }),
   };
 

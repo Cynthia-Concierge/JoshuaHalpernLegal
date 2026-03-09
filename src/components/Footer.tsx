@@ -15,8 +15,12 @@ const Footer: React.FC = () => {
           <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
         </div>
 
-        <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-4">
           Disclaimer: The information provided on this website does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only. Information on this website may not constitute the most up-to-date legal or other information.
+        </p>
+
+        <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          By providing your phone number, you agree to receive text messages from Legal Halp Law. Message and data rates may apply. Reply STOP to opt out.
         </p>
         
         <div className="mt-8 text-xs text-slate-700">

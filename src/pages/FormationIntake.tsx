@@ -9,7 +9,7 @@ import {
   CheckCircle2,
   Clock,
 } from "lucide-react";
-import { GHL_WEBHOOK_URL } from "@/config";
+import { FORM_SUBMIT_URL } from "@/config";
 
 const US_STATES = [
   "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
@@ -102,7 +102,7 @@ const FormationIntake: React.FC = () => {
 
     setSubmitError(null);
     try {
-      const res = await fetch(GHL_WEBHOOK_URL, {
+      const res = await fetch(FORM_SUBMIT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

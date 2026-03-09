@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import { GHL_WEBHOOK_URL } from "@/config";
+import { FORM_SUBMIT_URL } from "@/config";
 import {
   Scale,
   AlertCircle,
@@ -160,7 +160,7 @@ const Index = () => {
       const lastName = nameParts.slice(1).join(' ') || '';
 
       // Submit to GoHighLevel webhook with qualification data
-      const response = await fetch(GHL_WEBHOOK_URL, {
+      const response = await fetch(FORM_SUBMIT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

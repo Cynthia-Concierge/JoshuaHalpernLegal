@@ -27,13 +27,14 @@ import LawyerOnCall from "./pages/services/LawyerOnCall";
 import Formation from "./pages/Formation";
 import FormationIntake from "./pages/FormationIntake";
 import FormationThankYou from "./pages/FormationThankYou";
+import BookingThankYou from "./pages/BookingThankYou";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import PaymentPolicy from "./pages/PaymentPolicy";
 
 const Layout = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/lawyeroncall" || location.pathname === "/lawyeroncall/thank-you" || location.pathname === "/thank-you" || location.pathname === "/formation/intake" || location.pathname === "/formation/thank-you";
+  const hideNavbar = location.pathname === "/lawyeroncall" || location.pathname === "/lawyeroncall/thank-you" || location.pathname === "/thank-you" || location.pathname === "/formation/intake" || location.pathname === "/formation/thank-you" || location.pathname === "/booking/thank-you";
 
   return (
     <>
@@ -57,6 +58,7 @@ const Layout = () => {
         <Route path="/formation" element={<Formation />} />
         <Route path="/formation/intake" element={<FormationIntake />} />
         <Route path="/formation/thank-you" element={<FormationThankYou />} />
+        <Route path="/booking/thank-you" element={<BookingThankYou />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/payment-policy" element={<PaymentPolicy />} />

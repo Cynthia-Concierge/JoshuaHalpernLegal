@@ -48,11 +48,12 @@ const Index = () => {
   ];
 
   const whoFor = [
-    "Founders doing $500k–$10M/year who need consistent legal support without the BigLaw price tag",
-    "Operators with real teams & deals navigating contracts, partnerships, and growth decisions",
-    "Growth-oriented business owners who need strategic counsel, not just document templates",
-    "Entrepreneurs launching new ventures who want legal infrastructure done right from day one",
+    "Founders running revenue-generating businesses (not ideas, not side projects)",
+    "Startups bringing on investors, partners, or employees who need real legal infrastructure",
+    "Business owners doing $500K+ annually who need strategic counsel, not templates",
   ];
+
+  const whoNotFor = "Not for individuals or one-off legal questions.";
 
   const faqs = [
     {
@@ -392,24 +393,22 @@ const Index = () => {
       <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
-              Who This Is For
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              This Is Built For
             </h2>
 
-            <ul className="space-y-4 text-center max-w-2xl mx-auto mb-8">
-              <li className="text-lg text-slate-700">
-                <span className="font-bold text-emerald-600">Small businesses</span>{" "}
-                <span className="font-medium">that need legal support without hourly billing</span>
-              </li>
-              <li className="text-lg text-slate-700">
-                <span className="font-bold text-emerald-600">Founders and entrepreneurs</span>{" "}
-                <span className="font-medium">building revenue-generating businesses</span>
-              </li>
-              <li className="text-lg text-slate-700">
-                <span className="font-bold text-emerald-600">Business owners</span>{" "}
-                <span className="font-medium">who know they need legal help but are tired of being overcharged</span>
-              </li>
+            <ul className="space-y-3 text-left max-w-2xl mx-auto mb-6">
+              {whoFor.map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-lg text-slate-700">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">{item}</span>
+                </li>
+              ))}
             </ul>
+
+            <p className="text-base text-slate-600 italic mb-8">
+              {whoNotFor}
+            </p>
 
             <button
               onClick={() => setIsModalOpen(true)}

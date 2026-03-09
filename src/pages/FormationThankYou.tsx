@@ -116,7 +116,7 @@ const FormationThankYou: React.FC = () => {
                 submission, schedule a quick call with our team.
               </p>
               <a
-                href="https://calendly.com/legalhalp/15-minute-legal-consult"
+                href="https://api.leadconnectorhq.com/widget/booking/legal-halp-consultation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5"

@@ -1,5 +1,5 @@
 /**
- * PhoneInput Component - Calendly Style
+ * PhoneInput Component
  * Shows flag emoji + country code (+1) that auto-updates as you type
  */
 

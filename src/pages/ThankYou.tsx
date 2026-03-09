@@ -1,7 +1,5 @@
-import { CheckCircle2, Calendar, Mail, ArrowRight } from "lucide-react";
+import { CheckCircle2, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const SCHEDULE_CALL_URL = "https://calendly.com/josh-legalhalplaw/30min";
 
 const ThankYou = () => {
   return (

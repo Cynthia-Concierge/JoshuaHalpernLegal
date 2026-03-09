@@ -13,7 +13,8 @@ import {
 const Contact: React.FC = () => {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
+    script.type = "text/javascript";
     script.async = true;
     document.body.appendChild(script);
     return () => {
@@ -48,7 +49,7 @@ const Contact: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Book a free 15-minute consultation. I'll listen to what you need,
+              Book a free 30-minute Legal Cost Audit. I'll listen to what you need,
               give you straight answers, and tell you exactly what it would cost
               to work together. No pitch, no pressure.
             </p>
@@ -63,7 +64,7 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
-              {/* Calendly Embed Placeholder */}
+              {/* GHL Calendar Embed */}
               <div className="lg:col-span-3">
                 <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
                   <div className="p-6 md:p-8 border-b border-slate-200">
@@ -74,14 +75,16 @@ const Contact: React.FC = () => {
                       </h2>
                     </div>
                     <p className="text-slate-500 text-sm">
-                      Pick a time that works for you. 15 minutes, no obligation.
+                      Pick a time that works for you. 30 minutes, no obligation.
                     </p>
                   </div>
 
-                  <div
-                    className="calendly-inline-widget"
-                    data-url="https://calendly.com/legalhalp/15-minute-legal-consult?hide_event_type_details=1"
-                    style={{ minWidth: "320px", height: "700px" }}
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/booking/i8xiXISvNb0Q0b3q6VeG"
+                    style={{ width: "100%", minHeight: "700px", border: "none", overflow: "hidden" }}
+                    scrolling="no"
+                    id="i8xiXISvNb0Q0b3q6VeG_1773019343762"
+                    title="Book a Legal Cost Audit"
                   />
                 </div>
               </div>

@@ -9,6 +9,7 @@ interface SmsConsentProps {
 export const SmsConsent: React.FC<SmsConsentProps> = ({ checked, onChange, error }) => {
   return (
     <div className="mt-1">
+      <p className="text-xs font-semibold text-slate-700 mb-2">Legal Halp — LH Law Holdings LLC</p>
       <label className="flex items-start gap-3 cursor-pointer group">
         <div className="relative flex-shrink-0 mt-0.5">
           <input
@@ -34,9 +35,11 @@ export const SmsConsent: React.FC<SmsConsentProps> = ({ checked, onChange, error
           </div>
         </div>
         <span className="text-[11px] text-slate-500 leading-relaxed select-none">
-          By submitting this form, you agree to receive SMS messages from Legal Halp
-          regarding your business formation request. Message frequency varies. Message
-          and data rates may apply. Reply STOP to opt out or HELP for help.
+          By submitting this form, you agree to receive SMS messages from
+          Legal Halp (LH Law Holdings LLC). Messages may include case updates,
+          document requests, reminders, and service notifications. Message
+          frequency varies. Message and data rates may apply. Reply STOP to
+          opt out or HELP for help.
         </span>
       </label>
       {error && (

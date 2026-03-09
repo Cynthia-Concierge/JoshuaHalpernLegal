@@ -88,10 +88,13 @@ const Contact: React.FC = () => {
                   />
 
                   <div className="px-6 py-4 bg-slate-100 border-t border-slate-200">
+                    <p className="text-xs font-semibold text-slate-700 mb-1">Legal Halp — LH Law Holdings LLC</p>
                     <p className="text-[11px] text-slate-500 leading-relaxed">
-                      By booking a call, you agree to receive SMS messages from Legal Halp
-                      regarding your inquiry. Message frequency varies. Message and data
-                      rates may apply. Reply STOP to opt out or HELP for help.
+                      By booking a call, you agree to receive SMS messages from
+                      Legal Halp (LH Law Holdings LLC). Messages may include case
+                      updates, document requests, reminders, and service notifications.
+                      Message frequency varies. Message and data rates may apply.
+                      Reply STOP to opt out or HELP for help.
                     </p>
                   </div>
                 </div>

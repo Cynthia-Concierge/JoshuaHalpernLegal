@@ -93,17 +93,72 @@ const Terms = () => {
               </p>
 
               <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                11. Contact Us
+                11. SMS Communications
               </h2>
               <p>
-                If you have any questions about these Terms, please contact{" "}
+                By providing your phone number and opting in through our website forms, you consent to receive SMS messages from Legal Halp (LH Law Holdings LLC) regarding your legal service request.
+              </p>
+              <p>These messages may include:</p>
+              <ul className="list-disc pl-6 space-y-1">
+                <li>Case updates</li>
+                <li>Document requests</li>
+                <li>Reminders</li>
+                <li>Service notifications</li>
+              </ul>
+              <p>Message frequency varies depending on your request.</p>
+
+              <h3 className="text-lg font-bold text-slate-900 mt-8 mb-3">
+                Opt-Out Instructions
+              </h3>
+              <p>
+                You may opt out of receiving SMS messages at any time by replying <strong>STOP</strong> to any text message.
+              </p>
+              <p>
+                For assistance, reply <strong>HELP</strong>.
+              </p>
+
+              <h3 className="text-lg font-bold text-slate-900 mt-8 mb-3">
+                Message and Data Rates
+              </h3>
+              <p>
+                Message and data rates may apply depending on your mobile carrier and plan.
+              </p>
+
+              <h3 className="text-lg font-bold text-slate-900 mt-8 mb-3">
+                Carrier Liability Disclaimer
+              </h3>
+              <p>
+                Mobile carriers are not liable for delayed or undelivered messages.
+              </p>
+
+              <h3 className="text-lg font-bold text-slate-900 mt-8 mb-3">
+                Age Restriction
+              </h3>
+              <p>
+                By opting in to receive SMS communications, you confirm that you are 18 years of age or older.
+              </p>
+
+              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
+                12. Contact Us
+              </h2>
+              <p>
+                If you have any questions about these Terms, please contact us:
+              </p>
+              <p className="mt-3">
+                <strong>Legal Halp</strong><br />
+                LH Law Holdings LLC<br />
                 <a
-                  href="mailto:assistant@legalhalp.com"
+                  href="mailto:support@legalhalplaw.com"
                   className="text-blue-600 hover:text-blue-500 underline"
                 >
-                  assistant@legalhalp.com
+                  support@legalhalplaw.com
+                </a><br />
+                <a
+                  href="tel:+12162006627"
+                  className="text-blue-600 hover:text-blue-500 underline"
+                >
+                  (216) 200-6627
                 </a>
-                .
               </p>
             </div>
           </div>

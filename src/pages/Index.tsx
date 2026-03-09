@@ -175,6 +175,7 @@ const Index = () => {
           current_legal_spend: formData.currentLegalSpend || '',
           main_need: formData.mainNeed || '',
           state: formData.state || '',
+          tags: ['website', 'legal cost audit'],
         })
       });
 

@@ -96,6 +96,8 @@ const FormationIntake: React.FC = () => {
       business_description,
       desired_business_name,
       backup_business_name,
+      source: "Website - Formation Intake",
+      tags: ["website", "formation intake"],
     };
 
     setSubmitError(null);

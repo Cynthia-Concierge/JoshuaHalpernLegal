@@ -397,16 +397,16 @@ const Index = () => {
               This Is Built For
             </h2>
 
-            <ul className="space-y-3 max-w-2xl mx-auto mb-6">
+            <ul className="space-y-3 text-left max-w-2xl mx-auto mb-6">
               {whoFor.map((item, i) => (
-                <li key={i} className="flex items-center justify-center gap-3 text-lg text-slate-700">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0" />
+                <li key={i} className="flex items-start gap-3 text-lg text-slate-700">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-0.5" />
                   <span className="font-medium">{item}</span>
                 </li>
               ))}
             </ul>
 
-            <p className="text-base text-slate-600 italic mb-8 text-center">
+            <p className="text-base text-slate-600 italic mb-8">
               {whoNotFor}
             </p>
 

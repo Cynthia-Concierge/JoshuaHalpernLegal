@@ -86,6 +86,14 @@ const Contact: React.FC = () => {
                     id="i8xiXISvNb0Q0b3q6VeG_1773019343762"
                     title="Book a Legal Cost Audit"
                   />
+
+                  <div className="px-6 py-4 bg-slate-100 border-t border-slate-200">
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      By booking a call, you agree to receive SMS messages from Legal Halp
+                      regarding your inquiry. Message frequency varies. Message and data
+                      rates may apply. Reply STOP to opt out or HELP for help.
+                    </p>
+                  </div>
                 </div>
               </div>
 

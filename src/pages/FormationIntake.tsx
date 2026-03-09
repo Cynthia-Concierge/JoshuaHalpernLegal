@@ -10,6 +10,7 @@ import {
   Clock,
 } from "lucide-react";
 import { FORM_SUBMIT_URL } from "@/config";
+import { SmsConsent } from "@/components/ui/sms-consent";
 
 const US_STATES = [
   "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
@@ -54,6 +55,8 @@ const FormationIntake: React.FC = () => {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [smsConsent, setSmsConsent] = useState(false);
+  const [consentError, setConsentError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -99,6 +102,13 @@ const FormationIntake: React.FC = () => {
       source: "Website - Formation Intake",
       tags: ["website", "formation intake"],
     };
+
+    if (!smsConsent) {
+      setConsentError("Please agree to receive SMS messages to continue.");
+      setSubmitting(false);
+      return;
+    }
+    setConsentError("");
 
     setSubmitError(null);
     try {
@@ -292,8 +302,14 @@ const FormationIntake: React.FC = () => {
                 </div>
               </div>
 
-              {/* Submit */}
+              {/* Consent & Submit */}
               <div className="pt-2 pb-4">
+                <SmsConsent
+                  checked={smsConsent}
+                  onChange={(checked) => { setSmsConsent(checked); setConsentError(""); }}
+                  error={consentError}
+                />
+
                 {submitError && (
                   <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm font-medium">
                     {submitError}

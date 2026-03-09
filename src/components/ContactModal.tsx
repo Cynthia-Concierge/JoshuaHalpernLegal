@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, Lock, ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
+import { SmsConsent } from './ui/sms-consent';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -21,6 +22,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
+  const [consentError, setConsentError] = useState("");
 
   // Form data across steps
   const [formData, setFormData] = useState({
@@ -86,8 +89,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return; // Required field
     }
 
+    if (!smsConsent) {
+      setConsentError("Please agree to receive SMS messages to continue.");
+      return;
+    }
+
     setEmailError("");
     setPhoneError("");
+    setConsentError("");
 
     // Submit with all collected data
     onSubmit({
@@ -366,6 +375,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     <option value="Wyoming">Wyoming</option>
                   </select>
                 </div>
+
+                <SmsConsent
+                  checked={smsConsent}
+                  onChange={(checked) => { setSmsConsent(checked); setConsentError(""); }}
+                  error={consentError}
+                />
 
                 <div className="flex gap-3">
                   <button

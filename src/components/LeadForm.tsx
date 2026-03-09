@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Send, Lock, Shield } from 'lucide-react';
+import { Send, Lock, Shield, Check } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
+import { SmsConsent } from './ui/sms-consent';
 
 interface LeadFormProps {
   onSubmit: (formData: {
@@ -19,6 +20,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
+  const [consentError, setConsentError] = useState("");
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmailError("");
@@ -46,8 +49,14 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
       return;
     }
 
+    if (!smsConsent) {
+      setConsentError("Please agree to receive SMS messages to continue.");
+      return;
+    }
+
     setEmailError("");
     setPhoneError("");
+    setConsentError("");
 
     onSubmit({ name, email, phone, question });
   };
@@ -113,6 +122,12 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
               className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400 resize-none"
             />
           </div>
+
+          <SmsConsent
+            checked={smsConsent}
+            onChange={(checked) => { setSmsConsent(checked); setConsentError(""); }}
+            error={consentError}
+          />
 
           <button type="submit" className="w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group mt-4">
             <span className="tracking-wide">Get My Answer</span>

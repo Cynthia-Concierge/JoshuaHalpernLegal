@@ -274,21 +274,6 @@ const Index = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
-            <div className="relative inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/30 px-4 py-2 rounded-full text-sm font-semibold text-emerald-300 group cursor-help">
-              <Sparkles className="w-4 h-4" />
-              AI-Enabled Legal Counsel
-
-              {/* Hover Tooltip */}
-              <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 w-max max-w-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div className="bg-gradient-to-r from-emerald-500/10 via-emerald-400/10 to-blue-500/10 border border-emerald-400/20 px-6 py-3 rounded-full flex items-start gap-3">
-                  <Zap className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-200 font-medium text-sm">
-                    Powered by <span className="text-emerald-400 font-semibold">Casetext CoCounsel</span>, <span className="text-emerald-400 font-semibold">LexisNexis AI</span>, and advanced legal research tools traditional firms don't have
-                  </span>
-                </div>
-              </div>
-            </div>
-
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
               Your Legal Department for a Flat Monthly Fee
             </h1>
@@ -387,9 +372,11 @@ const Index = () => {
               </div>
             </div>
 
-            <p className="text-base text-slate-600 mt-8">
-              Next-generation legal technology: Casetext CoCounsel, LexisNexis AI, and Westlaw Precision.
-            </p>
+            <div className="relative inline-block mt-8 group cursor-help">
+              <p className="text-base text-slate-600">
+                Powered by <span className="text-emerald-600 font-semibold">Casetext CoCounsel</span>, <span className="text-emerald-600 font-semibold">LexisNexis AI</span>, and advanced legal research tools traditional firms don't have
+              </p>
+            </div>
           </div>
         </div>
         {/* Divider */}

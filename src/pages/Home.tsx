@@ -55,7 +55,7 @@ const Home: React.FC = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
                 Big-Firm Expertise.
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
+                <span className="text-blue-400">
                   Without the Big-Firm Bill.
                 </span>
               </h1>

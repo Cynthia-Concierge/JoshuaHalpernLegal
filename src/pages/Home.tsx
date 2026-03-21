@@ -52,10 +52,11 @@ const Home: React.FC = () => {
                 Joshua Halpern, Esq.
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-serif">
-                Big-Firm Expertise.
-                <br />
-                <span className="text-blue-400">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.02] tracking-[-0.02em]">
+                <span className="block bg-gradient-to-r from-white via-white to-slate-100 bg-clip-text text-transparent">
+                  Big-Firm Expertise.
+                </span>
+                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-400 bg-clip-text text-transparent">
                   Without the Big-Firm Bill.
                 </span>
               </h1>

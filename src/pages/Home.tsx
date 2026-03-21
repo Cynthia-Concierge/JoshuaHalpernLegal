@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
                 LLC formation, estate planning, contracts, and IP
                 protection, handled by a former BigLaw attorney at flat fees you
                 can actually afford.

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, Lock, ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { X, Send, Lock, ArrowRight, ArrowLeft, CheckCircle2, Shield } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
 import { SmsConsent } from './ui/sms-consent';
 
@@ -25,7 +25,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [smsConsent, setSmsConsent] = useState(false);
   const [consentError, setConsentError] = useState("");
 
-  // Form data across steps
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,33 +46,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     setPhoneError("");
   };
 
+  // Step 1: Capture name, email, phone
   const handleStep1Next = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const businessType = (form.elements.namedItem("businessType") as HTMLSelectElement).value;
-    const currentLegalSpend = (form.elements.namedItem("currentLegalSpend") as HTMLSelectElement).value;
-    const mainNeed = (form.elements.namedItem("mainNeed") as HTMLSelectElement).value;
-
-    if (!businessType || !currentLegalSpend || !mainNeed) {
-      return; // Required fields
-    }
-
-    setFormData({
-      ...formData,
-      businessType,
-      currentLegalSpend,
-      mainNeed,
-    });
-
-    setStep(2);
-  };
-
-  const handleFinalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
     const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
-    const state = (form.elements.namedItem("state") as HTMLSelectElement).value;
 
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -85,10 +63,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    if (!state) {
-      return; // Required field
-    }
-
     if (!smsConsent) {
       setConsentError("Please agree to receive SMS messages to continue.");
       return;
@@ -98,14 +72,36 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     setPhoneError("");
     setConsentError("");
 
-    // Submit with all collected data
-    onSubmit({
+    setFormData({
+      ...formData,
       name,
       email,
+    });
+
+    setStep(2);
+  };
+
+  // Step 2: Qualifying questions + final submit
+  const handleFinalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const businessType = (form.elements.namedItem("businessType") as HTMLSelectElement).value;
+    const currentLegalSpend = (form.elements.namedItem("currentLegalSpend") as HTMLSelectElement).value;
+    const mainNeed = (form.elements.namedItem("mainNeed") as HTMLSelectElement).value;
+    const state = (form.elements.namedItem("state") as HTMLSelectElement).value;
+
+    if (!businessType || !currentLegalSpend || !mainNeed || !state) {
+      return;
+    }
+
+    onSubmit({
+      name: formData.name,
+      email: formData.email,
       phone,
-      // These custom fields will be passed to GoHighLevel
-      ...formData,
-      state
+      businessType,
+      currentLegalSpend,
+      mainNeed,
+      state,
     } as any);
   };
 
@@ -135,7 +131,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
         {/* Progress bar */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-200 rounded-t-2xl overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-slate-800 via-slate-700 to-blue-500 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-slate-800 via-slate-700 to-emerald-500 transition-all duration-300"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           ></div>
         </div>
@@ -156,19 +152,100 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             </div>
           </div>
 
-          {/* STEP 1: Qualifying Questions */}
+          {/* STEP 1: Contact Info */}
           {step === 1 && (
             <div>
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-slate-900 font-serif mb-2">
-                  Quick Questions
+                  Apply for Ongoing Counsel
                 </h3>
                 <p className="text-slate-600 text-sm">
-                  Help us understand your needs (takes 30 seconds)
+                  Limited spots available. Tell us how to reach you.
                 </p>
               </div>
 
               <form className="space-y-5" onSubmit={handleStep1Next}>
+                <div className="group">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
+                    Full Name*
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    defaultValue={formData.name}
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+                  />
+                </div>
+
+                <div className="group">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
+                    Email*
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    defaultValue={formData.email}
+                    placeholder="your@email.com"
+                    onChange={handleEmailChange}
+                    className={`w-full px-4 py-3.5 rounded-lg border ${
+                      emailError ? "border-red-500 focus:border-red-500" : "border-slate-200 focus:border-slate-700"
+                    } focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400`}
+                  />
+                  {emailError && (
+                    <p className="mt-1.5 text-xs text-red-600">{emailError}</p>
+                  )}
+                </div>
+
+                <div className="group">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
+                    Phone Number*
+                  </label>
+                  <PhoneInput
+                    value={phone}
+                    onChange={handlePhoneChange}
+                    error={phoneError}
+                    className="px-4 py-3.5 bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+                  />
+                </div>
+
+                <SmsConsent
+                  checked={smsConsent}
+                  onChange={(checked) => { setSmsConsent(checked); setConsentError(""); }}
+                  error={consentError}
+                />
+
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group mt-4"
+                >
+                  <span className="tracking-wide">Next</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+                <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 mt-3 font-medium uppercase tracking-wider">
+                  <Lock className="w-3 h-3" />
+                  <span>Private. Confidential. No obligation.</span>
+                </div>
+              </form>
+            </div>
+          )}
+
+          {/* STEP 2: Qualifying Questions */}
+          {step === 2 && (
+            <div>
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-slate-900 font-serif mb-2">
+                  Tell Us About Your Business
+                </h3>
+                <p className="text-slate-600 text-sm">
+                  Help us understand your needs so we can match you with the right plan
+                </p>
+              </div>
+
+              <form className="space-y-5" onSubmit={handleFinalSubmit}>
                 <div className="group">
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
                     What Type of Business?*
@@ -242,76 +319,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   </select>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group mt-4"
-                >
-                  <span className="tracking-wide">Next</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </form>
-            </div>
-          )}
-
-          {/* STEP 2: Contact Info */}
-          {step === 2 && (
-            <div>
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-slate-900 font-serif mb-2">
-                  Your Contact Info
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  We'll use this to schedule your free legal cost audit
-                </p>
-              </div>
-
-              <form className="space-y-5" onSubmit={handleFinalSubmit}>
-                <div className="group">
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                    Full Name*
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    defaultValue={formData.name}
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
-                  />
-                </div>
-
-                <div className="group">
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                    Email*
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    defaultValue={formData.email}
-                    placeholder="your@email.com"
-                    onChange={handleEmailChange}
-                    className={`w-full px-4 py-3.5 rounded-lg border ${
-                      emailError ? "border-red-500 focus:border-red-500" : "border-slate-200 focus:border-slate-700"
-                    } focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400`}
-                  />
-                  {emailError && (
-                    <p className="mt-1.5 text-xs text-red-600">{emailError}</p>
-                  )}
-                </div>
-
-                <div className="group">
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                    Phone Number*
-                  </label>
-                  <PhoneInput
-                    value={phone}
-                    onChange={handlePhoneChange}
-                    error={phoneError}
-                    className="px-4 py-3.5 bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
-                  />
-                </div>
-
                 <div className="group">
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
                     What State Are You Located In?*
@@ -376,13 +383,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   </select>
                 </div>
 
-                <SmsConsent
-                  checked={smsConsent}
-                  onChange={(checked) => { setSmsConsent(checked); setConsentError(""); }}
-                  error={consentError}
-                />
-
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-4">
                   <button
                     type="button"
                     onClick={() => setStep(1)}
@@ -394,14 +395,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
                   <button
                     type="submit"
-                    className="flex-[2] bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group"
+                    className="flex-[2] bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-emerald-600/25 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group"
                   >
-                    <span className="tracking-wide">Submit</span>
-                    <Send className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+                    <span className="tracking-wide">Apply Now</span>
+                    <Shield className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   </button>
                 </div>
 
-                <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 mt-4 font-medium uppercase tracking-wider">
+                <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 mt-3 font-medium uppercase tracking-wider">
                   <Lock className="w-3 h-3" />
                   <span>Private. Confidential. No obligation.</span>
                 </div>

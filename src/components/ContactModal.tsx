@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { X, Send, Lock, ArrowRight, ArrowLeft, CheckCircle2, Shield } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
-import { SmsConsent } from './ui/sms-consent';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -22,8 +21,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [smsConsent, setSmsConsent] = useState(false);
-  const [consentError, setConsentError] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -63,14 +60,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    if (!smsConsent) {
-      setConsentError("Please agree to receive SMS messages to continue.");
-      return;
-    }
-
     setEmailError("");
     setPhoneError("");
-    setConsentError("");
 
     setFormData({
       ...formData,
@@ -210,12 +201,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     className="px-4 py-3.5 bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
                   />
                 </div>
-
-                <SmsConsent
-                  checked={smsConsent}
-                  onChange={(checked) => { setSmsConsent(checked); setConsentError(""); }}
-                  error={consentError}
-                />
 
                 <button
                   type="submit"

@@ -1,7 +1,19 @@
-import { CheckCircle2, Mail } from "lucide-react";
+import { useEffect } from "react";
+import { CheckCircle2, Mail, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ThankYou = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full">
@@ -77,8 +89,31 @@ const ThankYou = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="bg-gradient-to-r from-emerald-900/20 to-blue-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        {/* Book a Call Now */}
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <div className="p-6 border-b border-white/10">
+            <div className="flex items-center gap-3 mb-2">
+              <Calendar className="w-5 h-5 text-emerald-400" />
+              <h2 className="text-xl font-bold text-white">
+                Want to Skip the Wait? Book a Call Now.
+              </h2>
+            </div>
+            <p className="text-slate-400 text-sm">
+              Grab a time for your free 30-minute Legal Cost Audit right now.
+            </p>
+          </div>
+
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/booking/i8xiXISvNb0Q0b3q6VeG"
+            style={{ width: "100%", minHeight: "700px", border: "none", overflow: "hidden" }}
+            scrolling="no"
+            id="i8xiXISvNb0Q0b3q6VeG_thankyou"
+            title="Book a Legal Cost Audit"
+          />
+        </div>
+
+        {/* Check Email */}
+        <div className="bg-gradient-to-r from-emerald-900/20 to-blue-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 mb-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
           <div className="flex items-start gap-4">
             <Mail className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
             <div>
@@ -94,20 +129,6 @@ const ThankYou = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Optional: Direct Contact */}
-        <div className="text-center">
-          <p className="text-slate-400 text-sm mb-4">
-            Questions in the meantime? Email us directly:
-          </p>
-          <a
-            href="mailto:josh@legalhalp.com"
-            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors underline"
-          >
-            <Mail className="w-4 h-4" />
-            <span>josh@legalhalp.com</span>
-          </a>
         </div>
 
         {/* Back to Home */}

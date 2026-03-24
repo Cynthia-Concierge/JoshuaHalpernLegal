@@ -212,7 +212,7 @@ const Index = () => {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-28 overflow-hidden bg-slate-900">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div
           className="absolute inset-0 z-0 opacity-[0.04]"
@@ -234,13 +234,12 @@ const Index = () => {
               For Business Owners Tired of $500/hr Legal Bills
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
-              Your Business Needs a Lawyer.<br />
-              <span className="text-emerald-400">You Shouldn't Need a Second Mortgage to Afford One.</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+              Your Legal Department for a Flat Monthly Fee
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Get a dedicated business attorney — contracts, compliance, IP, employment law — for one flat monthly fee. No hourly billing. No surprise invoices. No meter running.
+            <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">
+              Full-service legal support at a fraction of traditional law firm costs.
             </p>
 
             {/* Trust chips */}
@@ -263,8 +262,26 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Video Embed */}
+            <div className="w-full max-w-3xl mx-auto">
+              <div className="aspect-video bg-slate-800/50 rounded-xl shadow-2xl border border-slate-700/50 flex items-center justify-center backdrop-blur-sm">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-emerald-500/20 border-2 border-emerald-400/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-10 h-10 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-slate-400 font-medium">Video Coming Soon</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-3xl md:text-4xl font-bold text-white">
+              Starting at <span className="text-emerald-400">$1,500/mo</span>
+            </div>
+
             {/* CTA */}
-            <div className="flex flex-col items-center gap-3 pt-2">
+            <div className="flex flex-col items-center gap-3">
               <button
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/30 transform hover:-translate-y-0.5 transition-all text-lg"

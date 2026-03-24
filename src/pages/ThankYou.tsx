@@ -103,13 +103,15 @@ const ThankYou = () => {
             </p>
           </div>
 
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/booking/i8xiXISvNb0Q0b3q6VeG"
-            style={{ width: "100%", minHeight: "700px", border: "none", overflow: "hidden" }}
-            scrolling="no"
-            id="i8xiXISvNb0Q0b3q6VeG_thankyou"
-            title="Book a Legal Cost Audit"
-          />
+          <div style={{ overflow: "hidden", maxHeight: "600px" }}>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/i8xiXISvNb0Q0b3q6VeG"
+              style={{ width: "100%", minHeight: "800px", border: "none", marginTop: "-120px" }}
+              scrolling="no"
+              id="i8xiXISvNb0Q0b3q6VeG_thankyou"
+              title="Book a Legal Cost Audit"
+            />
+          </div>
         </div>
 
         {/* Check Email */}

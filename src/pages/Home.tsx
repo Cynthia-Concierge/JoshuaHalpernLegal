@@ -339,7 +339,7 @@ const Home: React.FC = () => {
                   title: "Lawyer-on-Call",
                   price: "From $500/mo",
                   description: "On-demand legal counsel, monthly retainer",
-                  slug: "/services/lawyer-on-call",
+                  slug: "/lawyeroncall",
                 },
                 {
                   icon: FileText,

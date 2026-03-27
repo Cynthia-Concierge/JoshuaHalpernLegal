@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import VideoCarousel from "@/components/VideoCarousel";
 import ContactModal from "@/components/ContactModal";
 import { FORM_SUBMIT_URL } from "@/config";
 import {
@@ -407,6 +408,8 @@ const Index = () => {
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
       </section>
+
+      <VideoCarousel />
 
       {/* ── What You Get ── */}
       <section className="py-16 bg-slate-50 relative">

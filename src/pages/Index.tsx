@@ -236,7 +236,7 @@ const Index = () => {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-              Your On-Demand Lawyer - Without Paying $500/Hour
+              Your On-Demand Lawyer Without Paying $500/Hour
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">

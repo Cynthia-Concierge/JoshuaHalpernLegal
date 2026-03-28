@@ -626,7 +626,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Stop Googling Legal Questions.<br />
+              Stop Asking AI for Legal Advice.<br />
               Start Having a Lawyer on Your Team.
             </h2>
             <p className="text-lg text-slate-300 max-w-xl mx-auto">

@@ -232,15 +232,15 @@ const Index = () => {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full text-sm text-emerald-300 font-medium">
               <Zap className="w-4 h-4" />
-              For Business Owners Tired of $500/hr Legal Bills
+              For Business Owners Tired of Overpaying Lawyers
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-              Your Legal Department for a Flat Monthly Fee
+              Your On-Demand Lawyer - Without Paying $500/Hour
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">
-              Full-service legal support at a fraction of traditional law firm costs.
+              Unlimited access to experienced legal counsel - ask questions, review contracts, and get real answers whenever you need them.
             </p>
 
             {/* Trust chips */}

@@ -509,24 +509,32 @@ const Index = () => {
       </section>
 
       {/* ── Pricing ── */}
-      <section id="pricing" className="py-16 bg-white relative">
+      <section id="pricing" className="py-16 bg-slate-900 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Simple, Flat Pricing
-            </h2>
-            <p className="text-lg text-slate-500 mb-10">
-              No hourly rates. No hidden fees. No "that'll be extra." Pick your plan.
-            </p>
+            {/* Function Health-style headline */}
+            <div className="mb-12">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                What could cost you{" "}
+                <span className="relative inline-block">
+                  <span className="text-red-400 line-through decoration-2">$50,000</span>
+                </span>{" "}
+                is{" "}
+                <span className="text-emerald-400">$1,500/month</span>
+              </h2>
+              <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                One lawsuit. One contract dispute. One employee issue. That's all it takes.
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {pricingTiers.map((tier, i) => (
                 <div
                   key={i}
-                  className={`p-8 rounded-xl bg-white transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
+                  className={`p-8 rounded-xl bg-slate-800 transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
                     tier.highlighted
                       ? "border-2 border-emerald-500 shadow-lg"
-                      : "border border-slate-200 shadow-sm"
+                      : "border border-slate-700 shadow-sm"
                   }`}
                 >
                   {tier.highlighted && (
@@ -534,16 +542,16 @@ const Index = () => {
                       MOST POPULAR
                     </div>
                   )}
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">{tier.name}</h3>
-                  <p className="text-sm text-slate-500 mb-4">{tier.desc}</p>
+                  <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
+                  <p className="text-sm text-slate-400 mb-4">{tier.desc}</p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-slate-900">{tier.price}</span>
-                    <span className="text-slate-500">/mo</span>
+                    <span className="text-4xl font-bold text-white">{tier.price}</span>
+                    <span className="text-slate-400">/mo</span>
                   </div>
                   <ul className="space-y-2.5 text-left">
                     {tier.features.map((feature, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -553,12 +561,12 @@ const Index = () => {
             </div>
 
             {/* Risk Reversal */}
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 max-w-2xl mx-auto mb-8">
+            <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 max-w-2xl mx-auto mb-8">
               <div className="flex items-start gap-3">
-                <Shield className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <Shield className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <div className="text-left">
-                  <p className="font-bold text-slate-900 mb-1">Zero-Risk Guarantee</p>
-                  <p className="text-slate-600 text-sm">
+                  <p className="font-bold text-white mb-1">Zero-Risk Guarantee</p>
+                  <p className="text-slate-300 text-sm">
                     Month-to-month. No long-term contracts. No cancellation fees. If it's not working, you cancel with 30 days notice. We keep it that simple because the model works — and clients stay because of the savings, not the fine print.
                   </p>
                 </div>

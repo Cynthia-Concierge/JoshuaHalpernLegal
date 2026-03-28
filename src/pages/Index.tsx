@@ -492,7 +492,7 @@ const Index = () => {
               {[
                 "You're running a real business — not a side project, not an idea on a napkin",
                 "You have legal needs that come up regularly (contracts, hiring, compliance)",
-                "You're spending $500K+ in revenue and need strategic counsel, not templates",
+                "You're earning $500K+ in revenue and need strategic counsel, not templates",
                 "You want to be able to text your lawyer at 9pm without getting a $200 invoice for it",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200">

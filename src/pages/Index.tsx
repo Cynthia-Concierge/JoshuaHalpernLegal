@@ -381,9 +381,11 @@ const Index = () => {
             <div className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="flex-shrink-0 mx-auto md:mx-0">
-                  <div className="w-28 h-28 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-4xl font-bold">
-                    JH
-                  </div>
+                  <img
+                    src="/josh-halpern-headshot.png"
+                    alt="Josh Halpern"
+                    className="w-28 h-28 rounded-2xl object-cover"
+                  />
                 </div>
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1">

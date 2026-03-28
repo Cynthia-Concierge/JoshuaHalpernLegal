@@ -514,7 +514,7 @@ const Index = () => {
           <div className="max-w-5xl mx-auto text-center">
             {/* Function Health-style headline */}
             <div className="mb-12">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight text-center mx-auto max-w-4xl">
                 What could cost you{" "}
                 <span className="relative inline-block">
                   <span className="text-red-400 line-through decoration-2">$50,000</span>
@@ -522,7 +522,7 @@ const Index = () => {
                 is{" "}
                 <span className="text-emerald-400">$1,500/month</span>
               </h2>
-              <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+              <p className="text-lg text-slate-300 max-w-2xl mx-auto text-center">
                 One lawsuit. One contract dispute. One employee issue. That's all it takes.
               </p>
             </div>

@@ -240,7 +240,7 @@ const Index = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">
-              Unlimited access to experienced legal counsel - ask questions, review contracts, and get real answers whenever you need them.
+              Ask questions, send contracts, and get real answers in real time—without booking calls or watching the clock.
             </p>
 
             {/* Trust chips */}

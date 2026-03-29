@@ -209,7 +209,7 @@ const Index = () => {
               onClick={openModal}
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
             >
-              Apply Now
+              Get Your Free Legal Audit
             </button>
           </div>
         </div>

@@ -49,9 +49,9 @@ const Index = () => {
   ];
 
   const steps = [
-    { num: "1", title: "Book Your Free Audit", desc: "15-minute call. We review what you're currently spending on legal and where you're exposed." },
-    { num: "2", title: "Get Your Custom Plan", desc: "We'll recommend the right retainer tier based on your actual business needs. No upselling." },
-    { num: "3", title: "Start Getting Legal Done", desc: "Text, email, or call your attorney whenever you need something. Flat fee. No surprises." },
+    { num: "1", title: "Submit Your Application", desc: "Tell us about your business, revenue, and current legal needs. Takes 2 minutes." },
+    { num: "2", title: "We'll Review & Reach Out", desc: "If we're a good fit, we'll contact you within 24-48 hours to schedule a consultation call." },
+    { num: "3", title: "Start Getting Legal Done", desc: "Once onboarded, text, email, or call your attorney whenever you need something. Flat fee. No surprises." },
   ];
 
   const faqs = [
@@ -209,7 +209,7 @@ const Index = () => {
               onClick={openModal}
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
             >
-              Get Your Free Legal Audit
+              Apply Now
             </button>
           </div>
         </div>
@@ -290,10 +290,10 @@ const Index = () => {
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
               >
-                Get Your Free Legal Audit
+                Apply Now
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <p className="text-sm text-slate-500">Free 15-min call. No obligation. No credit card.</p>
+              <p className="text-sm text-slate-500">Selective client intake. Takes 2 minutes.</p>
             </div>
           </div>
         </div>
@@ -369,7 +369,7 @@ const Index = () => {
               onClick={openModal}
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
-              Get Your Free Legal Audit
+              Apply Now
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -474,13 +474,27 @@ const Index = () => {
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
               >
-                Book Your Free Audit — Step 1
+                Submit Your Application
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
+      </section>
+
+      {/* ── Why Application-Based ── */}
+      <section className="py-16 bg-brand-cream relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-brand-navy mb-3 text-center">Why We Use an Application Process</h3>
+              <p className="text-slate-600 text-center leading-relaxed">
+                This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ── Who It's For ── */}
@@ -582,7 +596,7 @@ const Index = () => {
               onClick={openModal}
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
-              Find Out Which Plan Fits Your Business
+              Apply for Service
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -633,17 +647,17 @@ const Index = () => {
               Start Having a Lawyer on Your Team.
             </h2>
             <p className="text-lg text-slate-300 max-w-xl mx-auto">
-              Book a free 15-minute Legal Cost Audit. We'll review what you're currently spending and show you exactly how much you'd save.
+              Apply for on-demand legal counsel. We work with a limited number of clients to ensure exceptional service and attention.
             </p>
             <div className="flex flex-col items-center gap-3">
               <button
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg shadow-brand-gold/25 hover:-translate-y-0.5"
               >
-                Get Your Free Legal Audit
+                Apply Now
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <p className="text-sm text-slate-500">No commitment. No credit card. Just a conversation.</p>
+              <p className="text-sm text-slate-500">Selective intake. Quality over quantity.</p>
             </div>
           </div>
         </div>
@@ -657,7 +671,7 @@ const Index = () => {
           onClick={openModal}
           className="flex items-center justify-center gap-2 w-full bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-6 rounded-xl transition-colors"
         >
-          Get Your Free Legal Audit
+          Apply Now
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>

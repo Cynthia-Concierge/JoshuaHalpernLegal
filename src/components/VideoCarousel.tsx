@@ -198,7 +198,7 @@ const VideoCarousel: React.FC = () => {
               <span className="inline-block py-1.5 px-4 rounded-full bg-rose-50 text-rose-600 text-xs font-bold uppercase tracking-widest mb-4">
                 Social Media
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-navy tracking-tight">
                 Get to Know Legal Halp
               </h2>
               <p className="text-slate-500 text-lg mt-2">

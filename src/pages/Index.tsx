@@ -313,11 +313,11 @@ const Index = () => {
               {painPoints.map((point, i) => {
                 const Icon = point.icon;
                 return (
-                  <div key={i} className="flex items-center justify-center gap-4 p-5 bg-red-50/60 border border-red-100 rounded-xl">
+                  <div key={i} className="flex flex-col items-center justify-center gap-3 p-6 bg-red-50/60 border border-red-100 rounded-xl">
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-slate-800 font-medium text-lg leading-snug text-center flex-1">{point.text}</span>
+                    <span className="text-slate-800 font-medium text-lg leading-snug text-center">{point.text}</span>
                   </div>
                 );
               })}

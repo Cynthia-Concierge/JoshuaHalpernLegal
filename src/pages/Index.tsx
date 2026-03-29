@@ -295,14 +295,14 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent z-10" />
       </section>
 
       {/* ── Pain Points ── */}
       <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center tracking-tight">
               Sound Familiar?
             </h2>
             <p className="text-lg text-slate-500 text-center mb-10">
@@ -337,10 +337,10 @@ const Index = () => {
       </section>
 
       {/* ── Solution Intro ── */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
               What If Your Lawyer Worked <span className="text-emerald-600">For</span> You — Not Against Your Budget?
             </h2>
             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
@@ -414,10 +414,10 @@ const Index = () => {
       <VideoCarousel />
 
       {/* ── What You Get ── */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center tracking-tight">
               Everything Your Business Needs. One Fee.
             </h2>
             <p className="text-lg text-slate-500 text-center mb-10">
@@ -448,7 +448,7 @@ const Index = () => {
       <section id="how-it-works" className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 tracking-tight">
               Three Steps. That's It.
             </h2>
 
@@ -481,10 +481,10 @@ const Index = () => {
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 tracking-tight">
               Built For Business Owners Who Are Done Overpaying
             </h2>
 
@@ -588,10 +588,10 @@ const Index = () => {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 bg-white relative">
+      <section id="faq" className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center tracking-tight">
               Questions? Answers.
             </h2>
             <div className="space-y-3">
@@ -625,7 +625,7 @@ const Index = () => {
       <section className="py-20 bg-slate-900 text-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               Stop Asking AI for Legal Advice.<br />
               Start Having a Lawyer on Your Team.
             </h2>

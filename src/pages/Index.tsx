@@ -299,7 +299,7 @@ const Index = () => {
       </section>
 
       {/* ── Pain Points ── */}
-      <section className="py-16 bg-white relative">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center">
@@ -337,7 +337,7 @@ const Index = () => {
       </section>
 
       {/* ── Solution Intro ── */}
-      <section className="py-16 bg-slate-50 relative">
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -375,10 +375,10 @@ const Index = () => {
       </section>
 
       {/* ── Meet Josh ── */}
-      <section className="py-16 bg-white relative">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
+            <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="flex-shrink-0 mx-auto md:mx-0">
                   <img
@@ -414,7 +414,7 @@ const Index = () => {
       <VideoCarousel />
 
       {/* ── What You Get ── */}
-      <section className="py-16 bg-slate-50 relative">
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center">
@@ -445,7 +445,7 @@ const Index = () => {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="py-16 bg-white relative">
+      <section id="how-it-works" className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
@@ -481,7 +481,7 @@ const Index = () => {
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="py-16 bg-slate-50 relative">
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
@@ -511,7 +511,7 @@ const Index = () => {
       </section>
 
       {/* ── Pricing ── */}
-      <section id="pricing" className="py-16 bg-slate-900 relative">
+      <section id="pricing" className="py-20 bg-slate-900 relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             {/* Function Health-style headline */}
@@ -588,7 +588,7 @@ const Index = () => {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-16 bg-slate-50 relative">
+      <section id="faq" className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">

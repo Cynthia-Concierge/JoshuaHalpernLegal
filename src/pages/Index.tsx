@@ -191,20 +191,20 @@ const Index = () => {
             </button>
 
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">
+              <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
                 How It Works
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">
+              <button onClick={() => scrollToSection('pricing')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
                 Pricing
               </button>
-              <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">
+              <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
                 FAQ
               </button>
             </div>
 
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
             >
               Apply Now
             </button>
@@ -213,8 +213,8 @@ const Index = () => {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-brand-navy">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-navy-dark to-brand-navy z-0" />
         <div
           className="absolute inset-0 z-0 opacity-[0.04]"
           style={{
@@ -223,14 +223,14 @@ const Index = () => {
           }}
         />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-emerald-500/8 rounded-full filter blur-[120px]" />
-          <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-emerald-400/6 rounded-full filter blur-[100px]" />
+          <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-brand-gold/8 rounded-full filter blur-[120px]" />
+          <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-brand-gold/6 rounded-full filter blur-[100px]" />
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full text-sm text-emerald-300 font-medium">
+            <div className="inline-flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/20 px-4 py-1.5 rounded-full text-sm text-brand-gold font-medium">
               <Zap className="w-4 h-4" />
               For Business Owners Tired of Overpaying Lawyers
             </div>
@@ -246,29 +246,29 @@ const Index = () => {
             {/* Trust chips */}
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400">
               <div className="flex items-center gap-1.5">
-                <GraduationCap className="w-4 h-4 text-emerald-400" />
+                <GraduationCap className="w-4 h-4 text-brand-gold" />
                 <span>Former BigLaw Attorney</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Scale className="w-4 h-4 text-emerald-400" />
+                <Scale className="w-4 h-4 text-brand-gold" />
                 <span>10+ Years Experience</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-emerald-400" />
+                <Shield className="w-4 h-4 text-brand-gold" />
                 <span>All 50 States</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-emerald-400" />
+                <Star className="w-4 h-4 text-brand-gold" />
                 <span>Month-to-Month</span>
               </div>
             </div>
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto">
-              <div className="aspect-video bg-slate-800/50 rounded-xl shadow-2xl border border-slate-700/50 flex items-center justify-center backdrop-blur-sm">
+              <div className="aspect-video bg-brand-navy-dark/50 rounded-xl shadow-2xl border border-brand-navy-darker/50 flex items-center justify-center backdrop-blur-sm">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-emerald-500/20 border-2 border-emerald-400/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-10 h-10 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-brand-gold/20 border-2 border-brand-gold/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-10 h-10 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
@@ -278,14 +278,14 @@ const Index = () => {
             </div>
 
             <div className="text-3xl md:text-4xl font-bold text-white">
-              Starting at <span className="text-emerald-400">$1,500/mo</span>
+              Starting at <span className="text-brand-gold">$1,500/mo</span>
             </div>
 
             {/* CTA */}
             <div className="flex flex-col items-center gap-3">
               <button
                 onClick={openModal}
-                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/30 transform hover:-translate-y-0.5 transition-all text-lg"
+                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
               >
                 Get Your Free Legal Audit
                 <ArrowRight className="w-5 h-5" />
@@ -295,14 +295,14 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brand-cream to-transparent z-10" />
       </section>
 
       {/* ── Pain Points ── */}
-      <section className="py-20 bg-slate-50 relative">
+      <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-3 text-center tracking-tight">
               Sound Familiar?
             </h2>
             <p className="text-lg text-slate-500 text-center mb-10">
@@ -317,14 +317,14 @@ const Index = () => {
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-slate-800 font-medium text-lg leading-snug text-center">{point.text}</span>
+                    <span className="text-brand-navy-dark font-medium text-lg leading-snug text-center">{point.text}</span>
                   </div>
                 );
               })}
             </div>
 
             <div className="text-center mt-10">
-              <p className="text-xl font-bold text-slate-900 mb-1">
+              <p className="text-xl font-bold text-brand-navy mb-1">
                 The hourly billing model is designed to make your lawyer rich.
               </p>
               <p className="text-lg text-slate-600">
@@ -333,15 +333,15 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── Solution Intro ── */}
-      <section className="py-20 bg-slate-50 relative">
+      <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-              What If Your Lawyer Worked <span className="text-emerald-600">For</span> You — Not Against Your Budget?
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4 tracking-tight">
+              What If Your Lawyer Worked <span className="text-brand-gold-dark">For</span> You — Not Against Your Budget?
             </h2>
             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
               Legal Halp gives you a dedicated business attorney for a flat monthly fee. You text, email, or call when you need something. We handle it. No timers. No invoices for "reviewing your email."
@@ -349,33 +349,33 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">60%</div>
+                <div className="text-3xl font-bold text-brand-gold-dark mb-1">60%</div>
                 <div className="text-sm text-slate-600 font-medium">Less than hourly billing</div>
               </div>
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">24hr</div>
+                <div className="text-3xl font-bold text-brand-gold-dark mb-1">24hr</div>
                 <div className="text-sm text-slate-600 font-medium">Max response time</div>
               </div>
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-bold text-emerald-600 mb-1">$0</div>
+                <div className="text-3xl font-bold text-brand-gold-dark mb-1">$0</div>
                 <div className="text-sm text-slate-600 font-medium">Surprise invoices</div>
               </div>
             </div>
 
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
               Get Your Free Legal Audit
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── Meet Josh ── */}
-      <section className="py-20 bg-slate-50 relative">
+      <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
@@ -388,18 +388,18 @@ const Index = () => {
                   />
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1">
+                  <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-1">
                     Meet Josh Halpern
                   </h2>
-                  <p className="text-emerald-600 font-semibold mb-4">Founder, Legal Halp</p>
-                  <div className="space-y-3 text-slate-700 leading-relaxed">
+                  <p className="text-brand-gold-dark font-semibold mb-4">Founder, Legal Halp</p>
+                  <div className="space-y-3 text-brand-navy-darker leading-relaxed">
                     <p>
                       I spent years at a BigLaw firm watching business owners get billed into oblivion for straightforward legal work. A contract review shouldn't cost $3,000. A quick legal question shouldn't come with a $500 invoice.
                     </p>
                     <p>
                       I built Legal Halp to fix that. Same quality legal work. Same licensed attorney. But instead of an hourly meter, you pay one flat monthly fee — and you can actually <strong>use</strong> your lawyer without worrying about the bill.
                     </p>
-                    <p className="font-semibold text-slate-900">
+                    <p className="font-semibold text-brand-navy">
                       Every piece of work is personally handled by me. Not a paralegal. Not a chatbot. Not an AI. Me.
                     </p>
                   </div>
@@ -408,16 +408,16 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       <VideoCarousel />
 
       {/* ── What You Get ── */}
-      <section className="py-20 bg-slate-50 relative">
+      <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 text-center tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-3 text-center tracking-tight">
               Everything Your Business Needs. One Fee.
             </h2>
             <p className="text-lg text-slate-500 text-center mb-10">
@@ -429,10 +429,10 @@ const Index = () => {
                 return (
                   <div key={i} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-50 text-brand-gold-dark flex items-center justify-center">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="font-bold text-slate-900">{item.title}</h3>
+                      <h3 className="font-bold text-brand-navy">{item.title}</h3>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed pl-[52px]">{item.desc}</p>
                   </div>
@@ -441,25 +441,25 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="py-20 bg-slate-50 relative">
+      <section id="how-it-works" className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-10 tracking-tight">
               Three Steps. That's It.
             </h2>
 
             <div className="space-y-6">
               {steps.map((step, i) => (
                 <div key={i} className="flex items-start gap-5 text-left">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-emerald-500/25">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-gold text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-brand-gold/25">
                     {step.num}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-1">{step.title}</h3>
+                    <h3 className="text-xl font-bold text-brand-navy mb-1">{step.title}</h3>
                     <p className="text-slate-600">{step.desc}</p>
                   </div>
                 </div>
@@ -469,7 +469,7 @@ const Index = () => {
             <div className="mt-10">
               <button
                 onClick={openModal}
-                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
               >
                 Book Your Free Audit — Step 1
                 <ArrowRight className="w-5 h-5" />
@@ -477,14 +477,14 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="py-20 bg-slate-50 relative">
+      <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-8 tracking-tight">
               Built For Business Owners Who Are Done Overpaying
             </h2>
 
@@ -496,8 +496,8 @@ const Index = () => {
                 "You want to be able to text your lawyer at 9pm without getting a $200 invoice for it",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-700 font-medium">{item}</span>
+                  <CheckCircle2 className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
+                  <span className="text-brand-navy-darker font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -507,11 +507,11 @@ const Index = () => {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── Pricing ── */}
-      <section id="pricing" className="py-20 bg-slate-900 relative">
+      <section id="pricing" className="py-20 bg-brand-navy relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             {/* Function Health-style headline */}
@@ -522,7 +522,7 @@ const Index = () => {
                   <span className="text-red-400 line-through decoration-2">$50,000</span>
                 </span>{" "}
                 is{" "}
-                <span className="text-emerald-400">$1,500/month</span>
+                <span className="text-brand-gold">$1,500/month</span>
               </h2>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto text-center">
                 One lawsuit. One contract dispute. One employee issue. That's all it takes.
@@ -533,14 +533,14 @@ const Index = () => {
               {pricingTiers.map((tier, i) => (
                 <div
                   key={i}
-                  className={`p-8 rounded-xl bg-slate-800 transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
+                  className={`p-8 rounded-xl bg-brand-navy-dark transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
                     tier.highlighted
-                      ? "border-2 border-emerald-500 shadow-lg"
-                      : "border border-slate-700 shadow-sm"
+                      ? "border-2 border-brand-gold shadow-lg"
+                      : "border border-brand-navy-darker shadow-sm"
                   }`}
                 >
                   {tier.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-white text-xs font-bold px-4 py-1 rounded-full">
                       MOST POPULAR
                     </div>
                   )}
@@ -553,7 +553,7 @@ const Index = () => {
                   <ul className="space-y-2.5 text-left">
                     {tier.features.map((feature, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -563,9 +563,9 @@ const Index = () => {
             </div>
 
             {/* Risk Reversal */}
-            <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 max-w-2xl mx-auto mb-8">
+            <div className="bg-brand-gold/10 border border-brand-gold/30 rounded-xl p-6 max-w-2xl mx-auto mb-8">
               <div className="flex items-start gap-3">
-                <Shield className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <Shield className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
                 <div className="text-left">
                   <p className="font-bold text-white mb-1">Zero-Risk Guarantee</p>
                   <p className="text-slate-300 text-sm">
@@ -577,21 +577,21 @@ const Index = () => {
 
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
               Find Out Which Plan Fits Your Business
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 bg-slate-50 relative">
+      <section id="faq" className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-10 text-center tracking-tight">
               Questions? Answers.
             </h2>
             <div className="space-y-3">
@@ -599,9 +599,9 @@ const Index = () => {
                 <div key={index} className="border border-slate-200 rounded-xl overflow-hidden bg-white">
                   <button
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-brand-cream transition-colors"
                   >
-                    <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                    <span className="font-semibold text-brand-navy pr-4">{faq.question}</span>
                     {openFaqIndex === index ? (
                       <ChevronUp className="w-5 h-5 text-slate-400 flex-shrink-0" />
                     ) : (
@@ -618,11 +618,11 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-20 bg-slate-900 text-white">
+      <section className="py-20 bg-brand-navy text-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
@@ -635,7 +635,7 @@ const Index = () => {
             <div className="flex flex-col items-center gap-3">
               <button
                 onClick={openModal}
-                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg shadow-brand-gold/25 hover:-translate-y-0.5"
               >
                 Get Your Free Legal Audit
                 <ArrowRight className="w-5 h-5" />
@@ -652,7 +652,7 @@ const Index = () => {
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-white/95 backdrop-blur-sm border-t border-slate-200 shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
         <button
           onClick={openModal}
-          className="flex items-center justify-center gap-2 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl transition-colors"
+          className="flex items-center justify-center gap-2 w-full bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-6 rounded-xl transition-colors"
         >
           Get Your Free Legal Audit
           <ArrowRight className="w-5 h-5" />

@@ -191,6 +191,9 @@ const Index = () => {
             </button>
 
             <div className="hidden md:flex items-center gap-8">
+              <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
+                About Us
+              </button>
               <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
                 How It Works
               </button>
@@ -375,7 +378,7 @@ const Index = () => {
       </section>
 
       {/* ── Meet Josh ── */}
-      <section className="py-20 bg-brand-cream relative">
+      <section id="about" className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">

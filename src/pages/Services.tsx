@@ -527,7 +527,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     packages: [
       {
         name: "Lawyer-on-Call Retainer",
-        price: "From $500/mo",
+        price: "From $1,500/mo",
         whoItsFor:
           "Business owners and founders who want ongoing, on-demand access to a real attorney without paying hourly rates or hiring in-house counsel.",
         includes: [

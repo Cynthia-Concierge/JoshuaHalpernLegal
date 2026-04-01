@@ -228,19 +228,7 @@ const Index = () => {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-brand-navy">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-navy-dark to-brand-navy z-0" />
-        <div
-          className="absolute inset-0 z-0 opacity-[0.04]"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-brand-gold/8 rounded-full filter blur-[120px]" />
-          <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-brand-gold/6 rounded-full filter blur-[100px]" />
-        </div>
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-white">
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
@@ -250,16 +238,16 @@ const Index = () => {
               For Business Owners Tired of Overpaying Lawyers
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-navy leading-tight tracking-tight">
               Your On-Demand Lawyer Without Paying $500/Hour
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">
               Ask questions, review contracts, and get real answers in real time—without booking calls or watching the clock.
             </p>
 
             {/* Trust chips */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="w-4 h-4 text-brand-gold" />
                 <span>Former BigLaw Attorney</span>
@@ -280,19 +268,19 @@ const Index = () => {
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto">
-              <div className="aspect-video bg-brand-navy-dark/50 rounded-xl shadow-2xl border border-brand-navy-darker/50 flex items-center justify-center backdrop-blur-sm">
+              <div className="aspect-video bg-slate-100 rounded-xl shadow-xl border border-slate-200 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 bg-brand-gold/20 border-2 border-brand-gold/50 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-10 h-10 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
-                  <p className="text-slate-400 font-medium">Video Coming Soon</p>
+                  <p className="text-slate-500 font-medium">Video Coming Soon</p>
                 </div>
               </div>
             </div>
 
-            <div className="text-3xl md:text-4xl font-bold text-white">
+            <div className="text-3xl md:text-4xl font-bold text-brand-navy">
               Starting at <span className="text-brand-gold">$1,500/mo</span>
             </div>
 
@@ -309,8 +297,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brand-cream to-transparent z-10" />
       </section>
 
       {/* ── Pain Points ── */}
@@ -540,12 +526,12 @@ const Index = () => {
       </section>
 
       {/* ── Pricing ── */}
-      <section id="pricing" className="py-20 bg-brand-navy relative">
+      <section id="pricing" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             {/* Function Health-style headline */}
             <div className="mb-12">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight text-center mx-auto max-w-4xl">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight text-center mx-auto max-w-4xl">
                 What could cost you{" "}
                 <span className="relative inline-block">
                   <span className="text-red-400 line-through decoration-2">$50,000</span>
@@ -553,7 +539,7 @@ const Index = () => {
                 is{" "}
                 <span className="text-brand-gold">$1,500/month</span>
               </h2>
-              <p className="text-lg text-slate-300 max-w-2xl mx-auto text-center">
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto text-center">
                 One lawsuit. One contract dispute. One employee issue. That's all it takes.
               </p>
             </div>
@@ -562,10 +548,10 @@ const Index = () => {
               {pricingTiers.map((tier, i) => (
                 <div
                   key={i}
-                  className={`p-8 rounded-xl bg-brand-navy-dark transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
+                  className={`p-8 rounded-xl bg-white transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
                     tier.highlighted
                       ? "border-2 border-brand-gold shadow-lg"
-                      : "border border-brand-navy-darker shadow-sm"
+                      : "border border-slate-200 shadow-sm"
                   }`}
                 >
                   {tier.highlighted && (
@@ -573,15 +559,15 @@ const Index = () => {
                       MOST POPULAR
                     </div>
                   )}
-                  <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
-                  <p className="text-sm text-slate-400 mb-4">{tier.desc}</p>
+                  <h3 className="text-xl font-bold text-brand-navy mb-1">{tier.name}</h3>
+                  <p className="text-sm text-slate-600 mb-4">{tier.desc}</p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-white">{tier.price}</span>
-                    <span className="text-slate-400">/mo</span>
+                    <span className="text-4xl font-bold text-brand-navy">{tier.price}</span>
+                    <span className="text-slate-600">/mo</span>
                   </div>
                   <ul className="space-y-2.5 text-left">
                     {tier.features.map((feature, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
+                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
                         <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
@@ -592,12 +578,12 @@ const Index = () => {
             </div>
 
             {/* Risk Reversal */}
-            <div className="bg-brand-gold/10 border border-brand-gold/30 rounded-xl p-6 max-w-2xl mx-auto mb-8">
+            <div className="bg-brand-cream border border-slate-200 rounded-xl p-6 max-w-2xl mx-auto mb-8">
               <div className="flex items-start gap-3">
                 <Shield className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
                 <div className="text-left">
-                  <p className="font-bold text-white mb-1">Zero-Risk Guarantee</p>
-                  <p className="text-slate-300 text-sm">
+                  <p className="font-bold text-brand-navy mb-1">Zero-Risk Guarantee</p>
+                  <p className="text-slate-700 text-sm">
                     Month-to-month. No long-term contracts. No cancellation fees. If it's not working, you cancel with 30 days notice. We keep it that simple because the model works — and clients stay because of the savings, not the fine print.
                   </p>
                 </div>
@@ -613,7 +599,6 @@ const Index = () => {
             </button>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── FAQ ── */}
@@ -756,20 +741,20 @@ const Index = () => {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-20 bg-brand-navy text-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy">
               Stop Asking AI for Legal Advice.<br />
               Start Having a Lawyer on Your Team.
             </h2>
-            <p className="text-lg text-slate-300 max-w-xl mx-auto">
+            <p className="text-lg text-slate-600 max-w-xl mx-auto">
               Apply for on-demand legal counsel. We work with a limited number of clients to ensure exceptional service and attention.
             </p>
             <div className="flex flex-col items-center gap-3">
               <button
                 onClick={openModal}
-                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg shadow-brand-gold/25 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5"
               >
                 Apply Now
                 <ArrowRight className="w-5 h-5" />

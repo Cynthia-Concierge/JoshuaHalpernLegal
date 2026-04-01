@@ -424,43 +424,6 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
-      {/* ── Meet Josh ── */}
-      <section id="about" className="py-20 bg-brand-cream relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="flex-shrink-0 mx-auto md:mx-0">
-                  <img
-                    src="/josh-halpern-headshot.png"
-                    alt="Josh Halpern"
-                    className="w-28 h-28 rounded-2xl object-cover"
-                  />
-                </div>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-1">
-                    Meet Josh Halpern
-                  </h2>
-                  <p className="text-brand-gold-dark font-semibold mb-4">Founder, Legal Halp</p>
-                  <div className="space-y-3 text-brand-navy-darker leading-relaxed">
-                    <p>
-                      I spent years at a BigLaw firm watching business owners get billed into oblivion for straightforward legal work. A contract review shouldn't cost $3,000. A quick legal question shouldn't come with a $500 invoice.
-                    </p>
-                    <p>
-                      I built Legal Halp to fix that. Same quality legal work. Same licensed attorney. But instead of an hourly meter, you pay one flat monthly fee — and you can actually <strong>use</strong> your lawyer without worrying about the bill.
-                    </p>
-                    <p className="font-semibold text-brand-navy">
-                      Every piece of work is personally handled by me. Not a paralegal. Not a chatbot. Not an AI. Me.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
-      </section>
-
       <VideoCarousel />
 
       {/* ── What You Get ── */}

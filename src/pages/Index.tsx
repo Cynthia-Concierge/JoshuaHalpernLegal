@@ -327,15 +327,17 @@ const Index = () => {
               If any of this hits home, you're not alone — and there's a better way.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-6">
               {painPoints.map((point, i) => {
                 const Icon = point.icon;
                 return (
-                  <div key={i} className="flex items-start gap-4 p-5 bg-white border border-red-100 rounded-lg shadow-sm">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mt-0.5">
-                      <Icon className="w-5 h-5" />
+                  <div key={i} className="text-center py-8 px-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center">
+                        <Icon className="w-7 h-7" />
+                      </div>
                     </div>
-                    <span className="text-brand-navy-dark font-medium text-base leading-relaxed pt-1.5">{point.text}</span>
+                    <p className="text-brand-navy text-xl md:text-2xl font-bold leading-snug">{point.text}</p>
                   </div>
                 );
               })}

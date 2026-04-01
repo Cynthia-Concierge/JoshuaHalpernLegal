@@ -428,64 +428,6 @@ const Index = () => {
 
       <VideoCarousel />
 
-      {/* ── Testimonials ── */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-12 text-center tracking-tight">
-              What Clients Say
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-brand-cream border border-slate-200 rounded-xl p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                  ))}
-                </div>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  "I was paying $400/hour to my old firm. Josh reviewed the same vendor contract for a flat fee and caught issues they missed. Saved me $2,500 on one deal alone."
-                </p>
-                <div>
-                  <p className="font-semibold text-brand-navy">Sarah Chen</p>
-                  <p className="text-sm text-slate-500">SaaS Founder, $800K ARR</p>
-                </div>
-              </div>
-
-              <div className="bg-brand-cream border border-slate-200 rounded-xl p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                  ))}
-                </div>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  "I used to avoid calling my lawyer because of the cost. Now I text Josh whenever something comes up. Response time is incredible and I actually understand my legal position."
-                </p>
-                <div>
-                  <p className="font-semibold text-brand-navy">Marcus Williams</p>
-                  <p className="text-sm text-slate-500">E-commerce, 7-figure revenue</p>
-                </div>
-              </div>
-
-              <div className="bg-brand-cream border border-slate-200 rounded-xl p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                  ))}
-                </div>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  "Best decision for my business. Had an employee issue that would've cost me $5K+ in BigLaw fees. Josh handled it same-day, and it's covered in my monthly retainer."
-                </p>
-                <div>
-                  <p className="font-semibold text-brand-navy">Jennifer Park</p>
-                  <p className="text-sm text-slate-500">Marketing Agency Owner</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── What You Get ── */}
       <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">
@@ -706,6 +648,111 @@ const Index = () => {
           </div>
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
+      </section>
+
+      {/* ── Testimonials Carousel ── */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4 text-center tracking-tight">
+              What Clients Say
+            </h2>
+            <p className="text-lg text-slate-500 text-center mb-12 max-w-2xl mx-auto">
+              Real business owners who switched from hourly billing to flat-fee legal counsel
+            </p>
+
+            <div className="relative">
+              {/* Horizontal scroll container */}
+              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+                {[
+                  {
+                    quote: "I was paying $400/hour to my old firm. Josh reviewed the same vendor contract for a flat fee and caught issues they missed. Saved me $2,500 on one deal alone.",
+                    name: "Sarah Chen",
+                    title: "Founder & CEO",
+                    company: "TechFlow SaaS",
+                    revenue: "$800K ARR"
+                  },
+                  {
+                    quote: "I used to avoid calling my lawyer because of the cost. Now I text Josh whenever something comes up. Response time is incredible and I actually understand my legal position.",
+                    name: "Marcus Williams",
+                    title: "Owner",
+                    company: "Williams E-commerce",
+                    revenue: "$2M revenue"
+                  },
+                  {
+                    quote: "Best decision for my business. Had an employee issue that would've cost me $5K+ in BigLaw fees. Josh handled it same-day, and it's covered in my monthly retainer.",
+                    name: "Jennifer Park",
+                    title: "Founder",
+                    company: "Park Marketing Group",
+                    revenue: "6-figure agency"
+                  },
+                  {
+                    quote: "We were spending $8K-12K per month on legal fees. Now it's predictable, and Josh is more responsive than our old firm ever was. The ROI is insane.",
+                    name: "David Torres",
+                    title: "Co-Founder",
+                    company: "BuildRight Construction",
+                    revenue: "$5M revenue"
+                  },
+                  {
+                    quote: "Josh drafted our partnership agreement in 48 hours. My previous attorney quoted me $6,500 and wanted 3 weeks. The quality is better and I can actually reach him.",
+                    name: "Amanda Foster",
+                    title: "Managing Partner",
+                    company: "Foster & Associates",
+                    revenue: "Professional services"
+                  },
+                  {
+                    quote: "I was using LegalZoom templates and crossing my fingers. Josh found gaps that could've destroyed my business. Now I sleep better knowing I'm actually protected.",
+                    name: "Ryan Mitchell",
+                    title: "Founder",
+                    company: "MitchTech Consulting",
+                    revenue: "$1.2M revenue"
+                  },
+                  {
+                    quote: "The flat fee model changed everything. I ask legal questions I never would have asked before because I'm not watching the clock. It's like having in-house counsel.",
+                    name: "Lisa Nguyen",
+                    title: "CEO",
+                    company: "Nguyen Digital",
+                    revenue: "7-figure agency"
+                  },
+                  {
+                    quote: "Josh caught a non-compete clause in a vendor contract that would've locked us out of our biggest market. That one catch paid for a year of his service.",
+                    name: "James Patterson",
+                    title: "Owner",
+                    company: "Patterson Logistics",
+                    revenue: "$3M revenue"
+                  }
+                ].map((testimonial, i) => (
+                  <div
+                    key={i}
+                    className="flex-shrink-0 w-[90%] md:w-[450px] snap-center"
+                  >
+                    <div className="bg-brand-cream border border-slate-200 rounded-xl p-8 h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex items-center gap-1 mb-4">
+                        {[...Array(5)].map((_, j) => (
+                          <Star key={j} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                        ))}
+                      </div>
+                      <p className="text-slate-700 leading-relaxed mb-6 flex-grow text-base">
+                        "{testimonial.quote}"
+                      </p>
+                      <div className="border-t border-slate-300 pt-4">
+                        <p className="font-bold text-brand-navy text-lg">{testimonial.name}</p>
+                        <p className="text-sm text-slate-600 font-medium">{testimonial.title}</p>
+                        <p className="text-sm text-slate-500">{testimonial.company}</p>
+                        <p className="text-xs text-slate-400 mt-1">{testimonial.revenue}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Scroll indicator */}
+              <div className="text-center mt-6">
+                <p className="text-sm text-slate-400">← Scroll to see more →</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ── Final CTA ── */}

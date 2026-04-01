@@ -19,9 +19,9 @@ export default {
 				brand: {
 					gold: "#F5A623",
 					"gold-dark": "#D18D1A",
-					navy: "#1E3A5F",
-					"navy-dark": "#172F4F",
-					"navy-darker": "#0F2440",
+					navy: "#2C5F8D",
+					"navy-dark": "#1E4A6F",
+					"navy-darker": "#163A58",
 					cream: "#FDFBF7",
 					"cream-dark": "#F5F1E8",
 				},

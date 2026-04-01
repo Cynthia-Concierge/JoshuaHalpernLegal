@@ -5,8 +5,10 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-800 text-slate-400 py-12 border-t border-slate-600">
       <div className="container mx-auto px-4 text-center">
-        <div className="flex flex-col items-center mb-8">
-          <img src="/logo.png" alt="Legal Halp" className="h-10" />
+        <div className="flex justify-center mb-6">
+          <div className="w-14 h-14 bg-gradient-to-br from-brand-gold to-brand-gold-dark rounded-lg flex items-center justify-center">
+            <span className="text-white font-black text-2xl">H</span>
+          </div>
         </div>
 
         <div className="flex justify-center gap-6 mb-8 text-sm">

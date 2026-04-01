@@ -491,7 +491,7 @@ All colors MUST be HSL.
   .pain-circle {
     position: relative;
     padding: 0 8px;
-    color: #DC2626;
+    color: #D18D1A;
     font-weight: 800;
   }
 
@@ -502,15 +502,15 @@ All colors MUST be HSL.
     left: -4px;
     right: -4px;
     bottom: -6px;
-    border: 3px solid #DC2626;
+    border: 3px solid #D18D1A;
     border-radius: 50% / 60%;
     transform: rotate(-2deg);
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .pain-underline {
     position: relative;
-    color: #DC2626;
+    color: #D18D1A;
     font-weight: 800;
     padding: 0 4px;
   }
@@ -522,14 +522,14 @@ All colors MUST be HSL.
     left: 0;
     right: 0;
     height: 4px;
-    background: #DC2626;
+    background: #D18D1A;
     transform: skewX(-2deg);
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .pain-strike {
     position: relative;
-    color: #DC2626;
+    color: #D18D1A;
     font-weight: 800;
     padding: 0 4px;
   }
@@ -541,8 +541,8 @@ All colors MUST be HSL.
     left: -2px;
     right: -2px;
     height: 4px;
-    background: #DC2626;
+    background: #D18D1A;
     transform: translateY(-50%) rotate(-1deg);
-    opacity: 0.8;
+    opacity: 0.9;
   }
 }

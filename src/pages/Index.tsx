@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
@@ -23,14 +23,31 @@ import {
   Scale,
   GraduationCap,
   Star,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   const openModal = () => setIsModalOpen(true);
+
+  const scrollTestimonials = (direction: 'left' | 'right') => {
+    if (testimonialScrollRef.current) {
+      const scrollAmount = 470; // Card width (450px) + gap (20px)
+      const newPosition = direction === 'left'
+        ? testimonialScrollRef.current.scrollLeft - scrollAmount
+        : testimonialScrollRef.current.scrollLeft + scrollAmount;
+
+      testimonialScrollRef.current.scrollTo({
+        left: newPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const whatYouGet = [
     { icon: FileCheck, title: "Contracts & Agreements", desc: "Drafting, reviewing, and negotiating vendor agreements, client contracts, NDAs, and partnership deals" },
@@ -647,8 +664,26 @@ const Index = () => {
             </p>
 
             <div className="relative">
+              {/* Left scroll button */}
+              <button
+                onClick={() => scrollTestimonials('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white border border-slate-200 rounded-full p-3 shadow-lg transition-all hover:shadow-xl hover:-translate-x-1"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-6 h-6 text-slate-700" />
+              </button>
+
+              {/* Right scroll button */}
+              <button
+                onClick={() => scrollTestimonials('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white border border-slate-200 rounded-full p-3 shadow-lg transition-all hover:shadow-xl hover:translate-x-1"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-6 h-6 text-slate-700" />
+              </button>
+
               {/* Horizontal scroll container */}
-              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+              <div ref={testimonialScrollRef} className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-12">
                 {[
                   {
                     quote: "I was paying $400/hour to my old firm. Josh reviewed the same vendor contract for a flat fee and caught issues they missed. Saved me $2,500 on one deal alone.",
@@ -729,11 +764,6 @@ const Index = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Scroll indicator */}
-              <div className="text-center mt-6">
-                <p className="text-sm text-slate-400">← Scroll to see more →</p>
               </div>
             </div>
           </div>

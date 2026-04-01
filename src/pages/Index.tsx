@@ -302,7 +302,7 @@ const Index = () => {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col items-center gap-6">
               <button
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
@@ -310,7 +310,16 @@ const Index = () => {
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <p className="text-sm text-slate-500">Selective client intake. Takes 2 minutes.</p>
+
+              {/* Why Application-Based */}
+              <div className="max-w-2xl mx-auto w-full">
+                <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
+                  <p className="text-slate-600 text-center leading-relaxed text-sm">
+                    This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -498,20 +507,6 @@ const Index = () => {
           </div>
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
-      </section>
-
-      {/* ── Why Application-Based ── */}
-      <section className="py-16 bg-brand-cream relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-8">
-              <h3 className="text-xl font-bold text-brand-navy mb-3 text-center">Why We Use an Application Process</h3>
-              <p className="text-slate-600 text-center leading-relaxed">
-                This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* ── Who It's For ── */}

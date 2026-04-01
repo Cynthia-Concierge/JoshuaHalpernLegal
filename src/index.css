@@ -486,4 +486,63 @@ All colors MUST be HSL.
   .animate-emerald-glow {
     animation: emerald-glow 3s ease-in-out infinite;
   }
+
+  /* Hand-drawn style pain point annotations */
+  .pain-circle {
+    position: relative;
+    padding: 0 8px;
+    color: #DC2626;
+    font-weight: 800;
+  }
+
+  .pain-circle::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    right: -4px;
+    bottom: -6px;
+    border: 3px solid #DC2626;
+    border-radius: 50% / 60%;
+    transform: rotate(-2deg);
+    opacity: 0.7;
+  }
+
+  .pain-underline {
+    position: relative;
+    color: #DC2626;
+    font-weight: 800;
+    padding: 0 4px;
+  }
+
+  .pain-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #DC2626;
+    transform: skewX(-2deg);
+    opacity: 0.7;
+  }
+
+  .pain-strike {
+    position: relative;
+    color: #DC2626;
+    font-weight: 800;
+    padding: 0 4px;
+  }
+
+  .pain-strike::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    right: -2px;
+    height: 4px;
+    background: #DC2626;
+    transform: translateY(-50%) rotate(-1deg);
+    opacity: 0.8;
+  }
 }

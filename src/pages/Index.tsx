@@ -59,10 +59,29 @@ const Index = () => {
   ];
 
   const painPoints = [
-    { icon: DollarSign, text: "You got a $4,000 invoice for a contract review that took 2 hours" },
-    { icon: Clock, text: "You waited 3 weeks for your lawyer to return a simple email" },
-    { icon: AlertCircle, text: "You skipped legal review on a deal because you couldn't afford the hourly rate" },
-    { icon: Scale, text: "You're using Google and ChatGPT for legal questions because real lawyers are too expensive" },
+    {
+      text: "You got a $4,000 invoice for a contract review that took ",
+      highlight: "2 hours",
+      highlightType: "circle" as const
+    },
+    {
+      text: "You waited ",
+      highlight: "3 weeks",
+      highlightType: "underline" as const,
+      textAfter: " for your lawyer to return a simple email"
+    },
+    {
+      text: "You ",
+      highlight: "skipped legal review",
+      highlightType: "strikethrough" as const,
+      textAfter: " on a deal because you couldn't afford the hourly rate"
+    },
+    {
+      text: "You're using ",
+      highlight: "Google and ChatGPT",
+      highlightType: "underline" as const,
+      textAfter: " for legal questions because real lawyers are too expensive"
+    },
   ];
 
   const steps = [
@@ -337,19 +356,21 @@ const Index = () => {
             </p>
 
             <div className="space-y-6">
-              {painPoints.map((point, i) => {
-                const Icon = point.icon;
-                return (
-                  <div key={i} className="text-center py-8 px-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center">
-                        <Icon className="w-7 h-7" />
-                      </div>
-                    </div>
-                    <p className="text-brand-navy text-xl md:text-2xl font-bold leading-snug">{point.text}</p>
-                  </div>
-                );
-              })}
+              {painPoints.map((point, i) => (
+                <div key={i} className="text-center py-8 px-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                  <p className="text-brand-navy text-xl md:text-2xl font-bold leading-snug">
+                    {point.text}
+                    <span className={`relative inline-block ${
+                      point.highlightType === 'circle' ? 'pain-circle' :
+                      point.highlightType === 'underline' ? 'pain-underline' :
+                      point.highlightType === 'strikethrough' ? 'pain-strike' : ''
+                    }`}>
+                      {point.highlight}
+                    </span>
+                    {point.textAfter}
+                  </p>
+                </div>
+              ))}
             </div>
 
             <div className="text-center mt-8 p-6 bg-white border border-slate-200 rounded-lg shadow-sm">

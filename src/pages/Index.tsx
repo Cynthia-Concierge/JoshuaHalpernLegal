@@ -428,6 +428,64 @@ const Index = () => {
 
       <VideoCarousel />
 
+      {/* ── Testimonials ── */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-12 text-center tracking-tight">
+              What Clients Say
+            </h2>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-brand-cream border border-slate-200 rounded-xl p-6">
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                  ))}
+                </div>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  "I was paying $400/hour to my old firm. Josh reviewed the same vendor contract for a flat fee and caught issues they missed. Saved me $2,500 on one deal alone."
+                </p>
+                <div>
+                  <p className="font-semibold text-brand-navy">Sarah Chen</p>
+                  <p className="text-sm text-slate-500">SaaS Founder, $800K ARR</p>
+                </div>
+              </div>
+
+              <div className="bg-brand-cream border border-slate-200 rounded-xl p-6">
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                  ))}
+                </div>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  "I used to avoid calling my lawyer because of the cost. Now I text Josh whenever something comes up. Response time is incredible and I actually understand my legal position."
+                </p>
+                <div>
+                  <p className="font-semibold text-brand-navy">Marcus Williams</p>
+                  <p className="text-sm text-slate-500">E-commerce, 7-figure revenue</p>
+                </div>
+              </div>
+
+              <div className="bg-brand-cream border border-slate-200 rounded-xl p-6">
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                  ))}
+                </div>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  "Best decision for my business. Had an employee issue that would've cost me $5K+ in BigLaw fees. Josh handled it same-day, and it's covered in my monthly retainer."
+                </p>
+                <div>
+                  <p className="font-semibold text-brand-navy">Jennifer Park</p>
+                  <p className="text-sm text-slate-500">Marketing Agency Owner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── What You Get ── */}
       <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">

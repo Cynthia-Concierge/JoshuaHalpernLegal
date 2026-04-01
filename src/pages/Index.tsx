@@ -84,6 +84,10 @@ const Index = () => {
       answer: "Yes. Month-to-month. No long-term contracts. 30 days notice. Most clients stay because they save thousands compared to hourly billing."
     },
     {
+      question: "What if I don't use it one month?",
+      answer: "You're still covered. Legal needs are unpredictable — you might go a month with no issues, then suddenly need contract review, an employment termination, or a cease & desist response. The retainer ensures I'm available when you need me, not scrambling to find an attorney during a crisis. Think of it like insurance: you pay for peace of mind and immediate access, not just usage."
+    },
+    {
       question: "How is this different from LegalZoom?",
       answer: "LegalZoom sells templates. I'm your attorney. You get personalized strategy, custom drafting, and someone who actually understands your business. When something complex comes up, you call me — not a customer service line."
     },

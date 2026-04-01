@@ -320,25 +320,25 @@ const Index = () => {
               If any of this hits home, you're not alone — and there's a better way.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {painPoints.map((point, i) => {
                 const Icon = point.icon;
                 return (
-                  <div key={i} className="flex flex-col items-center justify-center gap-3 p-6 bg-red-50/60 border border-red-100 rounded-xl">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
+                  <div key={i} className="flex items-start gap-4 p-5 bg-white border border-red-100 rounded-lg shadow-sm">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mt-0.5">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-brand-navy-dark font-medium text-lg leading-snug text-center">{point.text}</span>
+                    <span className="text-brand-navy-dark font-medium text-base leading-relaxed pt-1.5">{point.text}</span>
                   </div>
                 );
               })}
             </div>
 
-            <div className="text-center mt-10">
-              <p className="text-xl font-bold text-brand-navy mb-1">
+            <div className="text-center mt-8 p-6 bg-white border border-slate-200 rounded-lg shadow-sm">
+              <p className="text-xl font-bold text-brand-navy mb-2">
                 The hourly billing model is designed to make your lawyer rich.
               </p>
-              <p className="text-lg text-slate-600">
+              <p className="text-base text-slate-600">
                 Not to solve your problems efficiently.
               </p>
             </div>

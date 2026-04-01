@@ -6,16 +6,7 @@ const Footer: React.FC = () => {
     <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 text-center">
         <div className="flex flex-col items-center mb-8">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-brand-navy to-brand-navy-dark rounded flex items-center justify-center">
-              <span className="text-brand-gold font-black text-lg">H</span>
-            </div>
-            <span className="text-2xl font-bold">
-              <span className="text-brand-navy" style={{color: '#4A89C8'}}>LEGAL</span>
-              {' '}
-              <span className="text-brand-gold">HALP</span>
-            </span>
-          </div>
+          <img src="/logo.png" alt="Legal Halp" className="h-10" />
         </div>
 
         <div className="flex justify-center gap-6 mb-8 text-sm">

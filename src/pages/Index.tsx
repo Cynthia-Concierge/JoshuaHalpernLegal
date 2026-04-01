@@ -77,12 +77,12 @@ const Index = () => {
       answer: "Law firms bill hourly. Every email, every call, every 6-minute increment costs you money. With Legal Halp, you pay one flat monthly fee and get unlimited access to your attorney. No timers. No surprise invoices. Just legal support when you need it."
     },
     {
-      question: "Can't I just use ChatGPT or AI for legal questions?",
-      answer: "AI can't practice law, represent you, or give you legal advice — it's specifically prohibited. It doesn't know your business context, can't file anything on your behalf, and has no liability if it's wrong. More importantly: when you get a cease & desist, an employee lawsuit, or a partnership dispute, you need a licensed attorney who understands your situation and will advocate for you — not a chatbot that disclaims responsibility."
+      question: "Can't I just use ChatGPT, Claude, or Grok for legal questions?",
+      answer: "AI tools like ChatGPT, Claude, Grok, and Google can't practice law — it's explicitly prohibited. They don't know your business context, can't file anything on your behalf, and have zero liability if they're wrong. More importantly: when you get a cease & desist, an employee lawsuit, or a partnership dispute, you need a licensed attorney who understands your situation and will advocate for you — not a chatbot that disclaims responsibility in the fine print."
     },
     {
-      question: "Why not just Google legal questions when I need help?",
-      answer: "Generic legal information isn't legal advice tailored to your specific situation. Laws vary by state, industry, and business structure. What works for a Delaware C-Corp doesn't work for a California LLC. A real attorney doesn't just give you information — they apply the law to YOUR facts, draft YOUR contracts, and represent YOUR interests. You wouldn't trust WebMD to do surgery. Same logic applies here."
+      question: "What can you do that AI can't?",
+      answer: "AI gives generic information. I give you legal strategy tailored to YOUR business, YOUR state, and YOUR specific situation. I draft and negotiate YOUR contracts. I represent YOUR interests in disputes. I file documents with the state on YOUR behalf. And when something goes sideways, I'm the one on the phone with opposing counsel — not a chatbot saying 'I can't provide legal advice.' You wouldn't trust WebMD to do surgery. Same logic applies here."
     },
     {
       question: "Is a real attorney handling my work?",

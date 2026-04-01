@@ -27,6 +27,15 @@ const VideoCard: React.FC<{ video: VideoItem }> = ({ video }) => {
   const [showControls, setShowControls] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
+  // Set webkit-playsinline attribute for iOS Safari compatibility
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (vid) {
+      vid.setAttribute('webkit-playsinline', 'true');
+      vid.setAttribute('playsinline', 'true');
+    }
+  }, []);
+
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
@@ -42,7 +51,17 @@ const VideoCard: React.FC<{ video: VideoItem }> = ({ video }) => {
             vid.load();
             setVideoLoaded(true);
           }
-          vid.play().then(() => setIsPlaying(true)).catch(() => {});
+          // Attempt autoplay - iOS may block until user interaction
+          const playPromise = vid.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => setIsPlaying(true))
+              .catch((err) => {
+                // Autoplay blocked - user needs to tap play button
+                console.log('Autoplay prevented:', err);
+                setIsPlaying(false);
+              });
+          }
         } else {
           vid.pause();
           setIsPlaying(false);
@@ -99,7 +118,8 @@ const VideoCard: React.FC<{ video: VideoItem }> = ({ video }) => {
           loop
           muted
           playsInline
-          preload="none"
+          preload="metadata"
+          x-webkit-airplay="allow"
         />
 
         {/* Gradient overlays */}

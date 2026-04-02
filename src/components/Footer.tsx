@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
     <footer className="bg-slate-800 text-slate-400 py-12 border-t border-slate-600">
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 overflow-hidden">
-            <img src="/logo.png" alt="Legal Halp" className="h-16 object-cover object-left" style={{width: '64px'}} />
+          <div className="w-14 h-16 overflow-hidden">
+            <img src="/logo.png" alt="Legal Halp" className="h-16 object-cover object-left" style={{width: '56px'}} />
           </div>
         </div>
 

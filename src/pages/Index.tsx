@@ -398,15 +398,15 @@ const Index = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">60%</div>
                 <div className="text-sm text-slate-600 font-medium">Less than hourly billing</div>
               </div>
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">24hr</div>
                 <div className="text-sm text-slate-600 font-medium">Max response time</div>
               </div>
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">$0</div>
                 <div className="text-sm text-slate-600 font-medium">Surprise invoices</div>
               </div>

@@ -201,6 +201,7 @@ const VideoCard: React.FC<{ video: VideoItem }> = ({ video }) => {
 
 const VideoCarousel: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const credentialsScrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -227,6 +228,15 @@ const VideoCarousel: React.FC = () => {
     const el = scrollRef.current;
     if (!el) return;
     const cardWidth = el.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 280;
+    const gap = 16;
+    const distance = (cardWidth + gap) * 2;
+    el.scrollBy({ left: direction === "left" ? -distance : distance, behavior: "smooth" });
+  };
+
+  const scrollCredentials = (direction: "left" | "right") => {
+    const el = credentialsScrollRef.current;
+    if (!el) return;
+    const cardWidth = 220; // Fixed width from cards
     const gap = 16;
     const distance = (cardWidth + gap) * 2;
     el.scrollBy({ left: direction === "left" ? -distance : distance, behavior: "smooth" });
@@ -270,23 +280,40 @@ const VideoCarousel: React.FC = () => {
         {/* Credentials Carousel */}
         <div className="max-w-4xl mx-auto mb-16">
           <div className="text-center mb-8">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-brand-navy/5 text-brand-navy text-xs font-bold uppercase tracking-widest">
               Credentials
             </span>
-            <h3 className="text-2xl font-bold text-brand-navy mt-3">Background</h3>
           </div>
 
           <div className="relative">
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar">
+            {/* Navigation arrows */}
+            <button
+              type="button"
+              onClick={() => scrollCredentials("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
+              aria-label="Previous credentials"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollCredentials("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
+              aria-label="Next credentials"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            <div ref={credentialsScrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar px-12">
               {/* Credential cards */}
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <GraduationCap className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <GraduationCap className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         J.D., Cleveland-Marshall College of Law
                       </p>
                     </div>
@@ -294,14 +321,14 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Building2 className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <Building2 className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         Former BigLaw Associate, Taft, Stettinius & Hollister LLP (1,500+ attorneys)
                       </p>
                     </div>
@@ -309,14 +336,14 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Shield className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <Shield className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         Licensed in Ohio, and partnered with local attorneys nationwide (for jurisdiction-specific matters)
                       </p>
                     </div>
@@ -324,14 +351,14 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <FileText className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <FileText className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         Practice Areas: Business Formation, Estate Planning, Contracts, IP, Real Estate, Mergers & Acquisitions, Venture Capital, General Counsel
                       </p>
                     </div>
@@ -339,14 +366,14 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Briefcase className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <Briefcase className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         1,000+ estate plans drafted
                       </p>
                     </div>
@@ -354,14 +381,14 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Building2 className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <Building2 className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         500+ businesses protected
                       </p>
                     </div>
@@ -369,14 +396,14 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-[280px] snap-start">
-                <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-white" />
+              <div className="flex-shrink-0 w-[220px] snap-start">
+                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-brand-navy font-medium leading-relaxed">
+                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
                         $250M+ in transactions closed
                       </p>
                     </div>

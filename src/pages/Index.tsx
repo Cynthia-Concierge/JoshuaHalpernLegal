@@ -420,7 +420,7 @@ const Index = () => {
               {whatYouGet.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={i} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                  <div key={i} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-50 text-brand-gold-dark flex items-center justify-center">
                         <Icon className="w-5 h-5" />

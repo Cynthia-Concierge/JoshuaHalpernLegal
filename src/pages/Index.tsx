@@ -344,48 +344,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Pain Points ── */}
-      <section className="py-20 bg-brand-cream relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-3 text-center tracking-tight">
-              Sound Familiar?
-            </h2>
-            <p className="text-lg text-slate-500 text-center mb-10">
-              If any of this hits home, you're not alone — and there's a better way.
-            </p>
-
-            <div className="space-y-6">
-              {painPoints.map((point, i) => (
-                <div key={i} className="text-center py-8 px-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-                  <p className="text-brand-navy text-xl md:text-2xl font-bold leading-snug">
-                    {point.text}
-                    <span className={`relative inline-block ${
-                      point.highlightType === 'circle' ? 'pain-circle' :
-                      point.highlightType === 'underline' ? 'pain-underline' :
-                      point.highlightType === 'strikethrough' ? 'pain-strike' : ''
-                    }`}>
-                      {point.highlight}
-                    </span>
-                    {point.textAfter}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-8 p-6 bg-white border border-slate-200 rounded-lg shadow-sm">
-              <p className="text-xl font-bold text-brand-navy mb-2">
-                The hourly billing model is designed to make your lawyer rich.
-              </p>
-              <p className="text-base text-slate-600">
-                Not to solve your problems efficiently.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
-      </section>
-
       {/* ── Solution Intro ── */}
       <section className="py-20 bg-brand-cream relative">
         <div className="container mx-auto px-4 lg:px-8">

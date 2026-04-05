@@ -368,6 +368,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   </select>
                 </div>
 
+                <div className="group">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                    Additional Information (Optional)
+                  </label>
+                  <textarea
+                    name="additionalInfo"
+                    rows={3}
+                    placeholder="Please provide any additional information you feel would be helpful as we review your application"
+                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base resize-none"
+                  />
+                </div>
+
                 <div className="flex gap-3 mt-4">
                   <button
                     type="button"

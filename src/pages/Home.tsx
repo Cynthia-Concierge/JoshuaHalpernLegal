@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Scale,
@@ -21,6 +21,65 @@ import {
 import VideoCarousel from "@/components/VideoCarousel";
 
 const Home: React.FC = () => {
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const servicesScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX);
+    if (servicesScrollRef.current) {
+      setScrollLeft(servicesScrollRef.current.scrollLeft);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !servicesScrollRef.current) return;
+    const x = e.touches[0].pageX;
+    const walk = (startX - x) * 2;
+    servicesScrollRef.current.scrollLeft = scrollLeft + walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    if (servicesScrollRef.current) {
+      const cardWidth = 300;
+      const scrollPosition = servicesScrollRef.current.scrollLeft;
+      const newIndex = Math.round(scrollPosition / cardWidth);
+      setCurrentServiceIndex(newIndex);
+      servicesScrollRef.current.scrollTo({
+        left: newIndex * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX);
+    if (servicesScrollRef.current) {
+      setScrollLeft(servicesScrollRef.current.scrollLeft);
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !servicesScrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const walk = (startX - x) * 2;
+    servicesScrollRef.current.scrollLeft = scrollLeft + walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* ============================================= */}
@@ -287,7 +346,21 @@ const Home: React.FC = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div
+              ref={servicesScrollRef}
+              className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 cursor-grab active:cursor-grabbing"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+            >
               {[
                 {
                   icon: Briefcase,
@@ -358,7 +431,7 @@ const Home: React.FC = () => {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="group bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-300 shadow-sm hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                  className="group flex-shrink-0 w-[300px] snap-center bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-300 shadow-sm hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300 hover:-translate-y-1 flex flex-col"
                 >
                   <div className="w-14 h-14 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-5 group-hover:bg-slate-800 group-hover:text-white transition-all duration-300 shadow-sm">
                     <service.icon className="w-7 h-7" />
@@ -382,6 +455,38 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center gap-2 mt-8 mb-6">
+              {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((dotIndex) => (
+                <button
+                  key={dotIndex}
+                  onClick={() => {
+                    if (servicesScrollRef.current) {
+                      const cardWidth = 300;
+                      servicesScrollRef.current.scrollTo({
+                        left: dotIndex * (cardWidth + 24),
+                        behavior: 'smooth'
+                      });
+                      setCurrentServiceIndex(dotIndex);
+                    }
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    currentServiceIndex === dotIndex
+                      ? 'bg-blue-600 w-8'
+                      : 'bg-slate-300 hover:bg-slate-400'
+                  }`}
+                  aria-label={`Go to service ${dotIndex + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Hide scrollbar CSS */}
+            <style>{`
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
 
             <div className="text-center mt-12">
               <Link

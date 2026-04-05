@@ -17,6 +17,8 @@ import {
   UserCheck,
   MessageSquare,
   PhoneCall,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import VideoCarousel from "@/components/VideoCarousel";
 
@@ -78,6 +80,28 @@ const Home: React.FC = () => {
 
   const handleMouseLeave = () => {
     setIsDragging(false);
+  };
+
+  const scrollToService = (index: number) => {
+    if (servicesScrollRef.current) {
+      const cardWidth = 300;
+      const gap = 24;
+      servicesScrollRef.current.scrollTo({
+        left: index * (cardWidth + gap),
+        behavior: 'smooth'
+      });
+      setCurrentServiceIndex(index);
+    }
+  };
+
+  const handlePrevService = () => {
+    const newIndex = Math.max(0, currentServiceIndex - 1);
+    scrollToService(newIndex);
+  };
+
+  const handleNextService = () => {
+    const newIndex = Math.min(8, currentServiceIndex + 1);
+    scrollToService(newIndex);
   };
 
   return (
@@ -346,9 +370,39 @@ const Home: React.FC = () => {
               </h2>
             </div>
 
-            <div
-              ref={servicesScrollRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 cursor-grab active:cursor-grabbing"
+            {/* Carousel Container with Arrows */}
+            <div className="relative">
+              {/* Left Arrow */}
+              <button
+                onClick={handlePrevService}
+                disabled={currentServiceIndex === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center transition-all ${
+                  currentServiceIndex === 0
+                    ? 'opacity-30 cursor-not-allowed'
+                    : 'hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl'
+                }`}
+                aria-label="Previous service"
+              >
+                <ChevronLeft className="w-6 h-6 text-slate-700" />
+              </button>
+
+              {/* Right Arrow */}
+              <button
+                onClick={handleNextService}
+                disabled={currentServiceIndex === 8}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center transition-all ${
+                  currentServiceIndex === 8
+                    ? 'opacity-30 cursor-not-allowed'
+                    : 'hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl'
+                }`}
+                aria-label="Next service"
+              >
+                <ChevronRight className="w-6 h-6 text-slate-700" />
+              </button>
+
+              <div
+                ref={servicesScrollRef}
+                className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 cursor-grab active:cursor-grabbing"
               style={{
                 scrollbarWidth: 'none',
                 msOverflowStyle: 'none',
@@ -454,6 +508,7 @@ const Home: React.FC = () => {
                   </Link>
                 </div>
               ))}
+              </div>
             </div>
 
             {/* Dot Indicators */}
@@ -461,16 +516,7 @@ const Home: React.FC = () => {
               {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((dotIndex) => (
                 <button
                   key={dotIndex}
-                  onClick={() => {
-                    if (servicesScrollRef.current) {
-                      const cardWidth = 300;
-                      servicesScrollRef.current.scrollTo({
-                        left: dotIndex * (cardWidth + 24),
-                        behavior: 'smooth'
-                      });
-                      setCurrentServiceIndex(dotIndex);
-                    }
-                  }}
+                  onClick={() => scrollToService(dotIndex)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     currentServiceIndex === dotIndex
                       ? 'bg-blue-600 w-8'

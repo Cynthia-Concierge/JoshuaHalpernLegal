@@ -368,11 +368,29 @@ const Index = () => {
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">$0</div>
                 <div className="text-sm text-slate-600 font-medium">Surprise invoices</div>
               </div>
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
+              <div className="p-5 bg-white rounded-xl border-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative overflow-hidden animate-gold-border">
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">AI+</div>
                 <div className="text-sm text-slate-600 font-medium">Expertise that knows how to use it</div>
               </div>
             </div>
+
+            {/* Animated gold border styles */}
+            <style>{`
+              @keyframes gold-border-glow {
+                0%, 100% {
+                  border-color: #D97706;
+                  box-shadow: 0 0 10px rgba(217, 119, 6, 0.3);
+                }
+                50% {
+                  border-color: #F59E0B;
+                  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+                }
+              }
+
+              .animate-gold-border {
+                animation: gold-border-glow 2s ease-in-out infinite;
+              }
+            `}</style>
 
             <button
               onClick={openModal}

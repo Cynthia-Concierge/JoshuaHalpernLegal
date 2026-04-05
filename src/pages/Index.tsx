@@ -487,8 +487,9 @@ const Index = () => {
                 "You have legal needs that come up regularly (contracts, hiring, compliance)",
                 "You're earning $500K+ in revenue and need strategic counsel, not templates",
                 "You want to be able to text your lawyer at 9pm without getting a $200 invoice for it",
+                "You want a lawyer who leverages AI to work faster and smarter — not one stuck in 1995",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200">
+                <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200 transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                   <CheckCircle2 className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
                   <span className="text-brand-navy-darker font-medium">{item}</span>
                 </div>

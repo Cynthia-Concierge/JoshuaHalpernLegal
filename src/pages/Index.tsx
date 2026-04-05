@@ -300,6 +300,10 @@ const Index = () => {
                 <Star className="w-4 h-4 text-brand-gold" />
                 <span>Month-to-Month</span>
               </div>
+              <div className="flex items-center gap-1.5">
+                <Zap className="w-4 h-4 text-brand-gold" />
+                <span>AI-Powered Efficiency</span>
+              </div>
             </div>
 
             {/* Video Embed */}

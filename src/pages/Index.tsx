@@ -397,7 +397,7 @@ const Index = () => {
               Legal Halp gives you a dedicated business attorney for a flat monthly fee. You text, email, or call when you need something. We handle it. No timers. No invoices for "reviewing your email."
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">60%</div>
                 <div className="text-sm text-slate-600 font-medium">Less than hourly billing</div>
@@ -409,6 +409,10 @@ const Index = () => {
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
                 <div className="text-3xl font-bold text-brand-gold-dark mb-1">$0</div>
                 <div className="text-sm text-slate-600 font-medium">Surprise invoices</div>
+              </div>
+              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
+                <div className="text-3xl font-bold text-brand-gold-dark mb-1">AI+</div>
+                <div className="text-sm text-slate-600 font-medium">Expertise that knows how to use it</div>
               </div>
             </div>
 

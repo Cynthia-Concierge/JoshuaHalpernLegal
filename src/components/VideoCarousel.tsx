@@ -233,7 +233,7 @@ const VideoCarousel: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+    <section id="about" className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Meet Josh Section */}
         <div className="max-w-4xl mx-auto mb-16">

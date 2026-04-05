@@ -253,13 +253,13 @@ const VideoCarousel: React.FC = () => {
                 <p className="text-brand-gold-dark font-semibold mb-4">Founder, Legal Halp</p>
                 <div className="space-y-3 text-brand-navy-darker leading-relaxed">
                   <p>
-                    I spent years at a BigLaw firm watching business owners get billed into oblivion for straightforward legal work. A contract review shouldn't cost $3,000. A quick legal question shouldn't come with a $500 invoice.
+                    I spent years at BigLaw watching business owners get billed $3,000 for a contract review that took two hours. Traditional law firms are stuck in the billable hour model because it makes them rich — not because it serves you well.
                   </p>
                   <p>
-                    I built Legal Halp to fix that. Same quality legal work. Same licensed attorney. But instead of an hourly meter, you pay one flat monthly fee — and you can actually <strong>use</strong> your lawyer without worrying about the bill.
+                    Legal Halp is the modern alternative. I use AI to work faster and more efficiently — which means you get BigLaw-quality work at a fraction of the cost. Flat monthly fee. No timers. No surprise invoices. You can actually <strong>use</strong> your lawyer without second-guessing every email.
                   </p>
                   <p className="font-semibold text-brand-navy">
-                    Every piece of work is personally handled by me. Not a paralegal. Not a chatbot. Not an AI. Me.
+                    Every piece of work is personally handled by me — a licensed attorney with 10+ years of experience who knows how to wield AI as a force multiplier, not a replacement for judgment.
                   </p>
                 </div>
               </div>

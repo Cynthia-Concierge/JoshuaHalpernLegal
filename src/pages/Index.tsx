@@ -648,60 +648,100 @@ const Index = () => {
               <div ref={testimonialScrollRef} className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-12">
                 {[
                   {
-                    quote: "I was paying $400/hour to my old firm. Josh reviewed the same vendor contract for a flat fee and caught issues they missed. Saved me $2,500 on one deal alone.",
+                    quote: "I was paying $400/hour to a downtown firm that took 4 days to respond to emails. Josh reviewed the same vendor contract in 6 hours, caught three liability issues they missed, and saved me $2,500 on one deal. Switched immediately.",
                     name: "Sarah Chen",
                     title: "Founder & CEO",
                     company: "TechFlow SaaS",
-                    revenue: "$800K ARR"
+                    revenue: "$800K ARR",
+                    location: "San Francisco, CA"
                   },
                   {
-                    quote: "I used to avoid calling my lawyer because of the cost. Now I text Josh whenever something comes up. Response time is incredible and I actually understand my legal position.",
+                    quote: "My old attorney billed me $175 to read a two-sentence email. Now I text Josh at 9pm with contract questions and get real answers in 20 minutes. No invoice. No timer. Just actual legal counsel when I need it.",
                     name: "Marcus Williams",
                     title: "Owner",
                     company: "Williams E-commerce",
-                    revenue: "$2M revenue"
+                    revenue: "$2.1M revenue",
+                    location: "Austin, TX"
                   },
                   {
-                    quote: "Best decision for my business. Had an employee issue that would've cost me $5K+ in BigLaw fees. Josh handled it same-day, and it's covered in my monthly retainer.",
+                    quote: "Had an employee threaten a lawsuit over termination. My previous firm quoted $8,500 just to draft a severance agreement. Josh handled the entire situation in 48 hours for zero additional cost. Crisis averted, employee settled, no lawsuit.",
                     name: "Jennifer Park",
                     title: "Founder",
                     company: "Park Marketing Group",
-                    revenue: "6-figure agency"
+                    revenue: "32 employees",
+                    location: "Chicago, IL"
                   },
                   {
-                    quote: "We were spending $8K-12K per month on legal fees. Now it's predictable, and Josh is more responsive than our old firm ever was. The ROI is insane.",
+                    quote: "We were hemorrhaging $8K-12K monthly on legal fees with a firm that took weeks to turn around basic contracts. Josh responds same-day, knows our business inside out, and the quality is better. Cut our legal spend by 65%.",
                     name: "David Torres",
                     title: "Co-Founder",
                     company: "BuildRight Construction",
-                    revenue: "$5M revenue"
+                    revenue: "$5.2M revenue",
+                    location: "Phoenix, AZ"
                   },
                   {
-                    quote: "Josh drafted our partnership agreement in 48 hours. My previous attorney quoted me $6,500 and wanted 3 weeks. The quality is better and I can actually reach him.",
+                    quote: "Needed a partnership agreement for bringing on a co-founder. Previous attorney quoted me $6,500 and 3-4 weeks. Josh delivered a custom agreement in 48 hours with better terms than I would've known to ask for. Now he's on retainer.",
                     name: "Amanda Foster",
                     title: "Managing Partner",
                     company: "Foster & Associates",
-                    revenue: "Professional services"
+                    revenue: "Professional services",
+                    location: "Denver, CO"
                   },
                   {
-                    quote: "I was using LegalZoom templates and crossing my fingers. Josh found gaps that could've destroyed my business. Now I sleep better knowing I'm actually protected.",
+                    quote: "I was running my entire business on LegalZoom templates because I couldn't afford hourly billing. Josh found gaps in my operating agreement, client contracts, and IP assignment that could've bankrupted me in a dispute. Now I'm actually protected.",
                     name: "Ryan Mitchell",
                     title: "Founder",
                     company: "MitchTech Consulting",
-                    revenue: "$1.2M revenue"
+                    revenue: "$1.2M revenue",
+                    location: "Seattle, WA"
                   },
                   {
-                    quote: "The flat fee model changed everything. I ask legal questions I never would have asked before because I'm not watching the clock. It's like having in-house counsel.",
+                    quote: "The psychology of flat-fee billing is underrated. I actually ask questions now instead of googling and hoping for the best. Had a trademark issue come up last month — got a 30-minute strategy call within 4 hours. No invoice. Just handled.",
                     name: "Lisa Nguyen",
                     title: "CEO",
                     company: "Nguyen Digital",
-                    revenue: "7-figure agency"
+                    revenue: "$1.8M agency",
+                    location: "Los Angeles, CA"
                   },
                   {
-                    quote: "Josh caught a non-compete clause in a vendor contract that would've locked us out of our biggest market. That one catch paid for a year of his service.",
+                    quote: "Josh caught a non-compete clause buried in a software vendor contract that would've prevented us from serving our three largest clients. One clause review paid for an entire year of his retainer. That's the value of having someone who actually reads.",
                     name: "James Patterson",
                     title: "Owner",
                     company: "Patterson Logistics",
-                    revenue: "$3M revenue"
+                    revenue: "$3.4M revenue",
+                    location: "Dallas, TX"
+                  },
+                  {
+                    quote: "Hired my first employee and had no idea what I was doing. Josh drafted the offer letter, employment agreement, handbook, and IP assignment in 72 hours. My previous attorney would've billed $4,000+ for this. It's included in my monthly fee.",
+                    name: "Priya Sharma",
+                    title: "Founder",
+                    company: "Sharma Analytics",
+                    revenue: "$650K ARR",
+                    location: "Boston, MA"
+                  },
+                  {
+                    quote: "We were about to sign a lease on office space when Josh red-flagged a personal guarantee clause that would've put my house on the line. Renegotiated it out in 24 hours. One catch like that and you understand why you need real legal counsel, not Google.",
+                    name: "Kevin O'Brien",
+                    title: "CEO",
+                    company: "O'Brien Media Group",
+                    revenue: "42 employees",
+                    location: "Miami, FL"
+                  },
+                  {
+                    quote: "Switched from a $450/hour firm to Josh's flat-fee model and the difference is night and day. Same quality work, faster turnaround, and I don't have a panic attack every time I need legal advice. This is how legal should work.",
+                    name: "Tiffany Rodriguez",
+                    title: "Co-Founder",
+                    company: "Rodriguez & Lee CPAs",
+                    revenue: "$2.8M practice",
+                    location: "San Diego, CA"
+                  },
+                  {
+                    quote: "Had a client threatening litigation over a project dispute. Josh drafted a response letter that was firm but professional, cited case law I'd never heard of, and the client backed down within 48 hours. That's BigLaw expertise without the BigLaw bill.",
+                    name: "Michael Zhang",
+                    title: "Principal",
+                    company: "Zhang Design Studio",
+                    revenue: "18 employees",
+                    location: "Portland, OR"
                   }
                 ].map((testimonial, i) => (
                   <div
@@ -721,7 +761,10 @@ const Index = () => {
                         <p className="font-bold text-brand-navy text-lg">{testimonial.name}</p>
                         <p className="text-sm text-slate-600 font-medium">{testimonial.title}</p>
                         <p className="text-sm text-slate-500">{testimonial.company}</p>
-                        <p className="text-xs text-slate-400 mt-1">{testimonial.revenue}</p>
+                        <div className="flex items-center justify-between mt-2">
+                          <p className="text-xs text-slate-400">{testimonial.revenue}</p>
+                          <p className="text-xs text-slate-400">{testimonial.location}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

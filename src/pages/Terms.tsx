@@ -61,7 +61,7 @@ const Terms = () => {
                 6. Third-Party Services
               </h2>
               <p>
-                Our Site may link to or integrate with third-party platforms (e.g., Stripe, GoHighLevel, Instagram). We are not responsible for the content, security, or privacy practices of these external sites. Use them at your own discretion.
+                Our Site may link to or integrate with third-party platforms (e.g., Stripe, Calendly, Instagram). We are not responsible for the content, security, or privacy practices of these external sites. Use them at your own discretion.
               </p>
 
               <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">

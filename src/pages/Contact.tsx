@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -9,7 +9,35 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+const CALENDLY_URL = "https://calendly.com/legalhalp/15-minute-legal-consult?hide_event_type_details=1&hide_gdpr_banner=1&hide_landing_page_details=1";
+
 const Contact: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = () => {
+      if (containerRef.current && (window as any).Calendly) {
+        (window as any).Calendly.initInlineWidget({
+          url: CALENDLY_URL,
+          parentElement: containerRef.current,
+        });
+      }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) script.parentNode.removeChild(script);
+      if (link.parentNode) link.parentNode.removeChild(link);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -55,13 +83,9 @@ const Contact: React.FC = () => {
       <section className="py-16 md:py-24 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <iframe
-              src="https://calendly.com/legalhalp/15-minute-legal-consult?hide_event_type_details=1&hide_gdpr_banner=1&hide_landing_page_details=1"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              title="Book a Legal Cost Audit"
-              style={{ border: "none", minWidth: "320px" }}
+            <div
+              ref={containerRef}
+              style={{ minWidth: "320px", height: "700px" }}
             />
             <div className="mt-4 px-2">
               <p className="text-xs font-semibold text-slate-700 mb-1">Legal Halp — LH Law Holdings LLC</p>

@@ -30,33 +30,53 @@ import {
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [showMiniPlayer, setShowMiniPlayer] = useState(false);
+  const [miniDismissed, setMiniDismissed] = useState(false);
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const miniVideoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
 
   const openModal = () => setIsModalOpen(true);
 
-  // Native PiP: enter picture-in-picture when video scrolls out of view
+  // Mini player: show when main video is playing and scrolled out of view
   useEffect(() => {
     const container = videoContainerRef.current;
-    const video = videoRef.current;
-    if (!container || !video) return;
-    if (!document.pictureInPictureEnabled) return;
+    if (!container) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!video.paused && !video.ended && !entry.isIntersecting) {
-          video.requestPictureInPicture?.().catch(() => {});
-        } else if (entry.isIntersecting && document.pictureInPictureElement === video) {
-          document.exitPictureInPicture?.().catch(() => {});
+        const video = videoRef.current;
+        const isPlaying = video && !video.paused && !video.ended;
+        if (!entry.isIntersecting && isPlaying && !miniDismissed) {
+          setShowMiniPlayer(true);
+          // Sync mini player to main video time
+          requestAnimationFrame(() => {
+            if (miniVideoRef.current && video) {
+              miniVideoRef.current.currentTime = video.currentTime;
+              miniVideoRef.current.muted = video.muted;
+              miniVideoRef.current.play().catch(() => {});
+              video.pause();
+            }
+          });
+        } else if (entry.isIntersecting && showMiniPlayer) {
+          // Return to main video
+          const mini = miniVideoRef.current;
+          const main = videoRef.current;
+          if (mini && main) {
+            main.currentTime = mini.currentTime;
+            main.muted = mini.muted;
+            main.play().catch(() => {});
+          }
+          setShowMiniPlayer(false);
         }
       },
       { threshold: 0.3 }
     );
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [miniDismissed, showMiniPlayer]);
 
   // SEO: set page-specific meta tags for /lawyeroncall
   useEffect(() => {
@@ -876,6 +896,35 @@ const Index = () => {
         onSubmit={handleModalSubmit}
       />
 
+      {/* Mini player when video scrolls out of view */}
+      {showMiniPlayer && !miniDismissed && (
+        <div className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-40 w-[260px] md:w-[320px] rounded-xl overflow-hidden shadow-2xl border border-slate-300 bg-black">
+          <button
+            onClick={() => {
+              const mini = miniVideoRef.current;
+              const main = videoRef.current;
+              if (mini && main) {
+                main.currentTime = mini.currentTime;
+              }
+              mini?.pause();
+              setMiniDismissed(true);
+              setShowMiniPlayer(false);
+            }}
+            className="absolute top-2 right-2 z-10 w-6 h-6 bg-black/70 hover:bg-black rounded-full flex items-center justify-center transition"
+            aria-label="Close"
+          >
+            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+          <video
+            ref={miniVideoRef}
+            className="w-full aspect-video object-cover"
+            controls
+            playsInline
+          >
+            <source src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
+          </video>
+        </div>
+      )}
     </div>
   );
 };

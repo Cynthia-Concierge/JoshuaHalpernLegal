@@ -38,22 +38,74 @@ const Index = () => {
   const navigate = useNavigate();
 
   const openModal = () => setIsModalOpen(true);
+  const isVideoOutOfView = useRef(false);
 
-  // Sticky PiP: show mini player when video scrolls out of view (only while playing)
+  // Track whether video container is in view
   useEffect(() => {
     const container = videoContainerRef.current;
     if (!container) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const video = videoRef.current;
-        const isPlaying = video && !video.paused && !video.ended;
-        setIsVideoPip(!entry.isIntersecting && !!isPlaying);
+        isVideoOutOfView.current = !entry.isIntersecting;
+        if (entry.isIntersecting) {
+          setIsVideoPip(false);
+        } else {
+          const video = videoRef.current;
+          if (video && !video.paused && !video.ended) {
+            setIsVideoPip(true);
+          }
+        }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
+
+  // SEO: set page-specific meta tags for /lawyeroncall
+  useEffect(() => {
+    const ogTitle = "Your On-Demand Lawyer Without Paying $500/Hour | Legal Halp";
+    const ogDesc = "Fractional in-house counsel for growing businesses. Flat monthly fee starting at $1,500/mo. No hourly surprises.";
+    const ogImage = "https://josh-halpern-law.vercel.app/og-lawyer-on-call.png";
+
+    document.title = ogTitle;
+
+    const setMeta = (attr: string, key: string, content: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, key); document.head.appendChild(el); }
+      el.setAttribute("content", content);
+    };
+
+    setMeta("property", "og:title", ogTitle);
+    setMeta("property", "og:description", ogDesc);
+    setMeta("property", "og:image", ogImage);
+    setMeta("property", "og:url", "https://legalhalplaw.com/lawyeroncall");
+    setMeta("name", "description", ogDesc);
+    setMeta("name", "twitter:title", ogTitle);
+    setMeta("name", "twitter:description", ogDesc);
+    setMeta("name", "twitter:image", ogImage);
+
+    return () => {
+      document.title = "Legal Halp \u2013 Your Lawyer on Speed Dial";
+    };
+  }, []);
+
+  // Also listen to scroll to catch PiP when video is playing and out of view
+  useEffect(() => {
+    const handleScroll = () => {
+      if (pipDismissed) return;
+      const video = videoRef.current;
+      if (!video || video.paused || video.ended) {
+        setIsVideoPip(false);
+        return;
+      }
+      if (isVideoOutOfView.current) {
+        setIsVideoPip(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pipDismissed]);
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -328,14 +380,30 @@ const Index = () => {
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>
-              <div className="aspect-video bg-slate-900 rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+              <div className={`
+                aspect-video bg-slate-900 overflow-hidden transition-all duration-300
+                ${isVideoPip && !pipDismissed
+                  ? "fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[280px] md:w-[340px] rounded-xl shadow-2xl border-2 border-white/20"
+                  : "relative rounded-xl shadow-xl border border-slate-200"
+                }
+              `}>
+                {isVideoPip && !pipDismissed && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setPipDismissed(true); setIsVideoPip(false); }}
+                    className="absolute -top-2 -right-2 z-20 w-7 h-7 bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-md hover:bg-slate-100 transition"
+                    aria-label="Close"
+                  >
+                    <svg className="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
+                  </button>
+                )}
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  preload="metadata"
-                  poster=""
+                  autoPlay
+                  muted
+                  preload="auto"
                 >
                   <source src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -846,43 +914,6 @@ const Index = () => {
         onSubmit={handleModalSubmit}
       />
 
-      {/* Sticky PiP video player */}
-      {isVideoPip && !pipDismissed && (
-        <div className="fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[280px] md:w-[340px] shadow-2xl rounded-xl overflow-hidden border border-slate-200 bg-black group">
-          <button
-            onClick={() => { setPipDismissed(true); setIsVideoPip(false); }}
-            className="absolute -top-2 -right-2 z-10 w-7 h-7 bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
-            aria-label="Close"
-          >
-            <svg className="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-          <button
-            onClick={() => {
-              setPipDismissed(true);
-              setIsVideoPip(false);
-              videoContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-            }}
-            className="absolute top-2 left-2 z-10 px-2 py-1 bg-black/60 text-white text-[10px] font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
-          >
-            Back to full
-          </button>
-          <video
-            className="w-full aspect-video object-cover"
-            controls
-            playsInline
-            autoPlay
-            ref={(el) => {
-              // Sync playback position from main video
-              if (el && videoRef.current) {
-                el.currentTime = videoRef.current.currentTime;
-                el.play().catch(() => {});
-              }
-            }}
-          >
-            <source src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
-          </video>
-        </div>
-      )}
     </div>
   );
 };

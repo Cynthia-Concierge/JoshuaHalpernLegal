@@ -11,14 +11,40 @@ import {
 } from "lucide-react";
 
 const Contact: React.FC = () => {
+  const calendlyRef = React.useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    const initCalendly = () => {
+      if (calendlyRef.current && (window as any).Calendly) {
+        (window as any).Calendly.initInlineWidget({
+          url: "https://calendly.com/legalhalp",
+          parentElement: calendlyRef.current,
+        });
+      }
+    };
+
+    // If Calendly script is already loaded, init immediately
+    if ((window as any).Calendly) {
+      initCalendly();
+      return;
+    }
+
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.type = "text/javascript";
     script.async = true;
-    document.body.appendChild(script);
+    script.onload = initCalendly;
+    document.head.appendChild(script);
+
+    // Also load Calendly CSS
+    const link = document.createElement("link");
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
     return () => {
-      document.body.removeChild(script);
+      if (script.parentNode) script.parentNode.removeChild(script);
+      if (link.parentNode) link.parentNode.removeChild(link);
     };
   }, []);
 
@@ -80,9 +106,8 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div
-                    className="calendly-inline-widget"
-                    data-url="https://calendly.com/legalhalp"
-                    style={{ width: "100%", minHeight: "950px" }}
+                    ref={calendlyRef}
+                    style={{ width: "100%", minHeight: "700px" }}
                   />
 
                   <div className="px-6 py-4 bg-slate-100 border-t border-slate-200">

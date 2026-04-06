@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
@@ -30,33 +30,29 @@ import {
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [isVideoPip, setIsVideoPip] = useState(false);
-  const [pipDismissed, setPipDismissed] = useState(false);
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
 
   const openModal = () => setIsModalOpen(true);
-  const isVideoOutOfView = useRef(false);
 
-  // Track whether video container is in view
+  // Native PiP: enter picture-in-picture when video scrolls out of view
   useEffect(() => {
     const container = videoContainerRef.current;
-    if (!container) return;
+    const video = videoRef.current;
+    if (!container || !video) return;
+    if (!document.pictureInPictureEnabled) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        isVideoOutOfView.current = !entry.isIntersecting;
-        if (entry.isIntersecting) {
-          setIsVideoPip(false);
-        } else {
-          const video = videoRef.current;
-          if (video && !video.paused && !video.ended) {
-            setIsVideoPip(true);
-          }
+        if (!video.paused && !video.ended && !entry.isIntersecting) {
+          video.requestPictureInPicture?.().catch(() => {});
+        } else if (entry.isIntersecting && document.pictureInPictureElement === video) {
+          document.exitPictureInPicture?.().catch(() => {});
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
     observer.observe(container);
     return () => observer.disconnect();
@@ -89,23 +85,6 @@ const Index = () => {
       document.title = "Legal Halp \u2013 Your Lawyer on Speed Dial";
     };
   }, []);
-
-  // Also listen to scroll to catch PiP when video is playing and out of view
-  useEffect(() => {
-    const handleScroll = () => {
-      if (pipDismissed) return;
-      const video = videoRef.current;
-      if (!video || video.paused || video.ended) {
-        setIsVideoPip(false);
-        return;
-      }
-      if (isVideoOutOfView.current) {
-        setIsVideoPip(true);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pipDismissed]);
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -380,22 +359,7 @@ const Index = () => {
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>
-              <div className={`
-                aspect-video bg-slate-900 overflow-hidden transition-all duration-300
-                ${isVideoPip && !pipDismissed
-                  ? "fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[280px] md:w-[340px] rounded-xl shadow-2xl border-2 border-white/20"
-                  : "relative rounded-xl shadow-xl border border-slate-200"
-                }
-              `}>
-                {isVideoPip && !pipDismissed && (
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setPipDismissed(true); setIsVideoPip(false); }}
-                    className="absolute -top-2 -right-2 z-20 w-7 h-7 bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-md hover:bg-slate-100 transition"
-                    aria-label="Close"
-                  >
-                    <svg className="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
-                  </button>
-                )}
+              <div className="aspect-video bg-slate-900 rounded-xl shadow-xl border border-slate-200 overflow-hidden">
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"

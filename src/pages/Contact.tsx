@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -10,42 +10,6 @@ import {
 } from "lucide-react";
 
 const Contact: React.FC = () => {
-  const calendlyRef = React.useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const initCalendly = () => {
-      if (calendlyRef.current && (window as any).Calendly) {
-        (window as any).Calendly.initInlineWidget({
-          url: "https://calendly.com/legalhalp",
-          parentElement: calendlyRef.current,
-        });
-      }
-    };
-
-    // If Calendly script is already loaded, init immediately
-    if ((window as any).Calendly) {
-      initCalendly();
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.type = "text/javascript";
-    script.async = true;
-    script.onload = initCalendly;
-    document.head.appendChild(script);
-
-    // Also load Calendly CSS
-    const link = document.createElement("link");
-    link.href = "https://assets.calendly.com/assets/external/widget.css";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-
-    return () => {
-      if (script.parentNode) script.parentNode.removeChild(script);
-      if (link.parentNode) link.parentNode.removeChild(link);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -91,9 +55,13 @@ const Contact: React.FC = () => {
       <section className="py-16 md:py-24 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div
-              ref={calendlyRef}
-              style={{ minWidth: "320px", height: "700px" }}
+            <iframe
+              src="https://calendly.com/legalhalp"
+              width="100%"
+              height="700"
+              frameBorder="0"
+              title="Book a Legal Cost Audit"
+              style={{ border: "none", minWidth: "320px" }}
             />
             <div className="mt-4 px-2">
               <p className="text-xs font-semibold text-slate-700 mb-1">Legal Halp — LH Law Holdings LLC</p>

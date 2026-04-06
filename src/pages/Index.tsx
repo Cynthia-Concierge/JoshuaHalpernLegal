@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
@@ -30,10 +30,30 @@ import {
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isVideoPip, setIsVideoPip] = useState(false);
+  const [pipDismissed, setPipDismissed] = useState(false);
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
 
   const openModal = () => setIsModalOpen(true);
+
+  // Sticky PiP: show mini player when video scrolls out of view (only while playing)
+  useEffect(() => {
+    const container = videoContainerRef.current;
+    if (!container) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const video = videoRef.current;
+        const isPlaying = video && !video.paused && !video.ended;
+        setIsVideoPip(!entry.isIntersecting && !!isPlaying);
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -307,9 +327,10 @@ const Index = () => {
             </div>
 
             {/* Video Embed */}
-            <div className="w-full max-w-3xl mx-auto">
+            <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>
               <div className="aspect-video bg-slate-900 rounded-xl shadow-xl border border-slate-200 overflow-hidden">
                 <video
+                  ref={videoRef}
                   className="w-full h-full object-cover"
                   controls
                   playsInline
@@ -824,6 +845,44 @@ const Index = () => {
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleModalSubmit}
       />
+
+      {/* Sticky PiP video player */}
+      {isVideoPip && !pipDismissed && (
+        <div className="fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[280px] md:w-[340px] shadow-2xl rounded-xl overflow-hidden border border-slate-200 bg-black group">
+          <button
+            onClick={() => { setPipDismissed(true); setIsVideoPip(false); }}
+            className="absolute -top-2 -right-2 z-10 w-7 h-7 bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
+            aria-label="Close"
+          >
+            <svg className="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+          <button
+            onClick={() => {
+              setPipDismissed(true);
+              setIsVideoPip(false);
+              videoContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
+            className="absolute top-2 left-2 z-10 px-2 py-1 bg-black/60 text-white text-[10px] font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
+          >
+            Back to full
+          </button>
+          <video
+            className="w-full aspect-video object-cover"
+            controls
+            playsInline
+            autoPlay
+            ref={(el) => {
+              // Sync playback position from main video
+              if (el && videoRef.current) {
+                el.currentTime = videoRef.current.currentTime;
+                el.play().catch(() => {});
+              }
+            }}
+          >
+            <source src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
+          </video>
+        </div>
+      )}
     </div>
   );
 };

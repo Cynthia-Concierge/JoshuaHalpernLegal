@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
               {/* Calendly Calendar Embed */}
               <div className="lg:col-span-3">
-                <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+                <div className="bg-slate-50 rounded-2xl border border-slate-200">
                   <div className="p-6 md:p-8 border-b border-slate-200">
                     <div className="flex items-center gap-3 mb-2">
                       <Calendar className="w-5 h-5 text-blue-600" />
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                   <div
                     className="calendly-inline-widget"
                     data-url="https://calendly.com/legalhalp"
-                    style={{ width: "100%", minHeight: "700px" }}
+                    style={{ width: "100%", minHeight: "950px" }}
                   />
 
                   <div className="px-6 py-4 bg-slate-100 border-t border-slate-200">

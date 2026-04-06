@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <iframe
-              src="https://calendly.com/legalhalp"
+              src="https://calendly.com/legalhalp/15-minute-legal-consult?hide_event_type_details=1&hide_gdpr_banner=1"
               width="100%"
               height="700"
               frameBorder="0"

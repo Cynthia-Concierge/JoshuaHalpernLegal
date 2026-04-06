@@ -4,7 +4,6 @@ import {
   Phone,
   Mail,
   Clock,
-  Calendar,
   Linkedin,
   Instagram,
   MessageSquare,
@@ -86,156 +85,147 @@ const Contact: React.FC = () => {
       {/* ============================================= */}
       {/* BOOKING + CONTACT INFO                        */}
       {/* ============================================= */}
+      {/* ============================================= */}
+      {/* CALENDLY WIDGET — FULL WIDTH                  */}
+      {/* ============================================= */}
       <section className="py-16 md:py-24 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div
+              ref={calendlyRef}
+              style={{ minWidth: "320px", height: "700px" }}
+            />
+            <div className="mt-4 px-2">
+              <p className="text-xs font-semibold text-slate-700 mb-1">Legal Halp — LH Law Holdings LLC</p>
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                By booking a call, you agree to receive SMS messages from
+                Legal Halp (LH Law Holdings LLC). Messages may include case
+                updates, document requests, reminders, and service notifications.
+                Message frequency varies. Message and data rates may apply.
+                Reply STOP to opt out or HELP for help.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* CONTACT INFO                                  */}
+      {/* ============================================= */}
+      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
-              {/* Calendly Calendar Embed */}
-              <div className="lg:col-span-3">
-                <div className="bg-slate-50 rounded-2xl border border-slate-200">
-                  <div className="p-6 md:p-8 border-b border-slate-200">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Calendar className="w-5 h-5 text-blue-600" />
-                      <h2 className="text-xl font-bold text-slate-900">
-                        Book Your Free Call
-                      </h2>
-                    </div>
-                    <p className="text-slate-500 text-sm">
-                      Pick a time that works for you. 30 minutes, no obligation.
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Email card */}
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">
+                  Prefer email?
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                  Reach out and I'll respond within 24 hours.
+                </p>
+                <a
+                  href="mailto:josh@legalhalp.com"
+                  className="flex items-center gap-3 bg-slate-50 rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
+                >
+                  <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-400 font-medium">Email</p>
+                    <p className="text-slate-900 font-semibold text-sm">
+                      josh@legalhalp.com
                     </p>
                   </div>
-
-                  <div
-                    ref={calendlyRef}
-                    style={{ width: "100%", minHeight: "700px" }}
-                  />
-
-                  <div className="px-6 py-4 bg-slate-100 border-t border-slate-200">
-                    <p className="text-xs font-semibold text-slate-700 mb-1">Legal Halp — LH Law Holdings LLC</p>
-                    <p className="text-[11px] text-slate-500 leading-relaxed">
-                      By booking a call, you agree to receive SMS messages from
-                      Legal Halp (LH Law Holdings LLC). Messages may include case
-                      updates, document requests, reminders, and service notifications.
-                      Message frequency varies. Message and data rates may apply.
-                      Reply STOP to opt out or HELP for help.
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
 
-              {/* Contact Info Sidebar */}
-              <div className="lg:col-span-2 space-y-6">
-                {/* Prefer email card */}
-                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">
-                    Prefer email?
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-5">
-                    Reach out and I'll respond within 24 hours.
-                  </p>
-                  <a
-                    href="mailto:josh@legalhalp.com"
-                    className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
-                  >
-                    <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400 font-medium">Email</p>
-                      <p className="text-slate-900 font-semibold text-sm">
-                        josh@legalhalp.com
-                      </p>
-                    </div>
-                  </a>
-                </div>
+              {/* Other contact methods */}
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 space-y-4">
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
+                  Other ways to connect
+                </h3>
 
-                {/* Other contact methods */}
-                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8 space-y-4">
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">
-                    Other ways to connect
-                  </h3>
-
-                  <a
-                    href="tel:+12162006627"
-                    className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
-                  >
-                    <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400 font-medium">Phone</p>
-                      <p className="text-slate-900 font-semibold text-sm">
-                        (216) 200-6627
-                      </p>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://www.linkedin.com/in/joshuabhalpern"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
-                  >
-                    <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400 font-medium">
-                        LinkedIn
-                      </p>
-                      <p className="text-slate-900 font-semibold text-sm">
-                        Joshua Halpern
-                      </p>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://www.instagram.com/legalhalp/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
-                  >
-                    <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400 font-medium">
-                        Instagram
-                      </p>
-                      <p className="text-slate-900 font-semibold text-sm">
-                        @legalhalp
-                      </p>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Response time card */}
-                <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Clock className="w-5 h-5 text-blue-400" />
-                    <h3 className="text-lg font-bold">Response Times</h3>
+                <a
+                  href="tel:+12162006627"
+                  className="flex items-center gap-3 bg-slate-50 rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
+                >
+                  <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
+                    <Phone className="w-5 h-5" />
                   </div>
-                  <ul className="space-y-2 text-slate-300 text-sm">
-                    <li className="flex justify-between">
-                      <span>Email replies</span>
-                      <span className="text-white font-semibold">
-                        Within 24 hours
-                      </span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Consultations</span>
-                      <span className="text-white font-semibold">
-                        Same week
-                      </span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Document delivery</span>
-                      <span className="text-white font-semibold">
-                        5–10 business days
-                      </span>
-                    </li>
-                  </ul>
+                  <div>
+                    <p className="text-xs text-slate-400 font-medium">Phone</p>
+                    <p className="text-slate-900 font-semibold text-sm">
+                      (216) 200-6627
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/joshuabhalpern"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 bg-slate-50 rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
+                >
+                  <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-400 font-medium">
+                      LinkedIn
+                    </p>
+                    <p className="text-slate-900 font-semibold text-sm">
+                      Joshua Halpern
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/legalhalp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 bg-slate-50 rounded-xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-sm transition-all group"
+                >
+                  <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-700 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-400 font-medium">
+                      Instagram
+                    </p>
+                    <p className="text-slate-900 font-semibold text-sm">
+                      @legalhalp
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              {/* Response time card */}
+              <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white">
+                <div className="flex items-center gap-3 mb-3">
+                  <Clock className="w-5 h-5 text-blue-400" />
+                  <h3 className="text-lg font-bold">Response Times</h3>
                 </div>
+                <ul className="space-y-2 text-slate-300 text-sm">
+                  <li className="flex justify-between">
+                    <span>Email replies</span>
+                    <span className="text-white font-semibold">
+                      Within 24 hours
+                    </span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Consultations</span>
+                    <span className="text-white font-semibold">
+                      Same week
+                    </span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Document delivery</span>
+                    <span className="text-white font-semibold">
+                      5–10 business days
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

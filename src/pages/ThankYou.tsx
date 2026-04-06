@@ -1,7 +1,20 @@
+import { useEffect } from "react";
 import { CheckCircle2, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 const ThankYou = () => {
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq("track", "Lead");
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full">

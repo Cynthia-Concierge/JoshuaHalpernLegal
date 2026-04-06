@@ -365,9 +365,7 @@ const Index = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  autoPlay
-                  muted
-                  preload="auto"
+                  preload="metadata"
                 >
                   <source src="https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
                   Your browser does not support the video tag.

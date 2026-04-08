@@ -169,7 +169,7 @@ export default async function handler(req, res) {
           }],
         };
 
-        await fetch(
+        const capiRes = await fetch(
           `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${META_ACCESS_TOKEN}`,
           {
             method: 'POST',
@@ -177,6 +177,12 @@ export default async function handler(req, res) {
             body: JSON.stringify(eventData),
           }
         );
+        const capiJson = await capiRes.json();
+        if (capiJson.error) {
+          console.error('Meta CAPI error:', JSON.stringify(capiJson.error));
+        } else {
+          console.log('Meta CAPI Lead event sent:', capiJson.events_received, 'events');
+        }
       } catch (capiErr) {
         console.error('Meta CAPI error (non-fatal):', capiErr.message);
       }

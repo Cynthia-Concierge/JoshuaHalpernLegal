@@ -9,6 +9,12 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 const CALENDLY_URL = "https://calendly.com/legalhalp/15-minute-legal-consult?hide_event_type_details=1&hide_gdpr_banner=1&hide_landing_page_details=1";
 
 const Contact: React.FC = () => {
@@ -37,6 +43,23 @@ const Contact: React.FC = () => {
       if (script.parentNode) script.parentNode.removeChild(script);
       if (link.parentNode) link.parentNode.removeChild(link);
     };
+  }, []);
+
+  // Listen for Calendly booking confirmation event and fire Schedule pixel
+  useEffect(() => {
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.origin !== 'https://calendly.com') return;
+      if (e.data?.event === 'calendly.event_scheduled') {
+        if (window.fbq) {
+          window.fbq('track', 'Schedule', {
+            content_name: 'Legal Cost Audit Call',
+            content_category: 'legal_services',
+          });
+        }
+      }
+    };
+    window.addEventListener('message', handleCalendlyEvent);
+    return () => window.removeEventListener('message', handleCalendlyEvent);
   }, []);
 
   return (

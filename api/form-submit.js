@@ -188,7 +188,7 @@ export default async function handler(req, res) {
           'X-Workflow-Secret': WORKFLOW_TRIGGER_SECRET,
         },
         body: JSON.stringify({
-          type: 'lead.form.submitted',
+          type: (formData.source || '').includes('Formation') ? 'lead.formation.submitted' : 'lead.applied.submitted',
           agentId: AGENT_ID,
           businessId: 'josh-halpern-law',
           contactName: name,

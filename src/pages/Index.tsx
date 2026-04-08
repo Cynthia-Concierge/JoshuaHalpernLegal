@@ -4,6 +4,12 @@ import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
 import ContactModal from "@/components/ContactModal";
 import { FORM_SUBMIT_URL } from "@/config";
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
 import {
   FileCheck,
   MessageCircle,
@@ -256,6 +262,9 @@ const Index = () => {
       const firstName = nameParts[0];
       const lastName = nameParts.slice(1).join(' ') || '';
 
+      // Extract Facebook click/browser IDs from cookies for server-side CAPI matching
+      const getCookie = (name: string) => document.cookie.split('; ').find(c => c.startsWith(name + '='))?.split('=').slice(1).join('=') || '';
+
       const response = await fetch(FORM_SUBMIT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -270,10 +279,21 @@ const Index = () => {
           main_need: formData.mainNeed || '',
           state: formData.state || '',
           tags: ['website', 'applied-legal-halp'],
+          _fbc: getCookie('_fbc'),
+          _fbp: getCookie('_fbp'),
         })
       });
 
       if (response.ok) {
+        // Fire Lead event client-side at submit time (belt-and-suspenders with thank-you page)
+        if (typeof window !== 'undefined' && window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: 'Lawyer On Call Application',
+            content_category: 'legal_services',
+            value: 1500,
+            currency: 'USD',
+          });
+        }
         setIsModalOpen(false);
         navigate('/lawyeroncall/thank-you');
       } else {

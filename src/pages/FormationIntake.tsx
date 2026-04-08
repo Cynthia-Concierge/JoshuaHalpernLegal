@@ -119,7 +119,7 @@ const FormationIntake: React.FC = () => {
       });
       if (!res.ok) {
         const text = await res.text();
-        console.error("GHL webhook failed", res.status, text);
+        console.error("Form submit failed", res.status, text);
         setSubmitError("We couldn't save your submission. Please try again or contact us directly.");
         setSubmitting(false);
         return;

@@ -2,6 +2,10 @@ const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 const AGENT_ID = 'user_14402270842';
 
+const META_PIXEL_ID = '1225216846384367';
+const META_ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN;
+const META_API_VERSION = 'v21.0';
+
 function supabaseHeaders() {
   return {
     apikey: SUPABASE_SERVICE_KEY,
@@ -126,6 +130,51 @@ export default async function handler(req, res) {
         }),
       }
     );
+
+    // Send Facebook Conversions API (CAPI) event for server-side tracking
+    if (META_ACCESS_TOKEN) {
+      try {
+        const crypto = await import('crypto');
+        const hashSha256 = (val) => val ? crypto.createHash('sha256').update(val.trim().toLowerCase()).digest('hex') : undefined;
+
+        const eventData = {
+          data: [{
+            event_name: 'Lead',
+            event_time: Math.floor(Date.now() / 1000),
+            event_source_url: 'https://www.legalhalplaw.com/lawyeroncall',
+            action_source: 'website',
+            user_data: {
+              em: email ? [hashSha256(email)] : undefined,
+              ph: phone ? [hashSha256(phone.replace(/\D/g, ''))] : undefined,
+              fn: hashSha256(formData.first_name),
+              ln: formData.last_name ? hashSha256(formData.last_name) : undefined,
+              st: formData.state ? [hashSha256(formData.state)] : undefined,
+              client_user_agent: req.headers['user-agent'] || '',
+              client_ip_address: req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || '',
+              fbc: req.body._fbc || undefined,
+              fbp: req.body._fbp || undefined,
+            },
+            custom_data: {
+              content_name: formData.source || 'Lawyer On Call Application',
+              lead_type: formData.main_need || 'general',
+              business_type: formData.business_type || '',
+              current_legal_spend: formData.current_legal_spend || '',
+            },
+          }],
+        };
+
+        await fetch(
+          `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${META_ACCESS_TOKEN}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(eventData),
+          }
+        );
+      } catch (capiErr) {
+        console.error('Meta CAPI error (non-fatal):', capiErr.message);
+      }
+    }
 
     return res.status(200).json({ status: 'ok' });
   } catch (err) {

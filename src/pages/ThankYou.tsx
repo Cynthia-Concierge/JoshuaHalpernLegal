@@ -11,7 +11,12 @@ declare global {
 const ThankYou = () => {
   useEffect(() => {
     if (window.fbq) {
-      window.fbq("track", "Lead");
+      window.fbq("track", "Lead", {
+        content_name: "Lawyer On Call Application",
+        content_category: "legal_services",
+        value: 1500,
+        currency: "USD",
+      });
     }
   }, []);
 

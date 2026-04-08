@@ -11,7 +11,10 @@ declare global {
 const BookingThankYou: React.FC = () => {
   useEffect(() => {
     if (window.fbq) {
-      window.fbq("track", "Schedule");
+      window.fbq("track", "Schedule", {
+        content_name: "Legal Cost Audit Call",
+        content_category: "legal_services",
+      });
     }
   }, []);
 

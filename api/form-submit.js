@@ -6,6 +6,9 @@ const META_PIXEL_ID = '1225216846384367';
 const META_ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN;
 const META_API_VERSION = 'v21.0';
 
+const WORKFLOW_TRIGGER_URL = 'https://app.cynthiaconcierge.com/workflow/trigger';
+const WORKFLOW_TRIGGER_SECRET = process.env.WORKFLOW_TRIGGER_SECRET || 'jvgX63jB2sDOb9-CWV79YMdtsqwBw0nWLB6bHmXczUY';
+
 function supabaseHeaders() {
   return {
     apikey: SUPABASE_SERVICE_KEY,
@@ -174,6 +177,35 @@ export default async function handler(req, res) {
       } catch (capiErr) {
         console.error('Meta CAPI error (non-fatal):', capiErr.message);
       }
+    }
+
+    // Trigger workflow engine for automated follow-up sequence
+    try {
+      await fetch(WORKFLOW_TRIGGER_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Workflow-Secret': WORKFLOW_TRIGGER_SECRET,
+        },
+        body: JSON.stringify({
+          type: 'lead.form.submitted',
+          agentId: AGENT_ID,
+          businessId: 'josh-halpern-law',
+          contactName: name,
+          contactEmail: email,
+          contactPhone: phone,
+          source: formData.source || 'website',
+          tags: tags || [],
+          formData: {
+            business_type: formData.business_type || '',
+            current_legal_spend: formData.current_legal_spend || '',
+            main_need: formData.main_need || '',
+            state: formData.state || '',
+          },
+        }),
+      });
+    } catch (wfErr) {
+      console.error('Workflow trigger error (non-fatal):', wfErr.message);
     }
 
     return res.status(200).json({ status: 'ok' });

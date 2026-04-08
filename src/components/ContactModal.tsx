@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, Lock, ArrowRight, ArrowLeft, CheckCircle2, Shield } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
+import { FORM_SUBMIT_URL } from '@/config';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -68,6 +69,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       name,
       email,
     });
+
+    // Save contact to CRM immediately (captures drop-offs before step 2)
+    const nameParts = name.split(' ');
+    fetch(FORM_SUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        first_name: nameParts[0],
+        last_name: nameParts.slice(1).join(' ') || '',
+        email,
+        phone,
+        source: 'Website - On-Demand Counsel Audit (Step 1)',
+        tags: ['website', 'started-application'],
+      }),
+    }).catch(() => {}); // fire-and-forget, don't block step 2
 
     setStep(2);
   };

@@ -134,8 +134,11 @@ export default async function handler(req, res) {
       }
     );
 
+    const isPartialSave = (formData.source || '').includes('Step 1');
+
     // Send Facebook Conversions API (CAPI) event for server-side tracking
-    if (META_ACCESS_TOKEN) {
+    // Skip for partial step 1 saves
+    if (META_ACCESS_TOKEN && !isPartialSave) {
       try {
         const crypto = await import('crypto');
         const hashSha256 = (val) => val ? crypto.createHash('sha256').update(val.trim().toLowerCase()).digest('hex') : undefined;
@@ -180,6 +183,11 @@ export default async function handler(req, res) {
     }
 
     // Trigger workflow engine for automated follow-up sequence
+    // Skip for Step 1 partial saves (just CRM capture, no workflow yet)
+    if (isPartialSave) {
+      return res.status(200).json({ status: 'ok', partial: true });
+    }
+
     try {
       await fetch(WORKFLOW_TRIGGER_URL, {
         method: 'POST',

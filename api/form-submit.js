@@ -188,9 +188,30 @@ export default async function handler(req, res) {
       }
     }
 
-    // Trigger workflow engine for automated follow-up sequence
-    // Skip for Step 1 partial saves (just CRM capture, no workflow yet)
+    // For Step 1 partial saves, trigger the abandoned application workflow
+    // so it can nudge leads who don't complete Step 2
     if (isPartialSave) {
+      try {
+        await fetch(WORKFLOW_TRIGGER_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Workflow-Secret': WORKFLOW_TRIGGER_SECRET,
+          },
+          body: JSON.stringify({
+            type: 'lead.application.started',
+            agentId: AGENT_ID,
+            businessId: 'josh-halpern-law',
+            contactName: name,
+            contactEmail: email,
+            contactPhone: phone,
+            source: formData.source || 'website',
+            tags: tags || [],
+          }),
+        });
+      } catch (wfErr) {
+        console.error('Workflow trigger error (non-fatal):', wfErr.message);
+      }
       return res.status(200).json({ status: 'ok', partial: true });
     }
 

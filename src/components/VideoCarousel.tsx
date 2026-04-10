@@ -204,12 +204,21 @@ const VideoCarousel: React.FC = () => {
   const credentialsScrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [credCanScrollLeft, setCredCanScrollLeft] = useState(false);
+  const [credCanScrollRight, setCredCanScrollRight] = useState(true);
 
   const checkScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 4);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  };
+
+  const checkCredScroll = () => {
+    const el = credentialsScrollRef.current;
+    if (!el) return;
+    setCredCanScrollLeft(el.scrollLeft > 4);
+    setCredCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
   };
 
   useEffect(() => {
@@ -221,6 +230,18 @@ const VideoCarousel: React.FC = () => {
     return () => {
       el.removeEventListener("scroll", checkScroll);
       window.removeEventListener("resize", checkScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = credentialsScrollRef.current;
+    if (!el) return;
+    checkCredScroll();
+    el.addEventListener("scroll", checkCredScroll, { passive: true });
+    window.addEventListener("resize", checkCredScroll);
+    return () => {
+      el.removeEventListener("scroll", checkCredScroll);
+      window.removeEventListener("resize", checkCredScroll);
     };
   }, []);
 
@@ -287,22 +308,26 @@ const VideoCarousel: React.FC = () => {
 
           <div className="relative">
             {/* Navigation arrows */}
-            <button
-              type="button"
-              onClick={() => scrollCredentials("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
-              aria-label="Previous credentials"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollCredentials("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
-              aria-label="Next credentials"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+            {credCanScrollLeft && (
+              <button
+                type="button"
+                onClick={() => scrollCredentials("left")}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
+                aria-label="Previous credentials"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+            )}
+            {credCanScrollRight && (
+              <button
+                type="button"
+                onClick={() => scrollCredentials("right")}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
+                aria-label="Next credentials"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            )}
 
             <div ref={credentialsScrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar px-12">
               {/* Credential cards */}

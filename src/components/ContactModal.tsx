@@ -27,7 +27,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     name: "",
     email: "",
     businessType: "",
-    currentLegalSpend: "",
     mainNeed: "",
     state: "",
   });
@@ -93,11 +92,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     e.preventDefault();
     const form = e.currentTarget;
     const businessType = (form.elements.namedItem("businessType") as HTMLSelectElement).value;
-    const currentLegalSpend = (form.elements.namedItem("currentLegalSpend") as HTMLSelectElement).value;
     const mainNeed = (form.elements.namedItem("mainNeed") as HTMLSelectElement).value;
-    const state = (form.elements.namedItem("state") as HTMLSelectElement).value;
+    const state = (form.elements.namedItem("state") as HTMLInputElement).value.trim();
 
-    if (!businessType || !currentLegalSpend || !mainNeed || !state) {
+    if (!businessType || !mainNeed || !state) {
       return;
     }
 
@@ -106,7 +104,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       email: formData.email,
       phone,
       businessType,
-      currentLegalSpend,
       mainNeed,
       state,
     } as any);
@@ -164,7 +161,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             <div>
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-slate-900 font-serif mb-2">
-                  Apply for Ongoing Counsel
+                  Get Your Lawyer on Call
                 </h3>
                 <p className="text-slate-600 text-sm">
                   Limited spots available. Tell us how to reach you.
@@ -242,7 +239,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   Tell Us About Your Business
                 </h3>
                 <p className="text-slate-600 text-sm">
-                  Help us understand your needs so we can match you with the right plan
+                  Two quick questions — takes 15 seconds.
                 </p>
               </div>
 
@@ -276,25 +273,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
                 <div className="group">
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                    Current Legal Spending?*
-                  </label>
-                  <select
-                    name="currentLegalSpend"
-                    required
-                    defaultValue={formData.currentLegalSpend}
-                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base"
-                  >
-                    <option value="">Select one...</option>
-                    <option value="$0 - No current legal support">$0 - No current legal support</option>
-                    <option value="$500-$2k/month (ad-hoc)">$500-$2k/month (ad-hoc hourly work)</option>
-                    <option value="$2k-$5k/month">$2k-$5k/month</option>
-                    <option value="$5k-$10k/month">$5k-$10k/month</option>
-                    <option value="$10k+/month">$10k+/month</option>
-                  </select>
-                </div>
-
-                <div className="group">
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
                     What Do You Need Most?*
                   </label>
                   <select
@@ -322,77 +300,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
                 <div className="group">
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                    What State Are You Located In?*
+                    What State Are You In?*
                   </label>
-                  <select
+                  <input
+                    type="text"
                     name="state"
                     required
                     defaultValue={formData.state}
-                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base"
-                  >
-                    <option value="">Select one...</option>
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                    <option value="California">California</option>
-                    <option value="Colorado">Colorado</option>
-                    <option value="Connecticut">Connecticut</option>
-                    <option value="Delaware">Delaware</option>
-                    <option value="Florida">Florida</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Hawaii">Hawaii</option>
-                    <option value="Idaho">Idaho</option>
-                    <option value="Illinois">Illinois</option>
-                    <option value="Indiana">Indiana</option>
-                    <option value="Iowa">Iowa</option>
-                    <option value="Kansas">Kansas</option>
-                    <option value="Kentucky">Kentucky</option>
-                    <option value="Louisiana">Louisiana</option>
-                    <option value="Maine">Maine</option>
-                    <option value="Maryland">Maryland</option>
-                    <option value="Massachusetts">Massachusetts</option>
-                    <option value="Michigan">Michigan</option>
-                    <option value="Minnesota">Minnesota</option>
-                    <option value="Mississippi">Mississippi</option>
-                    <option value="Missouri">Missouri</option>
-                    <option value="Montana">Montana</option>
-                    <option value="Nebraska">Nebraska</option>
-                    <option value="Nevada">Nevada</option>
-                    <option value="New Hampshire">New Hampshire</option>
-                    <option value="New Jersey">New Jersey</option>
-                    <option value="New Mexico">New Mexico</option>
-                    <option value="New York">New York</option>
-                    <option value="North Carolina">North Carolina</option>
-                    <option value="North Dakota">North Dakota</option>
-                    <option value="Ohio">Ohio</option>
-                    <option value="Oklahoma">Oklahoma</option>
-                    <option value="Oregon">Oregon</option>
-                    <option value="Pennsylvania">Pennsylvania</option>
-                    <option value="Rhode Island">Rhode Island</option>
-                    <option value="South Carolina">South Carolina</option>
-                    <option value="South Dakota">South Dakota</option>
-                    <option value="Tennessee">Tennessee</option>
-                    <option value="Texas">Texas</option>
-                    <option value="Utah">Utah</option>
-                    <option value="Vermont">Vermont</option>
-                    <option value="Virginia">Virginia</option>
-                    <option value="Washington">Washington</option>
-                    <option value="West Virginia">West Virginia</option>
-                    <option value="Wisconsin">Wisconsin</option>
-                    <option value="Wyoming">Wyoming</option>
-                  </select>
-                </div>
-
-                <div className="group">
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                    Additional Information (Optional)
-                  </label>
-                  <textarea
-                    name="additionalInfo"
-                    rows={3}
-                    placeholder="Please provide any additional information you feel would be helpful as we review your application"
-                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base resize-none"
+                    placeholder="e.g. Florida"
+                    className="w-full px-4 py-3.5 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
                   />
                 </div>
 
@@ -410,8 +326,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     type="submit"
                     className="flex-[2] bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-emerald-600/25 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group"
                   >
-                    <span className="tracking-wide">Apply Now</span>
-                    <Shield className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <span className="tracking-wide">Get Started</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 </div>
 

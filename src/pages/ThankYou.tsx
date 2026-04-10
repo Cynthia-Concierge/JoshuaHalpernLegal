@@ -36,19 +36,19 @@ const ThankYou = () => {
             You're Almost In
           </h1>
           <p className="text-xl text-slate-300 mb-2">
-            We've got your info — one more step to complete your application.
+            We've got your info. We'll reach out within 24 hours to schedule a quick intro call.
           </p>
           <p className="text-slate-400">
-            Book a quick intro call with Josh so we can learn about your business and make sure we're the right fit.
+            Don't want to wait? You can book your call right now.
           </p>
         </div>
 
         {/* Book Call CTA */}
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 animate-slide-up text-center">
           <Calendar className="w-10 h-10 text-emerald-400 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-3 font-serif">Schedule Your Intro Call</h2>
+          <h2 className="text-2xl font-bold text-white mb-3 font-serif">Skip the Wait — Book Now</h2>
           <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
-            This is a 15-minute call to discuss your legal needs, how the service works, and whether it's a good fit. No pressure, no commitment.
+            15 minutes with Josh to discuss your legal needs, how the service works, and whether it's a good fit. No pressure, no commitment.
           </p>
           <a
             href="https://calendly.com/legalhalp/15-minute-legal-consult"

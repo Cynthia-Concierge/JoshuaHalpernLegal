@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CheckCircle2, Mail } from "lucide-react";
+import { CheckCircle2, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 declare global {
@@ -31,86 +31,50 @@ const ThankYou = () => {
         </div>
 
         {/* Main Content */}
-        <div className="text-center mb-12 animate-fade-in">
+        <div className="text-center mb-10 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
-            Application Received
+            You're Almost In
           </h1>
           <p className="text-xl text-slate-300 mb-2">
-            Thank you for applying for ongoing counsel.
+            We've got your info — one more step to complete your application.
           </p>
           <p className="text-slate-400">
-            We've received your information and will review your application shortly.
+            Book a quick intro call with Josh so we can learn about your business and make sure we're the right fit.
           </p>
         </div>
 
-        {/* Next Steps Card */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 animate-slide-up">
-          <h2 className="text-2xl font-bold text-white mb-6 font-serif">What Happens Next?</h2>
-
-          <div className="space-y-6">
-            {/* Step 1 */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-emerald-400 font-bold">1</span>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold mb-1">Application Review</h3>
-                <p className="text-slate-400 text-sm">
-                  We'll review your application within 24 hours to ensure this service is a good fit for your business needs.
-                </p>
-              </div>
-            </div>
-
-            {/* Step 2 */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-emerald-400 font-bold">2</span>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold mb-1">Free Legal Cost Audit</h3>
-                <p className="text-slate-400 text-sm">
-                  If approved, we'll reach out to schedule your complimentary audit call where we'll analyze your current legal spending and show you exactly how much you could save.
-                </p>
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-emerald-400 font-bold">3</span>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold mb-1">Get Started</h3>
-                <p className="text-slate-400 text-sm">
-                  Once you're ready to move forward, we'll onboard you immediately and you'll have direct access to ongoing legal counsel.
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* Book Call CTA */}
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 animate-slide-up text-center">
+          <Calendar className="w-10 h-10 text-emerald-400 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-3 font-serif">Schedule Your Intro Call</h2>
+          <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
+            This is a 15-minute call to discuss your legal needs, how the service works, and whether it's a good fit. No pressure, no commitment.
+          </p>
+          <a
+            href="https://calendly.com/legalhalp/15-minute-legal-consult"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-emerald-600/25 transform hover:-translate-y-0.5 transition-all duration-200 group"
+          >
+            <span>Book Your Call</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
         </div>
 
-        {/* Check Email */}
-        <div className="bg-gradient-to-r from-emerald-900/20 to-blue-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          <div className="flex items-start gap-4">
-            <Mail className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="text-white font-semibold mb-2">Check Your Email</h3>
-              <p className="text-slate-300 text-sm mb-3">
-                We've sent a confirmation to your email address. Keep an eye out for our response within 24 hours.
-              </p>
-              <p className="text-slate-400 text-xs">
-                If you don't see it, check your spam folder or reach out directly at{" "}
-                <a href="mailto:josh@legalhalp.com" className="text-emerald-400 hover:text-emerald-300 underline">
-                  josh@legalhalp.com
-                </a>
-              </p>
-            </div>
+        {/* What to Expect */}
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 animate-slide-up" style={{ animationDelay: '0.15s' }}>
+          <h3 className="text-lg font-bold text-white mb-4">On the call, we'll cover:</h3>
+          <div className="space-y-3">
+            {[
+              "Your current legal setup and where the gaps are",
+              "How the flat-fee retainer works for your situation",
+              "Whether we're the right fit (no pressure either way)",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <span className="text-slate-300 text-sm">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
 

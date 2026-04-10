@@ -253,7 +253,6 @@ const Index = () => {
     email: string;
     phone: string;
     businessType?: string;
-    currentLegalSpend?: string;
     mainNeed?: string;
     state?: string;
   }) => {
@@ -275,7 +274,6 @@ const Index = () => {
           phone: formData.phone,
           source: 'Website - On-Demand Counsel Audit',
           business_type: formData.businessType || '',
-          current_legal_spend: formData.currentLegalSpend || '',
           main_need: formData.mainNeed || '',
           state: formData.state || '',
           tags: ['website', 'applied-legal-halp'],

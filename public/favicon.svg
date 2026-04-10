@@ -1,3 +1,11 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 16 12 L 22 12 L 22 28 L 42 28 L 42 12 L 48 12 L 48 52 L 42 52 L 42 34 L 22 34 L 22 52 L 16 52 Z" fill="#D18D1A" stroke="none"/>
+  <!-- LH monogram - Legal Halp brand mark -->
+  <!-- L vertical (tall, left side) - also serves as H left bar -->
+  <rect x="6" y="2" width="10" height="60" rx="1" fill="#F5A623"/>
+  <!-- L horizontal bottom bar -->
+  <rect x="6" y="52" width="30" height="10" rx="1" fill="#F5A623"/>
+  <!-- H crossbar -->
+  <rect x="16" y="28" width="22" height="10" rx="1" fill="#F5A623"/>
+  <!-- H right vertical bar (shorter, starts lower than L bar) -->
+  <rect x="28" y="16" width="10" height="46" rx="1" fill="#F5A623"/>
 </svg>

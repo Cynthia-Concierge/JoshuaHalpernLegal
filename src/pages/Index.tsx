@@ -359,12 +359,6 @@ const Index = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/20 px-4 py-1.5 rounded-full text-sm text-brand-gold font-medium">
-              <Zap className="w-4 h-4" />
-              For Business Owners Tired of Overpaying Lawyers
-            </div>
-
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-navy leading-tight tracking-tight">
               Your On-Demand Lawyer Without Paying $500/Hour
             </h1>

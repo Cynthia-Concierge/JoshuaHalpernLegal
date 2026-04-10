@@ -134,11 +134,8 @@ export default async function handler(req, res) {
       }
     );
 
-    const isPartialSave = (formData.source || '').includes('Step 1');
-
     // Send Facebook Conversions API (CAPI) event for server-side tracking
-    // Skip for partial step 1 saves
-    if (META_ACCESS_TOKEN && !isPartialSave) {
+    if (META_ACCESS_TOKEN) {
       try {
         const crypto = await import('crypto');
         const hashSha256 = (val) => val ? crypto.createHash('sha256').update(val.trim().toLowerCase()).digest('hex') : undefined;
@@ -188,33 +185,7 @@ export default async function handler(req, res) {
       }
     }
 
-    // For Step 1 partial saves, trigger the abandoned application workflow
-    // so it can nudge leads who don't complete Step 2
-    if (isPartialSave) {
-      try {
-        await fetch(WORKFLOW_TRIGGER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Workflow-Secret': WORKFLOW_TRIGGER_SECRET,
-          },
-          body: JSON.stringify({
-            type: 'lead.application.started',
-            agentId: AGENT_ID,
-            businessId: 'josh-halpern-law',
-            contactName: name,
-            contactEmail: email,
-            contactPhone: phone,
-            source: formData.source || 'website',
-            tags: tags || [],
-          }),
-        });
-      } catch (wfErr) {
-        console.error('Workflow trigger error (non-fatal):', wfErr.message);
-      }
-      return res.status(200).json({ status: 'ok', partial: true });
-    }
-
+    // Trigger the follow-up workflow
     try {
       await fetch(WORKFLOW_TRIGGER_URL, {
         method: 'POST',
@@ -223,7 +194,7 @@ export default async function handler(req, res) {
           'X-Workflow-Secret': WORKFLOW_TRIGGER_SECRET,
         },
         body: JSON.stringify({
-          type: (formData.source || '').includes('Formation') ? 'lead.formation.submitted' : 'lead.applied.submitted',
+          type: (formData.source || '').includes('Formation') ? 'lead.formation.submitted' : 'lead.form.submitted',
           agentId: AGENT_ID,
           businessId: 'josh-halpern-law',
           contactName: name,

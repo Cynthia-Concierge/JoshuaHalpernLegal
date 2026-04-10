@@ -1,10 +1,13 @@
 import { useEffect } from "react";
-import { CheckCircle2, Calendar, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
+    Calendly?: {
+      initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
+    };
   }
 }
 
@@ -20,9 +23,36 @@ const ThankYou = () => {
     }
   }, []);
 
+  // Load Calendly embed script
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = () => {
+      const el = document.getElementById("calendly-embed");
+      if (el && window.Calendly) {
+        window.Calendly.initInlineWidget({
+          url: "https://calendly.com/legalhalp/15-minute-legal-consult?hide_gdpr_banner=1&background_color=1e293b&text_color=e2e8f0&primary_color=10b981",
+          parentElement: el,
+        });
+      }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(link);
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4 py-12">
-      <div className="max-w-2xl w-full">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-12">
+      <div className="max-w-3xl mx-auto">
         {/* Success Icon */}
         <div className="flex justify-center mb-8">
           <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center animate-scale-in">
@@ -31,7 +61,7 @@ const ThankYou = () => {
         </div>
 
         {/* Main Content */}
-        <div className="text-center mb-10 animate-fade-in">
+        <div className="text-center mb-8 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
             You're Almost In
           </h1>
@@ -39,26 +69,16 @@ const ThankYou = () => {
             We've got your info. We'll reach out within 24 hours to schedule a quick intro call.
           </p>
           <p className="text-slate-400">
-            Don't want to wait? You can book your call right now.
+            Don't want to wait? Book your call right here.
           </p>
         </div>
 
-        {/* Book Call CTA */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 animate-slide-up text-center">
-          <Calendar className="w-10 h-10 text-emerald-400 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-3 font-serif">Skip the Wait — Book Now</h2>
-          <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
-            15 minutes with Josh to discuss your legal needs, how the service works, and whether it's a good fit. No pressure, no commitment.
-          </p>
-          <a
-            href="https://calendly.com/legalhalp/15-minute-legal-consult"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-emerald-600/25 transform hover:-translate-y-0.5 transition-all duration-200 group"
-          >
-            <span>Book Your Call</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-          </a>
+        {/* Calendly Inline Embed */}
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden mb-8 animate-slide-up">
+          <div
+            id="calendly-embed"
+            style={{ minWidth: "320px", height: "660px" }}
+          />
         </div>
 
         {/* What to Expect */}

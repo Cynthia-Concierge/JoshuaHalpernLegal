@@ -200,6 +200,7 @@ export default async function handler(req, res) {
           contactName: name,
           contactEmail: email,
           contactPhone: phone,
+          trackingKey: phone || email,
           source: formData.source || 'website',
           tags: tags || [],
           formData: {

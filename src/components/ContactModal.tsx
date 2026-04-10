@@ -239,7 +239,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   Tell Us About Your Business
                 </h3>
                 <p className="text-slate-600 text-sm">
-                  Two quick questions — takes 15 seconds.
+                  Three quick questions — takes 15 seconds.
                 </p>
               </div>
 
@@ -295,6 +295,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     <option value="Strategic legal counsel">Strategic legal counsel</option>
                     <option value="Vendor/client agreement templates">Vendor/client agreement templates</option>
                     <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy policy)</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
@@ -312,6 +313,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   />
                 </div>
 
+                <p className="text-slate-500 text-sm text-center">
+                  Once you apply, we'll reach out within 24 hours to schedule a brief intro call and see if we're the right fit.
+                </p>
+
                 <div className="flex gap-3 mt-4">
                   <button
                     type="button"
@@ -326,7 +331,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     type="submit"
                     className="flex-[2] bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-emerald-600/25 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group"
                   >
-                    <span className="tracking-wide">Get Started</span>
+                    <span className="tracking-wide">Apply</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 </div>

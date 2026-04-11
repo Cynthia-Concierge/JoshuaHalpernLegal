@@ -358,7 +358,13 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-navy leading-tight tracking-tight">
-              Your On-Demand Lawyer Without Paying $500/Hour
+              Your On-Demand Lawyer{" "}
+              <span className="relative">
+                <span className="relative z-10">Without</span>
+                <span className="absolute bottom-2 md:bottom-3 left-0 right-0 h-3 md:h-4 bg-brand-gold/20 -rotate-1 rounded-sm" />
+              </span>{" "}
+              Paying{" "}
+              <span className="text-brand-gold-dark line-through decoration-brand-gold/40 decoration-[3px]">$500/Hour</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">

@@ -206,6 +206,7 @@ const VideoCarousel: React.FC = () => {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [credCanScrollLeft, setCredCanScrollLeft] = useState(false);
   const [credCanScrollRight, setCredCanScrollRight] = useState(true);
+  const credHasScrolledRight = useRef(false);
 
   const checkScroll = () => {
     const el = scrollRef.current;
@@ -217,7 +218,8 @@ const VideoCarousel: React.FC = () => {
   const checkCredScroll = () => {
     const el = credentialsScrollRef.current;
     if (!el) return;
-    setCredCanScrollLeft(el.scrollLeft > 4);
+    if (el.scrollLeft > 20) credHasScrolledRight.current = true;
+    setCredCanScrollLeft(credHasScrolledRight.current && el.scrollLeft > 20);
     setCredCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
   };
 

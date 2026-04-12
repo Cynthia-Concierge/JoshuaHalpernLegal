@@ -236,7 +236,13 @@ const VideoCarousel: React.FC = () => {
   useEffect(() => {
     const el = credentialsScrollRef.current;
     if (!el) return;
+    el.scrollLeft = 0;
     checkCredScroll();
+    // Re-check after render in case browser restores scroll position
+    requestAnimationFrame(() => {
+      el.scrollLeft = 0;
+      checkCredScroll();
+    });
     el.addEventListener("scroll", checkCredScroll, { passive: true });
     window.addEventListener("resize", checkCredScroll);
     return () => {

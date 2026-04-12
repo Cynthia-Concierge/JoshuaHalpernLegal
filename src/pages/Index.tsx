@@ -162,8 +162,8 @@ const Index = () => {
   ];
 
   const steps = [
-    { num: "1", title: "Submit Your Application", desc: "Tell us about your business, revenue, and current legal needs. Takes 2 minutes." },
-    { num: "2", title: "We'll Review & Reach Out", desc: "If we're a good fit, we'll contact you within 24-48 hours to schedule a consultation call." },
+    { num: "1", title: "Tell Us About Your Business", desc: "Fill out a quick intake form with your info and legal needs. Takes under a minute." },
+    { num: "2", title: "We'll Reach Out to Schedule a Call", desc: "Our team will contact you as soon as possible to set up a brief intro call and see if we're the right fit." },
     { num: "3", title: "Start Getting Legal Done", desc: "Once onboarded, text, email, or call your attorney whenever you need something. Flat fee. No surprises." },
   ];
 
@@ -558,7 +558,7 @@ const Index = () => {
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
               >
-                Submit Your Application
+                Get Started
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

@@ -1,11 +1,19 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- LH monogram - Legal Halp brand mark -->
-  <!-- L vertical (tall, left side) - also serves as H left bar -->
-  <rect x="6" y="2" width="10" height="60" rx="1" fill="#F5A623"/>
-  <!-- L horizontal bottom bar -->
-  <rect x="6" y="52" width="30" height="10" rx="1" fill="#F5A623"/>
+  <!-- LH monogram - brand logo with proper negative space -->
+  <!--
+    Stroke width = 10 units
+    L vertical: x=6..16, y=2..60
+    L bottom bar: x=6..48, y=50..60
+    H crossbar: x=16..48, y=26..36
+    H right bar: x=38..48, y=12..60
+    Window: x=16..38, y=36..50 (between crossbar bottom, bottom bar top, L right edge, H left edge)
+  -->
+  <!-- L vertical -->
+  <rect x="6" y="2" width="10" height="58" fill="#F5A623"/>
+  <!-- H right bar -->
+  <rect x="38" y="12" width="10" height="48" fill="#F5A623"/>
   <!-- H crossbar -->
-  <rect x="16" y="28" width="22" height="10" rx="1" fill="#F5A623"/>
-  <!-- H right vertical bar (shorter, starts lower than L bar) -->
-  <rect x="28" y="16" width="10" height="46" rx="1" fill="#F5A623"/>
+  <rect x="16" y="26" width="22" height="10" fill="#F5A623"/>
+  <!-- L bottom bar -->
+  <rect x="16" y="50" width="22" height="10" fill="#F5A623"/>
 </svg>

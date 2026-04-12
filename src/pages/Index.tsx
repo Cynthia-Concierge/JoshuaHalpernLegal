@@ -363,7 +363,7 @@ const Index = () => {
                 <span className="relative z-10">Without</span>
                 <span className="absolute bottom-2 md:bottom-3 left-0 right-0 h-3 md:h-4 bg-brand-gold/20 -rotate-1 rounded-sm" />
               </span>{" "}
-              <span className="text-brand-gold-dark">The Hourly Bill.</span>
+              <span className="text-brand-gold">The Hourly Bill.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">

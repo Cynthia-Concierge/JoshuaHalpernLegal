@@ -1,11 +1,20 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <!-- LH monogram - exact match to brand logo -->
+  <!--
+    Proportions from actual logo:
+    - L vertical: full height, thin stroke
+    - H right bar: about 55% of full height, aligned to bottom
+    - Crossbar: connects them roughly 55% down from top
+    - Bottom bar: at the very bottom
+    - Window: square gap between crossbar and bottom bar, between L and H verticals
+    - Stroke width: ~15% of total width
+  -->
   <!-- L vertical (left bar, full height) -->
-  <rect x="10" y="2" width="8" height="60" fill="#F5A623"/>
-  <!-- H crossbar (upper-middle area) -->
-  <rect x="18" y="24" width="20" height="8" fill="#F5A623"/>
-  <!-- H right bar (starts at crossbar, goes to bottom) -->
-  <rect x="38" y="24" width="8" height="38" fill="#F5A623"/>
-  <!-- L bottom bar (connects left bar to right bar at bottom) -->
-  <rect x="18" y="54" width="20" height="8" fill="#F5A623"/>
+  <rect x="10" y="2" width="7" height="60" fill="#F5A623"/>
+  <!-- H right bar (shorter, starts where crossbar is, goes to bottom) -->
+  <rect x="40" y="26" width="7" height="36" fill="#F5A623"/>
+  <!-- H crossbar -->
+  <rect x="17" y="26" width="23" height="7" fill="#F5A623"/>
+  <!-- Bottom bar -->
+  <rect x="17" y="55" width="23" height="7" fill="#F5A623"/>
 </svg>

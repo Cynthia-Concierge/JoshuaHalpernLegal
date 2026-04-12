@@ -8,10 +8,10 @@
     H right bar: x=38..48, y=12..60
     Window: x=16..38, y=36..50 (between crossbar bottom, bottom bar top, L right edge, H left edge)
   -->
-  <!-- L vertical -->
-  <rect x="6" y="2" width="10" height="58" fill="#F5A623"/>
+  <!-- H left bar (was L vertical) -->
+  <rect x="6" y="4" width="10" height="56" fill="#F5A623"/>
   <!-- H right bar -->
-  <rect x="38" y="12" width="10" height="48" fill="#F5A623"/>
+  <rect x="38" y="4" width="10" height="56" fill="#F5A623"/>
   <!-- H crossbar -->
   <rect x="16" y="26" width="22" height="10" fill="#F5A623"/>
   <!-- L bottom bar -->

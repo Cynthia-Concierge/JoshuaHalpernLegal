@@ -255,6 +255,7 @@ const Index = () => {
     businessType?: string;
     mainNeed?: string;
     state?: string;
+    additionalInfo?: string;
   }) => {
     try {
       const nameParts = formData.name.trim().split(' ');
@@ -276,6 +277,7 @@ const Index = () => {
           business_type: formData.businessType || '',
           main_need: formData.mainNeed || '',
           state: formData.state || '',
+          additional_info: formData.additionalInfo || '',
           tags: ['website', 'applied-legal-halp'],
           _fbc: getCookie('_fbc'),
           _fbp: getCookie('_fbp'),

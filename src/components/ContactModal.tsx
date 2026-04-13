@@ -41,6 +41,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     const businessType = (form.elements.namedItem("businessType") as HTMLSelectElement).value;
     const mainNeed = (form.elements.namedItem("mainNeed") as HTMLSelectElement).value;
     const state = (form.elements.namedItem("state") as HTMLInputElement).value.trim();
+    const additionalInfo = (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement).value.trim();
 
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -63,6 +64,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       businessType,
       mainNeed,
       state,
+      additionalInfo,
     } as any);
   };
 
@@ -205,6 +207,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 required
                 placeholder="e.g. Florida"
                 className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+                Anything else? <span className="text-slate-400 font-normal normal-case">(optional)</span>
+              </label>
+              <textarea
+                name="additionalInfo"
+                rows={2}
+                placeholder="Please tell us anything else you'd like us to know in advance of our call."
+                className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-navy/20 focus:border-brand-navy outline-none transition-all resize-none"
               />
             </div>
 

@@ -204,9 +204,8 @@ const VideoCarousel: React.FC = () => {
   const credentialsScrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const [credCanScrollLeft, setCredCanScrollLeft] = useState(false);
+  const [credShowLeftArrow, setCredShowLeftArrow] = useState(false);
   const [credCanScrollRight, setCredCanScrollRight] = useState(true);
-  const credHasScrolledRight = useRef(false);
 
   const checkScroll = () => {
     const el = scrollRef.current;
@@ -218,8 +217,7 @@ const VideoCarousel: React.FC = () => {
   const checkCredScroll = () => {
     const el = credentialsScrollRef.current;
     if (!el) return;
-    if (el.scrollLeft > 20) credHasScrolledRight.current = true;
-    setCredCanScrollLeft(credHasScrolledRight.current && el.scrollLeft > 20);
+    setCredShowLeftArrow(el.scrollLeft > 30);
     setCredCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
   };
 
@@ -239,17 +237,10 @@ const VideoCarousel: React.FC = () => {
     const el = credentialsScrollRef.current;
     if (!el) return;
     el.scrollLeft = 0;
-    checkCredScroll();
-    // Re-check after render in case browser restores scroll position
-    requestAnimationFrame(() => {
-      el.scrollLeft = 0;
-      checkCredScroll();
-    });
+    setCredShowLeftArrow(false);
     el.addEventListener("scroll", checkCredScroll, { passive: true });
-    window.addEventListener("resize", checkCredScroll);
     return () => {
       el.removeEventListener("scroll", checkCredScroll);
-      window.removeEventListener("resize", checkCredScroll);
     };
   }, []);
 
@@ -265,9 +256,12 @@ const VideoCarousel: React.FC = () => {
   const scrollCredentials = (direction: "left" | "right") => {
     const el = credentialsScrollRef.current;
     if (!el) return;
-    const cardWidth = 220; // Fixed width from cards
+    const cardWidth = 220;
     const gap = 16;
     const distance = (cardWidth + gap) * 2;
+    if (direction === "right") {
+      setCredShowLeftArrow(true);
+    }
     el.scrollBy({ left: direction === "left" ? -distance : distance, behavior: "smooth" });
   };
 
@@ -316,7 +310,7 @@ const VideoCarousel: React.FC = () => {
 
           <div className="relative">
             {/* Navigation arrows */}
-            {credCanScrollLeft && (
+            {credShowLeftArrow && (
               <button
                 type="button"
                 onClick={() => scrollCredentials("left")}

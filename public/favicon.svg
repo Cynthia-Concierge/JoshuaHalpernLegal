@@ -5,8 +5,8 @@
   <rect x="0" y="0" width="8" height="64" fill="#F5A623"/>
   <!-- H crossbar -->
   <rect x="8" y="29" width="24" height="7" fill="#F5A623"/>
-  <!-- H right bar (starts at crossbar, goes to bottom) -->
-  <rect x="32" y="29" width="8" height="35" fill="#F5A623"/>
+  <!-- H right bar (full height, level with left bar) -->
+  <rect x="32" y="0" width="8" height="64" fill="#F5A623"/>
   <!-- Bottom bar -->
   <rect x="8" y="57" width="24" height="7" fill="#F5A623"/>
 </svg>

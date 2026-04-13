@@ -426,9 +426,25 @@ const Index = () => {
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              <p className="text-slate-400 text-xs text-center max-w-md">
-                We focus on business and transactional law — contracts, formations, estate planning, and ongoing counsel. Not litigation, criminal defense, or personal injury.
-              </p>
+              {/* Why Application-Based */}
+              <div className="max-w-2xl mx-auto w-full">
+                <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
+                  <p className="text-slate-600 text-center leading-relaxed text-sm">
+                    This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
+                  </p>
+                </div>
+              </div>
+
+              {/* Scope Disclaimer */}
+              <div className="max-w-2xl mx-auto w-full">
+                <div className="border border-slate-200 rounded-xl px-6 py-4 flex items-start gap-3">
+                  <span className="text-slate-400 text-sm mt-0.5">*</span>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    Legal Halp focuses on <span className="text-slate-500 font-medium">business and transactional law</span> — contracts, entity formations, estate planning, and ongoing general counsel. We do not handle litigation, probate, divorce/domestic relations, criminal defense, or personal injury matters.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [showScopeNote, setShowScopeNote] = useState(false);
 
   if (!isOpen) return null;
 
@@ -177,6 +178,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               <select
                 name="mainNeed"
                 required
+                onChange={(e) => setShowScopeNote(e.target.value === "Other")}
                 className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base"
               >
                 <option value="">Select one...</option>
@@ -195,6 +197,11 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy policy)</option>
                 <option value="Other">Other</option>
               </select>
+              {showScopeNote && (
+                <p className="mt-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 leading-relaxed">
+                  Legal Halp focuses on business and transactional law. If you need help with litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
+                </p>
+              )}
             </div>
 
             <div className="group">

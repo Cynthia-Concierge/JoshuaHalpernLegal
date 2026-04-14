@@ -369,7 +369,7 @@ const Index = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">
-              Get contracts reviewed, entities formed, and legal strategy on demand—without booking calls or watching the clock.
+              Built for entrepreneurs, business owners, creators, and individuals who need contracts reviewed, entities formed, estate plans drafted, deals negotiated, corporate strategy, or a lawyer to text when questions come up.
             </p>
 
             {/* Trust chips */}
@@ -399,11 +399,6 @@ const Index = () => {
                 <span>Business & Transactional Law</span>
               </div>
             </div>
-
-            {/* Who This Is For */}
-            <p className="text-base md:text-lg text-slate-600 font-semibold max-w-2xl mx-auto">
-              Built for entrepreneurs, business owners, and individuals managing contracts, entities, and estate planning.
-            </p>
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>

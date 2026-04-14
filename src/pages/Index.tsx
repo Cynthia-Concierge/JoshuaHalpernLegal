@@ -360,7 +360,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-navy leading-tight tracking-tight">
-              Your Lawyer On Call.{" "}
+              Your Business Lawyer On Call.{" "}
               <span className="relative">
                 <span className="relative z-10">Without</span>
                 <span className="absolute bottom-2 md:bottom-3 left-0 right-0 h-3 md:h-4 bg-brand-gold/20 -rotate-1 rounded-sm" />

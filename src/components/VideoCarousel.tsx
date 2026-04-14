@@ -9,15 +9,12 @@ interface VideoItem {
   instagramUrl?: string;
 }
 
-const VIDEO_BASE =
-  "https://github.com/cynthiaconcierge/JoshuaHalpernLegal/releases/download/videos";
-
 const VIDEOS: VideoItem[] = [
-  { id: 1, src: `${VIDEO_BASE}/1.mp4`, poster: `${VIDEO_BASE}/1.jpg`, title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER1/" },
-  { id: 2, src: `${VIDEO_BASE}/3.mp4`, poster: `${VIDEO_BASE}/3.jpg`, title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER2/" },
-  { id: 3, src: `${VIDEO_BASE}/2.mp4`, poster: `${VIDEO_BASE}/2.jpg`, title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER3/" },
-  { id: 4, src: `${VIDEO_BASE}/5.mp4`, poster: `${VIDEO_BASE}/5.jpg`, title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER4/" },
-  { id: 5, src: `${VIDEO_BASE}/6.mp4`, poster: `${VIDEO_BASE}/6.jpg`, title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER5/" },
+  { id: 1, src: "/videos/1.mp4", poster: "/videos/1.jpg", title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER1/" },
+  { id: 2, src: "/videos/3.mp4", poster: "", title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER2/" },
+  { id: 3, src: "/videos/2.mp4", poster: "", title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER3/" },
+  { id: 4, src: "/videos/5.mp4", poster: "", title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER4/" },
+  { id: 5, src: "/videos/6.mp4", poster: "", title: "", instagramUrl: "https://www.instagram.com/p/PLACEHOLDER5/" },
 ];
 
 const VideoCard: React.FC<{ video: VideoItem }> = ({ video }) => {

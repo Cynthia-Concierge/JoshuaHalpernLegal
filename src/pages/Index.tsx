@@ -592,7 +592,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-8 tracking-tight">
-              Built For Business Owners Who Are Done Overpaying
+              Built For Entrepreneurs & Business Owners Who Are Done Overpaying
             </h2>
 
             <div className="space-y-4 text-left max-w-2xl mx-auto mb-6">

@@ -410,7 +410,7 @@ const Index = () => {
                   playsInline
                   preload="metadata"
                 >
-                  <source src="/videos/lawyer-on-call.mp4" type="video/mp4" />
+                  <source src="https://github.com/Cynthia-Concierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -953,7 +953,7 @@ const Index = () => {
             controls
             playsInline
           >
-            <source src="/videos/lawyer-on-call.mp4" type="video/mp4" />
+            <source src="https://github.com/Cynthia-Concierge/JoshuaHalpernLegal/releases/download/videos/lawyer-on-call.mp4" type="video/mp4" />
           </video>
         </div>
       )}

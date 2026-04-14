@@ -369,7 +369,7 @@ const Index = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">
-              Ask questions, review contracts, and get real answers in real time—without booking calls or watching the clock.
+              Get contracts reviewed, entities formed, and legal strategy on demand—without booking calls or watching the clock.
             </p>
 
             {/* Trust chips */}
@@ -399,6 +399,11 @@ const Index = () => {
                 <span>Business & Transactional Law</span>
               </div>
             </div>
+
+            {/* Who This Is For */}
+            <p className="text-sm md:text-base text-slate-500 font-medium tracking-wide uppercase">
+              Built for entrepreneurs, business owners, and individuals managing contracts, entities, and estate planning.
+            </p>
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>
@@ -430,22 +435,21 @@ const Index = () => {
                 <ArrowRight className="w-5 h-5" />
               </button>
 
+              {/* Scope Qualifier */}
+              <div className="max-w-2xl mx-auto w-full">
+                <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl px-6 py-4">
+                  <p className="text-slate-600 text-center leading-relaxed text-sm">
+                    <span className="font-semibold text-brand-navy">Dedicated to business & transactional law</span> — contracts, entity formations, estate planning, and ongoing general counsel. We do not handle litigation, criminal defense, family law, or personal injury.
+                  </p>
+                </div>
+              </div>
+
               {/* Why Application-Based */}
               <div className="max-w-2xl mx-auto w-full">
                 <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
                   <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
                   <p className="text-slate-600 text-center leading-relaxed text-sm">
                     This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
-                  </p>
-                </div>
-              </div>
-
-              {/* Scope Disclaimer */}
-              <div className="max-w-2xl mx-auto w-full">
-                <div className="border border-slate-200 rounded-xl px-6 py-4 flex items-start gap-3">
-                  <span className="text-slate-400 text-sm mt-0.5">*</span>
-                  <p className="text-slate-400 text-xs leading-relaxed">
-                    Legal Halp focuses on <span className="text-slate-500 font-medium">business and transactional law</span> — contracts, entity formations, estate planning, and ongoing general counsel. We do not handle litigation, probate, divorce/domestic relations, criminal defense, or personal injury matters.
                   </p>
                 </div>
               </div>

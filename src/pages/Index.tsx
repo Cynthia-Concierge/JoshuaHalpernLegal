@@ -401,7 +401,7 @@ const Index = () => {
             </div>
 
             {/* Who This Is For */}
-            <p className="text-sm md:text-base text-slate-500 font-medium tracking-wide uppercase">
+            <p className="text-base md:text-lg text-slate-600 font-semibold max-w-2xl mx-auto">
               Built for entrepreneurs, business owners, and individuals managing contracts, entities, and estate planning.
             </p>
 
@@ -427,15 +427,7 @@ const Index = () => {
 
             {/* CTA */}
             <div className="flex flex-col items-center gap-6">
-              <button
-                onClick={openModal}
-                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
-              >
-                Apply Now
-                <ArrowRight className="w-5 h-5" />
-              </button>
-
-              {/* Scope Qualifier */}
+              {/* Scope Qualifier — above button so it's unmissable */}
               <div className="max-w-2xl mx-auto w-full">
                 <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl px-6 py-4">
                   <p className="text-slate-600 text-center leading-relaxed text-sm">
@@ -443,6 +435,14 @@ const Index = () => {
                   </p>
                 </div>
               </div>
+
+              <button
+                onClick={openModal}
+                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
+              >
+                Apply Now
+                <ArrowRight className="w-5 h-5" />
+              </button>
 
               {/* Why Application-Based */}
               <div className="max-w-2xl mx-auto w-full">

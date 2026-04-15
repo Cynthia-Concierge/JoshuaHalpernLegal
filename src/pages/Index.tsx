@@ -87,7 +87,7 @@ const Index = () => {
   // SEO: set page-specific meta tags for /lawyeroncall
   useEffect(() => {
     const ogTitle = "Your On-Demand Lawyer Without Paying $500/Hour | Legal Halp";
-    const ogDesc = "Fractional in-house counsel for growing businesses. Flat monthly fee starting at $1,500/mo. No hourly surprises.";
+    const ogDesc = "Fractional in-house counsel for growing businesses. Flat monthly fee. No hourly surprises.";
     const ogImage = "https://josh-halpern-law.vercel.app/og-lawyer-on-call.png";
 
     document.title = ogTitle;
@@ -416,10 +416,6 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="text-3xl md:text-4xl font-bold text-brand-navy">
-              Starting at <span className="text-brand-gold">$1,500/mo</span>
-            </div>
-
             {/* CTA */}
             <div className="flex flex-col items-center gap-6">
               {/* Scope Qualifier — above button so it's unmissable */}
@@ -439,15 +435,6 @@ const Index = () => {
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              {/* Why Application-Based */}
-              <div className="max-w-2xl mx-auto w-full">
-                <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
-                  <p className="text-slate-600 text-center leading-relaxed text-sm">
-                    This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -611,6 +598,20 @@ const Index = () => {
           </div>
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
+      </section>
+
+      {/* ── Why Application-Based ── */}
+      <section className="pb-16 bg-brand-cream">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
+              <p className="text-slate-600 text-center leading-relaxed text-sm">
+                This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ── Pricing ── */}

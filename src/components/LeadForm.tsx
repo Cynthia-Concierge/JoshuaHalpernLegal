@@ -103,7 +103,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
           </div>
 
           <div className="group">
-            <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">Phone Number*</label>
+            <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">Best Number to Text You*</label>
             <PhoneInput
               value={phone}
               onChange={handlePhoneChange}

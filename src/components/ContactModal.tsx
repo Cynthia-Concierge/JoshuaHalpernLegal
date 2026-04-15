@@ -134,18 +134,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             </div>
 
             <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                Phone Number*
-              </label>
-              <PhoneInput
-                value={phone}
-                onChange={handlePhoneChange}
-                error={phoneError}
-                className="px-4 py-3 bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
-              />
-            </div>
-
-            <div className="group">
               <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
                 What Type of Business?*
               </label>
@@ -169,6 +157,31 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="SaaS/Tech Startup">SaaS/Tech Startup</option>
                 <option value="Other">Other</option>
               </select>
+            </div>
+
+            <div className="group">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                What State Are You In?*
+              </label>
+              <input
+                type="text"
+                name="state"
+                required
+                placeholder="e.g. Florida"
+                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+              />
+            </div>
+
+            <div className="group">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
+                Best Number to Text You*
+              </label>
+              <PhoneInput
+                value={phone}
+                onChange={handlePhoneChange}
+                error={phoneError}
+                className="px-4 py-3 bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+              />
             </div>
 
             <div className="group">
@@ -202,19 +215,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   Legal Halp focuses on business and transactional law. If you need help with litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
                 </p>
               )}
-            </div>
-
-            <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                What State Are You In?*
-              </label>
-              <input
-                type="text"
-                name="state"
-                required
-                placeholder="e.g. Florida"
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
-              />
             </div>
 
             <div>

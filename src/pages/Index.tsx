@@ -672,16 +672,6 @@ const Index = () => {
               Apply for Service
               <ArrowRight className="w-5 h-5" />
             </button>
-
-            {/* Why Application-Based */}
-            <div className="max-w-2xl mx-auto mt-8">
-              <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
-                <p className="text-slate-600 text-center leading-relaxed text-sm">
-                  This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -693,6 +683,17 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-10 text-center tracking-tight">
               Questions? Answers.
             </h2>
+
+            {/* Why Application-Based */}
+            <div className="max-w-2xl mx-auto mb-8">
+              <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-brand-navy mb-2 text-center">Why We Use an Application Process</h3>
+                <p className="text-slate-600 text-center leading-relaxed text-sm">
+                  This is an on-demand service reserved for established businesses we know we can serve well. By maintaining a selective client roster, we ensure every client gets exceptional attention, fast response times, and personalized legal strategy. Quality over quantity — always.
+                </p>
+              </div>
+            </div>
+
             <div className="space-y-3">
               {faqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-xl overflow-hidden bg-white">

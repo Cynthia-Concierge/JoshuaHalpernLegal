@@ -214,7 +214,7 @@ const VideoCarousel: React.FC = () => {
   const checkCredScroll = () => {
     const el = credentialsScrollRef.current;
     if (!el) return;
-    setCredShowLeftArrow(el.scrollLeft > 30);
+    setCredShowLeftArrow(el.scrollLeft > 4);
     setCredCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
   };
 
@@ -256,9 +256,6 @@ const VideoCarousel: React.FC = () => {
     const cardWidth = 220;
     const gap = 16;
     const distance = (cardWidth + gap) * 2;
-    if (direction === "right") {
-      setCredShowLeftArrow(true);
-    }
     el.scrollBy({ left: direction === "left" ? -distance : distance, behavior: "smooth" });
   };
 

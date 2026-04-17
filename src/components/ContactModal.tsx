@@ -21,6 +21,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [formError, setFormError] = useState("");
   const [showScopeNote, setShowScopeNote] = useState(false);
 
   if (!isOpen) return null;
@@ -55,8 +56,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     }
 
     if (!businessType || !mainNeed || !state) {
+      setFormError("Please complete all required fields above.");
       return;
     }
+    setFormError("");
 
     onSubmit({
       name,
@@ -228,6 +231,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-navy/20 focus:border-brand-navy outline-none transition-all resize-none"
               />
             </div>
+
+            {formError && (
+              <p className="text-sm text-red-600 text-center font-medium">{formError}</p>
+            )}
 
             <p className="text-slate-500 text-xs text-center">
               Once you apply, we'll reach out within 24 hours to schedule a brief intro call and see if we're the right fit.

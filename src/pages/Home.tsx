@@ -145,9 +145,7 @@ const Home: React.FC = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                LLC formation, estate planning, contracts, and IP
-                protection, handled by a former BigLaw attorney at flat fees you
-                can actually afford.
+                A dedicated business attorney for a flat monthly fee. Text, email, or call whenever you need something.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

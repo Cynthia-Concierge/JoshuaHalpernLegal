@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             })}
             <Link
               to="/contact"
-              className="ml-2 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-semibold text-sm py-2 px-5 rounded-lg shadow-sm transition-all hover:-translate-y-0.5"
+              className="ml-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold text-sm py-2 px-5 rounded-lg shadow-sm transition-all hover:-translate-y-0.5"
             >
               Book a Call
             </Link>
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
           <Link
             to="/contact"
             onClick={() => setMobileOpen(false)}
-            className="block text-center bg-gradient-to-r from-slate-800 to-slate-900 text-white font-semibold py-3 px-6 rounded-xl shadow-sm mt-2"
+            className="block text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-6 rounded-xl shadow-sm mt-2"
           >
             Book a Call
           </Link>

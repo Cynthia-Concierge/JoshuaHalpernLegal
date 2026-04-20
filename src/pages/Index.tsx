@@ -348,7 +348,7 @@ const Index = () => {
               onClick={openModal}
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
             >
-              Apply Now
+              Get Started
             </button>
           </div>
         </div>
@@ -431,7 +431,7 @@ const Index = () => {
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
               >
-                Apply Now
+                Get Started
                 <ArrowRight className="w-5 h-5" />
               </button>
 
@@ -492,7 +492,7 @@ const Index = () => {
               onClick={openModal}
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
             >
-              Apply Now
+              Get Started
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -898,7 +898,7 @@ const Index = () => {
                 onClick={openModal}
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5"
               >
-                Apply Now
+                Get Started
                 <ArrowRight className="w-5 h-5" />
               </button>
               <p className="text-sm text-slate-500">Selective intake. Quality over quantity.</p>
@@ -915,7 +915,7 @@ const Index = () => {
           onClick={openModal}
           className="flex items-center justify-center gap-2 w-full bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-6 rounded-xl transition-colors"
         >
-          Apply Now
+          Get Started
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>

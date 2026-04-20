@@ -66,7 +66,7 @@ const ThankYou = () => {
             You're Almost In
           </h1>
           <p className="text-xl text-slate-600 mb-2">
-            We've got your info. We'll reach out within 24 hours to schedule a brief intro call to discuss your needs and determine if our ongoing counsel service is the right fit.
+            We've got your info. We'll text you within minutes to schedule a brief intro call and see if we're the right fit.
           </p>
           <p className="text-slate-500">
             Don't want to wait? Book your call right here.

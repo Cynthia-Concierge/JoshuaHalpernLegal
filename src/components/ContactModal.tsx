@@ -42,7 +42,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
     const businessType = (form.elements.namedItem("businessType") as HTMLSelectElement).value;
     const mainNeed = (form.elements.namedItem("mainNeed") as HTMLSelectElement).value;
-    const state = (form.elements.namedItem("state") as HTMLInputElement).value.trim();
     const additionalInfo = (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement).value.trim();
 
     if (!isValidEmail(email)) {
@@ -55,7 +54,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    if (!businessType || !mainNeed || !state) {
+    if (!businessType || !mainNeed) {
       setFormError("Please complete all required fields above.");
       return;
     }
@@ -67,7 +66,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       phone,
       businessType,
       mainNeed,
-      state,
       additionalInfo,
     } as any);
   };
@@ -80,175 +78,169 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in overflow-y-auto"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto"
       onClick={handleBackdropClick}
     >
-      <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl animate-scale-in my-8">
+      <div className="relative w-full max-w-[420px] bg-white rounded-3xl shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in my-8 overflow-hidden">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-lg hover:bg-slate-100 transition-colors z-10"
+          className="absolute top-5 right-5 p-1.5 rounded-full hover:bg-slate-100 transition-colors z-10"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5 text-slate-600" />
+          <X className="w-4 h-4 text-slate-400" />
         </button>
 
-        <div className="p-6 md:p-8">
-          <div className="mb-5">
-            <h3 className="text-2xl font-bold text-slate-900 font-serif mb-2">
-              Get Your Lawyer on Call
+        <div className="p-8 md:p-10">
+          {/* Header */}
+          <div className="mb-8">
+            <h3 className="text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
+              Stop Paying by the Hour.<br />
+              <span className="text-emerald-600">Get Your Lawyer on Call.</span>
             </h3>
-            <p className="text-slate-600 text-sm">
-              Takes under a minute. We'll reach out within 24 hours.
+            <p className="text-slate-500 text-[13px]">
+              Takes under a minute. We'll text you within minutes.
             </p>
           </div>
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* Full Name */}
             <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                Full Name*
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                Full Name
               </label>
               <input
                 type="text"
                 name="name"
                 required
                 placeholder="Your full name"
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300"
               />
             </div>
 
+            {/* Email */}
             <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                Email*
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                Email
               </label>
               <input
                 type="email"
                 name="email"
                 required
-                placeholder="your@email.com"
+                placeholder="you@company.com"
                 onChange={handleEmailChange}
-                className={`w-full px-4 py-3 rounded-lg border ${
-                  emailError ? "border-red-500 focus:border-red-500" : "border-slate-200 focus:border-slate-700"
-                } focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400`}
+                className={`w-full px-4 py-3.5 rounded-xl border ${
+                  emailError ? "border-red-400 focus:border-red-400" : "border-slate-200 focus:border-slate-900"
+                } focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300`}
               />
               {emailError && (
-                <p className="mt-1.5 text-xs text-red-600">{emailError}</p>
+                <p className="mt-1.5 text-xs text-red-500">{emailError}</p>
               )}
             </div>
 
+            {/* Phone */}
             <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                What Type of Business?*
-              </label>
-              <select
-                name="businessType"
-                required
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base"
-              >
-                <option value="">Select one...</option>
-                <option value="Construction/Trades">Construction/Trades</option>
-                <option value="Creative/Media">Creative/Media (Design, Production)</option>
-                <option value="E-commerce/Retail">E-commerce/Retail</option>
-                <option value="Financial Services">Financial Services</option>
-                <option value="Food & Beverage">Food & Beverage (Restaurant, Catering)</option>
-                <option value="Healthcare/Medical">Healthcare/Medical</option>
-                <option value="Manufacturing">Manufacturing</option>
-                <option value="Marketing/Advertising">Marketing/Advertising</option>
-                <option value="Nonprofit">Nonprofit/Social Enterprise</option>
-                <option value="Professional Services">Professional Services (Consulting, Agency)</option>
-                <option value="Real Estate">Real Estate</option>
-                <option value="SaaS/Tech Startup">SaaS/Tech Startup</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                What State Are You In?*
-              </label>
-              <input
-                type="text"
-                name="state"
-                required
-                placeholder="e.g. Florida"
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
-              />
-            </div>
-
-            <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide group-focus-within:text-slate-900 transition-colors">
-                Best Number to Text You*
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                Best Number to Text You
               </label>
               <PhoneInput
                 value={phone}
                 onChange={handlePhoneChange}
                 error={phoneError}
-                className="px-4 py-3 bg-slate-50 focus:bg-white text-slate-900 text-base placeholder:text-slate-400"
+                className="px-4 py-3.5 bg-white text-slate-900 text-[15px] placeholder:text-slate-300"
               />
             </div>
 
+            {/* Business Type */}
             <div className="group">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
-                What Do You Need Most?*
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                Type of Business
+              </label>
+              <select
+                name="businessType"
+                required
+                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
+              >
+                <option value="" className="text-slate-400">Select one...</option>
+                <option value="Construction/Trades">Construction / Trades</option>
+                <option value="Creative/Media">Creative / Media</option>
+                <option value="E-commerce/Retail">E-commerce / Retail</option>
+                <option value="Financial Services">Financial Services</option>
+                <option value="Food & Beverage">Food & Beverage</option>
+                <option value="Healthcare/Medical">Healthcare / Medical</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Marketing/Advertising">Marketing / Advertising</option>
+                <option value="Nonprofit">Nonprofit</option>
+                <option value="Professional Services">Professional Services</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="SaaS/Tech Startup">SaaS / Tech</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            {/* Main Need */}
+            <div className="group">
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                What Do You Need Most?
               </label>
               <select
                 name="mainNeed"
                 required
                 onChange={(e) => setShowScopeNote(e.target.value === "Other")}
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-700 focus:ring-4 focus:ring-slate-500/10 outline-none transition-all bg-slate-50 focus:bg-white text-slate-900 text-base"
+                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
               >
-                <option value="">Select one...</option>
+                <option value="" className="text-slate-400">Select one...</option>
                 <option value="Business formation (LLC, Corp)">Business formation (LLC, Corp)</option>
-                <option value="Compliance & regulatory help">Compliance & regulatory help</option>
+                <option value="Compliance & regulatory help">Compliance & regulatory</option>
                 <option value="Contract review & negotiation">Contract review & negotiation</option>
-                <option value="Employment/HR legal guidance">Employment/HR legal guidance</option>
-                <option value="Estate planning (trusts, wills, power of attorney)">Estate planning (trusts, wills, power of attorney)</option>
+                <option value="Employment/HR legal guidance">Employment / HR guidance</option>
+                <option value="Estate planning (trusts, wills, power of attorney)">Estate planning</option>
                 <option value="General business legal advice">General business legal advice</option>
-                <option value="IP protection (trademarks, copyrights)">IP protection (trademarks, copyrights)</option>
+                <option value="IP protection (trademarks, copyrights)">IP protection</option>
                 <option value="M&A or fundraising prep">M&A or fundraising prep</option>
                 <option value="Ongoing general counsel">Ongoing general counsel</option>
-                <option value="Partnership/operating agreements">Partnership/operating agreements</option>
+                <option value="Partnership/operating agreements">Partnership / operating agreements</option>
                 <option value="Strategic legal counsel">Strategic legal counsel</option>
-                <option value="Vendor/client agreement templates">Vendor/client agreement templates</option>
-                <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy policy)</option>
+                <option value="Vendor/client agreement templates">Vendor / client agreement templates</option>
+                <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy)</option>
                 <option value="Other">Other</option>
               </select>
               {showScopeNote && (
-                <p className="mt-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 leading-relaxed">
+                <p className="mt-2 text-xs text-amber-700 bg-amber-50/80 border border-amber-200/60 rounded-xl px-3 py-2.5 leading-relaxed">
                   Legal Halp focuses on business and transactional law. If you need help with litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
                 </p>
               )}
             </div>
 
+            {/* Additional Info */}
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                Anything else? <span className="text-slate-400 font-normal normal-case">(optional)</span>
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                Anything else? <span className="text-slate-300 font-normal normal-case tracking-normal">(optional)</span>
               </label>
               <textarea
                 name="additionalInfo"
                 rows={2}
-                placeholder="Please tell us anything else you'd like us to know in advance of our call."
-                className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-navy/20 focus:border-brand-navy outline-none transition-all resize-none"
+                placeholder="Anything you'd like us to know before our call."
+                className="w-full px-4 py-3.5 border border-slate-200 rounded-xl text-[15px] focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 outline-none transition-all resize-none placeholder:text-slate-300"
               />
             </div>
 
             {formError && (
-              <p className="text-sm text-red-600 text-center font-medium">{formError}</p>
+              <p className="text-sm text-red-500 text-center font-medium">{formError}</p>
             )}
 
-            <p className="text-slate-500 text-xs text-center">
-              Once you apply, we'll reach out within 24 hours to schedule a brief intro call and see if we're the right fit.
-            </p>
+            {/* CTA */}
+            <div className="pt-1">
+              <button
+                type="submit"
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px]"
+              >
+                <span>Get Started</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
 
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-emerald-600/25 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group"
-            >
-              <span className="tracking-wide">Apply Now</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-
-            <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+            <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-300 font-medium uppercase tracking-widest">
               <Lock className="w-3 h-3" />
               <span>Private. Confidential. No obligation.</span>
             </div>

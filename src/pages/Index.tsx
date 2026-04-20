@@ -369,7 +369,7 @@ const Index = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">
-              Built for entrepreneurs, business owners, creators, and individuals who need contracts reviewed, entities formed, estate plans drafted, deals negotiated, corporate strategy, or a lawyer to text when questions come up.
+              A dedicated business attorney for a flat monthly fee. Text, email, or call whenever you need something.
             </p>
 
             {/* Trust chips */}

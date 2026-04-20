@@ -262,7 +262,7 @@ const VideoCarousel: React.FC = () => {
   return (
     <section id="about" className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Meet Josh Section */}
+        {/* Meet Josh Section + Credentials */}
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
             <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -291,151 +291,46 @@ const VideoCarousel: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Credentials Carousel */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="text-center mb-8">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-brand-navy/5 text-brand-navy text-xs font-bold uppercase tracking-widest">
-              Credentials
-            </span>
-          </div>
-
-          <div className="relative">
-            {/* Navigation arrows */}
-            {credShowLeftArrow && (
-              <button
-                type="button"
-                onClick={() => scrollCredentials("left")}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
-                aria-label="Previous credentials"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-            )}
-            {credCanScrollRight && (
-              <button
-                type="button"
-                onClick={() => scrollCredentials("right")}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all"
-                aria-label="Next credentials"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            )}
-
-            <div ref={credentialsScrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar px-12">
-              {/* Credential cards */}
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <GraduationCap className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        J.D., Cleveland-Marshall College of Law
-                      </p>
-                    </div>
-                  </div>
+            {/* Credentials — inline within bio card */}
+            <div className="mt-8 pt-8 border-t border-slate-100">
+              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">Credentials</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
+                  <GraduationCap className="w-4 h-4 text-brand-navy flex-shrink-0" />
+                  <span>J.D., Cleveland-Marshall College of Law</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
+                  <Building2 className="w-4 h-4 text-brand-navy flex-shrink-0" />
+                  <span>Former BigLaw Associate, Taft Stettinius & Hollister</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
+                  <Shield className="w-4 h-4 text-brand-navy flex-shrink-0" />
+                  <span>Licensed in Ohio, partnered nationwide</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
+                  <Briefcase className="w-4 h-4 text-brand-navy flex-shrink-0" />
+                  <span>1,000+ estate plans drafted</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
+                  <Building2 className="w-4 h-4 text-brand-navy flex-shrink-0" />
+                  <span>500+ businesses protected</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
+                  <TrendingUp className="w-4 h-4 text-brand-navy flex-shrink-0" />
+                  <span>$250M+ in transactions closed</span>
                 </div>
               </div>
-
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Building2 className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        Former BigLaw Associate, Taft, Stettinius & Hollister LLP (1,500+ attorneys)
-                      </p>
-                    </div>
-                  </div>
+              <div className="mt-4">
+                <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2">Practice Areas</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Business Formation", "Estate Planning", "Contracts", "IP", "Real Estate", "M&A", "Venture Capital", "General Counsel"].map((area) => (
+                    <span key={area} className="px-2.5 py-1 bg-slate-50 text-slate-600 text-xs rounded-md border border-slate-100">
+                      {area}
+                    </span>
+                  ))}
                 </div>
               </div>
-
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Shield className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        Licensed in Ohio, and partnered with local attorneys nationwide (for jurisdiction-specific matters)
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <FileText className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        Practice Areas: Business Formation, Estate Planning, Contracts, IP, Real Estate, Mergers & Acquisitions, Venture Capital, General Counsel
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Briefcase className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        1,000+ estate plans drafted
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <Building2 className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        500+ businesses protected
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex-shrink-0 w-[220px] snap-start">
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-9 h-9 bg-brand-navy rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-brand-navy font-medium leading-relaxed text-sm">
-                        $250M+ in transactions closed
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Scroll hint */}
-            <div className="flex justify-center mt-4">
-              <p className="text-slate-400 text-sm">Swipe to see more &rarr;</p>
             </div>
           </div>
         </div>

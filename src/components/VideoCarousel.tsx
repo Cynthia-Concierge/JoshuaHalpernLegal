@@ -292,45 +292,11 @@ const VideoCarousel: React.FC = () => {
               </div>
             </div>
 
-            {/* Credentials — inline within bio card */}
-            <div className="mt-8 pt-8 border-t border-slate-100">
-              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">Credentials</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
-                  <GraduationCap className="w-4 h-4 text-brand-navy flex-shrink-0" />
-                  <span>J.D., Cleveland-Marshall College of Law</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
-                  <Building2 className="w-4 h-4 text-brand-navy flex-shrink-0" />
-                  <span>Former BigLaw Associate, Taft Stettinius & Hollister</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
-                  <Shield className="w-4 h-4 text-brand-navy flex-shrink-0" />
-                  <span>Licensed in Ohio, partnered nationwide</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
-                  <Briefcase className="w-4 h-4 text-brand-navy flex-shrink-0" />
-                  <span>1,000+ estate plans drafted</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
-                  <Building2 className="w-4 h-4 text-brand-navy flex-shrink-0" />
-                  <span>500+ businesses protected</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-[13px] text-slate-700">
-                  <TrendingUp className="w-4 h-4 text-brand-navy flex-shrink-0" />
-                  <span>$250M+ in transactions closed</span>
-                </div>
-              </div>
-              <div className="mt-4">
-                <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2">Practice Areas</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {["Business Formation", "Estate Planning", "Contracts", "IP", "Real Estate", "M&A", "Venture Capital", "General Counsel"].map((area) => (
-                    <span key={area} className="px-2.5 py-1 bg-slate-50 text-slate-600 text-xs rounded-md border border-slate-100">
-                      {area}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            {/* Credentials */}
+            <div className="mt-8 pt-6 border-t border-slate-100">
+              <p className="text-slate-400 text-xs leading-relaxed">
+                J.D., Cleveland-Marshall College of Law &nbsp;·&nbsp; Former BigLaw Associate, Taft Stettinius & Hollister &nbsp;·&nbsp; Licensed in Ohio, partnered nationwide &nbsp;·&nbsp; 1,000+ estate plans &nbsp;·&nbsp; 500+ businesses protected &nbsp;·&nbsp; $250M+ in transactions closed
+              </p>
             </div>
           </div>
         </div>

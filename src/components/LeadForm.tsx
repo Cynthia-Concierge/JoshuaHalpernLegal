@@ -124,12 +124,9 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
           </div>
 
           {/* Scope Disclaimer */}
-          <div className="rounded-xl border border-amber-200/60 bg-amber-50/50 px-3.5 py-3 text-[11px] text-slate-600 leading-relaxed">
-            <p className="font-semibold text-slate-700 mb-0.5">Please Note</p>
-            <p>
-              Legal Halp is a business and transactional law firm. Our services include contract drafting and review, business strategy and negotiation, LLC and entity/corporate formations, estate planning (trusts, wills, powers of attorney), real estate transactions, and related matters. We do not handle litigation, criminal defense, family law, or personal injury cases.
-            </p>
-          </div>
+          <p className="text-[10px] text-slate-400 leading-relaxed">
+            Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle litigation, criminal, family, or personal injury cases.
+          </p>
 
           <SmsConsent
             checked={smsConsent}

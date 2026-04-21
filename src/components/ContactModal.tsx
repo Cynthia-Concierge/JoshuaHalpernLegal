@@ -199,6 +199,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="I need ongoing general counsel">I need ongoing general counsel</option>
                 <option value="I need business strategy or negotiation help">I need business strategy or negotiation help</option>
                 <option value="I need IP protection (trademarks, copyrights)">I need IP protection (trademarks, copyrights)</option>
+                <option value="I need employment or HR legal guidance">I need employment or HR legal guidance</option>
+                <option value="I need website legal documents (Terms, Privacy Policy, etc.)">I need website legal documents (Terms, Privacy Policy, etc.)</option>
                 <option value="I need compliance or regulatory help">I need compliance or regulatory help</option>
                 <option value="Other">Other</option>
               </select>

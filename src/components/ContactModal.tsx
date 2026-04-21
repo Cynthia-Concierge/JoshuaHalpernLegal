@@ -190,19 +190,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
               >
                 <option value="" className="text-slate-400">Select one...</option>
-                <option value="Business formation (LLC, Corp)">Business formation (LLC, Corp)</option>
-                <option value="Compliance & regulatory help">Compliance & regulatory</option>
-                <option value="Contract review & negotiation">Contract review & negotiation</option>
-                <option value="Employment/HR legal guidance">Employment / HR guidance</option>
-                <option value="Estate planning (trusts, wills, power of attorney)">Estate planning</option>
-                <option value="General business legal advice">General business legal advice</option>
-                <option value="IP protection (trademarks, copyrights)">IP protection</option>
-                <option value="M&A or fundraising prep">M&A or fundraising prep</option>
-                <option value="Ongoing general counsel">Ongoing general counsel</option>
-                <option value="Partnership/operating agreements">Partnership / operating agreements</option>
-                <option value="Strategic legal counsel">Strategic legal counsel</option>
-                <option value="Vendor/client agreement templates">Vendor / client agreement templates</option>
-                <option value="Website legal (terms, privacy policy)">Website legal (terms, privacy)</option>
+                <option value="I need to form an LLC or corporation">I need to form an LLC or corporation</option>
+                <option value="I need a contract drafted">I need a contract drafted</option>
+                <option value="I need a contract reviewed">I need a contract reviewed</option>
+                <option value="I need estate planning (Trusts, Wills, POAs, etc.)">I need estate planning (Trusts, Wills, POAs, etc.)</option>
+                <option value="I need help with a real estate transaction">I need help with a real estate transaction</option>
+                <option value="I need a partnership or operating agreement">I need a partnership or operating agreement</option>
+                <option value="I need ongoing general counsel">I need ongoing general counsel</option>
+                <option value="I need business strategy or negotiation help">I need business strategy or negotiation help</option>
+                <option value="I need IP protection (trademarks, copyrights)">I need IP protection (trademarks, copyrights)</option>
+                <option value="I need compliance or regulatory help">I need compliance or regulatory help</option>
                 <option value="Other">Other</option>
               </select>
               {showScopeNote && (

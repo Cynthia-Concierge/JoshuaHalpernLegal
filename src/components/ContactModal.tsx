@@ -78,35 +78,35 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-0 sm:px-4 sm:py-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto overscroll-contain"
+      className="fixed inset-0 z-[100] flex items-center justify-center px-2 py-2 sm:px-4 sm:py-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto overscroll-contain"
       onClick={handleBackdropClick}
       style={{
-        height: '100svh',
+        minHeight: '100dvh',
         WebkitOverflowScrolling: 'touch',
       }}
     >
       <div
-        className="relative w-full sm:max-w-[420px] bg-white rounded-none sm:rounded-3xl shadow-none sm:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in sm:min-h-0 overflow-y-auto overflow-x-hidden"
+        className="relative w-full max-w-[390px] sm:max-w-[420px] bg-white rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in overflow-y-auto overflow-x-hidden"
         style={{
-          marginTop: 'env(safe-area-inset-top)',
-          marginBottom: 'env(safe-area-inset-bottom)',
-          maxHeight: 'calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
+          marginTop: 'max(8px, env(safe-area-inset-top))',
+          marginBottom: 'max(8px, env(safe-area-inset-bottom))',
+          maxHeight: 'calc(100dvh - max(16px, env(safe-area-inset-top)) - max(16px, env(safe-area-inset-bottom)))',
           WebkitOverflowScrolling: 'touch',
         }}
       >
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-1.5 rounded-full hover:bg-slate-100 transition-colors z-10"
+          className="absolute top-3 right-3 sm:top-5 sm:right-5 p-1.5 rounded-full hover:bg-slate-100 transition-colors z-10"
           aria-label="Close modal"
         >
           <X className="w-4 h-4 text-slate-400" />
         </button>
 
-        <div className="p-6 sm:p-8 md:p-10 pb-[max(24px,env(safe-area-inset-bottom))]">
+        <div className="p-4 sm:p-8 md:p-10 pb-[max(16px,env(safe-area-inset-bottom))]">
           {/* Header */}
-          <div className="mb-8">
-            <h3 className="text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
+          <div className="mb-5 sm:mb-8">
+            <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
               Stop Paying by the Hour.<br />
               <span className="text-emerald-600">Get Your Lawyer on Call.</span>
             </h3>
@@ -115,7 +115,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             </p>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form className="space-y-3.5 sm:space-y-5" onSubmit={handleSubmit}>
             {/* Full Name */}
             <div className="group">
               <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">

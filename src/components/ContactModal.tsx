@@ -78,17 +78,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-stretch sm:items-center justify-center p-0 sm:px-4 sm:py-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto overscroll-contain"
+      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-0 sm:px-4 sm:py-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto overscroll-contain"
       onClick={handleBackdropClick}
       style={{
-        paddingTop: 'env(safe-area-inset-top)',
-        paddingBottom: 'env(safe-area-inset-bottom)',
+        height: '100svh',
         WebkitOverflowScrolling: 'touch',
       }}
     >
       <div
-        className="relative w-full sm:max-w-[420px] bg-white rounded-none sm:rounded-3xl shadow-none sm:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in min-h-[100dvh] sm:min-h-0 max-h-[100dvh] sm:max-h-[calc(100dvh-24px)] overflow-y-auto overflow-x-hidden"
-        style={{ WebkitOverflowScrolling: 'touch' }}
+        className="relative w-full sm:max-w-[420px] bg-white rounded-none sm:rounded-3xl shadow-none sm:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in sm:min-h-0 overflow-y-auto overflow-x-hidden"
+        style={{
+          marginTop: 'env(safe-area-inset-top)',
+          marginBottom: 'env(safe-area-inset-bottom)',
+          maxHeight: 'calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
+          WebkitOverflowScrolling: 'touch',
+        }}
       >
         {/* Close button */}
         <button

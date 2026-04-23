@@ -78,10 +78,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto"
+      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto"
       onClick={handleBackdropClick}
+      style={{
+        paddingTop: 'max(12px, env(safe-area-inset-top))',
+        paddingBottom: 'max(12px, env(safe-area-inset-bottom))',
+        WebkitOverflowScrolling: 'touch',
+      }}
     >
-      <div className="relative w-full max-w-[420px] bg-white rounded-3xl shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in my-8 overflow-hidden">
+      <div
+        className="relative w-full max-w-[420px] bg-white rounded-3xl shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in max-h-[calc(100dvh-24px)] overflow-y-auto"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
         {/* Close button */}
         <button
           onClick={onClose}

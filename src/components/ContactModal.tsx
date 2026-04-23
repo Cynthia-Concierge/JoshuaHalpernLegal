@@ -78,16 +78,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center px-3 sm:px-4 py-3 sm:py-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto overscroll-contain"
+      className="fixed inset-0 z-[100] flex items-stretch sm:items-center justify-center p-0 sm:px-4 sm:py-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto overscroll-contain"
       onClick={handleBackdropClick}
       style={{
-        paddingTop: 'max(12px, env(safe-area-inset-top))',
-        paddingBottom: 'max(12px, env(safe-area-inset-bottom))',
+        paddingTop: 'env(safe-area-inset-top)',
+        paddingBottom: 'env(safe-area-inset-bottom)',
         WebkitOverflowScrolling: 'touch',
       }}
     >
       <div
-        className="relative mx-auto w-full max-w-[420px] bg-white rounded-3xl shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in max-h-[calc(100svh-24px)] sm:max-h-[calc(100dvh-24px)] overflow-y-auto overflow-x-hidden"
+        className="relative w-full sm:max-w-[420px] bg-white rounded-none sm:rounded-3xl shadow-none sm:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] animate-scale-in min-h-[100dvh] sm:min-h-0 max-h-[100dvh] sm:max-h-[calc(100dvh-24px)] overflow-y-auto overflow-x-hidden"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
         {/* Close button */}
@@ -99,7 +99,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
           <X className="w-4 h-4 text-slate-400" />
         </button>
 
-        <div className="p-6 sm:p-8 md:p-10">
+        <div className="p-6 sm:p-8 md:p-10 pb-[max(24px,env(safe-area-inset-bottom))]">
           {/* Header */}
           <div className="mb-8">
             <h3 className="text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">

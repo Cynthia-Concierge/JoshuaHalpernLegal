@@ -195,6 +195,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="Professional Services">Professional Services</option>
                 <option value="Real Estate">Real Estate</option>
                 <option value="SaaS/Tech Startup">SaaS / Tech</option>
+                <option value="Transportation/Logistics">Transportation / Logistics</option>
                 <option value="Other">Other</option>
               </select>
             </div>

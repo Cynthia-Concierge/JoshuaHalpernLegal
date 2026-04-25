@@ -114,12 +114,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               Stop Paying by the Hour.<br />
               <span className="text-emerald-600">Get Your Business Lawyer on Call.</span>
             </h3>
-            <p className="text-slate-500 text-[13px]">
-              Takes under a minute. We'll text you within minutes.
+            <p className="text-slate-400 text-[12px] tracking-wide uppercase font-medium mt-1">
+              Takes under a minute
             </p>
-            <p className="text-slate-600 text-[13px] mt-1.5 leading-relaxed">
-              Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle civil lawsuits, litigation, criminal, family, or personal injury cases.
-            </p>
+            <div className="mt-3 border border-slate-200 rounded-lg px-4 py-3">
+              <p className="text-slate-500 text-[12px] leading-relaxed">
+                Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle civil lawsuits, litigation, criminal, family, or personal injury cases.
+              </p>
+            </div>
           </div>
 
           <form className="space-y-3.5 sm:space-y-5" onSubmit={handleSubmit}>

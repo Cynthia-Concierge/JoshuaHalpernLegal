@@ -11,6 +11,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'system-ui', 'sans-serif'],
+			serif: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: "hsl(var(--border))",

@@ -23,6 +23,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phoneError, setPhoneError] = useState("");
   const [formError, setFormError] = useState("");
   const [showScopeNote, setShowScopeNote] = useState(false);
+  const [showDisqualified, setShowDisqualified] = useState(false);
 
   if (!isOpen) return null;
 
@@ -51,6 +52,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
     if (!phone || phone.length < 10) {
       setPhoneError("Please enter a valid phone number.");
+      return;
+    }
+
+    if (mainNeed === "__disqualified__") {
       return;
     }
 
@@ -108,10 +113,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
           <div className="mb-5 sm:mb-8">
             <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
               Stop Paying by the Hour.<br />
-              <span className="text-emerald-600">Get Your Lawyer on Call.</span>
+              <span className="text-emerald-600">Get Your Business Lawyer on Call.</span>
             </h3>
             <p className="text-slate-500 text-[13px]">
               Takes under a minute. We'll text you within minutes.
+            </p>
+            <p className="text-slate-600 text-[13px] mt-1.5 leading-relaxed">
+              Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle litigation, criminal, family, or personal injury cases.
             </p>
           </div>
 
@@ -198,7 +206,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               <select
                 name="mainNeed"
                 required
-                onChange={(e) => setShowScopeNote(e.target.value === "Other")}
+                onChange={(e) => {
+                  setShowScopeNote(e.target.value === "Other");
+                  setShowDisqualified(e.target.value === "__disqualified__");
+                }}
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
               >
                 <option value="" className="text-slate-400">Select one...</option>
@@ -214,11 +225,17 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="I need employment or HR legal guidance">I need employment or HR legal guidance</option>
                 <option value="I need website legal documents (Terms, Privacy Policy, etc.)">I need website legal documents (Terms, Privacy Policy, etc.)</option>
                 <option value="I need compliance or regulatory help">I need compliance or regulatory help</option>
-                <option value="Other">Other</option>
+                <option value="Other">Other business legal need</option>
+                <option value="__disqualified__">I have a litigation, family, criminal, or personal injury matter</option>
               </select>
               {showScopeNote && (
                 <p className="mt-2 text-xs text-amber-700 bg-amber-50/80 border border-amber-200/60 rounded-xl px-3 py-2.5 leading-relaxed">
                   Legal Halp focuses on business and transactional law. If you need help with litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
+                </p>
+              )}
+              {showDisqualified && (
+                <p className="mt-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 leading-relaxed">
+                  Legal Halp specializes in business law only. For litigation, family, criminal, or personal injury matters, we recommend contacting your state or local bar association's lawyer referral service.
                 </p>
               )}
             </div>
@@ -236,11 +253,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               />
             </div>
 
-            {/* Scope Disclaimer */}
-            <p className="text-[10px] text-slate-400 leading-relaxed text-center">
-              Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle litigation, criminal, family, or personal injury cases.
-            </p>
-
             {formError && (
               <p className="text-sm text-red-500 text-center font-medium">{formError}</p>
             )}
@@ -249,7 +261,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             <div className="pt-1">
               <button
                 type="submit"
-                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px]"
+                disabled={showDisqualified}
+                className={`w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] ${showDisqualified ? 'bg-slate-300 text-slate-500 cursor-not-allowed' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}
               >
                 <span>Get Started</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

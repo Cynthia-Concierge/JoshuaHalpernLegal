@@ -119,7 +119,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               Takes under a minute. We'll text you within minutes.
             </p>
             <p className="text-slate-600 text-[13px] mt-1.5 leading-relaxed">
-              Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle litigation, criminal, family, or personal injury cases.
+              Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle civil lawsuits, litigation, criminal, family, or personal injury cases.
             </p>
           </div>
 
@@ -226,16 +226,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="I need website legal documents (Terms, Privacy Policy, etc.)">I need website legal documents (Terms, Privacy Policy, etc.)</option>
                 <option value="I need compliance or regulatory help">I need compliance or regulatory help</option>
                 <option value="Other">Other business legal need</option>
-                <option value="__disqualified__">I have a litigation, family, criminal, or personal injury matter</option>
+                <option value="__disqualified__">I have a civil lawsuit, litigation, family, criminal, or personal injury matter</option>
               </select>
               {showScopeNote && (
                 <p className="mt-2 text-xs text-amber-700 bg-amber-50/80 border border-amber-200/60 rounded-xl px-3 py-2.5 leading-relaxed">
-                  Legal Halp focuses on business and transactional law. If you need help with litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
+                  Legal Halp focuses on business and transactional law. If you need help with a civil lawsuit, litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
                 </p>
               )}
               {showDisqualified && (
                 <p className="mt-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 leading-relaxed">
-                  Legal Halp specializes in business law only. For litigation, family, criminal, or personal injury matters, we recommend contacting your state or local bar association's lawyer referral service.
+                  Legal Halp specializes in business law only. For civil lawsuits, litigation, family, criminal, or personal injury matters, we recommend contacting your state or local bar association's lawyer referral service.
                 </p>
               )}
             </div>

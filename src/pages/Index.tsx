@@ -422,7 +422,7 @@ const Index = () => {
               <div className="max-w-2xl mx-auto w-full">
                 <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl px-6 py-4">
                   <p className="text-slate-600 text-center leading-relaxed text-sm">
-                    <span className="font-semibold text-brand-navy">Dedicated to business & transactional law</span> — contracts, entity formations, estate planning, and ongoing general counsel. We do not handle litigation, criminal defense, family law, or personal injury.
+                    <span className="font-semibold text-brand-navy">Dedicated to business & transactional law</span> — contracts, entity formations, estate planning, and ongoing general counsel. We do not handle civil lawsuits, litigation, criminal defense, family law, or personal injury.
                   </p>
                 </div>
               </div>

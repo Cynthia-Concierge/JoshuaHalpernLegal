@@ -209,19 +209,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
               >
                 <option value="" className="text-slate-400">Select one...</option>
-                <option value="I need to form an LLC or corporation">I need to form an LLC or corporation</option>
-                <option value="I need a contract drafted">I need a contract drafted</option>
-                <option value="I need a contract reviewed">I need a contract reviewed</option>
-                <option value="I need estate planning (Trusts, Wills, POAs, etc.)">I need estate planning (Trusts, Wills, POAs, etc.)</option>
-                <option value="I need help with a real estate transaction">I need help with a real estate transaction</option>
-                <option value="I need a partnership or operating agreement">I need a partnership or operating agreement</option>
                 <option value="I need ongoing business counsel (monthly retainer)">I need ongoing business counsel (monthly retainer)</option>
-                <option value="I need business strategy or negotiation help">I need business strategy or negotiation help</option>
-                <option value="I need IP protection (trademarks, copyrights)">I need IP protection (trademarks, copyrights)</option>
-                <option value="I need employment or HR legal guidance">I need employment or HR legal guidance</option>
-                <option value="I need website legal documents (Terms, Privacy Policy, etc.)">I need website legal documents (Terms, Privacy Policy, etc.)</option>
-                <option value="I need compliance or regulatory help">I need compliance or regulatory help</option>
-                <option value="Other">Other business legal need</option>
+                <option value="I have a one-time legal project (LLC, contract, estate plan, etc.)">I have a one-time legal project (e.g., LLC, contract drafting or review, estate plan, business transaction, etc.)</option>
+                <option value="I'm not sure yet - I'd like to learn more">I'm not sure yet — I'd like to learn more about business legal services</option>
                 <option value="__disqualified__">I have a civil lawsuit, litigation, family, criminal, or personal injury matter</option>
               </select>
               {showDisqualified && (

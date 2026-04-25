@@ -22,7 +22,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [formError, setFormError] = useState("");
-  const [showScopeNote, setShowScopeNote] = useState(false);
   const [showDisqualified, setShowDisqualified] = useState(false);
 
   if (!isOpen) return null;
@@ -206,10 +205,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               <select
                 name="mainNeed"
                 required
-                onChange={(e) => {
-                  setShowScopeNote(e.target.value === "Other");
-                  setShowDisqualified(e.target.value === "__disqualified__");
-                }}
+                onChange={(e) => setShowDisqualified(e.target.value === "__disqualified__")}
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
               >
                 <option value="" className="text-slate-400">Select one...</option>
@@ -228,11 +224,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="Other">Other business legal need</option>
                 <option value="__disqualified__">I have a civil lawsuit, litigation, family, criminal, or personal injury matter</option>
               </select>
-              {showScopeNote && (
-                <p className="mt-2 text-xs text-amber-700 bg-amber-50/80 border border-amber-200/60 rounded-xl px-3 py-2.5 leading-relaxed">
-                  Legal Halp focuses on business and transactional law. If you need help with a civil lawsuit, litigation, criminal defense, family law, or personal injury, we're likely not the right fit — but you're welcome to still submit and we'll let you know.
-                </p>
-              )}
               {showDisqualified && (
                 <p className="mt-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 leading-relaxed">
                   Legal Halp specializes in business law only. For civil lawsuits, litigation, family, criminal, or personal injury matters, we recommend contacting your state or local bar association's lawyer referral service.

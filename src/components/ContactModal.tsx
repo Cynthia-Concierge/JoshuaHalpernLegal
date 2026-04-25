@@ -250,9 +250,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               </button>
             </div>
 
-            <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-300 font-medium uppercase tracking-widest">
+            <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
               <Lock className="w-3 h-3" />
-              <span>Private. Confidential. No obligation.</span>
+              <span>Protected by attorney-client privilege. No obligation.</span>
             </div>
           </form>
         </div>

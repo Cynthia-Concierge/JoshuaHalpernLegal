@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  const { tags, ...formData } = req.body;
+  let { tags, ...formData } = req.body;
 
   const name = [formData.first_name, formData.last_name].filter(Boolean).join(' ').trim();
   const phone = formData.phone || '';
@@ -46,6 +46,23 @@ export default async function handler(req, res) {
   if (formData.state_of_formation) custom_fields.state_of_formation = formData.state_of_formation;
   if (formData.desired_business_name) custom_fields.desired_business_name = formData.desired_business_name;
   if (formData.backup_business_name) custom_fields.backup_business_name = formData.backup_business_name;
+
+  // Aggressive auto-tagger: catch bad-fit leads (litigation/family/PI/etc) at submit time
+  // by scanning the free-text field. Match → tag bad_fit + custom_fields.auto_disqualified.
+  // The tag drives the nightly Meta-exclusion-audience sync.
+  const BAD_FIT_REGEX = /\b(lawsuit|litigation|sue|sued|suing|court|divorce|custody|criminal|injury|injured|disability|accident|malpractice|evict|evicted|landlord|tenant|harass|fired|wrongful|discrimination|bankruptcy|child support|alimony|probate dispute|garnish|debt collect|car accident|federal court|dismissed complaint|appeal|family law|personal injury|workers? comp)\b/i;
+  const scanText = String(formData.additional_info || '') + ' ' + String(formData.main_need || '');
+  let autoBadFit = false;
+  if (scanText.trim() && BAD_FIT_REGEX.test(scanText)) {
+    autoBadFit = true;
+    custom_fields.auto_disqualified = 'true';
+    custom_fields.auto_disqualified_reason = 'litigation_keyword';
+    custom_fields.auto_disqualified_at = new Date().toISOString();
+    custom_fields.auto_disqualified_match = scanText.trim().substring(0, 200);
+    if (!tags) tags = [];
+    if (!tags.includes('bad_fit')) tags.push('bad_fit');
+    if (!tags.includes('auto_disqualified')) tags.push('auto_disqualified');
+  }
 
   try {
     // Check if contact already exists by phone or email

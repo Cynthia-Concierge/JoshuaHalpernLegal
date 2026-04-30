@@ -204,6 +204,10 @@ export default async function handler(req, res) {
 
     // Trigger the follow-up workflow
     try {
+      // Pass through every intake field except secret-ish tracking pixels.
+      // notify_owner step renders these so Josh sees the full intake on iMessage.
+      const { _fbc, _fbp, ...intakeFields } = formData;
+
       await fetch(WORKFLOW_TRIGGER_URL, {
         method: 'POST',
         headers: {
@@ -220,12 +224,7 @@ export default async function handler(req, res) {
           trackingKey: phone || email,
           source: formData.source || 'website',
           tags: tags || [],
-          formData: {
-            business_type: formData.business_type || '',
-            current_legal_spend: formData.current_legal_spend || '',
-            main_need: formData.main_need || '',
-            state: formData.state || '',
-          },
+          formData: intakeFields,
         }),
       });
     } catch (wfErr) {

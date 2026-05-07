@@ -220,7 +220,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <option value="" className="text-slate-400">Select one...</option>
                 <option value="I need ongoing business counsel (monthly retainer)">I need ongoing business counsel (monthly retainer)</option>
                 <option value="I have a one-time legal project (LLC, contract, estate plan, etc.)">I have a one-time legal project (e.g., LLC, contract drafting or review, estate plan, business transaction, etc.)</option>
-                <option value="I'm not sure yet - I'd like to learn more">I'm not sure yet — I'd like to learn more about business legal services</option>
+                <option value="I have a business need but I'm not sure which service fits yet">I have a business need but I'm not sure which service fits yet</option>
                 <option value="__disqualified__">I have a civil lawsuit, litigation, family, criminal, or personal injury matter</option>
               </select>
               {showDisqualified && (

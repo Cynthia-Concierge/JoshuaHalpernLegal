@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
 import ContactModal from "@/components/ContactModal";
 import { FORM_SUBMIT_URL } from "@/config";
+import { getAttribution } from "@/utils/attribution";
 
 declare global {
   interface Window {
@@ -262,8 +263,10 @@ const Index = () => {
       const firstName = nameParts[0];
       const lastName = nameParts.slice(1).join(' ') || '';
 
-      // Extract Facebook click/browser IDs from cookies for server-side CAPI matching
-      const getCookie = (name: string) => document.cookie.split('; ').find(c => c.startsWith(name + '='))?.split('=').slice(1).join('=') || '';
+      // Marketing attribution: UTM params + fbclid captured at first-touch
+      // (sessionStorage), plus _fbp/_fbc cookies set by the Meta pixel.
+      // Server uses these for CAPI Lead matching and campaign attribution.
+      const attribution = getAttribution();
 
       const response = await fetch(FORM_SUBMIT_URL, {
         method: 'POST',
@@ -279,8 +282,7 @@ const Index = () => {
           state: formData.state || '',
           additional_info: formData.additionalInfo || '',
           tags: ['website', 'applied-legal-halp'],
-          _fbc: getCookie('_fbc'),
-          _fbp: getCookie('_fbp'),
+          ...attribution,
         })
       });
 

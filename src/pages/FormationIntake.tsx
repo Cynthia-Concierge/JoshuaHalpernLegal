@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { FORM_SUBMIT_URL } from "@/config";
 import { SmsConsent } from "@/components/ui/sms-consent";
+import { getAttribution } from "@/utils/attribution";
 
 const US_STATES = [
   "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
@@ -101,6 +102,7 @@ const FormationIntake: React.FC = () => {
       backup_business_name,
       source: "Website - Formation Intake",
       tags: ["website", "formation intake"],
+      ...getAttribution(),
     };
 
     if (!smsConsent) {

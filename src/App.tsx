@@ -2,12 +2,23 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
+import { captureAttributionFromUrl } from "./utils/attribution";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  return null;
+};
+
+const AttributionCapture = () => {
+  // First-touch attribution: persist UTM/fbclid/gclid to sessionStorage on the
+  // very first page load, so a click on a Meta ad → /lawyeroncall → /formation
+  // /intake still gets attributed when the form posts.
+  useEffect(() => {
+    captureAttributionFromUrl();
+  }, []);
   return null;
 };
 import Index from "./pages/Index";
@@ -39,6 +50,7 @@ const Layout = () => {
   return (
     <>
       <ScrollToTop />
+      <AttributionCapture />
       {!hideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />

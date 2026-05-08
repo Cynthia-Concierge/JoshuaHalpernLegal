@@ -42,10 +42,12 @@ import BookingThankYou from "./pages/BookingThankYou";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import PaymentPolicy from "./pages/PaymentPolicy";
+import RealEstate from "./pages/RealEstate";
+import RealEstateThankYou from "./pages/RealEstateThankYou";
 
 const Layout = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/lawyeroncall" || location.pathname === "/lawyeroncall/thank-you" || location.pathname === "/thank-you" || location.pathname === "/formation/intake" || location.pathname === "/formation/thank-you" || location.pathname === "/booking/thank-you";
+  const hideNavbar = location.pathname === "/lawyeroncall" || location.pathname === "/lawyeroncall/thank-you" || location.pathname === "/thank-you" || location.pathname === "/formation/intake" || location.pathname === "/formation/thank-you" || location.pathname === "/booking/thank-you" || location.pathname === "/realestate" || location.pathname === "/realestate/thank-you";
 
   return (
     <>
@@ -75,6 +77,8 @@ const Layout = () => {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/payment-policy" element={<PaymentPolicy />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/realestate" element={<RealEstate />} />
+        <Route path="/realestate/thank-you" element={<RealEstateThankYou />} />
       </Routes>
     </>
   );

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
+import RealEstateContactModal from "@/components/RealEstateContactModal";
 import { FORM_SUBMIT_URL } from "@/config";
 import { getAttribution } from "@/utils/attribution";
 
@@ -97,8 +97,8 @@ const RealEstate = () => {
       answer: "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of experience, including BigLaw. I personally handle every client. You're never talking to a paralegal or a chatbot."
     },
     {
-      question: "Can you handle work in multiple states?",
-      answer: "Many real estate matters are handled directly. For state-licensed work outside our admissions, we coordinate with local counsel in your applicable county and stay in the driver's seat on strategy and documents — so you have one point of contact instead of five."
+      question: "Can you handle work in any state?",
+      answer: "Yes — we work with investors nationwide. Many real estate matters are handled directly across all 50 states. For state-licensed work outside our admissions, we coordinate with local counsel in your applicable county and stay in the driver's seat on strategy and documents — so you have one point of contact instead of five."
     },
     {
       question: "What's NOT included?",
@@ -164,10 +164,7 @@ const RealEstate = () => {
     name: string;
     email: string;
     phone: string;
-    businessType?: string;
-    mainNeed?: string;
-    state?: string;
-    additionalInfo?: string;
+    mainNeed: string;
   }) => {
     try {
       const nameParts = formData.name.trim().split(' ');
@@ -185,10 +182,8 @@ const RealEstate = () => {
           email: formData.email,
           phone: formData.phone,
           source: 'Website - Real Estate Investor LP',
-          business_type: formData.businessType || '',
-          main_need: formData.mainNeed || '',
-          state: formData.state || '',
-          additional_info: formData.additionalInfo || '',
+          business_type: 'Real Estate (Investor)',
+          main_need: formData.mainNeed,
           tags: ['website', 'real-estate-investor'],
           ...attribution,
         })
@@ -277,7 +272,7 @@ const RealEstate = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">
-              A dedicated real estate attorney for investors — closings, LLC structuring, vendor recoveries, evictions. Flat monthly fee. Text, email, or call when you need something.
+              A dedicated real estate attorney for investors nationwide — closings, LLC structuring, vendor recoveries, evictions. Flat monthly fee. Text, email, or call when you need something.
             </p>
 
             {/* Trust chips */}
@@ -293,6 +288,10 @@ const RealEstate = () => {
               <div className="flex items-center gap-1.5">
                 <HomeIcon className="w-4 h-4 text-brand-gold" />
                 <span>Investor-Focused</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Shield className="w-4 h-4 text-brand-gold" />
+                <span>All 50 States</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Star className="w-4 h-4 text-brand-gold" />
@@ -646,7 +645,7 @@ const RealEstate = () => {
         </button>
       </div>
 
-      <ContactModal
+      <RealEstateContactModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleModalSubmit}

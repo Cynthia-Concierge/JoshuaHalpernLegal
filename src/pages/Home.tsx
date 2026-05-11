@@ -145,7 +145,7 @@ const Home: React.FC = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                Sophisticated counsel for founders, families, and investors. Flat-fee pricing. Direct attorney access.
+                Sophisticated counsel for founders, entrepreneurs, families, and investors. Flat-fee pricing. Direct attorney access.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

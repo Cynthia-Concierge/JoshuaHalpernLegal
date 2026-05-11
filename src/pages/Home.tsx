@@ -145,7 +145,7 @@ const Home: React.FC = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                A dedicated business attorney for a flat monthly fee. Text, email, or call whenever you need something.
+                Sophisticated counsel for founders, families, and investors. Flat-fee pricing. Direct attorney access.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -164,15 +164,15 @@ const Home: React.FC = () => {
               </div>
 
               {/* Trust Bar */}
-              <div className="pt-4">
-                <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-sm text-slate-400 font-medium">
+              <div className="pt-5">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-x-7 gap-y-3 text-base text-slate-100 font-semibold">
                   {[
                     "Former BigLaw Attorney",
                     "Flat-Fee Guarantee",
                     "Strategic Counsel to Founders & Entrepreneurs",
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400/70" />
+                    <div key={i} className="flex items-center gap-2.5">
+                      <CheckCircle2 className="w-5 h-5 text-blue-400" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -462,7 +462,7 @@ const Home: React.FC = () => {
                 {
                   icon: PhoneCall,
                   title: "Lawyer-on-Call",
-                  price: "From $1,500/mo",
+                  price: "$1,500/mo",
                   description: "On-demand legal counsel, monthly retainer",
                   slug: "/lawyeroncall",
                 },
@@ -491,9 +491,14 @@ const Home: React.FC = () => {
                   <h3 className="text-lg font-bold text-slate-900 mb-1">
                     {service.title}
                   </h3>
-                  <p className="text-blue-600 font-bold text-2xl mb-3">
-                    {service.price}
-                  </p>
+                  <div className="mb-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-none mb-1">
+                      Starts at
+                    </p>
+                    <p className="text-blue-600 font-bold text-2xl leading-none">
+                      {service.price}
+                    </p>
+                  </div>
                   <p className="text-slate-500 text-sm leading-relaxed mb-5">
                     {service.description}
                   </p>

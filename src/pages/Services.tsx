@@ -527,7 +527,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     packages: [
       {
         name: "Lawyer-on-Call Retainer",
-        price: "From $1,500/mo",
+        price: "$1,500/mo",
         whoItsFor:
           "Business owners and founders who want ongoing, on-demand access to a real attorney without paying hourly rates or hiring in-house counsel.",
         includes: [
@@ -544,7 +544,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
       },
       {
         name: "Premium Retainer (10+ Hours/Month)",
-        price: "From $2,000/mo",
+        price: "$2,000/mo",
         whoItsFor:
           "High-growth companies, funded startups, or businesses with frequent legal needs.",
         includes: [
@@ -752,9 +752,14 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
       <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-1">
         {pkg.name}
       </h3>
-      <p className="text-blue-600 font-bold text-3xl md:text-4xl mb-4">
-        {pkg.price}
-      </p>
+      <div className="mb-4">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-none mb-1.5">
+          Starts at
+        </p>
+        <p className="text-blue-600 font-bold text-3xl md:text-4xl leading-none">
+          {pkg.price}
+        </p>
+      </div>
       <p className="text-slate-500 text-sm leading-relaxed">{pkg.whoItsFor}</p>
     </div>
 

@@ -173,9 +173,9 @@ const Home: React.FC = () => {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="inline-flex items-center gap-2 bg-white/[0.07] backdrop-blur-sm border border-white/15 text-slate-100 text-sm md:text-base font-semibold px-3.5 py-2 rounded-full shadow-sm"
+                      className="inline-flex items-center gap-2 bg-white/[0.12] backdrop-blur-sm border border-white/25 text-white text-sm md:text-base font-semibold px-4 py-2.5 rounded-full shadow-sm"
                     >
-                      <CheckCircle2 className="w-4 h-4 md:w-[18px] md:h-[18px] text-blue-400 flex-shrink-0" />
+                      <CheckCircle2 className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}

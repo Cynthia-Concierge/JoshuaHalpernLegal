@@ -164,15 +164,18 @@ const Home: React.FC = () => {
               </div>
 
               {/* Trust Bar */}
-              <div className="pt-5">
-                <div className="flex flex-wrap justify-center lg:justify-start gap-x-7 gap-y-3 text-base text-slate-100 font-semibold">
+              <div className="pt-6">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-2.5">
                   {[
                     "Former BigLaw Attorney",
                     "Flat-Fee Guarantee",
                     "Strategic Counsel to Founders & Entrepreneurs",
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                    <div
+                      key={i}
+                      className="inline-flex items-center gap-2 bg-white/[0.07] backdrop-blur-sm border border-white/15 text-slate-100 text-sm md:text-base font-semibold px-3.5 py-2 rounded-full shadow-sm"
+                    >
+                      <CheckCircle2 className="w-4 h-4 md:w-[18px] md:h-[18px] text-blue-400 flex-shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}

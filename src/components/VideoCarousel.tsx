@@ -293,10 +293,30 @@ const VideoCarousel: React.FC = () => {
             </div>
 
             {/* Credentials */}
-            <div className="mt-8 pt-6 border-t border-slate-100">
-              <p className="text-slate-400 text-xs leading-relaxed">
-                J.D., Cleveland-Marshall College of Law &nbsp;·&nbsp; Former BigLaw Associate, Taft Stettinius & Hollister &nbsp;·&nbsp; Licensed in Ohio, partnered nationwide &nbsp;·&nbsp; 1,000+ estate plans &nbsp;·&nbsp; 500+ businesses protected &nbsp;·&nbsp; $250M+ in transactions closed
-              </p>
+            <div className="mt-8 pt-8 border-t border-slate-100">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {[
+                  { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
+                  { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former BigLaw Associate" },
+                  { icon: Shield, primary: "Licensed in Ohio", secondary: "Partnered nationwide" },
+                  { icon: FileText, primary: "1,000+", secondary: "Estate plans" },
+                  { icon: Briefcase, primary: "500+", secondary: "Businesses protected" },
+                  { icon: TrendingUp, primary: "$250M+", secondary: "Transactions closed" },
+                ].map(({ icon: Icon, primary, secondary }, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-brand-gold-dark" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-brand-navy font-bold text-sm leading-tight truncate">{primary}</p>
+                      <p className="text-slate-500 text-xs leading-tight mt-0.5 truncate">{secondary}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

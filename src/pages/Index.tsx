@@ -578,7 +578,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="inline-block border border-slate-200 rounded-2xl px-8 py-6 md:px-12 md:py-8 shadow-sm bg-white mb-8">
+            <div className="inline-block border border-slate-200 rounded-2xl px-8 py-6 md:px-12 md:py-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white mb-8">
               <p className="text-2xl md:text-3xl font-semibold text-brand-navy">
                 Plans start at <span className="text-brand-gold">$1,500/mo</span>.
               </p>

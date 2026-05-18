@@ -206,48 +206,6 @@ const Index = () => {
     },
   ];
 
-  const pricingTiers = [
-    {
-      name: "Essential",
-      price: "$1,500",
-      desc: "For businesses with periodic legal needs",
-      features: [
-        "Contract review and drafting",
-        "Email and text support (48hr response)",
-        "Employment basics (offer letters, terminations)",
-        "IP filings (trademark search, copyright)",
-        "Monthly legal check-in call",
-      ],
-    },
-    {
-      name: "Business",
-      price: "$2,500",
-      desc: "For growing businesses with regular legal needs",
-      features: [
-        "Everything in Essential, plus:",
-        "Contract negotiation and strategy",
-        "Priority support (24hr response)",
-        "Equity plans and employee handbooks",
-        "Full IP protection strategy",
-        "Quarterly strategy calls",
-      ],
-      highlighted: true,
-    },
-    {
-      name: "Full-Service",
-      price: "$5,000",
-      desc: "For established businesses ($1M+ revenue)",
-      features: [
-        "Everything in Business, plus:",
-        "Same-day response (often hours)",
-        "M&A readiness and due diligence",
-        "Full compliance buildout (CCPA/GDPR)",
-        "Multi-state registration support",
-        "Weekly standing calls + on-demand video",
-      ],
-    },
-  ];
-
   const handleModalSubmit = async (formData: {
     name: string;
     email: string;
@@ -620,37 +578,13 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {pricingTiers.map((tier, i) => (
-                <div
-                  key={i}
-                  className={`p-8 rounded-xl bg-white transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative ${
-                    tier.highlighted
-                      ? "border-2 border-brand-gold shadow-lg"
-                      : "border border-slate-200 shadow-sm"
-                  }`}
-                >
-                  {tier.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-white text-xs font-bold px-4 py-1 rounded-full">
-                      MOST POPULAR
-                    </div>
-                  )}
-                  <h3 className="text-xl font-bold text-brand-navy mb-1">{tier.name}</h3>
-                  <p className="text-sm text-slate-600 mb-4">{tier.desc}</p>
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold text-brand-navy">{tier.price}</span>
-                    <span className="text-slate-600">/mo</span>
-                  </div>
-                  <ul className="space-y-2.5 text-left">
-                    {tier.features.map((feature, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            <div className="mb-8">
+              <p className="text-2xl md:text-3xl font-semibold text-brand-navy">
+                Plans start at <span className="text-brand-gold">$1,500/mo</span>.
+              </p>
+              <p className="text-lg text-slate-600 mt-2">
+                We'll find the right fit on your call.
+              </p>
             </div>
 
             {/* Risk Reversal */}

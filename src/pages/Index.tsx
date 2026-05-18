@@ -578,11 +578,11 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="mb-8">
+            <div className="inline-block border border-slate-200 rounded-2xl px-8 py-6 md:px-12 md:py-8 shadow-sm bg-white mb-8">
               <p className="text-2xl md:text-3xl font-semibold text-brand-navy">
                 Plans start at <span className="text-brand-gold">$1,500/mo</span>.
               </p>
-              <p className="text-lg text-slate-600 mt-2">
+              <p className="text-base md:text-lg text-slate-600 mt-2">
                 We'll find the right fit on your call.
               </p>
             </div>

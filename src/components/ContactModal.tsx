@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Lock, ArrowRight } from 'lucide-react';
+import { X, Lock, ArrowRight, AlertCircle } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
 import { FORM_SUBMIT_URL } from '@/config';
 
@@ -95,9 +95,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             <p className="text-slate-400 text-[12px] tracking-wide uppercase font-medium mt-1">
               Takes under a minute
             </p>
-            <div className="mt-3 border border-slate-200 rounded-lg px-4 py-3">
-              <p className="text-slate-500 text-[12px] leading-relaxed">
-                Legal Halp handles business and transactional matters only — formations, contracts, estate planning, real estate, and corporate strategy. We do not handle civil lawsuits, litigation, criminal, family, or personal injury cases.
+            <div className="mt-3 flex gap-2.5 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+              <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+              <p className="text-amber-900 text-[12px] leading-relaxed">
+                <span className="font-semibold">Business & transactional matters only</span> — formations, contracts, estate planning, real estate, and corporate strategy. <span className="font-semibold">We do not handle</span> civil lawsuits, litigation, criminal, family, or personal injury cases.
               </p>
             </div>
           </div>

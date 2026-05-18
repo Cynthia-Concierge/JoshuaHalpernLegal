@@ -26,7 +26,6 @@ import {
   DollarSign,
   Phone,
   AlertCircle,
-  Zap,
   Scale,
   GraduationCap,
   Star,
@@ -393,7 +392,7 @@ const Index = () => {
                 <span>Month-to-Month</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-brand-gold" />
+                <DollarSign className="w-4 h-4 text-brand-gold" />
                 <span>No Surprise Invoices</span>
               </div>
               <div className="flex items-center gap-1.5">

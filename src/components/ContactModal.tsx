@@ -21,12 +21,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [formError, setFormError] = useState("");
-  const [showDisqualified, setShowDisqualified] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = () => {
     setEmailError("");
   };
 
@@ -40,9 +38,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
     const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
-    const businessType = (form.elements.namedItem("businessType") as HTMLSelectElement).value;
-    const mainNeed = (form.elements.namedItem("mainNeed") as HTMLSelectElement).value;
-    const additionalInfo = (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement).value.trim();
 
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -54,24 +49,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    if (mainNeed === "__disqualified__") {
-      return;
-    }
-
-    if (!businessType || !mainNeed) {
-      setFormError("Please complete all required fields above.");
-      return;
-    }
-    setFormError("");
-
-    onSubmit({
-      name,
-      email,
-      phone,
-      businessType,
-      mainNeed,
-      additionalInfo,
-    } as any);
+    onSubmit({ name, email, phone });
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -172,89 +150,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               />
             </div>
 
-            {/* Business Type */}
-            <div className="group">
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Type of Business
-              </label>
-              <select
-                name="businessType"
-                required
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
-              >
-                <option value="" className="text-slate-400">Select one...</option>
-                <option value="Auto/Dealerships">Auto / Dealerships</option>
-                <option value="Cleaning/Home Services">Cleaning / Home Services</option>
-                <option value="Construction/Trades">Construction / Trades</option>
-                <option value="Creative/Media">Creative / Media</option>
-                <option value="E-commerce/Retail">E-commerce / Retail</option>
-                <option value="Education/Training">Education / Training</option>
-                <option value="Financial Services">Financial Services</option>
-                <option value="Fitness/Wellness">Fitness / Wellness</option>
-                <option value="Food & Beverage">Food & Beverage</option>
-                <option value="Healthcare/Medical">Healthcare / Medical</option>
-                <option value="Hospitality/Hotels">Hospitality / Hotels</option>
-                <option value="Manufacturing">Manufacturing</option>
-                <option value="Marketing/Advertising">Marketing / Advertising</option>
-                <option value="Nonprofit">Nonprofit</option>
-                <option value="Professional Services">Professional Services</option>
-                <option value="Real Estate">Real Estate</option>
-                <option value="SaaS/Tech Startup">SaaS / Tech</option>
-                <option value="Staffing/Recruiting">Staffing / Recruiting</option>
-                <option value="Transportation/Logistics">Transportation / Logistics</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            {/* Main Need */}
-            <div className="group">
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                What Do You Need Most?
-              </label>
-              <select
-                name="mainNeed"
-                required
-                onChange={(e) => setShowDisqualified(e.target.value === "__disqualified__")}
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
-              >
-                <option value="" className="text-slate-400">Select one...</option>
-                <option value="I need ongoing business counsel (monthly retainer)">I need ongoing business counsel (monthly retainer)</option>
-                <option value="I have a one-time legal project (LLC, contract, estate plan, etc.)">I have a one-time legal project (e.g., LLC, contract drafting or review, estate plan, business transaction, etc.)</option>
-                <option value="I have a business need but I'm not sure which service fits yet">I have a business need but I'm not sure which service fits yet</option>
-                <option value="__disqualified__">I have a civil lawsuit, litigation, family, criminal, or personal injury matter</option>
-              </select>
-              {showDisqualified && (
-                <p className="mt-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 leading-relaxed">
-                  Legal Halp specializes in business law only. For civil lawsuits, litigation, family, criminal, or personal injury matters, we recommend contacting your state or local bar association's lawyer referral service.
-                </p>
-              )}
-            </div>
-
-            {/* Additional Info */}
-            <div>
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Anything else? <span className="text-slate-300 font-normal normal-case tracking-normal">(optional)</span>
-              </label>
-              <textarea
-                name="additionalInfo"
-                rows={2}
-                placeholder="Anything you'd like us to know before our call."
-                className="w-full px-4 py-3.5 border border-slate-200 rounded-xl text-[15px] focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 outline-none transition-all resize-none placeholder:text-slate-300"
-              />
-            </div>
-
-            {formError && (
-              <p className="text-sm text-red-500 text-center font-medium">{formError}</p>
-            )}
-
             {/* CTA */}
             <div className="pt-1">
               <button
                 type="submit"
-                disabled={showDisqualified}
-                className={`w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] ${showDisqualified ? 'bg-slate-300 text-slate-500 cursor-not-allowed' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}
+                className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] bg-slate-900 hover:bg-slate-800 text-white"
               >
-                <span>Get Started</span>
+                <span>Schedule My Free Call</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>

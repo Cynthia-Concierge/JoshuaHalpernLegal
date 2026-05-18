@@ -394,7 +394,7 @@ const Index = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <Zap className="w-4 h-4 text-brand-gold" />
-                <span>AI-Powered Efficiency</span>
+                <span>No Surprise Invoices</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Briefcase className="w-4 h-4 text-brand-gold" />

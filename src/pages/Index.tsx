@@ -332,30 +332,30 @@ const Index = () => {
             </p>
 
             {/* Trust chips */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
-              <div className="flex items-center gap-1.5">
-                <GraduationCap className="w-4 h-4 text-brand-gold" />
-                <span>Former BigLaw Attorney</span>
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700">Former BigLaw Attorney</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Scale className="w-4 h-4 text-brand-gold" />
-                <span>10+ Years Experience</span>
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+                <Scale className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700">10+ Years Experience</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-brand-gold" />
-                <span>All 50 States</span>
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+                <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700">All 50 States</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-brand-gold" />
-                <span>Month-to-Month</span>
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+                <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700">Month-to-Month</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <DollarSign className="w-4 h-4 text-brand-gold" />
-                <span>No Surprise Invoices</span>
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+                <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700">No Surprise Invoices</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Briefcase className="w-4 h-4 text-brand-gold" />
-                <span>Business & Transactional Law</span>
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+                <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700">Business & Transactional Law</span>
               </div>
             </div>
 

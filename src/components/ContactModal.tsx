@@ -10,6 +10,7 @@ interface ContactModalProps {
     name: string;
     email: string;
     phone: string;
+    additionalInfo?: string;
   }) => void;
 }
 
@@ -38,6 +39,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
     const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+    const additionalInfo = (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement).value.trim();
 
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -49,7 +51,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    onSubmit({ name, email, phone });
+    onSubmit({ name, email, phone, additionalInfo });
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -148,6 +150,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 onChange={handlePhoneChange}
                 error={phoneError}
                 className="px-4 py-3.5 bg-white text-slate-900 text-[15px] placeholder:text-slate-300"
+              />
+            </div>
+
+            {/* Business Info */}
+            <div className="group">
+              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
+                Tell me about your business and what you need help with
+              </label>
+              <textarea
+                name="additionalInfo"
+                required
+                minLength={10}
+                rows={3}
+                placeholder="e.g., SaaS startup needing contract review and an employment agreement..."
+                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300 resize-none"
               />
             </div>
 

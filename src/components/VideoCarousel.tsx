@@ -294,7 +294,7 @@ const VideoCarousel: React.FC = () => {
 
             {/* Credentials */}
             <div className="mt-8 pt-8 border-t border-slate-100">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {[
                   { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
                   { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former BigLaw Associate" },
@@ -311,8 +311,8 @@ const VideoCarousel: React.FC = () => {
                       <Icon className="w-5 h-5 text-brand-gold-dark" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-brand-navy font-bold text-sm leading-tight truncate">{primary}</p>
-                      <p className="text-slate-500 text-xs leading-tight mt-0.5 truncate">{secondary}</p>
+                      <p className="text-brand-navy font-bold text-sm leading-tight break-words">{primary}</p>
+                      <p className="text-slate-500 text-xs leading-tight mt-0.5 break-words">{secondary}</p>
                     </div>
                   </div>
                 ))}

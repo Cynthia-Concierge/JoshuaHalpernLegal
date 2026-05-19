@@ -163,7 +163,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 required
                 minLength={10}
                 rows={3}
-                placeholder="e.g., SaaS startup needing contract review and an employment agreement..."
+                placeholder="A sentence or two about your business and your legal needs."
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300 resize-none"
               />
             </div>

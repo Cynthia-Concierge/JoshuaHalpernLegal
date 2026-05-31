@@ -571,21 +571,47 @@ const Index = () => {
                   <span className="text-red-400 line-through decoration-2">$50,000</span>
                 </span>{" "}
                 is{" "}
-                <span className="text-brand-gold">$1,500/month</span>
+                <span className="text-brand-gold">$500–$2,500/month</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto text-center">
                 One lawsuit. One contract dispute. One employee issue. That's all it takes.
               </p>
             </div>
 
-            <div className="inline-block border border-slate-200 rounded-2xl px-8 py-6 md:px-12 md:py-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white mb-8">
-              <p className="text-2xl md:text-3xl font-semibold text-brand-navy">
-                Plans start at <span className="text-brand-gold">$1,500/mo</span>.
-              </p>
-              <p className="text-base md:text-lg text-slate-600 mt-2">
-                We'll find the right fit on your call.
-              </p>
+            {/* Tier cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-8 text-left max-w-5xl mx-auto md:items-stretch md:pt-4">
+              {/* Card 1 — On-call counsel */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                <h3 className="text-xl font-bold text-brand-navy mb-2">On-call counsel</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  For businesses with occasional legal needs. Contract reviews, quick questions, and peace of mind.
+                </p>
+              </div>
+
+              {/* Card 2 — Monthly retainer (most popular) */}
+              <div className="relative bg-white border-2 border-brand-gold rounded-2xl p-6 shadow-xl md:-translate-y-2 hover:-translate-y-3 transition-all duration-300 flex flex-col">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                  Most Popular
+                </span>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Monthly retainer</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  For businesses with regular legal work. Contracts, employment, compliance, and entity management.
+                </p>
+              </div>
+
+              {/* Card 3 — General counsel */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                <h3 className="text-xl font-bold text-brand-navy mb-2">General counsel</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  For businesses that need a lawyer embedded in operations. Strategy, deals, and board-level support.
+                </p>
+              </div>
             </div>
+
+            <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto text-center mb-8">
+              We'll match the right plan to your business on the call.{" "}
+              <span className="font-bold text-brand-navy">Plans from $500/mo.</span>
+            </p>
 
             {/* Risk Reversal */}
             <div className="bg-brand-cream border border-slate-200 rounded-xl p-6 max-w-2xl mx-auto mb-8">

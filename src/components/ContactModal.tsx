@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Lock, ArrowRight, AlertCircle } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { X, Lock, ArrowRight, ArrowLeft } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
 import { FORM_SUBMIT_URL } from '@/config';
 
@@ -14,6 +14,13 @@ interface ContactModalProps {
   }) => void;
 }
 
+interface PendingSubmission {
+  name: string;
+  email: string;
+  phone: string;
+  additionalInfo: string;
+}
+
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -22,6 +29,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [pendingSubmission, setPendingSubmission] = useState<PendingSubmission | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setShowConfirmation(false);
+      setPendingSubmission(null);
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -51,7 +67,24 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    onSubmit({ name, email, phone, additionalInfo });
+    setPendingSubmission({ name, email, phone, additionalInfo });
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmSubmit = () => {
+    if (pendingSubmission) {
+      onSubmit(pendingSubmission);
+    }
+  };
+
+  const handleBackToForm = () => {
+    setShowConfirmation(false);
+  };
+
+  const handleNotForMe = () => {
+    setShowConfirmation(false);
+    setPendingSubmission(null);
+    onClose();
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -88,6 +121,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
         </button>
 
         <div className="p-4 sm:p-8 md:p-10 pb-[max(16px,env(safe-area-inset-bottom))]">
+          {/* Form view (kept mounted while confirming so inputs persist) */}
+          <div className={showConfirmation ? "hidden" : ""}>
           {/* Header */}
           <div className="mb-5 sm:mb-8">
             <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
@@ -97,12 +132,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             <p className="text-slate-400 text-[12px] tracking-wide uppercase font-medium mt-1">
               Takes under a minute
             </p>
-            <div className="mt-3 flex gap-2.5 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
-              <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-              <p className="text-amber-900 text-[12px] leading-relaxed">
-                <span className="font-semibold">Business & transactional matters only</span> — formations, contracts, estate planning, real estate, and corporate strategy. <span className="font-semibold">We do not handle</span> civil lawsuits, litigation, criminal, family, or personal injury cases.
-              </p>
-            </div>
           </div>
 
           <form className="space-y-3.5 sm:space-y-5" onSubmit={handleSubmit}>
@@ -184,6 +213,61 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               <span>Protected by attorney-client privilege. No obligation.</span>
             </div>
           </form>
+          </div>
+
+          {/* Confirmation view */}
+          {showConfirmation && (
+            <div>
+              <button
+                type="button"
+                onClick={handleBackToForm}
+                className="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-500 hover:text-slate-900 transition-colors mb-5 sm:mb-6"
+                aria-label="Back to form"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Back</span>
+              </button>
+
+              <div className="mb-6 sm:mb-7">
+                <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
+                  One quick thing before we book your call —
+                </h3>
+                <p className="text-emerald-600 text-[16px] sm:text-[17px] leading-snug font-semibold mt-3">
+                  Legal Halp handles business law only.
+                </p>
+                <p className="text-slate-700 text-[14px] leading-relaxed mt-3">
+                  Contracts, formations, employment, real estate, estate planning, and corporate strategy.
+                </p>
+                <p className="text-slate-700 text-[14px] leading-relaxed mt-3">
+                  If you need help with family law, criminal defense, immigration, personal injury, or civil rights — we're not the right fit, but we hope you find the right attorney.
+                </p>
+              </div>
+
+              <div className="space-y-3 sm:space-y-3.5">
+                <button
+                  type="button"
+                  onClick={handleConfirmSubmit}
+                  className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] bg-slate-900 hover:bg-slate-800 text-white"
+                >
+                  <span>Yes, this is a business matter — Submit</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleNotForMe}
+                  className="w-full text-center text-slate-400 hover:text-slate-600 text-[13px] font-medium py-2 transition-colors"
+                >
+                  This isn't for me
+                </button>
+              </div>
+
+              <div className="mt-5 flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
+                <Lock className="w-3 h-3" />
+                <span>Protected by attorney-client privilege. No obligation.</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

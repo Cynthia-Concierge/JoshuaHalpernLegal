@@ -232,15 +232,24 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
                   One quick thing before we book your call —
                 </h3>
-                <p className="text-emerald-600 text-[16px] sm:text-[17px] leading-snug font-semibold mt-3">
-                  Legal Halp handles business law only.
-                </p>
-                <p className="text-slate-700 text-[14px] leading-relaxed mt-3">
-                  Contracts, formations, employment, real estate, estate planning, and corporate strategy.
-                </p>
-                <p className="text-slate-700 text-[14px] leading-relaxed mt-3">
-                  If you need help with family law, criminal defense, immigration, personal injury, or civil rights — we're not the right fit, but we hope you find the right attorney.
-                </p>
+
+                <div className="mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4">
+                  <p className="text-emerald-800 text-[16px] sm:text-[17px] leading-snug font-semibold">
+                    This service is for business owners who need a lawyer for their business.
+                  </p>
+                  <p className="text-slate-700 text-[14px] leading-relaxed mt-2">
+                    We help with corporate contracts, entity formations, employment matters, commercial real estate, and business strategy.
+                  </p>
+                </div>
+
+                <div className="mt-4 rounded-2xl border-2 border-amber-300 bg-amber-50 px-4 py-4">
+                  <p className="text-amber-900 text-[15px] leading-relaxed font-semibold">
+                    We do not handle litigation, lawsuits, or court appearances.
+                  </p>
+                  <p className="text-slate-700 text-[14px] leading-relaxed mt-2">
+                    We also do not help with personal legal matters like civil rights claims, divorce, family issues, criminal charges, or immigration.
+                  </p>
+                </div>
               </div>
 
               <div className="space-y-3 sm:space-y-3.5">

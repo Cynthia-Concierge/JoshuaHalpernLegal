@@ -580,22 +580,22 @@ const Index = () => {
 
             {/* Tier cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-8 text-left max-w-5xl mx-auto md:items-stretch md:pt-4">
-              {/* Card 1 — On-call counsel */}
+              {/* Card 1 — Essential counsel */}
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                <h3 className="text-xl font-bold text-brand-navy mb-2">On-call counsel</h3>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Essential counsel</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses with occasional legal needs. Contract reviews, quick questions, and peace of mind.
+                  For businesses that need a low-volume monthly retainer. Contract reviews, quick questions, and practical guidance before issues get expensive.
                 </p>
               </div>
 
-              {/* Card 2 — Monthly retainer (most popular) */}
+              {/* Card 2 — Ongoing counsel (most popular) */}
               <div className="relative bg-white border-2 border-brand-gold rounded-2xl p-6 shadow-xl md:-translate-y-2 hover:-translate-y-3 transition-all duration-300 flex flex-col">
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
                   Most Popular
                 </span>
-                <h3 className="text-xl font-bold text-brand-navy mb-2">Monthly retainer</h3>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Ongoing counsel</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses with regular legal work. Contracts, employment, compliance, and entity management.
+                  For businesses that need regular legal support each month. Contracts, employment, compliance, and entity management.
                 </p>
               </div>
 
@@ -603,13 +603,13 @@ const Index = () => {
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <h3 className="text-xl font-bold text-brand-navy mb-2">General counsel</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses that need a lawyer embedded in operations. Strategy, deals, and board-level support.
+                  For businesses that need a lawyer embedded in operations as a true in-house legal partner. Strategy, deals, and board-level support.
                 </p>
               </div>
             </div>
 
             <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto text-center mb-8">
-              We'll match the right plan to your business on the call.{" "}
+              Every option is a monthly retainer — we&apos;ll match the right level of support to your business on the call.{" "}
               <span className="font-bold text-brand-navy">Plans from $500/mo.</span>
             </p>
 

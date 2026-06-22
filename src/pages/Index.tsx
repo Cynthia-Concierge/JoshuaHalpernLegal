@@ -584,7 +584,7 @@ const Index = () => {
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <h3 className="text-xl font-bold text-brand-navy mb-2">Essential counsel</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses that need a low-volume monthly retainer. Contract reviews, quick questions, and practical guidance before issues get expensive.
+                  For businesses that need a low-volume monthly flat fee arrangement. Contract reviews, quick questions, and practical guidance before issues get expensive.
                 </p>
               </div>
 
@@ -609,7 +609,7 @@ const Index = () => {
             </div>
 
             <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto text-center mb-8">
-              Every option is a monthly retainer — we&apos;ll match the right level of support to your business on the call.{" "}
+              Every option is a monthly flat fee — we&apos;ll match the right level of support to your business on the call.{" "}
               <span className="font-bold text-brand-navy">Plans from $500/mo.</span>
             </p>
 

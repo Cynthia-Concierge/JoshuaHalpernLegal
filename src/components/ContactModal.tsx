@@ -234,10 +234,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 </h3>
 
                 <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-                  <p className="text-slate-900 text-[15px] font-bold mb-2">
-                    We don&apos;t handle these case types:
+                  <p className="text-slate-900 uppercase tracking-widest text-[11px] font-bold mb-3">
+                    We Don&apos;t Handle These Case Types
                   </p>
-                  <ul className="text-slate-600 text-[14px] leading-relaxed space-y-1.5">
+                  <ul className="text-slate-700 text-[14px] font-semibold leading-relaxed space-y-1.5">
                     <li>Lawsuits, litigation, or court appearances</li>
                     <li>Criminal defense</li>
                     <li>Family law / divorce</li>

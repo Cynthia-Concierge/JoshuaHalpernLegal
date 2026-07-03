@@ -370,15 +370,16 @@ const Index = () => {
             <div className="flex flex-col items-center gap-6">
               {/* Scope Qualifier — above button so it's unmissable */}
               <div className="max-w-2xl mx-auto w-full">
-                <div className="bg-brand-cream border border-brand-gold/20 rounded-xl px-6 py-4">
-                  <p className="text-brand-navy font-bold text-center text-sm mb-2">
-                    We don&apos;t handle these case types:
+                <div className="bg-brand-cream border border-brand-gold/30 rounded-xl px-6 py-5">
+                  <p className="text-brand-gold-dark uppercase tracking-widest text-xs font-bold text-center mb-3">
+                    We Don&apos;t Handle These Case Types
                   </p>
-                  <ul className="text-slate-600 text-sm leading-relaxed space-y-1 text-center max-w-md mx-auto">
-                    <li>Lawsuits, litigation, or court appearances</li>
-                    <li>Criminal defense · Family law / divorce · Personal injury · Immigration</li>
+                  <ul className="text-brand-navy text-sm font-semibold leading-relaxed space-y-1 text-center max-w-md mx-auto">
+                    <li>Lawsuits &middot; Litigation &middot; Court Appearances</li>
+                    <li>Criminal Defense &middot; Family Law / Divorce</li>
+                    <li>Personal Injury &middot; Immigration</li>
                   </ul>
-                  <p className="text-brand-navy-darker text-xs leading-relaxed mt-3 text-center font-medium">
+                  <p className="text-slate-500 text-xs leading-relaxed mt-3 text-center">
                     Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
                   </p>
                 </div>

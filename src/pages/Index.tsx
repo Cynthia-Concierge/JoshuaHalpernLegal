@@ -370,9 +370,16 @@ const Index = () => {
             <div className="flex flex-col items-center gap-6">
               {/* Scope Qualifier — above button so it's unmissable */}
               <div className="max-w-2xl mx-auto w-full">
-                <div className="bg-brand-navy/5 border border-brand-navy/10 rounded-xl px-6 py-4">
-                  <p className="text-slate-600 text-center leading-relaxed text-sm">
-                    <span className="font-semibold text-brand-navy">Dedicated to business & transactional law</span> — contracts, entity formations, estate planning, and ongoing general counsel. We do not handle civil lawsuits, litigation, criminal defense, family law, or personal injury.
+                <div className="bg-slate-50 border border-slate-200 rounded-xl px-6 py-4">
+                  <p className="text-slate-900 font-semibold text-center text-sm mb-2">
+                    We don&apos;t handle these case types:
+                  </p>
+                  <ul className="text-slate-700 text-sm leading-relaxed space-y-1 text-center max-w-md mx-auto">
+                    <li>Lawsuits, litigation, or court appearances</li>
+                    <li>Criminal defense · Family law / divorce · Personal injury · Immigration</li>
+                  </ul>
+                  <p className="text-slate-500 text-xs leading-relaxed mt-3 text-center">
+                    Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
                   </p>
                 </div>
               </div>

@@ -233,21 +233,19 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   One quick thing before we book your call —
                 </h3>
 
-                <div className="mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4">
-                  <p className="text-emerald-800 text-[16px] sm:text-[17px] leading-snug font-semibold">
-                    This service is for business owners who need a lawyer for their business.
+                <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
+                  <p className="text-slate-900 text-[15px] font-semibold mb-2">
+                    We don&apos;t handle these case types:
                   </p>
-                  <p className="text-slate-700 text-[14px] leading-relaxed mt-2">
-                    We help with corporate contracts, entity formations, employment matters, commercial real estate, and business strategy.
-                  </p>
-                </div>
-
-                <div className="mt-4 rounded-2xl border-2 border-amber-300 bg-amber-50 px-4 py-4">
-                  <p className="text-amber-900 text-[15px] leading-relaxed font-semibold">
-                    We do not handle litigation, lawsuits, or court appearances.
-                  </p>
-                  <p className="text-slate-700 text-[14px] leading-relaxed mt-2">
-                    We also do not help with personal legal matters like civil rights claims, divorce, family issues, criminal charges, or immigration.
+                  <ul className="text-slate-700 text-[14px] leading-relaxed space-y-1.5">
+                    <li>Lawsuits, litigation, or court appearances</li>
+                    <li>Criminal defense</li>
+                    <li>Family law / divorce</li>
+                    <li>Personal injury</li>
+                    <li>Immigration</li>
+                  </ul>
+                  <p className="text-slate-500 text-[13px] leading-relaxed mt-3">
+                    Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
                   </p>
                 </div>
               </div>

@@ -13,17 +13,6 @@ declare global {
 
 const RealEstateThankYou = () => {
   useEffect(() => {
-    if (window.fbq) {
-      window.fbq("track", "Lead", {
-        content_name: "Real Estate Investor Application",
-        content_category: "real_estate_legal",
-        value: 1500,
-        currency: "USD",
-      });
-    }
-  }, []);
-
-  useEffect(() => {
     const link = document.createElement("link");
     link.href = "https://assets.calendly.com/assets/external/widget.css";
     link.rel = "stylesheet";

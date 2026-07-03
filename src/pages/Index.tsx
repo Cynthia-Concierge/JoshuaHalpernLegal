@@ -244,15 +244,6 @@ const Index = () => {
       });
 
       if (response.ok) {
-        // Fire Lead event client-side at submit time (belt-and-suspenders with thank-you page)
-        if (typeof window !== 'undefined' && window.fbq) {
-          window.fbq('track', 'Lead', {
-            content_name: 'Lawyer On Call Application',
-            content_category: 'legal_services',
-            value: 1500,
-            currency: 'USD',
-          });
-        }
         setIsModalOpen(false);
         navigate('/lawyeroncall/thank-you');
       } else {

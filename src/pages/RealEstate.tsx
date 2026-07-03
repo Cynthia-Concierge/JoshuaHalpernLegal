@@ -190,14 +190,6 @@ const RealEstate = () => {
       });
 
       if (response.ok) {
-        if (typeof window !== 'undefined' && window.fbq) {
-          window.fbq('track', 'Lead', {
-            content_name: 'Real Estate Investor Application',
-            content_category: 'real_estate_legal',
-            value: 1500,
-            currency: 'USD',
-          });
-        }
         setIsModalOpen(false);
         navigate('/realestate/thank-you');
       } else {

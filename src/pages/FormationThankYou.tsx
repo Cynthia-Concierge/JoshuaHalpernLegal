@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   CheckCircle2,
@@ -9,12 +8,6 @@ import {
   Calendar,
   ArrowRight,
 } from "lucide-react";
-
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
 
 const STEPS = [
   {
@@ -38,17 +31,6 @@ const STEPS = [
 ];
 
 const FormationThankYou: React.FC = () => {
-  useEffect(() => {
-    if (window.fbq) {
-      window.fbq("track", "Lead", {
-        content_name: "Business Formation Intake",
-        content_category: "legal_services",
-        value: 1000,
-        currency: "USD",
-      });
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}

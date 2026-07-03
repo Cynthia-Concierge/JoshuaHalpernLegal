@@ -127,10 +127,6 @@ const FormationIntake: React.FC = () => {
         return;
       }
 
-      // Fire Facebook Lead event for conversion tracking (Meta Pixel)
-      if (typeof window !== "undefined" && typeof (window as Window & { fbq?: (a: string, b: string) => void }).fbq === "function") {
-        (window as Window & { fbq: (a: string, b: string) => void }).fbq("track", "Lead");
-      }
     } catch (err) {
       console.error("Form submit error", err);
       setSubmitError("Something went wrong. Please check your connection and try again, or contact us directly.");

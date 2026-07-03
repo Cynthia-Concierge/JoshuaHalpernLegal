@@ -49,8 +49,10 @@ export default async function handler(req, res) {
 
   // Aggressive auto-tagger: catch bad-fit leads (litigation/family/PI/etc) at submit time
   // by scanning the free-text field. Match → tag bad_fit + custom_fields.auto_disqualified.
-  // The tag drives the nightly Meta-exclusion-audience sync.
-  const BAD_FIT_REGEX = /\b(lawsuit|litigation|sue|sued|suing|court|divorce|custody|criminal|injury|injured|disability|accident|malpractice|evict|evicted|landlord|tenant|harass|fired|wrongful|discrimination|bankruptcy|child support|alimony|probate dispute|garnish|debt collect|car accident|federal court|dismissed complaint|appeal|family law|personal injury|workers? comp)\b/i;
+  // The tag drives the nightly Meta-exclusion-audience sync AND gates the CAPI Lead
+  // event below — bad-fit submissions must NOT train Meta's optimizer.
+  // Keep this regex in sync with crm-project/api/server.js BAD_FIT_REGEX.
+  const BAD_FIT_REGEX = /\b(lawsuit|litigation|sue|sued|suing|court|divorce|custody|criminal|arrest(ed)?|charged|charges|accus(ed|ation|ing|er)?|felony|misdemeanor|jail|prison|probation|parole|injury|injured|disability|accident|malpractice|evict(ed|ion)?|landlord|tenant|harass(ed|ing|ment)?|fired|wrongful|discrimination|bankruptcy|alimony|probate|garnish(ed|ment)?|debt|debts|collection|collections|family|immigration|immigrant|visa|deport(ed|ation)?|asylum|police|fraud|defraud(ed)?|scam(med|mer)?|theft|stolen|robbed|breach of contract|contract dispute|breaking (the )?contract|easement|retaliat(e|ed|ion|ing)|ssi|ssdi|social security|restraining order|guardianship|conservatorship|dui|dwi|labor law|defamation|slander|libel|car accident|federal court|appeal|personal injury|workers? comp|child support|spouse|ex-spouse|ex-husband|ex-wife)\b/i;
   const scanText = String(formData.additional_info || '') + ' ' + String(formData.main_need || '');
   let autoBadFit = false;
   if (scanText.trim() && BAD_FIT_REGEX.test(scanText)) {
@@ -151,8 +153,12 @@ export default async function handler(req, res) {
       }
     );
 
-    // Send Facebook Conversions API (CAPI) event for server-side tracking
-    if (META_ACCESS_TOKEN) {
+    // Send Facebook Conversions API (CAPI) Lead event for server-side tracking.
+    // Skip bad-fit submissions — firing Lead events for litigation/PI/family/etc
+    // trains Meta's optimizer to find more of the same audience, which is the
+    // opposite of what we want. Bad-fits are still saved to the CRM above; we
+    // just don't tell Meta they "converted".
+    if (META_ACCESS_TOKEN && !autoBadFit) {
       try {
         const crypto = await import('crypto');
         const hashSha256 = (val) => val ? crypto.createHash('sha256').update(val.trim().toLowerCase()).digest('hex') : undefined;

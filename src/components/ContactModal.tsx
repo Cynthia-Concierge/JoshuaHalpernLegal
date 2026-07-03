@@ -234,17 +234,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 </h3>
 
                 <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-                  <p className="text-slate-900 uppercase tracking-widest text-[11px] font-bold mb-3">
-                    We Don&apos;t Handle These Case Types
+                  <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-4">
+                    We Do Not Handle These Types of Cases
                   </p>
-                  <ul className="text-slate-700 text-[14px] font-semibold leading-relaxed space-y-1.5">
-                    <li>Lawsuits, litigation, or court appearances</li>
-                    <li>Criminal defense</li>
-                    <li>Family law / divorce</li>
-                    <li>Personal injury</li>
-                    <li>Immigration</li>
-                  </ul>
-                  <p className="text-slate-500 text-[13px] leading-relaxed mt-3 font-medium">
+                  <div className="flex flex-wrap gap-2">
+                    {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
+                      <span key={item} className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 text-[12px] font-semibold text-slate-700 shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-slate-500 text-[13px] leading-relaxed mt-4 font-medium">
                     Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
                   </p>
                 </div>

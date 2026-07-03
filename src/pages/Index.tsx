@@ -370,16 +370,19 @@ const Index = () => {
             <div className="flex flex-col items-center gap-6">
               {/* Scope Qualifier — above button so it's unmissable */}
               <div className="max-w-2xl mx-auto w-full">
-                <div className="bg-brand-cream border border-brand-gold/30 rounded-xl px-6 py-5">
-                  <p className="text-brand-gold-dark uppercase tracking-widest text-xs font-bold text-center mb-3">
-                    We Don&apos;t Handle These Case Types
+                <div className="bg-brand-cream border border-brand-gold/30 rounded-2xl px-6 py-5">
+                  <p className="text-brand-gold-dark uppercase tracking-[0.15em] text-xs font-bold text-center mb-4">
+                    We Do Not Handle These Types of Cases
                   </p>
-                  <ul className="text-brand-navy text-sm font-semibold leading-relaxed space-y-1 text-center max-w-md mx-auto">
-                    <li>Lawsuits &middot; Litigation &middot; Court Appearances</li>
-                    <li>Criminal Defense &middot; Family Law / Divorce</li>
-                    <li>Personal Injury &middot; Immigration</li>
-                  </ul>
-                  <p className="text-slate-500 text-xs leading-relaxed mt-3 text-center">
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
+                      <span key={item} className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 text-xs font-semibold text-brand-navy shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-slate-500 text-xs leading-relaxed mt-4 text-center">
                     Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
                   </p>
                 </div>

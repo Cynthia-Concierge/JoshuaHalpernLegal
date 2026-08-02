@@ -34,6 +34,7 @@ import ContractDrafting from "./pages/services/ContractDrafting";
 import BrandProtection from "./pages/services/BrandProtection";
 import RealEstateLLC from "./pages/services/RealEstateLLC";
 import WebsiteCompliance from "./pages/services/WebsiteCompliance";
+import LawyerOnCall from "./pages/LawyerOnCall";
 
 import Formation from "./pages/Formation";
 import FormationIntake from "./pages/FormationIntake";
@@ -68,6 +69,7 @@ const Layout = () => {
         <Route path="/services/brand-protection" element={<BrandProtection />} />
         <Route path="/services/real-estate-llc" element={<RealEstateLLC />} />
         <Route path="/services/website-compliance" element={<WebsiteCompliance />} />
+        <Route path="/lawyer-on-call" element={<LawyerOnCall />} />
 
         <Route path="/formation" element={<Formation />} />
         <Route path="/formation/intake" element={<FormationIntake />} />

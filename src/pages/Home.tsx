@@ -467,7 +467,7 @@ const Home: React.FC = () => {
                   title: "Lawyer-on-Call",
                   price: "$1,500/mo",
                   description: "On-demand legal counsel, monthly flat fee",
-                  slug: "/lawyeroncall",
+                  slug: "/lawyer-on-call",
                 },
                 {
                   icon: FileText,
@@ -548,6 +548,102 @@ const Home: React.FC = () => {
                 View All Services & Pricing
                 <ArrowRight className="w-5 h-5" />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* SECTION 4.5 — Lawyer-on-Call Featured         */}
+      {/* ============================================= */}
+      <section className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-[150px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
+                Ongoing Legal Counsel
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Need a Lawyer on Retainer,
+                <br />
+                <span className="text-blue-400">Not Just a One-Time Project?</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
+                Lawyer-on-Call gives you a dedicated business attorney for a flat
+                monthly fee. Text, email, or call whenever something comes up.
+                No timers. No surprise invoices.
+              </p>
+            </div>
+
+            {/* Pricing Tier Preview */}
+            <div className="grid md:grid-cols-3 gap-5 mb-10">
+              {[
+                {
+                  name: "Essential Counsel",
+                  price: "From $500/mo",
+                  desc: "Contract reviews, quick questions, practical guidance.",
+                  popular: false,
+                },
+                {
+                  name: "Ongoing Counsel",
+                  price: "From $1,500/mo",
+                  desc: "Contracts, employment, compliance, and entity management.",
+                  popular: true,
+                },
+                {
+                  name: "General Counsel",
+                  price: "From $2,500/mo",
+                  desc: "Embedded in-house legal partner. Strategy, deals, board-level support.",
+                  popular: false,
+                },
+              ].map((tier, i) => (
+                <div
+                  key={i}
+                  className={`relative rounded-2xl p-6 transition-all hover:-translate-y-1 ${
+                    tier.popular
+                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2"
+                      : "bg-white/10 backdrop-blur-sm border border-white/20"
+                  }`}
+                >
+                  {tier.popular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className={`text-lg font-bold mb-2 ${tier.popular ? "text-slate-900" : "text-white"}`}>
+                    {tier.name}
+                  </h3>
+                  <p className={`font-bold text-lg mb-3 ${tier.popular ? "text-blue-600" : "text-blue-400"}`}>
+                    {tier.price}
+                  </p>
+                  <p className={`text-sm leading-relaxed ${tier.popular ? "text-slate-600" : "text-slate-300"}`}>
+                    {tier.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/lawyer-on-call"
+                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
+              >
+                Explore Lawyer-on-Call
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <p className="text-slate-400 text-sm mt-4">
+                Month-to-month. No long-term contracts. Cancel with 30 days notice.
+              </p>
             </div>
           </div>
         </div>

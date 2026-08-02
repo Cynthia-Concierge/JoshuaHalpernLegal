@@ -15,12 +15,12 @@ import {
   ArrowRight,
   Star,
   UserCheck,
-  MessageSquare,
   PhoneCall,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 import VideoCarousel from "@/components/VideoCarousel";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const Home: React.FC = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
@@ -611,61 +611,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 6 — Social Proof / Testimonials       */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
-                Testimonials
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                What Clients Say
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  quote:
-                    "I was quoted $3,500 by another firm to set up my LLC. Josh did it for $1,000, explained everything clearly, and I had my operating agreement in 5 days. This is how legal services should work.",
-                  name: "Sarah K.",
-                  role: "Wellness Studio Owner",
-                },
-                {
-                  quote:
-                    "We'd been putting off estate planning for years because lawyers made it feel so complicated and expensive. Josh made it simple. We finally have peace of mind.",
-                  name: "Mike & Lisa T.",
-                  role: "Real Estate Investors",
-                },
-              ].map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-100 relative"
-                >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 text-blue-500 fill-blue-500"
-                      />
-                    ))}
-                  </div>
-                  <MessageSquare className="absolute top-6 right-6 w-8 h-8 text-slate-200" />
-                  <blockquote className="text-slate-700 text-base md:text-lg leading-relaxed mb-6 italic">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <div>
-                    <p className="font-bold text-slate-900">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-slate-500 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <TestimonialCarousel />
 
       {/* ============================================= */}
       {/* SECTION 7 — Final CTA                         */}

@@ -573,7 +573,7 @@ const Index = () => {
                   <span className="text-red-400 line-through decoration-2">$50,000</span>
                 </span>{" "}
                 is{" "}
-                <span className="text-brand-gold">$500–$2,500/month</span>
+                <span className="text-brand-gold">$1,500–$3,000/month</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto text-center">
                 One lawsuit. One contract dispute. One employee issue. That's all it takes.
@@ -612,7 +612,7 @@ const Index = () => {
 
             <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto text-center mb-8">
               Every option is a monthly flat fee — we&apos;ll match the right level of support to your business on the call.{" "}
-              <span className="font-bold text-brand-navy">Plans from $500/mo.</span>
+              <span className="font-bold text-brand-navy">Plans from $1,500/mo.</span>
             </p>
 
             {/* Risk Reversal */}

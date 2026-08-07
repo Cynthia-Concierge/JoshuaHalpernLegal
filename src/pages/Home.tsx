@@ -590,19 +590,19 @@ const Home: React.FC = () => {
               {[
                 {
                   name: "Essential Counsel",
-                  price: "From $500/mo",
+                  price: "From $1,500/mo",
                   desc: "Contract reviews, quick questions, practical guidance.",
                   popular: false,
                 },
                 {
                   name: "Ongoing Counsel",
-                  price: "From $1,500/mo",
+                  price: "From $2,000/mo",
                   desc: "Contracts, employment, compliance, and entity management.",
                   popular: true,
                 },
                 {
                   name: "General Counsel",
-                  price: "From $2,500/mo",
+                  price: "From $3,000/mo",
                   desc: "Embedded in-house legal partner. Strategy, deals, board-level support.",
                   popular: false,
                 },

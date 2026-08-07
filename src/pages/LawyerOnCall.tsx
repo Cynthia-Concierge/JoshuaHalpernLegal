@@ -88,7 +88,7 @@ const faqs = [
 const pricingTiers = [
   {
     name: "Essential Counsel",
-    price: "From $500/mo",
+    price: "From $1,500/mo",
     description:
       "For businesses that need a low-volume monthly flat fee arrangement. Contract reviews, quick questions, and practical guidance before issues get expensive.",
     features: [
@@ -102,7 +102,7 @@ const pricingTiers = [
   },
   {
     name: "Ongoing Counsel",
-    price: "From $1,500/mo",
+    price: "From $2,000/mo",
     description:
       "For businesses that need regular legal support each month. Contracts, employment, compliance, and entity management.",
     features: [
@@ -117,7 +117,7 @@ const pricingTiers = [
   },
   {
     name: "General Counsel",
-    price: "From $2,500/mo",
+    price: "From $3,000/mo",
     description:
       "For businesses that need a lawyer embedded in operations as a true in-house legal partner. Strategy, deals, and board-level support.",
     features: [
@@ -319,7 +319,7 @@ const LawyerOnCall: React.FC = () => {
                   $50,000
                 </span>{" "}
                 is{" "}
-                <span className="text-blue-600">$500–$2,500/month</span>
+                <span className="text-blue-600">$1,500–$3,000/month</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 One lawsuit. One contract dispute. One employee issue. That's
@@ -382,7 +382,7 @@ const LawyerOnCall: React.FC = () => {
               Every option is a monthly flat fee — we'll match the right level
               of support to your business on the call.{" "}
               <span className="font-bold text-slate-900">
-                Plans from $500/mo.
+                Plans from $1,500/mo.
               </span>
             </p>
 

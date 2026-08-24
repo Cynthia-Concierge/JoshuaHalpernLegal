@@ -66,7 +66,8 @@ const ThankYou = () => {
         <div className="border border-slate-200 rounded-2xl overflow-hidden mb-8 shadow-sm animate-slide-up">
           <div
             id="calendly-embed"
-            style={{ minWidth: "320px", height: "660px" }}
+            style={{ minWidth: "320px" }}
+            className="h-[900px] sm:h-[760px]"
           />
         </div>
 

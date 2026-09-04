@@ -229,8 +229,15 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom fade to white */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
+        {/* Bottom fade to white: eased multi-stop ramp, layered above the
+            background but below content so headline and pills stay crisp */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-48 md:h-64 z-[5] pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.995) 6%, rgba(255,255,255,0.97) 14%, rgba(255,255,255,0.92) 22%, rgba(255,255,255,0.845) 30%, rgba(255,255,255,0.75) 38%, rgba(255,255,255,0.64) 46%, rgba(255,255,255,0.52) 54%, rgba(255,255,255,0.4) 62%, rgba(255,255,255,0.29) 70%, rgba(255,255,255,0.19) 78%, rgba(255,255,255,0.11) 85%, rgba(255,255,255,0.05) 91%, rgba(255,255,255,0.015) 96%, rgba(255,255,255,0) 100%)",
+          }}
+        />
       </section>
 
       <VideoCarousel />

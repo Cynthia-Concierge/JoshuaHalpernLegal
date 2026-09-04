@@ -109,7 +109,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 1 — Hero                              */}
       {/* ============================================= */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-900">
+      <section className="relative pt-12 pb-40 lg:pt-20 lg:pb-56 overflow-hidden bg-slate-900">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div

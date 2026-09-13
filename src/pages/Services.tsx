@@ -34,10 +34,13 @@ interface ServicePackage {
   stripeLink?: string;
 }
 
+type ServiceTrack = "business" | "personal";
+
 interface ServiceCategory {
   id: string;
   icon: React.FC<{ className?: string }>;
   label: string;
+  track: ServiceTrack;
   packages: ServicePackage[];
 }
 
@@ -49,7 +52,8 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "business",
     icon: Building2,
-    label: "Starting a Business",
+    label: "Business Formation & Structure",
+    track: "business",
     packages: [
       {
         name: "Basic LLC Formation",
@@ -148,7 +152,8 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "family",
     icon: Heart,
-    label: "Protecting Your Family",
+    label: "Estate Planning",
+    track: "personal",
     packages: [
       {
         name: "Estate Planning (Single)",
@@ -243,6 +248,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "contracts",
     icon: PenTool,
     label: "Contracts & Agreements",
+    track: "business",
     packages: [
       {
         name: "Basic Contract Drafting or Review",
@@ -346,6 +352,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "employment",
     icon: Users,
     label: "Hiring & Employment",
+    track: "business",
     packages: [
       {
         name: "Hire an Employee Package",
@@ -438,8 +445,9 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   },
   {
     id: "brand",
-    icon: Sparkles,
-    label: "Brand & IP Protection",
+    icon: Shield,
+    label: "Brand & Trademarks",
+    track: "business",
     packages: [
       {
         name: "Brand + IP Protection Package",
@@ -479,26 +487,6 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
       },
       {
-        name: "Copyright Registration",
-        price: "$450",
-        whoItsFor:
-          "Authors, artists, photographers, software developers, and content creators who need to protect their original works.",
-        includes: [
-          "Copyright application preparation and filing",
-          "Work categorization and registration strategy",
-          "Filing with U.S. Copyright Office",
-          "Certificate of Registration (when issued)",
-          "Legal ownership documentation",
-          "30-minute consultation on copyright strategy",
-        ],
-        notIncluded: [
-          "U.S. Copyright Office filing fee ($65 per work, paid separately).",
-        ],
-        whyItMatters:
-          "You own copyright automatically, but registration is required to sue infringers and recover statutory damages ($150k per work). Protect your work before someone steals it.",
-        stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
-      },
-      {
         name: "Domain Name Dispute Resolution",
         price: "$2,000",
         whoItsFor:
@@ -515,65 +503,8 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "UDRP filing fee (~$1,500, paid separately to arbitration provider).",
         ],
         whyItMatters:
-          "Cybersquatters buy domains similar to your brand and hold them hostage for $10k-$100k. UDRP is faster and cheaper than a lawsuit — and you can win back your domain in 60 days.",
+          "Cybersquatters buy domains similar to your brand and hold them hostage for $10k-$100k. UDRP is faster and cheaper than a lawsuit, and you can win back your domain in 60 days.",
         stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
-      },
-    ],
-  },
-  {
-    id: "oncall",
-    icon: PhoneCall,
-    label: "Lawyer-on-Call",
-    packages: [
-      {
-        name: "Lawyer-on-Call Retainer",
-        price: "$1,500/mo",
-        whoItsFor:
-          "Business owners and founders who want ongoing, on-demand access to a real attorney without paying hourly rates or hiring in-house counsel.",
-        includes: [
-          "Monthly on-call access to a licensed attorney",
-          "Contract review and drafting as needed",
-          "Transaction negotiation support",
-          "General corporate counsel and compliance guidance",
-          "Strategic business advisory on legal matters",
-          "Priority response times (within 24 hours)",
-          "Rollover availability for lighter months",
-        ],
-        whyItMatters:
-          "Most businesses don't need a full-time lawyer, but they do need one they can call. The Lawyer-on-Call retainer gives you ongoing access to experienced legal counsel at a predictable monthly cost, so you can make confident decisions without racking up surprise bills.",
-      },
-      {
-        name: "Premium Retainer (10+ Hours/Month)",
-        price: "$2,000/mo",
-        whoItsFor:
-          "High-growth companies, funded startups, or businesses with frequent legal needs.",
-        includes: [
-          "10-20 hours of legal counsel per month",
-          "Same-day priority response",
-          "Complex contract negotiation and M&A support",
-          "Board meeting attendance (as needed)",
-          "Investor and financing documentation review",
-          "Strategic planning sessions",
-          "Dedicated attorney relationship",
-        ],
-        whyItMatters:
-          "Hiring a general counsel costs $200k-$300k/year. A premium retainer gives you senior-level support at a fraction of the cost, with the flexibility to scale up or down.",
-      },
-      {
-        name: "Litigation Support Add-On",
-        price: "$1,500/mo",
-        whoItsFor:
-          "Existing retainer clients facing lawsuits, disputes, or pre-litigation threats.",
-        includes: [
-          "Demand letter drafting and response",
-          "Settlement negotiation strategy",
-          "Discovery coordination and document review",
-          "Litigation counsel and co-counsel coordination",
-          "Case strategy sessions",
-          "Mediation and arbitration preparation",
-        ],
-        whyItMatters:
-          "Litigation is expensive. This add-on gives you strategic support without hiring a full litigation team, helping you resolve disputes faster and cheaper.",
       },
     ],
   },
@@ -581,6 +512,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "realestate",
     icon: Home,
     label: "Real Estate Investors",
+    track: "business",
     packages: [
       {
         name: "Real Estate Investor Package",
@@ -661,7 +593,8 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "online",
     icon: Globe,
-    label: "Online Business Compliance",
+    label: "Online & E-Commerce",
+    track: "business",
     packages: [
       {
         name: "Website Compliance Package",
@@ -719,6 +652,34 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Affiliates can damage your brand if they spam, mislead, or violate FTC rules. A solid agreement protects you and sets clear boundaries for partners.",
         stripeLink: "https://buy.stripe.com/4gM6oHca6d2x2lH6um3oA08",
       },
+    ],
+  },
+  {
+    id: "creators",
+    icon: Sparkles,
+    label: "Creators & Individuals",
+    track: "personal",
+    packages: [
+      {
+        name: "Copyright Registration",
+        price: "$450",
+        whoItsFor:
+          "Authors, artists, photographers, software developers, and content creators who need to protect their original works.",
+        includes: [
+          "Copyright application preparation and filing",
+          "Work categorization and registration strategy",
+          "Filing with U.S. Copyright Office",
+          "Certificate of Registration (when issued)",
+          "Legal ownership documentation",
+          "30-minute consultation on copyright strategy",
+        ],
+        notIncluded: [
+          "U.S. Copyright Office filing fee ($65 per work, paid separately).",
+        ],
+        whyItMatters:
+          "You own copyright automatically, but registration is required to sue infringers and recover statutory damages ($150k per work). Protect your work before someone steals it.",
+        stripeLink: "https://buy.stripe.com/8x228rca6geJ7G105Y3oA06",
+      },
       {
         name: "Influencer/Creator Legal Package",
         price: "$950",
@@ -741,9 +702,23 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   },
 ];
 
+const TRACKS: { id: ServiceTrack; label: string }[] = [
+  { id: "business", label: "For your business" },
+  { id: "personal", label: "Personal" },
+];
+
 /* -------------------------------------------------- */
 /* Package Card Component                             */
 /* -------------------------------------------------- */
+
+const CHECKOUT_CEILING = 1500;
+
+const isSelfServe = (pkg: ServicePackage) => {
+  if (!pkg.stripeLink) return false;
+  if (pkg.price.includes("/mo")) return false;
+  const amount = Number(pkg.price.replace(/[^0-9]/g, ""));
+  return Number.isFinite(amount) && amount > 0 && amount < CHECKOUT_CEILING;
+};
 
 const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-slate-200/40 transition-all duration-300 overflow-hidden">
@@ -756,7 +731,7 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
         <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-none mb-1.5">
           Starts at
         </p>
-        <p className="text-blue-600 font-bold text-3xl md:text-4xl leading-none">
+        <p className="text-slate-900 font-bold text-2xl md:text-3xl leading-none">
           {pkg.price}
         </p>
       </div>
@@ -838,15 +813,25 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
       )}
 
       {/* CTA */}
-      <a
-        href={pkg.stripeLink || "#consultation"}
-        target={pkg.stripeLink ? "_blank" : undefined}
-        rel={pkg.stripeLink ? "noopener noreferrer" : undefined}
-        className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
-      >
-        Get Started - {pkg.price}
-        <ArrowRight className="w-4 h-4" />
-      </a>
+      {isSelfServe(pkg) ? (
+        <a
+          href={pkg.stripeLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
+        >
+          Get Started
+          <ArrowRight className="w-4 h-4" />
+        </a>
+      ) : (
+        <Link
+          to="/contact"
+          className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
+        >
+          Start With a Consultation
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      )}
     </div>
   </div>
 );
@@ -1054,30 +1039,39 @@ const Services: React.FC = () => {
       {/* ============================================= */}
       <section className="sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex gap-1 overflow-x-auto no-scrollbar py-3">
-              {SERVICE_CATEGORIES.map((cat) => {
-                const Icon = cat.icon;
-                const isActive = cat.id === activeTab;
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onClick={() => {
-                      setActiveTab(cat.id);
-                    }}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
-                      isActive
-                        ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20"
-                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {cat.label}
-                  </button>
-                );
-              })}
-            </div>
+          <div className="max-w-5xl mx-auto py-3 space-y-2">
+            {TRACKS.map((track) => (
+              <div key={track.id} className="flex items-center gap-3">
+                <span className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-slate-400 w-28 flex-shrink-0">
+                  {track.label}
+                </span>
+                <div className="flex gap-1 overflow-x-auto no-scrollbar">
+                  {SERVICE_CATEGORIES.filter((c) => c.track === track.id).map(
+                    (cat) => {
+                      const Icon = cat.icon;
+                      const isActive = cat.id === activeTab;
+                      return (
+                        <button
+                          key={cat.id}
+                          type="button"
+                          onClick={() => {
+                            setActiveTab(cat.id);
+                          }}
+                          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
+                            isActive
+                              ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20"
+                              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                          }`}
+                        >
+                          <Icon className="w-4 h-4" />
+                          {cat.label}
+                        </button>
+                      );
+                    }
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1109,6 +1103,38 @@ const Services: React.FC = () => {
               {activeCategory.packages.map((pkg, index) => (
                 <PackageCard key={index} pkg={pkg} />
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* OUTSIDE GC CALLOUT                            */}
+      {/* ============================================= */}
+      <section className="py-12 md:py-16 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                <PhoneCall className="w-6 h-6" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
+                  Need counsel on retainer rather than a package?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Ongoing legal support, deal execution, and portfolio
+                  governance run through the Outside General Counsel
+                  engagement, priced monthly rather than per matter.
+                </p>
+              </div>
+              <Link
+                to="/lawyer-on-call"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5 flex-shrink-0 whitespace-nowrap"
+              >
+                See Retainer Tiers
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

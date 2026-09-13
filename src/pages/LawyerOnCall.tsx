@@ -17,38 +17,46 @@ import {
   ChevronUp,
   Clock,
   GraduationCap,
+  Layers,
+  Landmark,
+  Building2,
 } from "lucide-react";
 
 const whatYouGet = [
   {
+    icon: Handshake,
+    title: "Deals & Transactions",
+    desc: "Acquisitions, asset and equity purchases, partner buyouts, joint ventures, and the diligence and closing mechanics behind them",
+  },
+  {
+    icon: Layers,
+    title: "Entity & Holding Structure",
+    desc: "Holding company architecture, multi-state and multi-entity cleanup, intercompany agreements, and restructuring alongside your tax advisors",
+  },
+  {
+    icon: Landmark,
+    title: "Governance & Equity",
+    desc: "Operating agreement restatements, buy-sell and transfer restrictions, member admissions and exits, equity compensation, and investor documentation",
+  },
+  {
     icon: FileCheck,
-    title: "Contracts & Agreements",
-    desc: "Drafting, reviewing, and negotiating vendor agreements, client contracts, NDAs, and partnership deals",
+    title: "Commercial Contracting",
+    desc: "Master services agreements, vendor and supplier terms, client contracts, NDAs, licensing and distribution",
+  },
+  {
+    icon: Building2,
+    title: "Commercial Real Estate",
+    desc: "Acquisitions and dispositions, leasing on both sides, title and escrow issues, and the entity work underneath the asset",
   },
   {
     icon: Users,
-    title: "Employment Law",
-    desc: "Offer letters, terminations, employee handbooks, equity compensation plans, and HR compliance",
-  },
-  {
-    icon: Shield,
-    title: "Brand & IP Protection",
-    desc: "Trademark filings, copyright registration, website terms of service, and privacy policies",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Strategy",
-    desc: "Entity structuring (LLC vs S-Corp), operating agreements, compliance, and regulatory guidance",
-  },
-  {
-    icon: Handshake,
-    title: "Deal Negotiation",
-    desc: "Strategic counsel on partnerships, vendor terms, investor agreements, and key business deals",
+    title: "Employment & IP",
+    desc: "Offer letters, terminations and separations, contractor classification, handbooks, trademark filings, and IP assignment discipline",
   },
   {
     icon: MessageCircle,
     title: "Direct Access",
-    desc: "Text, email, or call your attorney directly. No gatekeepers, no assistants, no billable surprises",
+    desc: "Text, email, or call your attorney directly. No gatekeepers, no associates, no billable increments",
   },
 ];
 
@@ -61,12 +69,17 @@ const faqs = [
   {
     question: "Is a real attorney handling my work?",
     answer:
-      "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of experience, including BigLaw. I personally handle every client. You're never talking to a paralegal or a chatbot.",
+      "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of corporate and transactional experience, including BigLaw. I personally handle every matter. You're never handed to an associate, a paralegal, or a chatbot.",
+  },
+  {
+    question: "Do you handle acquisitions and larger transactions?",
+    answer:
+      "Yes. Acquisitions, asset and equity purchases, partner buyouts, holding company restructuring, joint ventures, commercial real estate, and investor documentation are core practice, not an add-on. Deal work is typically scoped separately from the monthly retainer and quoted before it begins. The Representative Matters page shows the shape of the work.",
   },
   {
     question: "What's NOT included?",
     answer:
-      "Courtroom litigation (I'm business counsel, not a trial lawyer), regulatory filings requiring specialized licensing (SEC, patent prosecution), and work outside your plan scope. If you need something beyond your tier, I'll quote it upfront — no surprises.",
+      "Courtroom litigation. I'm corporate and transactional counsel, not a trial lawyer, and litigation goes to referral counsel I work with regularly. Also excluded: filings requiring specialized licensing such as SEC registration or patent prosecution, and work outside your plan scope. Anything beyond your tier gets quoted upfront.",
   },
   {
     question: "How fast do you respond?",
@@ -90,7 +103,7 @@ const pricingTiers = [
     name: "Essential Counsel",
     price: "From $1,500/mo",
     description:
-      "For businesses that need a low-volume monthly flat fee arrangement. Contract reviews, quick questions, and practical guidance before issues get expensive.",
+      "For companies with steady but contained legal needs. Contract review and drafting, quick calls, and practical guidance before issues get expensive.",
     features: [
       "Monthly on-call access",
       "Contract review & drafting",
@@ -104,7 +117,7 @@ const pricingTiers = [
     name: "Ongoing Counsel",
     price: "From $2,000/mo",
     description:
-      "For businesses that need regular legal support each month. Contracts, employment, compliance, and entity management.",
+      "For companies that need regular legal support. Contracting, employment, compliance, and entity management handled as they come up.",
     features: [
       "Everything in Essential",
       "Employment agreements & HR support",
@@ -117,16 +130,32 @@ const pricingTiers = [
   },
   {
     name: "General Counsel",
-    price: "From $3,000/mo",
+    price: "From $3,500/mo",
     description:
-      "For businesses that need a lawyer embedded in operations as a true in-house legal partner. Strategy, deals, and board-level support.",
+      "The in-house legal function, outsourced. For operating companies running real deals, real governance, and a real entity chart.",
     features: [
       "Everything in Ongoing",
-      "Complex contract negotiation & M&A",
-      "Board meeting attendance",
-      "Investor & financing documentation",
-      "Strategic planning sessions",
-      "Dedicated attorney relationship",
+      "M&A, buyouts & deal execution",
+      "Holding company & entity structuring",
+      "Governance, equity & investor documentation",
+      "Commercial real estate & leasing",
+      "Board and management meeting attendance",
+      "Coordination with your CPA and advisors",
+    ],
+    popular: false,
+  },
+  {
+    name: "Portfolio Counsel",
+    price: "Scoped to the portfolio",
+    description:
+      "For multi-entity groups and holding structures where the legal function spans many operating companies at once.",
+    features: [
+      "Everything in General Counsel",
+      "Multi-entity and intercompany governance",
+      "Portfolio-wide contracting standards",
+      "Standing diligence and records discipline",
+      "Referral counsel management across jurisdictions",
+      "Engagement scoped after a structure review",
     ],
     popular: false,
   },
@@ -158,22 +187,22 @@ const LawyerOnCall: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Phone className="w-4 h-4" />
-              Lawyer-on-Call
+              <Briefcase className="w-4 h-4" />
+              Outside General Counsel
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.15] tracking-[-0.02em]">
-              <span className="block">Your Business Lawyer</span>
-              <span className="block mt-2 text-blue-400">On Call.</span>
+              <span className="block">Your In-House Legal</span>
+              <span className="block mt-2 text-blue-400">Function. Outsourced.</span>
               <span className="block mt-2 text-2xl md:text-3xl lg:text-4xl text-slate-300 font-bold">
-                Without the hourly bill.
+                One senior attorney. One fixed monthly fee.
               </span>
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-2xl mx-auto font-medium">
-              A dedicated business attorney for a flat monthly fee. Text, email,
-              or call whenever you need something. No timers. No surprise
-              invoices.
+              Deals, governance, contracting, and the everyday legal work of
+              running the company, handled by an attorney who already knows
+              your business. No timers. No handoffs. No surprise invoices.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -196,9 +225,9 @@ const LawyerOnCall: React.FC = () => {
             <div className="pt-4">
               <div className="flex flex-wrap items-center justify-center gap-2.5">
                 {[
-                  { icon: GraduationCap, label: "Former BigLaw Attorney" },
-                  { icon: Scale, label: "10+ Years Experience" },
-                  { icon: Shield, label: "All 50 States" },
+                  { icon: GraduationCap, label: "Former BigLaw Corporate Attorney" },
+                  { icon: Scale, label: "10+ Years Transactional Practice" },
+                  { icon: Handshake, label: "M&A & Deal Execution" },
                   { icon: Star, label: "Month-to-Month" },
                   { icon: DollarSign, label: "No Surprise Invoices" },
                 ].map((item, i) => (
@@ -275,15 +304,15 @@ const LawyerOnCall: React.FC = () => {
               Who It's For
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 tracking-tight">
-              Built For Entrepreneurs Who Are Done Overpaying
+              Built For Companies With Something Actually At Stake
             </h2>
 
             <div className="space-y-4 text-left max-w-2xl mx-auto mb-6">
               {[
-                "You're running a real business — not a side project, not an idea on a napkin",
-                "You have legal needs that come up regularly (contracts, hiring, compliance)",
-                "You want to be able to text your lawyer without getting a $200 invoice for it",
-                "You want a lawyer who leverages AI to work faster and smarter — not one stuck in 1995",
+                "You have an entity chart, a cap table, or a portfolio, and the documents need to keep up with them",
+                "Deals cross your desk: acquisitions, buyouts, leases, investor paperwork",
+                "You want counsel who already knows the business, not one who bills to relearn it",
+                "You want a senior attorney reachable directly, without an invoice for every question",
               ].map((item, i) => (
                 <div
                   key={i}
@@ -296,8 +325,8 @@ const LawyerOnCall: React.FC = () => {
             </div>
 
             <p className="text-slate-500 text-sm">
-              This is not for individuals with one-off legal questions. This is
-              ongoing business counsel.
+              This is not for one-off legal questions. This is a standing
+              counsel relationship.
             </p>
           </div>
         </div>
@@ -314,21 +343,20 @@ const LawyerOnCall: React.FC = () => {
                 Pricing
               </span>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 leading-tight">
-                What could cost you{" "}
-                <span className="text-red-400 line-through decoration-2">
-                  $50,000
-                </span>{" "}
-                is{" "}
-                <span className="text-blue-600">$1,500–$3,000/month</span>
+                A general counsel costs{" "}
+                <span className="text-slate-400">$250,000+</span> a year.
+                <br className="hidden md:block" /> This is the same function,{" "}
+                <span className="text-blue-600">scoped to what you use</span>.
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                One lawsuit. One contract dispute. One employee issue. That's
-                all it takes.
+                Every engagement is a fixed monthly fee set on the call, after
+                we look at the entity structure and what is actually in front
+                of you.
               </p>
             </div>
 
             {/* Tier cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8 text-left md:items-stretch md:pt-4">
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8 text-left md:items-stretch md:pt-4">
               {pricingTiers.map((tier, i) => (
                 <div
                   key={i}
@@ -379,10 +407,10 @@ const LawyerOnCall: React.FC = () => {
             </div>
 
             <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-8">
-              Every option is a monthly flat fee — we'll match the right level
-              of support to your business on the call.{" "}
+              Every engagement is a monthly flat fee, matched to the structure
+              and the workload on the call.{" "}
               <span className="font-bold text-slate-900">
-                Plans from $1,500/mo.
+                Deal work is scoped and quoted separately.
               </span>
             </p>
 
@@ -475,12 +503,12 @@ const LawyerOnCall: React.FC = () => {
             <div className="relative z-10">
               <Shield className="w-12 h-12 text-blue-400 mx-auto mb-6" />
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Ready to Stop Overpaying for Legal Help?
+                Let's Look At What's Actually In Front of You
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Book a free 15-minute consultation. I'll tell you exactly what
-                you need, what it costs, and whether we're a good fit. No
-                pressure, no obligation.
+                Book a 15-minute call. We will go through the entity structure,
+                what is on the docket, and what the right level of support
+                looks like. You will have a number before any work begins.
               </p>
               <Link
                 to="/contact"
@@ -532,8 +560,9 @@ const LawyerOnCall: React.FC = () => {
           </div>
 
           <p className="text-xs text-slate-600 mb-6">
-            LLC Formation &bull; Estate Planning &bull; Contracts &bull; IP
-            Protection &bull; Real Estate &bull; Business Law
+            Mergers &amp; Acquisitions &bull; Outside General Counsel &bull;
+            Entity Structuring &bull; Governance &bull; Commercial Real Estate
+            &bull; Contracts &bull; IP
           </p>
 
           <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-4">

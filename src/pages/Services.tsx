@@ -880,14 +880,170 @@ const Services: React.FC = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.08] tracking-tight font-serif">
-              Flat-Fee Legal{" "}
+              How the Work Gets{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 underline decoration-blue-400/60 underline-offset-8 decoration-4">
-                Packages
+                Priced
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Real legal work. Real attorney. Real prices, disclosed upfront.
+              Transactions and ongoing counsel are scoped to the matter and
+              quoted before work begins. Defined, repeatable work is flat-fee
+              and listed below.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* CORPORATE & TRANSACTIONAL                     */}
+      {/* ============================================= */}
+      <section className="py-16 md:py-24 bg-slate-900 border-t border-slate-800">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4">
+                Scoped, Not Packaged
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Corporate &amp; Transactional
+              </h2>
+              <p className="text-lg text-slate-300 mt-4 max-w-2xl mx-auto leading-relaxed">
+                This work does not fit a checkout button. Every engagement is
+                scoped on a call and quoted in writing before it starts, as a
+                flat fee for the matter or as part of a monthly counsel
+                relationship.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5 mb-12">
+              {[
+                {
+                  icon: Building2,
+                  title: "Mergers, Acquisitions & Exits",
+                  items: [
+                    "Buy-side and sell-side representation",
+                    "Asset and membership interest purchases",
+                    "Letters of intent, diligence, and closing",
+                    "Partner buyouts, redemptions, and exits",
+                  ],
+                },
+                {
+                  icon: Scale,
+                  title: "Entity & Holding Structure",
+                  items: [
+                    "Holding company and multi-tier design",
+                    "Multi-state entity and titling cleanup",
+                    "Intercompany and management agreements",
+                    "Restructuring alongside your tax advisors",
+                  ],
+                },
+                {
+                  icon: Users,
+                  title: "Governance, Equity & Investors",
+                  items: [
+                    "Operating agreement restatements",
+                    "Buy-sell and transfer restrictions",
+                    "Member admissions, exits, and unit purchases",
+                    "Equity compensation and investor documentation",
+                  ],
+                },
+                {
+                  icon: Home,
+                  title: "Commercial Real Estate",
+                  items: [
+                    "Acquisitions and dispositions",
+                    "Commercial leasing, landlord and tenant side",
+                    "Title, escrow, and closing issues",
+                    "Portfolio entity and financing structure",
+                  ],
+                },
+                {
+                  icon: PenTool,
+                  title: "Complex Commercial Contracting",
+                  items: [
+                    "Master services and enterprise agreements",
+                    "Joint ventures and strategic partnerships",
+                    "Licensing, distribution, and royalties",
+                    "Negotiation and redline management",
+                  ],
+                },
+                {
+                  icon: Shield,
+                  title: "Outside General Counsel",
+                  items: [
+                    "The full legal function on a monthly fee",
+                    "Standing counsel across an entity portfolio",
+                    "Board and management support",
+                    "Referral counsel management",
+                  ],
+                },
+              ].map((group, i) => {
+                const Icon = group.icon;
+                return (
+                  <div
+                    key={i}
+                    className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 transition-all hover:-translate-y-1 hover:bg-white/[0.07]"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/15 text-blue-300 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="font-bold text-white text-lg leading-snug">
+                        {group.title}
+                      </h3>
+                    </div>
+                    <ul className="space-y-2">
+                      {group.items.map((item, j) => (
+                        <li key={j} className="flex items-start gap-2.5">
+                          <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-1" />
+                          <span className="text-slate-300 text-sm leading-relaxed">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+              >
+                <PhoneCall className="w-5 h-5" />
+                Scope a Matter
+              </Link>
+              <Link
+                to="/representative-matters"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-8 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+              >
+                See Representative Matters
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* FLAT-FEE INTRO                                */}
+      {/* ============================================= */}
+      <section className="py-14 md:py-20 bg-white border-t border-slate-200">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
+              Fixed Price
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Flat-Fee Packages
+            </h2>
+            <p className="text-lg text-slate-600 mt-4 leading-relaxed">
+              Defined, repeatable work with a known scope. Formation, estate
+              planning, single contracts, and compliance, priced upfront so
+              there is nothing to negotiate.
             </p>
           </div>
         </div>

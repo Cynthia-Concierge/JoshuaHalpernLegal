@@ -56,15 +56,16 @@ const About: React.FC = () => {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight font-serif max-w-3xl">
-              I Built Legal Halp Because the Legal Industry is{" "}
+              I Left BigLaw for the Billing Model,{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                Broken
+                Not the Work
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-              Former BigLaw attorney. Now helping small businesses get real legal
-              protection at prices that actually make sense.
+              Former corporate and transactional associate at Taft, Stettinius
+              &amp; Hollister. Now outside general counsel to operating
+              companies, investors, and multi-entity groups.
             </p>
           </div>
         </div>
@@ -80,53 +81,39 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed">
             <p>
-              I spent years at one of the nation's largest law firms. I worked on
-              complex transactions, advised wealthy families, and helped companies
-              navigate high-stakes deals.
+              I spent years in the corporate and transactional group of one of
+              the country's larger firms, working on acquisitions, financings,
+              and the governance documents that hold closely held companies
+              together.
             </p>
             <p>
-              The work was sophisticated. The clients were well-served.{" "}
+              The work was excellent.{" "}
               <span className="font-semibold text-slate-900">
-                The bills were enormous.
+                The billing model was not.
               </span>
             </p>
             <p>
-              Then I'd talk to friends starting businesses. They'd ask, "Can you
-              help me set up an LLC?" And I'd watch them either:
+              Companies with real deals in front of them were rationing legal
+              work because every call started a clock. Owners deferred the
+              acquisition, the restatement, the buyout, not because the work
+              was unnecessary but because nobody could tell them what it would
+              cost. The alternative, hiring a general counsel, sat well out of
+              reach at a quarter million dollars a year.
             </p>
-
-            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8 space-y-4">
-              <div className="flex gap-4 items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center font-bold text-sm">
-                  A
-                </span>
-                <p className="text-slate-700">
-                  Pay $3,000+ to a traditional firm for something that shouldn't
-                  cost that much, or
-                </p>
-              </div>
-              <div className="flex gap-4 items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center font-bold text-sm">
-                  B
-                </span>
-                <p className="text-slate-700">
-                  Use LegalZoom, get a template, and have no idea if they were
-                  actually protected.
-                </p>
-              </div>
-            </div>
-
             <p className="font-semibold text-slate-900 text-xl md:text-2xl">
-              Neither option made sense. So I built a third one.
+              I left the billing model, not the work.
             </p>
             <p>
-              Legal Halp exists because you shouldn't need a $10,000 legal budget
-              to get real legal help.
+              Legal Halp is that same corporate and transactional practice,
+              delivered as a standing relationship instead of an hourly
+              engagement. Clients get a senior attorney who already knows the
+              entity chart, the cap table, and the last three deals, available
+              on a fixed monthly fee.
             </p>
             <p>
-              I bring big-firm skill to small-business pricing. Every client works
-              directly with me. Every fee is flat and disclosed upfront. No
-              surprises, no bloat, no BS.
+              Every matter is handled by me. Every fee is quoted before the
+              work starts. Nothing is handed to an associate you have never
+              met.
             </p>
           </div>
         </div>
@@ -155,27 +142,27 @@ const About: React.FC = () => {
                 },
                 {
                   icon: Briefcase,
-                  text: "Former BigLaw Associate, Taft, Stettinius & Hollister LLP (1,500+ attorneys)",
+                  text: "Former Associate, Corporate & Transactional Group, Taft, Stettinius & Hollister LLP",
                 },
                 {
                   icon: MapPin,
-                  text: "Licensed in Ohio, and partnered with local attorneys nationwide (for jurisdiction-specific matters)",
+                  text: "Licensed in Ohio, and partnered with local counsel nationwide for jurisdiction-specific matters",
                 },
                 {
                   icon: FileText,
-                  text: "Practice Areas: Business Formation, Estate Planning, Contracts, IP, Real Estate, Mergers & Acquisitions, Venture Capital, General Counsel",
-                },
-                {
-                  icon: ScrollText,
-                  text: "1,000+ estate plans drafted",
-                },
-                {
-                  icon: Building2,
-                  text: "500+ businesses protected",
+                  text: "Practice: Mergers & Acquisitions, Entity & Holding Company Structuring, Governance & Equity, Commercial Real Estate, Contracts, IP, Outside General Counsel",
                 },
                 {
                   icon: Briefcase,
                   text: "$250M+ in transactions closed",
+                },
+                {
+                  icon: Building2,
+                  text: "Standing outside general counsel to portfolios of up to 28 entities",
+                },
+                {
+                  icon: ScrollText,
+                  text: "Retained in-house counsel to a large metropolitan residential brokerage",
                 },
               ].map((item, index) => (
                 <div
@@ -305,8 +292,9 @@ const About: React.FC = () => {
           </div>
 
           <p className="text-xs text-slate-600 mb-6">
-            LLC Formation &bull; Estate Planning &bull; Contracts &bull; IP
-            Protection &bull; Real Estate &bull; Business Law
+            Mergers &amp; Acquisitions &bull; Outside General Counsel &bull;
+            Entity Structuring &bull; Governance &bull; Commercial Real Estate
+            &bull; Contracts &bull; IP
           </p>
 
           <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">

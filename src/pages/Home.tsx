@@ -137,29 +137,31 @@ const Home: React.FC = () => {
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.15] tracking-[-0.02em]">
                 <span className="block bg-gradient-to-r from-white via-white to-slate-100 bg-clip-text text-transparent">
-                  Big-Firm Expertise.
+                  Big-Firm Corporate Counsel.
                 </span>
                 <span className="block mt-2 text-blue-400">
-                  Without the Big-Firm Bill.
+                  Embedded In Your Business.
                 </span>
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                Sophisticated counsel for founders, entrepreneurs, families, and investors. Flat-fee pricing. Direct attorney access.
+                Acquisitions, governance, commercial real estate, and the
+                day-to-day legal function, handled by one senior attorney on a
+                fixed monthly fee.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
-                  to="/services"
+                  to="/contact"
                   className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
                 >
-                  See Pricing
+                  Book a Consultation
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/representative-matters"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
                 >
-                  Book Free Consultation
+                  See Representative Matters
                 </Link>
               </div>
 
@@ -167,9 +169,9 @@ const Home: React.FC = () => {
               <div className="pt-6">
                 <div className="flex flex-col items-stretch sm:items-center sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start gap-2.5">
                   {[
-                    "Former BigLaw Attorney",
-                    "Flat-Fee Guarantee",
-                    "Strategic Counsel to Founders & Entrepreneurs",
+                    "Former BigLaw Corporate Attorney",
+                    "M&A, Governance & Real Estate",
+                    "Outside GC to Multi-Entity Companies",
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -199,8 +201,8 @@ const Home: React.FC = () => {
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-slate-900 font-bold text-sm leading-tight">500+ Businesses</p>
-                  <p className="text-slate-500 text-xs">Protected</p>
+                  <p className="text-slate-900 font-bold text-sm leading-tight">$250M+</p>
+                  <p className="text-slate-500 text-xs">In transactions closed</p>
                 </div>
               </div>
             </div>
@@ -221,8 +223,8 @@ const Home: React.FC = () => {
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-slate-900 font-bold text-sm leading-tight">500+ Businesses</p>
-                  <p className="text-slate-500 text-xs">Protected</p>
+                  <p className="text-slate-900 font-bold text-sm leading-tight">$250M+</p>
+                  <p className="text-slate-500 text-xs">In transactions closed</p>
                 </div>
               </div>
             </div>
@@ -249,30 +251,39 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight">
-              Hiring a Lawyer Shouldn't Feel Like Signing a Blank Check
+              The Gap Between a Law Firm and a General Counsel
             </h2>
 
             <div className="space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed">
               <p>
-                Traditional firms bill $300 to $600 per hour, sometimes more.
-                A straightforward LLC formation or thoughtful estate plan can
-                cost you thousands. And the meter is always running.
+                Most growing companies are stuck between two bad options. Send
+                each matter to an outside firm, and you pay senior rates to
+                someone who relearns your business every time, on a meter that
+                never stops.
               </p>
               <p>
-                On the other end of the spectrum, online platforms and AI tools
-                generate documents without real legal judgment, no strategy,
-                and no one accountable to you.
+                Or hire a general counsel at $250,000 and up, long before the
+                workload justifies the seat.
+              </p>
+              <p>
+                In between, the work that actually moves the company gets
+                deferred. The acquisition nobody has time to paper. The
+                operating agreement that no longer reflects who owns what. The
+                lease, the buyout, the investor document that waits until it
+                becomes a problem.
               </p>
               <p className="font-semibold text-slate-900 text-xl md:text-2xl">
-                There's a better way.
+                That gap is the practice.
               </p>
               <p>
-                Legal Halp delivers sophisticated, business-minded legal counsel
-                with transparent, flat-fee pricing and ongoing access when you
-                actually need it.
+                Legal Halp is the general counsel function on a fixed monthly
+                fee. Acquisitions and exits, holding company structure,
+                governance and equity, commercial real estate, and the ordinary
+                contracting underneath all of it. One senior attorney. No
+                billable hour. No handoffs.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
-                {["Big-firm training.", "Modern structure.", "No billing surprises."].map((item, i) => (
+                {["Former BigLaw corporate.", "In-house availability.", "Fixed monthly fee."].map((item, i) => (
                   <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
                     <CheckCircle2 className="w-4 h-4 text-blue-500" />
                     {item}

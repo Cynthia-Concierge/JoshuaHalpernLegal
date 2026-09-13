@@ -35,6 +35,7 @@ import BrandProtection from "./pages/services/BrandProtection";
 import RealEstateLLC from "./pages/services/RealEstateLLC";
 import WebsiteCompliance from "./pages/services/WebsiteCompliance";
 import LawyerOnCall from "./pages/LawyerOnCall";
+import RepresentativeMatters from "./pages/RepresentativeMatters";
 
 import Formation from "./pages/Formation";
 import FormationIntake from "./pages/FormationIntake";
@@ -71,6 +72,7 @@ const Layout = () => {
         <Route path="/services/website-compliance" element={<WebsiteCompliance />} />
         <Route path="/lawyer-on-call" element={<LawyerOnCall />} />
 
+        <Route path="/representative-matters" element={<RepresentativeMatters />} />
         <Route path="/formation" element={<Formation />} />
         <Route path="/formation/intake" element={<FormationIntake />} />
         <Route path="/formation/thank-you" element={<FormationThankYou />} />

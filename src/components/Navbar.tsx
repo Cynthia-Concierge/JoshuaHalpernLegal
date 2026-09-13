@@ -4,11 +4,14 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  { to: "/lawyer-on-call", label: "Outside General Counsel" },
+  { to: "/representative-matters", label: "Representative Matters" },
   { to: "/services", label: "Services" },
-  { to: "/faq", label: "FAQ" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
+
+const MOBILE_EXTRA_LINKS = [{ to: "/faq", label: "FAQ" }];
 
 const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -28,14 +31,14 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {NAV_LINKS.map((link) => {
               const isActive = location.pathname === link.to;
               return (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                     isActive
                       ? "bg-slate-100 text-slate-900"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
@@ -47,7 +50,7 @@ const Navbar: React.FC = () => {
             })}
             <Link
               to="/contact"
-              className="ml-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold text-sm py-2 px-5 rounded-lg shadow-sm transition-all hover:-translate-y-0.5"
+              className="ml-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold text-sm py-2 px-5 rounded-lg shadow-sm transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               Book a Call
             </Link>
@@ -57,7 +60,7 @@ const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
@@ -71,12 +74,12 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="container mx-auto px-4 pb-4 space-y-1">
-          {NAV_LINKS.map((link) => {
+          {[...NAV_LINKS, ...MOBILE_EXTRA_LINKS].map((link) => {
             const isActive = location.pathname === link.to;
             return (
               <Link

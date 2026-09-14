@@ -745,16 +745,21 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
         <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">
           What you get
         </p>
-        <ul className="space-y-2.5">
-          {pkg.includes.map((item, i) => (
+        <ul className="space-y-2">
+          {pkg.includes.slice(0, 5).map((item, i) => (
             <li key={i} className="flex items-start gap-3">
               <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
-              <span className="text-slate-700 text-sm leading-relaxed">
+              <span className="text-slate-700 text-sm leading-snug">
                 {item}
               </span>
             </li>
           ))}
         </ul>
+        {pkg.includes.length > 5 && (
+          <p className="text-slate-500 text-sm mt-2.5 pl-7">
+            + {pkg.includes.length - 5} more included
+          </p>
+        )}
       </div>
 
       {/* Not included */}
@@ -858,177 +863,164 @@ const Services: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3xl mx-auto space-y-5">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
               <Scale className="w-4 h-4 text-blue-600" />
-              Services & Pricing
+              Services
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.08] tracking-tight font-serif">
-              How the Work Gets{" "}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.08] tracking-tight font-serif">
+              Two Ways to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 underline decoration-blue-400/60 underline-offset-8 decoration-4">
-                Priced
+                Work Together
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Transactions and ongoing counsel are scoped to the matter and
-              quoted before work begins. Defined, repeatable work is flat-fee
-              and listed below.
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto">
+              Ongoing counsel on a monthly fee, or one-time work at a fixed
+              price. Many clients use both.
             </p>
           </div>
         </div>
       </section>
 
       {/* ============================================= */}
-      {/* CORPORATE & TRANSACTIONAL                     */}
+      {/* THE TWO OFFERINGS                             */}
       {/* ============================================= */}
-      <section className="py-16 md:py-24 bg-slate-900 border-t border-slate-800">
+      <section className="pb-16 md:pb-20 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4">
-                Scoped, Not Packaged
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+            <div className="bg-slate-900 rounded-3xl p-8 text-white flex flex-col">
+              <span className="inline-block self-start py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-[11px] font-bold uppercase tracking-widest mb-4">
+                Option 1 &bull; Ongoing
               </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Corporate &amp; Transactional
+              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-2">
+                Outside General Counsel
               </h2>
-              <p className="text-lg text-slate-300 mt-4 max-w-2xl mx-auto leading-relaxed">
-                This work does not fit a checkout button. Every engagement is
-                scoped on a call and quoted in writing before it starts, as a
-                flat fee for the matter or as part of a monthly counsel
-                relationship.
+              <p className="text-slate-300 leading-relaxed mb-5">
+                Your legal function, handled monthly. For companies with deals,
+                entities, and recurring legal work.
               </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-5 mb-12">
-              {[
-                {
-                  icon: Building2,
-                  title: "Mergers, Acquisitions & Exits",
-                  items: [
-                    "Buy-side and sell-side representation",
-                    "Asset and membership interest purchases",
-                    "Letters of intent, diligence, and closing",
-                    "Partner buyouts, redemptions, and exits",
-                  ],
-                },
-                {
-                  icon: Scale,
-                  title: "Entity & Holding Structure",
-                  items: [
-                    "Holding company and multi-tier design",
-                    "Multi-state entity and titling cleanup",
-                    "Intercompany and management agreements",
-                    "Restructuring alongside your tax advisors",
-                  ],
-                },
-                {
-                  icon: Users,
-                  title: "Governance, Equity & Investors",
-                  items: [
-                    "Operating agreement restatements",
-                    "Buy-sell and transfer restrictions",
-                    "Member admissions, exits, and unit purchases",
-                    "Equity compensation and investor documentation",
-                  ],
-                },
-                {
-                  icon: Home,
-                  title: "Commercial Real Estate",
-                  items: [
-                    "Acquisitions and dispositions",
-                    "Commercial leasing, landlord and tenant side",
-                    "Title, escrow, and closing issues",
-                    "Portfolio entity and financing structure",
-                  ],
-                },
-                {
-                  icon: PenTool,
-                  title: "Complex Commercial Contracting",
-                  items: [
-                    "Master services and enterprise agreements",
-                    "Joint ventures and strategic partnerships",
-                    "Licensing, distribution, and royalties",
-                    "Negotiation and redline management",
-                  ],
-                },
-                {
-                  icon: Shield,
-                  title: "Outside General Counsel",
-                  items: [
-                    "The full legal function on a monthly fee",
-                    "Standing counsel across an entity portfolio",
-                    "Board and management support",
-                    "Referral counsel management",
-                  ],
-                },
-              ].map((group, i) => {
-                const Icon = group.icon;
-                return (
-                  <div
-                    key={i}
-                    className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 transition-all hover:-translate-y-1 hover:bg-white/[0.07]"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-blue-500/15 text-blue-300 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <h3 className="font-bold text-white text-lg leading-snug">
-                        {group.title}
-                      </h3>
-                    </div>
-                    <ul className="space-y-2">
-                      {group.items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-1" />
-                          <span className="text-slate-300 text-sm leading-relaxed">
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <ul className="space-y-2.5 mb-6 flex-1">
+                {[
+                  "M&A, buyouts and deal execution",
+                  "Entity structure and governance",
+                  "Contracts, employment, real estate",
+                  "Direct access, no hourly billing",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-1" />
+                    <span className="text-slate-200 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-slate-400 mb-4">
+                From <span className="text-white font-bold">$1,500/mo</span>. Scoped on a call.
+              </p>
               <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+                to="/lawyer-on-call"
+                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5"
               >
-                <PhoneCall className="w-5 h-5" />
-                Scope a Matter
+                See Retainer Tiers
+                <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                to="/representative-matters"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-8 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+            </div>
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 flex flex-col shadow-sm">
+              <span className="inline-block self-start py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold uppercase tracking-widest mb-4">
+                Option 2 &bull; One-Time
+              </span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+                Flat-Fee Packages
+              </h2>
+              <p className="text-slate-600 leading-relaxed mb-5">
+                A defined project at a price you know upfront. No retainer, no
+                commitment.
+              </p>
+              <ul className="space-y-2.5 mb-6 flex-1">
+                {[
+                  "LLC, S-Corp and non-profit formation",
+                  "Contracts, employment and compliance",
+                  "Trademarks and brand protection",
+                  "Estate planning and trusts",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-1" />
+                    <span className="text-slate-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-slate-500 mb-4">
+                From <span className="text-slate-900 font-bold">$350</span>. Priced on this page.
+              </p>
+              <a
+                href="#packages"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5"
               >
-                See Representative Matters
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+                Browse Packages
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============================================= */}
-      {/* FLAT-FEE INTRO                                */}
+      {/* TRANSACTIONAL CAPABILITY                      */}
       {/* ============================================= */}
-      <section className="py-14 md:py-20 bg-white border-t border-slate-200">
+      <section className="py-14 md:py-20 bg-slate-900">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-3">
+              Deal work is quoted, not packaged.
+            </h2>
+            <p className="text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto">
+              Acquisitions and structure work are scoped on a call, whether or
+              not you are on a retainer.
+            </p>
+            <div className="flex flex-wrap justify-center gap-2.5 mb-8">
+              {[
+                "Mergers & acquisitions",
+                "Partner buyouts & exits",
+                "Holding company structure",
+                "Operating agreements & buy-sell",
+                "Investor documentation",
+                "Commercial real estate",
+                "Joint ventures",
+                "Licensing & distribution",
+              ].map((item, i) => (
+                <span
+                  key={i}
+                  className="bg-white/[0.07] border border-white/10 text-slate-200 text-sm font-medium px-4 py-2 rounded-full"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            <Link
+              to="/representative-matters"
+              className="inline-flex items-center justify-center gap-2 text-blue-300 hover:text-blue-200 font-bold transition-colors"
+            >
+              See representative matters
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* FLAT-FEE PACKAGES INTRO                       */}
+      {/* ============================================= */}
+      <section
+        id="packages"
+        className="py-12 md:py-16 bg-white border-t border-slate-200 scroll-mt-32"
+      >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
-              Fixed Price
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Flat-Fee Packages
             </h2>
-            <p className="text-lg text-slate-600 mt-4 leading-relaxed">
-              Defined, repeatable work with a known scope. Formation, estate
-              planning, single contracts, and compliance, priced upfront so
-              there is nothing to negotiate.
+            <p className="text-lg text-slate-600 mt-3">
+              Pick a category. Every price is the full fee.
             </p>
           </div>
         </div>

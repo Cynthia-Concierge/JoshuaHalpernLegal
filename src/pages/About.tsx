@@ -77,43 +77,21 @@ const About: React.FC = () => {
       {/* ============================================= */}
       {/* THE STORY                                     */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-16 md:py-20 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed">
-            <p>
-              I spent years in the corporate and transactional group of one of
-              the country's larger firms, working on acquisitions, financings,
-              and the governance documents that hold closely held companies
-              together.
-            </p>
-            <p>
-              The work was excellent.{" "}
-              <span className="font-semibold text-slate-900">
-                The billing model was not.
-              </span>
-            </p>
-            <p>
-              Companies with real deals in front of them were rationing legal
-              work because every call started a clock. Owners deferred the
-              acquisition, the restatement, the buyout, not because the work
-              was unnecessary but because nobody could tell them what it would
-              cost. The alternative, hiring a general counsel, sat well out of
-              reach at a quarter million dollars a year.
-            </p>
-            <p className="font-semibold text-slate-900 text-xl md:text-2xl">
+          <div className="max-w-3xl mx-auto space-y-5 text-lg text-slate-600 leading-relaxed">
+            <p className="text-xl md:text-2xl font-semibold text-slate-900">
               I left the billing model, not the work.
             </p>
             <p>
-              Legal Halp is that same corporate and transactional practice,
-              delivered as a standing relationship instead of an hourly
-              engagement. Clients get a senior attorney who already knows the
-              entity chart, the cap table, and the last three deals, available
-              on a fixed monthly fee.
+              I spent years in the corporate and transactional group of a large
+              firm, working on acquisitions, financings, and governance for
+              closely held companies. The work was excellent. The hourly model
+              was not.
             </p>
             <p>
-              Every matter is handled by me. Every fee is quoted before the
-              work starts. Nothing is handed to an associate you have never
-              met.
+              Legal Halp is that same practice on a fixed fee. Every matter is
+              handled by me. Every fee is quoted before the work starts.
             </p>
           </div>
         </div>
@@ -122,14 +100,11 @@ const About: React.FC = () => {
       {/* ============================================= */}
       {/* CREDENTIALS                                   */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                Credentials
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
                 Background
               </h2>
             </div>
@@ -142,15 +117,15 @@ const About: React.FC = () => {
                 },
                 {
                   icon: Briefcase,
-                  text: "Former Associate, Corporate & Transactional Group, Taft, Stettinius & Hollister LLP",
+                  text: "Former Associate, Corporate & Transactional, Taft Stettinius & Hollister",
                 },
                 {
                   icon: MapPin,
-                  text: "Licensed in Ohio, and partnered with local counsel nationwide for jurisdiction-specific matters",
+                  text: "Licensed in Ohio. Local counsel partnered for other jurisdictions",
                 },
                 {
                   icon: FileText,
-                  text: "Practice: Mergers & Acquisitions, Entity & Holding Company Structuring, Governance & Equity, Commercial Real Estate, Contracts, IP, Outside General Counsel",
+                  text: "M&A, entity structure, governance, real estate, contracts, IP",
                 },
                 {
                   icon: Briefcase,
@@ -158,11 +133,11 @@ const About: React.FC = () => {
                 },
                 {
                   icon: Building2,
-                  text: "Standing outside general counsel to portfolios of up to 28 entities",
+                  text: "Outside GC to portfolios of up to 28 entities",
                 },
                 {
                   icon: ScrollText,
-                  text: "Retained in-house counsel to a large metropolitan residential brokerage",
+                  text: "In-house counsel to a large residential brokerage",
                 },
               ].map((item, index) => (
                 <div
@@ -185,16 +160,13 @@ const About: React.FC = () => {
       {/* ============================================= */}
       {/* VALUES — How I Work                           */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-white border-t border-slate-200 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 skew-x-12 transform translate-x-1/4 z-0" />
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
-                My Principles
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
                 How I Work
               </h2>
             </div>
@@ -205,19 +177,19 @@ const About: React.FC = () => {
                   icon: Eye,
                   title: "Radical Transparency",
                   description:
-                    "You'll never wonder what something costs or what's happening with your matter. I over-communicate on purpose.",
+                    "You always know the cost and the status. I over-communicate on purpose.",
                 },
                 {
                   icon: UserCheck,
                   title: "No Gatekeepers",
                   description:
-                    "You hire me, you work with me. I don't hand you off to a paralegal or junior associate. Direct access, every time.",
+                    "You hire me, you work with me. No paralegal, no junior associate.",
                 },
                 {
                   icon: Lightbulb,
                   title: "Practical, Not Perfect",
                   description:
-                    "I'm not here to show off legal jargon. I'm here to solve your problem in the simplest, most effective way possible.",
+                    "No jargon. The simplest solution that actually solves the problem.",
                 },
               ].map((item, index) => (
                 <div key={index} className="text-center md:text-left">

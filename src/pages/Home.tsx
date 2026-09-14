@@ -145,9 +145,8 @@ const Home: React.FC = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                Acquisitions, governance, commercial real estate, and the
-                day-to-day legal function, handled by one senior attorney on a
-                fixed monthly fee.
+                Deals, governance, and the everyday legal work, handled by one
+                senior attorney on a fixed monthly fee.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -250,46 +249,52 @@ const Home: React.FC = () => {
       <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
               The Gap Between a Law Firm and a General Counsel
             </h2>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10">
+              Most growing companies are stuck between two bad options.
+            </p>
 
-            <div className="space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed">
-              <p>
-                Most growing companies are stuck between two bad options. Send
-                each matter to an outside firm, and you pay senior rates to
-                someone who relearns your business every time, on a meter that
-                never stops.
-              </p>
-              <p>
-                Or hire a general counsel at $250,000 and up, long before the
-                workload justifies the seat.
-              </p>
-              <p>
-                In between, the work that actually moves the company gets
-                deferred. The acquisition nobody has time to paper. The
-                operating agreement that no longer reflects who owns what. The
-                lease, the buyout, the investor document that waits until it
-                becomes a problem.
-              </p>
-              <p className="font-semibold text-slate-900 text-xl md:text-2xl">
-                That gap is the practice.
-              </p>
-              <p>
-                Legal Halp is the general counsel function on a fixed monthly
-                fee. Acquisitions and exits, holding company structure,
-                governance and equity, commercial real estate, and the ordinary
-                contracting underneath all of it. One senior attorney. No
-                billable hour. No handoffs.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                {["Former BigLaw corporate.", "In-house availability.", "Fixed monthly fee."].map((item, i) => (
-                  <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
-                    <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                    {item}
-                  </span>
-                ))}
-              </div>
+            <div className="grid sm:grid-cols-2 gap-4 mb-10">
+              {[
+                {
+                  label: "Outside firm, per matter",
+                  problem:
+                    "Senior rates to someone who relearns your business every time.",
+                },
+                {
+                  label: "In-house counsel",
+                  problem:
+                    "$250,000 and up, long before the workload justifies the seat.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-slate-50 border border-slate-200 rounded-2xl p-6"
+                >
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
+                    {item.label}
+                  </p>
+                  <p className="text-slate-700 leading-relaxed">
+                    {item.problem}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xl md:text-2xl font-semibold text-slate-900 leading-snug mb-6">
+              Legal Halp is the third option: the general counsel function on a
+              fixed monthly fee.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {["Former BigLaw corporate.", "In-house availability.", "Fixed monthly fee."].map((item, i) => (
+                <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
+                  <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>

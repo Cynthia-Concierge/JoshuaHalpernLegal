@@ -26,37 +26,37 @@ const whatYouGet = [
   {
     icon: Handshake,
     title: "Deals & Transactions",
-    desc: "Acquisitions, asset and equity purchases, partner buyouts, joint ventures, and the diligence and closing mechanics behind them",
+    desc: "Acquisitions, equity purchases, partner buyouts, joint ventures.",
   },
   {
     icon: Layers,
     title: "Entity & Holding Structure",
-    desc: "Holding company architecture, multi-state and multi-entity cleanup, intercompany agreements, and restructuring alongside your tax advisors",
+    desc: "Holding company design, multi-state cleanup, restructuring.",
   },
   {
     icon: Landmark,
     title: "Governance & Equity",
-    desc: "Operating agreement restatements, buy-sell and transfer restrictions, member admissions and exits, equity compensation, and investor documentation",
+    desc: "Operating agreements, buy-sell, member exits, investor docs.",
   },
   {
     icon: FileCheck,
     title: "Commercial Contracting",
-    desc: "Master services agreements, vendor and supplier terms, client contracts, NDAs, licensing and distribution",
+    desc: "MSAs, vendor terms, client contracts, NDAs, licensing.",
   },
   {
     icon: Building2,
     title: "Commercial Real Estate",
-    desc: "Acquisitions and dispositions, leasing on both sides, title and escrow issues, and the entity work underneath the asset",
+    desc: "Acquisitions, leasing on both sides, title and escrow.",
   },
   {
     icon: Users,
     title: "Employment & IP",
-    desc: "Offer letters, terminations and separations, contractor classification, handbooks, trademark filings, and IP assignment discipline",
+    desc: "Offer letters, separations, classification, trademarks.",
   },
   {
     icon: MessageCircle,
     title: "Direct Access",
-    desc: "Text, email, or call your attorney directly. No gatekeepers, no associates, no billable increments",
+    desc: "Text, email or call me directly. No gatekeepers, no timers.",
   },
 ];
 
@@ -64,22 +64,22 @@ const faqs = [
   {
     question: "How is this different from hiring a law firm?",
     answer:
-      "Law firms bill hourly. Every email, every call, every 6-minute increment costs you money. With Legal Halp, you pay one flat monthly fee and get unlimited access to your attorney. No timers. No surprise invoices. Just legal support when you need it.",
+      "Law firms bill hourly, in six-minute increments. You pay one flat monthly fee instead. No timers, no surprise invoices.",
   },
   {
     question: "Is a real attorney handling my work?",
     answer:
-      "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of corporate and transactional experience, including BigLaw. I personally handle every matter. You're never handed to an associate, a paralegal, or a chatbot.",
+      "Yes. I'm Josh Halpern, 10+ years of corporate and transactional practice including BigLaw. I handle every matter personally.",
   },
   {
     question: "Do you handle acquisitions and larger transactions?",
     answer:
-      "Yes. Acquisitions, asset and equity purchases, partner buyouts, holding company restructuring, joint ventures, commercial real estate, and investor documentation are core practice, not an add-on. Deal work is typically scoped separately from the monthly retainer and quoted before it begins. The Representative Matters page shows the shape of the work.",
+      "Yes. Acquisitions, buyouts, holding company restructuring, joint ventures and investor documentation are core practice. Deal work is scoped and quoted separately from the monthly fee.",
   },
   {
     question: "What's NOT included?",
     answer:
-      "Courtroom litigation. I'm corporate and transactional counsel, not a trial lawyer, and litigation goes to referral counsel I work with regularly. Also excluded: filings requiring specialized licensing such as SEC registration or patent prosecution, and work outside your plan scope. Anything beyond your tier gets quoted upfront.",
+      "Courtroom litigation. I'm transactional counsel, not a trial lawyer, so litigation goes to referral counsel. Also excluded: SEC registration, patent prosecution, and work outside your plan scope.",
   },
   {
     question: "How fast do you respond?",
@@ -89,12 +89,12 @@ const faqs = [
   {
     question: "Can I cancel anytime?",
     answer:
-      "Yes. Month-to-month. No long-term contracts. 30 days notice. Most clients stay because they save thousands compared to hourly billing.",
+      "Yes. Month-to-month, 30 days notice, no long-term contract.",
   },
   {
     question: "What if I don't use it one month?",
     answer:
-      "You're still covered. Legal needs are unpredictable — you might go a month with no issues, then suddenly need contract review, an employment termination, or a cease & desist response. The retainer ensures I'm available when you need me, not scrambling to find an attorney during a crisis. Think of it like insurance: you pay for peace of mind and immediate access, not just usage.",
+      "You're still covered. The retainer means I'm available the week something breaks, not scrambling to find counsel mid-crisis.",
   },
 ];
 
@@ -103,7 +103,7 @@ const pricingTiers = [
     name: "Essential Counsel",
     price: "From $1,500/mo",
     description:
-      "For companies with steady but contained legal needs. Contract review and drafting, quick calls, and practical guidance before issues get expensive.",
+      "Contract review, quick calls, and guidance before issues get expensive.",
     features: [
       "Monthly on-call access",
       "Contract review & drafting",
@@ -117,7 +117,7 @@ const pricingTiers = [
     name: "Ongoing Counsel",
     price: "From $2,000/mo",
     description:
-      "For companies that need regular legal support. Contracting, employment, compliance, and entity management handled as they come up.",
+      "Regular support. Contracting, employment, compliance, entity management.",
     features: [
       "Everything in Essential",
       "Employment agreements & HR support",
@@ -132,7 +132,7 @@ const pricingTiers = [
     name: "General Counsel",
     price: "From $3,500/mo",
     description:
-      "The in-house legal function, outsourced. For operating companies running real deals, real governance, and a real entity chart.",
+      "The in-house legal function, outsourced. For companies running real deals.",
     features: [
       "Everything in Ongoing",
       "M&A, buyouts & deal execution",
@@ -148,7 +148,7 @@ const pricingTiers = [
     name: "Portfolio Counsel",
     price: "Scoped to the portfolio",
     description:
-      "For multi-entity groups and holding structures where the legal function spans many operating companies at once.",
+      "For multi-entity groups spanning several operating companies at once.",
     features: [
       "Everything in General Counsel",
       "Multi-entity and intercompany governance",
@@ -251,21 +251,15 @@ const LawyerOnCall: React.FC = () => {
       {/* ============================================= */}
       {/* WHAT YOU GET                                  */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-16 md:py-20 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
                 What's Included
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Everything Your Business Needs.
-                <br />
-                One Fee.
               </h2>
-              <p className="text-lg text-slate-500 mt-4 max-w-2xl mx-auto">
-                No nickel-and-diming. No "that's outside scope." Just
-                comprehensive legal support.
+              <p className="text-lg text-slate-500 mt-3">
+                One fee. No "that's outside scope."
               </p>
             </div>
 
@@ -297,22 +291,19 @@ const LawyerOnCall: React.FC = () => {
       {/* ============================================= */}
       {/* WHO IT'S FOR                                  */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-8 tracking-tight">
               Who It's For
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 tracking-tight">
-              Built For Companies With Something Actually At Stake
             </h2>
 
             <div className="space-y-4 text-left max-w-2xl mx-auto mb-6">
               {[
-                "You have an entity chart, a cap table, or a portfolio, and the documents need to keep up with them",
+                "You have an entity chart or a portfolio to keep current",
                 "Deals cross your desk: acquisitions, buyouts, leases, investor paperwork",
-                "You want counsel who already knows the business, not one who bills to relearn it",
-                "You want a senior attorney reachable directly, without an invoice for every question",
+                "You want counsel who already knows the business",
+                "You want a senior attorney reachable directly, without an invoice per question",
               ].map((item, i) => (
                 <div
                   key={i}
@@ -407,11 +398,8 @@ const LawyerOnCall: React.FC = () => {
             </div>
 
             <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-8">
-              Every engagement is a monthly flat fee, matched to the structure
-              and the workload on the call.{" "}
-              <span className="font-bold text-slate-900">
-                Deal work is scoped and quoted separately.
-              </span>
+              Fee matched to the structure and workload on the call. Deal work
+              is quoted separately.
             </p>
 
             {/* Risk Reversal */}
@@ -423,10 +411,8 @@ const LawyerOnCall: React.FC = () => {
                     Zero-Risk Guarantee
                   </p>
                   <p className="text-slate-700 text-sm">
-                    Month-to-month. No long-term contracts. No cancellation
-                    fees. If it's not working, you cancel with 30 days notice.
-                    We keep it that simple because the model works — and clients
-                    stay because of the savings, not the fine print.
+                    Month-to-month. No contracts, no cancellation fees. Cancel
+                    with 30 days notice.
                   </p>
                 </div>
               </div>

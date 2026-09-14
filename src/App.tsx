@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
+import Seo from "./components/Seo";
 import { captureAttributionFromUrl } from "./utils/attribution";
 
 const ScrollToTop = () => {
@@ -54,6 +55,7 @@ const Layout = () => {
   return (
     <>
       <ScrollToTop />
+      <Seo />
       <AttributionCapture />
       {!hideNavbar && <Navbar />}
       <Routes>

@@ -12,3 +12,12 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Disallow: /thank-you
+Disallow: /formation/intake
+Disallow: /formation/thank-you
+Disallow: /booking/thank-you
+Disallow: /realestate/thank-you
+Disallow: /lawyeroncall/thank-you
+
+Sitemap: https://legalhalplaw.com/sitemap.xml

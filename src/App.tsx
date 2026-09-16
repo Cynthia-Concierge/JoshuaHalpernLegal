@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
 import Seo from "./components/Seo";
@@ -29,12 +29,6 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
-import LLCFormation from "./pages/services/LLCFormation";
-import EstatePlanning from "./pages/services/EstatePlanning";
-import ContractDrafting from "./pages/services/ContractDrafting";
-import BrandProtection from "./pages/services/BrandProtection";
-import RealEstateLLC from "./pages/services/RealEstateLLC";
-import WebsiteCompliance from "./pages/services/WebsiteCompliance";
 import LawyerOnCall from "./pages/LawyerOnCall";
 import RepresentativeMatters from "./pages/RepresentativeMatters";
 
@@ -66,12 +60,12 @@ const Layout = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/services/llc-formation" element={<LLCFormation />} />
-        <Route path="/services/estate-planning" element={<EstatePlanning />} />
-        <Route path="/services/contract-drafting" element={<ContractDrafting />} />
-        <Route path="/services/brand-protection" element={<BrandProtection />} />
-        <Route path="/services/real-estate-llc" element={<RealEstateLLC />} />
-        <Route path="/services/website-compliance" element={<WebsiteCompliance />} />
+        <Route path="/services/llc-formation" element={<Navigate to="/services#business" replace />} />
+        <Route path="/services/estate-planning" element={<Navigate to="/services#family" replace />} />
+        <Route path="/services/contract-drafting" element={<Navigate to="/services#contracts" replace />} />
+        <Route path="/services/brand-protection" element={<Navigate to="/services#brand" replace />} />
+        <Route path="/services/real-estate-llc" element={<Navigate to="/services#realestate" replace />} />
+        <Route path="/services/website-compliance" element={<Navigate to="/services#online" replace />} />
         <Route path="/lawyer-on-call" element={<LawyerOnCall />} />
 
         <Route path="/representative-matters" element={<RepresentativeMatters />} />

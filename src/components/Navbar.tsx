@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/lawyer-on-call", label: "Outside General Counsel" },
   { to: "/representative-matters", label: "Representative Matters" },
-  { to: "/services", label: "Services" },
+  { to: "/services", label: "Project Work" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];

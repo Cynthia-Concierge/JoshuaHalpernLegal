@@ -350,7 +350,7 @@ const Home: React.FC = () => {
                 },
                 {
                   name: "General Counsel",
-                  price: "From $3,000/mo",
+                  price: "From $3,500/mo",
                   desc: "Embedded in-house legal partner. Strategy, deals, board-level support.",
                   popular: false,
                 },
@@ -489,12 +489,12 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { icon: Briefcase, title: "Business Formation", price: "$1,000", slug: "/services/llc-formation" },
-                { icon: Building2, title: "Real Estate Holding Structures", price: "$2,500", slug: "/services/real-estate-llc" },
-                { icon: PenTool, title: "Contract Drafting", price: "$550", slug: "/services/contract-drafting" },
-                { icon: Shield, title: "Estate Planning", price: "$1,750", slug: "/services/estate-planning" },
-                { icon: Sparkles, title: "Brand Protection", price: "$550", slug: "/services/brand-protection" },
-                { icon: Globe, title: "Website Compliance", price: "$750", slug: "/services/website-compliance" },
+                { icon: Briefcase, title: "Business Formation", price: "$1,000", slug: "/services#business" },
+                { icon: Building2, title: "Real Estate Holding Structures", price: "$2,500", slug: "/services#realestate" },
+                { icon: PenTool, title: "Contract Drafting", price: "$550", slug: "/services#contracts" },
+                { icon: Shield, title: "Estate Planning", price: "$1,750", slug: "/services#family" },
+                { icon: Sparkles, title: "Brand Protection", price: "$550", slug: "/services#brand" },
+                { icon: Globe, title: "Website Compliance", price: "$750", slug: "/services#online" },
               ].map((service, index) => (
                 <Link
                   key={index}
@@ -518,7 +518,7 @@ const Home: React.FC = () => {
                 to="/services"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-900 transition-colors"
               >
-                View All Services
+                View All Project Work
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

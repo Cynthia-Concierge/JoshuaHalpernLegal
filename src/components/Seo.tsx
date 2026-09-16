@@ -28,9 +28,9 @@ const PAGE_META: Record<string, PageMeta> = {
       "Anonymized corporate and transactional matters: M&A and exits, outside general counsel engagements, entity restructuring, commercial real estate, governance and IP.",
   },
   "/services": {
-    title: "Services & Flat-Fee Pricing | Legal Halp",
+    title: "Fixed-Fee Project Work | Legal Halp",
     description:
-      "Two ways to work together: outside general counsel on a monthly fee from $1,500, or flat-fee packages for one-time work from $350. Every price disclosed upfront.",
+      "Defined legal projects at a fixed fee, priced upfront: business formation, contracts, employment, trademarks, real estate holding structures, and estate planning.",
   },
   "/about": {
     title: "About Joshua Halpern, Esq. | Legal Halp",

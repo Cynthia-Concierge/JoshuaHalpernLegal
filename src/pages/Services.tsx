@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Scale,
   Shield,
@@ -846,7 +846,21 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
 /* -------------------------------------------------- */
 
 const Services: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(SERVICE_CATEGORIES[0].id);
+  const location = useLocation();
+  const hashId = location.hash.replace("#", "");
+  const [activeTab, setActiveTab] = useState(
+    SERVICE_CATEGORIES.some((c) => c.id === hashId) ? hashId : SERVICE_CATEGORIES[0].id
+  );
+  useEffect(() => {
+    if (SERVICE_CATEGORIES.some((c) => c.id === hashId)) {
+      setActiveTab(hashId);
+      requestAnimationFrame(() => {
+        document
+          .getElementById("packages")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }, [hashId]);
 
   const activeCategory = SERVICE_CATEGORIES.find((c) => c.id === activeTab)!;
 
@@ -866,161 +880,23 @@ const Services: React.FC = () => {
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
               <Scale className="w-4 h-4 text-blue-600" />
-              Services
+              Project Work
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.08] tracking-tight font-serif">
-              Two Ways to{" "}
+              Fixed-Fee{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 underline decoration-blue-400/60 underline-offset-8 decoration-4">
-                Work Together
+                Project Work
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto">
-              Ongoing counsel on a monthly fee, or one-time work at a fixed
-              price. Many clients use both.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
-      {/* THE TWO OFFERINGS                             */}
-      {/* ============================================= */}
-      <section className="pb-16 md:pb-20 bg-slate-50">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-            <div className="bg-slate-900 rounded-3xl p-8 text-white flex flex-col">
-              <span className="inline-block self-start py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-[11px] font-bold uppercase tracking-widest mb-4">
-                Option 1 &bull; Ongoing
-              </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-2">
+              A defined project at a price you know upfront. For ongoing
+              counsel, deals, and portfolio work, see{" "}
+              <Link to="/lawyer-on-call" className="text-blue-600 font-semibold hover:underline">
                 Outside General Counsel
-              </h2>
-              <p className="text-slate-300 leading-relaxed mb-5">
-                Your legal function, handled monthly. For companies with deals,
-                entities, and recurring legal work.
-              </p>
-              <ul className="space-y-2.5 mb-6 flex-1">
-                {[
-                  "M&A, buyouts and deal execution",
-                  "Entity structure and governance",
-                  "Contracts, employment, real estate",
-                  "Direct access, no hourly billing",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-1" />
-                    <span className="text-slate-200 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-slate-400 mb-4">
-                From <span className="text-white font-bold">$1,500/mo</span>. Scoped on a call.
-              </p>
-              <Link
-                to="/lawyer-on-call"
-                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5"
-              >
-                See Retainer Tiers
-                <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 flex flex-col shadow-sm">
-              <span className="inline-block self-start py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold uppercase tracking-widest mb-4">
-                Option 2 &bull; One-Time
-              </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-                Flat-Fee Packages
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-5">
-                A defined project at a price you know upfront. No retainer, no
-                commitment.
-              </p>
-              <ul className="space-y-2.5 mb-6 flex-1">
-                {[
-                  "LLC, S-Corp and non-profit formation",
-                  "Contracts, employment and compliance",
-                  "Trademarks and brand protection",
-                  "Estate planning and trusts",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-slate-500 mb-4">
-                From <span className="text-slate-900 font-bold">$350</span>. Priced on this page.
-              </p>
-              <a
-                href="#packages"
-                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5"
-              >
-                Browse Packages
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
-      {/* TRANSACTIONAL CAPABILITY                      */}
-      {/* ============================================= */}
-      <section className="py-14 md:py-20 bg-slate-900">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-3">
-              Deal work is quoted, not packaged.
-            </h2>
-            <p className="text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto">
-              Acquisitions and structure work are scoped on a call, whether or
-              not you are on a retainer.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2.5 mb-8">
-              {[
-                "Mergers & acquisitions",
-                "Partner buyouts & exits",
-                "Holding company structure",
-                "Operating agreements & buy-sell",
-                "Investor documentation",
-                "Commercial real estate",
-                "Joint ventures",
-                "Licensing & distribution",
-              ].map((item, i) => (
-                <span
-                  key={i}
-                  className="bg-white/[0.07] border border-white/10 text-slate-200 text-sm font-medium px-4 py-2 rounded-full"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-            <Link
-              to="/representative-matters"
-              className="inline-flex items-center justify-center gap-2 text-blue-300 hover:text-blue-200 font-bold transition-colors"
-            >
-              See representative matters
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
-      {/* FLAT-FEE PACKAGES INTRO                       */}
-      {/* ============================================= */}
-      <section
-        id="packages"
-        className="py-12 md:py-16 bg-white border-t border-slate-200 scroll-mt-32"
-      >
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Flat-Fee Packages
-            </h2>
-            <p className="text-lg text-slate-600 mt-3">
-              Pick a category. Every price is the full fee.
+              .
             </p>
           </div>
         </div>
@@ -1029,7 +905,10 @@ const Services: React.FC = () => {
       {/* ============================================= */}
       {/* TAB NAVIGATION                                */}
       {/* ============================================= */}
-      <section className="sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm">
+      <section
+        id="packages"
+        className="sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm scroll-mt-16"
+      >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto py-3 space-y-2">
             {TRACKS.map((track) => (
@@ -1112,12 +991,12 @@ const Services: React.FC = () => {
               </div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
-                  Need counsel on retainer rather than a package?
+                  Need ongoing counsel rather than a single project?
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Ongoing legal support, deal execution, and portfolio
-                  governance run through the Outside General Counsel
-                  engagement, priced monthly rather than per matter.
+                  Deals, governance, and day-to-day legal support run through
+                  the Outside General Counsel retainer, priced monthly rather
+                  than per matter. Acquisitions and larger deals are scoped on a call.
                 </p>
               </div>
               <Link
@@ -1153,7 +1032,7 @@ const Services: React.FC = () => {
             <div className="relative z-10">
               <Shield className="w-12 h-12 text-blue-400 mx-auto mb-6" />
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Not Sure Which Package You Need?
+                Not Sure What You Need?
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                 Book a free 15-minute call. I'll tell you exactly what you need,
@@ -1190,8 +1069,8 @@ const Services: React.FC = () => {
           </div>
 
           <p className="text-xs text-slate-600 mb-6">
-            LLC Formation &bull; Estate Planning &bull; Contracts &bull; IP
-            Protection &bull; Real Estate &bull; Business Law
+            Outside General Counsel &bull; Deals &amp; Transactions &bull;
+            Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning
           </p>
 
           <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">

@@ -729,10 +729,10 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
       </h3>
       <div className="mb-4">
         <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-none mb-1.5">
-          Starts at
+          Fixed fee
         </p>
-        <p className="text-slate-900 font-bold text-2xl md:text-3xl leading-none">
-          {pkg.price}
+        <p className="text-slate-700 font-semibold text-base leading-snug">
+          Quoted before any work begins
         </p>
       </div>
       <p className="text-slate-500 text-sm leading-relaxed">{pkg.whoItsFor}</p>
@@ -818,25 +818,13 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
       )}
 
       {/* CTA */}
-      {isSelfServe(pkg) ? (
-        <a
-          href={pkg.stripeLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
-        >
-          Get Started
-          <ArrowRight className="w-4 h-4" />
-        </a>
-      ) : (
-        <Link
-          to="/contact"
-          className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
-        >
-          Start With a Consultation
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      )}
+      <Link
+        to="/contact"
+        className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-slate-900/20 transform active:scale-95 hover:-translate-y-0.5 transition-all duration-200 text-base"
+      >
+        Request a Quote
+        <ArrowRight className="w-4 h-4" />
+      </Link>
     </div>
   </div>
 );
@@ -891,7 +879,7 @@ const Services: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto">
-              A defined project at a price you know upfront. For ongoing
+              A defined project on a fixed fee, quoted before work begins. For ongoing
               counsel, deals, and portfolio work, see{" "}
               <Link to="/lawyer-on-call" className="text-blue-600 font-semibold hover:underline">
                 Outside General Counsel

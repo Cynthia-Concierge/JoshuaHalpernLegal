@@ -30,7 +30,7 @@ const PAGE_META: Record<string, PageMeta> = {
   "/services": {
     title: "Fixed-Fee Project Work | Legal Halp",
     description:
-      "Defined legal projects at a fixed fee, priced upfront: business formation, contracts, employment, trademarks, real estate holding structures, and estate planning.",
+      "Defined legal projects on a fixed fee, quoted before work begins: business formation, contracts, employment, trademarks, real estate holding structures, and estate planning.",
   },
   "/about": {
     title: "About Joshua Halpern, Esq. | Legal Halp",

@@ -482,19 +482,19 @@ const Home: React.FC = () => {
                 Need a Single Project Handled?
               </h2>
               <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-                Not ready for a retainer? Defined projects are available on a
-                fixed fee, quoted before any work begins.
+                Not ready for a retainer? Defined projects are handled on a
+                fixed fee, scoped and quoted on a call before any work begins.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { icon: Briefcase, title: "Business Formation", price: "$1,000", slug: "/services#business" },
-                { icon: Building2, title: "Real Estate Holding Structures", price: "$2,500", slug: "/services#realestate" },
-                { icon: PenTool, title: "Contract Drafting", price: "$550", slug: "/services#contracts" },
-                { icon: Shield, title: "Estate Planning", price: "$1,750", slug: "/services#family" },
-                { icon: Sparkles, title: "Brand Protection", price: "$550", slug: "/services#brand" },
-                { icon: Globe, title: "Website Compliance", price: "$750", slug: "/services#online" },
+                { icon: Briefcase, title: "Business Formation", note: "Entities, operating agreements, S-Corps", slug: "/services#business" },
+                { icon: Building2, title: "Real Estate Holding Structures", note: "LLCs, deeds, 1031 support", slug: "/services#realestate" },
+                { icon: PenTool, title: "Contract Drafting", note: "Drafting, review, negotiation", slug: "/services#contracts" },
+                { icon: Shield, title: "Estate Planning", note: "Trusts, wills, powers of attorney", slug: "/services#family" },
+                { icon: Sparkles, title: "Brand Protection", note: "Trademarks and IP", slug: "/services#brand" },
+                { icon: Globe, title: "Website Compliance", note: "Terms, privacy, e-commerce", slug: "/services#online" },
               ].map((service, index) => (
                 <Link
                   key={index}
@@ -506,7 +506,7 @@ const Home: React.FC = () => {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-semibold text-slate-900 leading-tight">{service.title}</p>
-                    <p className="text-slate-500 text-sm mt-0.5">From {service.price}</p>
+                    <p className="text-slate-500 text-sm mt-0.5">{service.note}</p>
                   </div>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 transition-colors flex-shrink-0" />
                 </Link>

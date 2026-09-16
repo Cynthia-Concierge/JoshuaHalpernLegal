@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   Scale,
@@ -15,99 +15,15 @@ import {
   ArrowRight,
   Star,
   UserCheck,
-  PhoneCall,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import VideoCarousel from "@/components/VideoCarousel";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const Home: React.FC = () => {
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const servicesScrollRef = useRef<HTMLDivElement>(null);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX);
-    if (servicesScrollRef.current) {
-      setScrollLeft(servicesScrollRef.current.scrollLeft);
-    }
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !servicesScrollRef.current) return;
-    const x = e.touches[0].pageX;
-    const walk = (startX - x) * 2;
-    servicesScrollRef.current.scrollLeft = scrollLeft + walk;
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-    if (servicesScrollRef.current) {
-      const cardWidth = 300;
-      const scrollPosition = servicesScrollRef.current.scrollLeft;
-      const newIndex = Math.round(scrollPosition / cardWidth);
-      setCurrentServiceIndex(newIndex);
-      servicesScrollRef.current.scrollTo({
-        left: newIndex * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX);
-    if (servicesScrollRef.current) {
-      setScrollLeft(servicesScrollRef.current.scrollLeft);
-    }
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !servicesScrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX;
-    const walk = (startX - x) * 2;
-    servicesScrollRef.current.scrollLeft = scrollLeft + walk;
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const scrollToService = (index: number) => {
-    if (servicesScrollRef.current) {
-      const cardWidth = 300;
-      const gap = 24;
-      servicesScrollRef.current.scrollTo({
-        left: index * (cardWidth + gap),
-        behavior: 'smooth'
-      });
-      setCurrentServiceIndex(index);
-    }
-  };
-
-  const handlePrevService = () => {
-    const newIndex = Math.max(0, currentServiceIndex - 1);
-    scrollToService(newIndex);
-  };
-
-  const handleNextService = () => {
-    const newIndex = Math.min(8, currentServiceIndex + 1);
-    scrollToService(newIndex);
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* ============================================= */}
-      {/* SECTION 1 — Hero                              */}
+      {/* SECTION 1: Hero                               */}
       {/* ============================================= */}
       <section className="relative pt-12 pb-40 lg:pt-20 lg:pb-56 overflow-hidden bg-slate-900">
         {/* Background layers */}
@@ -184,7 +100,7 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right — Photo */}
+            {/* Right: Photo */}
             <div className="flex-shrink-0 relative hidden lg:block">
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-blue-400/5 rounded-3xl blur-2xl" />
@@ -216,7 +132,7 @@ const Home: React.FC = () => {
                   className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-2xl object-cover object-top shadow-2xl shadow-black/40 border-2 border-white/10 mx-auto"
                 />
               </div>
-              {/* Floating badge — mobile version */}
+              {/* Floating badge, mobile version */}
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-lg shadow-black/10 px-4 py-3 flex items-center gap-3">
                 <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
                   <Shield className="w-5 h-5 text-white" />
@@ -244,7 +160,7 @@ const Home: React.FC = () => {
       <VideoCarousel />
 
       {/* ============================================= */}
-      {/* SECTION 2 — The Problem (Emotional Hook)      */}
+      {/* SECTION 2: The Gap                            */}
       {/* ============================================= */}
       <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
@@ -301,17 +217,17 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 3 — How It Works                      */}
+      {/* SECTION 3: How It Works                       */}
       {/* ============================================= */}
       <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                Simple Process
+                How It Works
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                3 Steps to Legal Peace of Mind
+                3 Steps to Your Own General Counsel
               </h2>
             </div>
 
@@ -319,24 +235,21 @@ const Home: React.FC = () => {
               {[
                 {
                   step: "1",
-                  title: "Book a Free Call",
+                  title: "Book a Consultation",
                   description:
-                    "15 minutes. No sales pitch. Just tell me what you need.",
-                  icon: Phone,
+                    "Walk me through your business, your entities, and what's on your plate.",
                 },
                 {
                   step: "2",
-                  title: "Get a Flat Quote",
+                  title: "Set Your Monthly Retainer",
                   description:
-                    "You'll know the exact price before we start. No surprises. Ever.",
-                  icon: DollarSign,
+                    "A fixed monthly fee scoped to your company. You know the number before we start.",
                 },
                 {
                   step: "3",
-                  title: "I Handle Everything",
+                  title: "I Become Your Legal Department",
                   description:
-                    "You get professionally drafted legal documents + direct attorney access.",
-                  icon: FileText,
+                    "Contracts, deals, governance, and everything in between. Call, text, or email whenever something comes up.",
                 },
               ].map((item, index) => (
                 <div
@@ -362,224 +275,17 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            <div className="text-center mt-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-slate-900/30 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
-              >
-                Start With a Free Consultation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 4 — Services Grid                     */}
+      {/* SECTION 4: Retainer (Primary Offering)        */}
       {/* ============================================= */}
       <section
-        id="pricing"
-        className="py-20 md:py-28 bg-white border-t border-slate-200"
+        id="retainer"
+        className="py-20 md:py-28 bg-slate-900 relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
-                Services & Pricing
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Transparent Legal Services
-              </h2>
-            </div>
-
-            {/* Carousel Container with Arrows */}
-            <div className="relative">
-              {/* Left Arrow */}
-              <button
-                onClick={handlePrevService}
-                disabled={currentServiceIndex === 0}
-                className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center transition-all ${
-                  currentServiceIndex === 0
-                    ? 'opacity-30 cursor-not-allowed'
-                    : 'hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl'
-                }`}
-                aria-label="Previous service"
-              >
-                <ChevronLeft className="w-6 h-6 text-slate-700" />
-              </button>
-
-              {/* Right Arrow */}
-              <button
-                onClick={handleNextService}
-                disabled={currentServiceIndex === 8}
-                className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center transition-all ${
-                  currentServiceIndex === 8
-                    ? 'opacity-30 cursor-not-allowed'
-                    : 'hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl'
-                }`}
-                aria-label="Next service"
-              >
-                <ChevronRight className="w-6 h-6 text-slate-700" />
-              </button>
-
-              <div
-                ref={servicesScrollRef}
-                className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 cursor-grab active:cursor-grabbing"
-              style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-              }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-            >
-              {[
-                {
-                  icon: Briefcase,
-                  title: "LLC Formation",
-                  price: "$1,000",
-                  description:
-                    "Entrepreneurs, side hustlers, new businesses",
-                  slug: "/services/llc-formation",
-                },
-                {
-                  icon: Shield,
-                  title: "Estate Planning",
-                  price: "$1,750",
-                  description:
-                    "Families protecting assets + avoiding probate",
-                  slug: "/services/estate-planning",
-                },
-                {
-                  icon: PenTool,
-                  title: "Contract Drafting",
-                  price: "$550",
-                  description: "Freelancers, agencies, partnerships",
-                  slug: "/services/contract-drafting",
-                },
-                {
-                  icon: Sparkles,
-                  title: "Brand Protection",
-                  price: "$550",
-                  description: "Creators, influencers, startups with IP",
-                  slug: "/services/brand-protection",
-                },
-                {
-                  icon: Building2,
-                  title: "Real Estate LLC",
-                  price: "$2,500",
-                  description:
-                    "Landlords, rental property investors",
-                  slug: "/services/real-estate-llc",
-                },
-                {
-                  icon: Globe,
-                  title: "Website Compliance",
-                  price: "$750",
-                  description: "E-commerce, SaaS, online businesses",
-                  slug: "/services/website-compliance",
-                },
-                {
-                  icon: PhoneCall,
-                  title: "Lawyer-on-Call",
-                  price: "$1,500/mo",
-                  description: "On-demand legal counsel, monthly flat fee",
-                  slug: "/lawyer-on-call",
-                },
-                {
-                  icon: FileText,
-                  title: "Trademark Filing",
-                  price: "$1,250",
-                  description: "Federal trademark registration + monitoring",
-                  slug: "/services/trademark-filing",
-                },
-                {
-                  icon: Briefcase,
-                  title: "Business Exit Strategy",
-                  price: "$1,500",
-                  description: "Dissolution, sales, succession planning",
-                  slug: "/services/business-exit",
-                },
-              ].map((service, index) => (
-                <div
-                  key={index}
-                  className="group flex-shrink-0 w-[300px] snap-center bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-300 shadow-sm hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300 hover:-translate-y-1 flex flex-col"
-                >
-                  <div className="w-14 h-14 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-5 group-hover:bg-slate-800 group-hover:text-white transition-all duration-300 shadow-sm">
-                    <service.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">
-                    {service.title}
-                  </h3>
-                  <div className="mb-3">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-none mb-1">
-                      Starts at
-                    </p>
-                    <p className="text-blue-600 font-bold text-2xl leading-none">
-                      {service.price}
-                    </p>
-                  </div>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                    {service.description}
-                  </p>
-                  <Link
-                    to={service.slug}
-                    className="mt-auto inline-flex items-center gap-1.5 text-slate-700 font-semibold text-sm hover:text-blue-600 transition-colors"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              ))}
-              </div>
-            </div>
-
-            {/* Dot Indicators */}
-            <div className="flex justify-center gap-2 mt-8 mb-6">
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((dotIndex) => (
-                <button
-                  key={dotIndex}
-                  onClick={() => scrollToService(dotIndex)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    currentServiceIndex === dotIndex
-                      ? 'bg-blue-600 w-8'
-                      : 'bg-slate-300 hover:bg-slate-400'
-                  }`}
-                  aria-label={`Go to service ${dotIndex + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Hide scrollbar CSS */}
-            <style>{`
-              .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
-
-            <div className="text-center mt-12">
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-900 transition-colors text-lg"
-              >
-                View All Services & Pricing
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
-      {/* SECTION 4.5 — Lawyer-on-Call Featured         */}
-      {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -594,18 +300,37 @@ const Home: React.FC = () => {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
-                Ongoing Legal Counsel
+                Outside General Counsel
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Need a Lawyer on Retainer,
+                Your General Counsel,
                 <br />
-                <span className="text-blue-400">Not Just a One-Time Project?</span>
+                <span className="text-blue-400">On a Fixed Monthly Retainer.</span>
               </h2>
               <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
-                Lawyer-on-Call gives you a dedicated business attorney for a flat
-                monthly fee. Text, email, or call whenever something comes up.
-                No timers. No surprise invoices.
+                One senior attorney who knows your entities, your contracts, and
+                your deals. No timers. No surprise invoices.
               </p>
+            </div>
+
+            {/* What's covered */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-12">
+              {[
+                "Contract drafting and review",
+                "Deals and transactions",
+                "Entity structure and governance",
+                "Real estate and leasing",
+                "Employment and compliance",
+                "Strategic counsel for owners",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2.5 bg-white/[0.06] border border-white/10 rounded-xl px-4 py-3"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <span className="text-white font-medium">{item}</span>
+                </div>
+              ))}
             </div>
 
             {/* Pricing Tier Preview */}
@@ -657,13 +382,21 @@ const Home: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <Link
-                to="/lawyer-on-call"
-                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
-              >
-                Explore Lawyer-on-Call
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
+                >
+                  Book a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  to="/lawyer-on-call"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-10 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+                >
+                  Compare Retainer Plans
+                </Link>
+              </div>
               <p className="text-slate-400 text-sm mt-4">
                 Month-to-month. No long-term contracts. Cancel with 30 days notice.
               </p>
@@ -673,7 +406,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 5 — Why Legal Halp?                   */}
+      {/* SECTION 5: What Makes This Different          */}
       {/* ============================================= */}
       <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-1/3 h-full bg-slate-100/30 skew-x-12 transform -translate-x-1/4 z-0" />
@@ -695,19 +428,19 @@ const Home: React.FC = () => {
                   icon: Star,
                   title: "Big-Firm Experience",
                   description:
-                    "I spent years at one of the nation's largest law firms advising companies on million-dollar deals. You get that same legal rigor, without the bloated fees.",
+                    "Trained in the corporate group of a national law firm, advising companies on real deals. The same rigor, without the big-firm overhead.",
                 },
                 {
                   icon: DollarSign,
-                  title: "Actually Flat Fees",
+                  title: "One Fixed Monthly Fee",
                   description:
-                    'Not "starting at" or "estimated." You get the real price upfront. If something changes, I tell you before I do the work. No invoice shock.',
+                    "No billable hours and no meter running. Pick up the phone without wondering what it costs. Anything outside scope is flagged before work starts.",
                 },
                 {
                   icon: UserCheck,
                   title: "Direct Attorney Access",
                   description:
-                    "No paralegals. No junior associates. No call centers. When you hire Legal Halp, you work with me directly. Every step.",
+                    "No paralegals. No junior associates. No call centers. You work with me directly, and I know your business.",
                 },
               ].map((item, index) => (
                 <div key={index} className="text-center md:text-left">
@@ -728,12 +461,73 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 6 — Social Proof / Testimonials       */}
+      {/* SECTION 6: Testimonials                       */}
       {/* ============================================= */}
       <TestimonialCarousel />
 
       {/* ============================================= */}
-      {/* SECTION 7 — Final CTA                         */}
+      {/* SECTION 7: Project Work (Secondary Offering)  */}
+      {/* ============================================= */}
+      <section
+        id="pricing"
+        className="py-16 md:py-20 bg-white border-t border-slate-200"
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest mb-4">
+                Project Work
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                Need a Single Project Handled?
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+                Not ready for a retainer? Defined projects are available on a
+                fixed fee, quoted before any work begins.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { icon: Briefcase, title: "Business Formation", price: "$1,000", slug: "/services/llc-formation" },
+                { icon: Building2, title: "Real Estate Holding Structures", price: "$2,500", slug: "/services/real-estate-llc" },
+                { icon: PenTool, title: "Contract Drafting", price: "$550", slug: "/services/contract-drafting" },
+                { icon: Shield, title: "Estate Planning", price: "$1,750", slug: "/services/estate-planning" },
+                { icon: Sparkles, title: "Brand Protection", price: "$550", slug: "/services/brand-protection" },
+                { icon: Globe, title: "Website Compliance", price: "$750", slug: "/services/website-compliance" },
+              ].map((service, index) => (
+                <Link
+                  key={index}
+                  to={service.slug}
+                  className="group flex items-center gap-4 bg-white px-5 py-4 rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-slate-800 group-hover:text-white transition-colors">
+                    <service.icon className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-slate-900 leading-tight">{service.title}</p>
+                    <p className="text-slate-500 text-sm mt-0.5">From {service.price}</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 transition-colors flex-shrink-0" />
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-900 transition-colors"
+              >
+                View All Services
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* SECTION 8: Final CTA                          */}
       {/* ============================================= */}
       <section
         id="consultation"
@@ -751,21 +545,20 @@ const Home: React.FC = () => {
             />
 
             <div className="relative z-10">
-              <Shield className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+              <FileText className="w-12 h-12 text-blue-400 mx-auto mb-6" />
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Ready to Stop Overpaying for Legal Help?
+                Ready for a General Counsel Who Knows Your Business?
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Book a free 15-minute consultation. I'll tell you exactly what
-                you need, what it costs, and whether we're a good fit. No
-                pressure, no obligation.
+                Book a consultation. We'll talk through your company, what you
+                need covered, and whether a retainer is the right fit.
               </p>
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
               >
                 <Phone className="w-5 h-5" />
-                Schedule Your Free Call
+                Book a Consultation
               </Link>
             </div>
           </div>
@@ -791,8 +584,8 @@ const Home: React.FC = () => {
           </div>
 
           <p className="text-xs text-slate-600 mb-6">
-            LLC Formation &bull; Estate Planning &bull; Contracts &bull; IP
-            Protection &bull; Real Estate &bull; Business Law
+            Outside General Counsel &bull; Deals &amp; Transactions &bull;
+            Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning
           </p>
 
           <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-4">

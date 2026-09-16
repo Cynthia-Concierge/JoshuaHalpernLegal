@@ -279,14 +279,14 @@ const VideoCarousel: React.FC = () => {
                 </h2>
                 <p className="text-brand-gold-dark font-semibold mb-4">Founder, Legal Halp</p>
                 <div className="space-y-3 text-brand-navy-darker leading-relaxed">
-                  <p>
-                    I spent years at BigLaw watching business owners get billed $3,000 for a contract review that took two hours. Traditional law firms are stuck in the billable hour model because it makes them rich — not because it serves you well.
+                  <p className="text-lg font-semibold text-brand-navy">
+                    BigLaw trained. Built for companies that need a lawyer who already knows the business.
                   </p>
                   <p>
-                    Legal Halp is the modern alternative. I use AI to work faster and more efficiently — which means you get BigLaw-quality work at a fraction of the cost. Flat monthly fee. No timers. No surprise invoices. You can actually <strong>use</strong> your lawyer without second-guessing every email.
+                    I left the billable hour behind to become the general counsel growing companies can't yet hire in-house. One fixed monthly fee. Call, text, or email whenever something comes up.
                   </p>
                   <p className="font-semibold text-brand-navy">
-                    Every piece of work is personally handled by me — a licensed attorney with 10+ years of experience who knows how to wield AI as a force multiplier, not a replacement for judgment.
+                    Every matter is handled by me personally. Never handed off.
                   </p>
                 </div>
               </div>

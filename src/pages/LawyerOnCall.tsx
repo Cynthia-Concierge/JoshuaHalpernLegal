@@ -561,7 +561,7 @@ const LawyerOnCall: React.FC = () => {
 
           <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
             By providing your phone number, you agree to receive text messages
-            from Legal Halp Law. Message and data rates may apply. Reply STOP to
+            from Legal Halp. Message and data rates may apply. Reply STOP to
             opt out.
           </p>
 

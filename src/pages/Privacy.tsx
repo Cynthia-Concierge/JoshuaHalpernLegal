@@ -1,192 +1,201 @@
 import { Link } from "react-router-dom";
+import LegalPageLayout, { H2, H3, UL, Email, ContactBlock } from "@/components/LegalPageLayout";
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold font-serif text-slate-900 mb-4">
-              Privacy Policy
-            </h1>
-            <p className="text-slate-500 text-lg mb-12">
-              Effective Date: May 22, 2025
-            </p>
+    <LegalPageLayout title="Privacy Policy" effectiveDate="September 18, 2026">
+      <p>
+        This Privacy Policy explains how Legal Halp ("Legal Halp," "we," "us," or "our") collects, uses,
+        shares, and protects personal information when you visit legalhalplaw.com, submit a form, book a
+        call, make a payment, or otherwise interact with us (together, the "Site"). It also explains the
+        choices and rights you have.
+      </p>
+      <p>
+        Information you share with us as a client is also protected by our duty of confidentiality
+        under the Ohio Rules of Professional Conduct and, where applicable, the attorney-client
+        privilege. Those obligations apply in addition to this Policy.
+      </p>
 
-            <div className="prose prose-slate prose-lg max-w-none space-y-6 text-slate-700 leading-relaxed">
-              <p>
-                Legal Halp ("we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website (www.legalhalplaw.com).
-              </p>
+      <H2>1. Information We Collect</H2>
+      <H3>Information you provide</H3>
+      <UL>
+        <li>Contact details, such as your name, email address, phone number, and business name.</li>
+        <li>Details about your business and legal needs that you enter in forms, emails, texts, or during calls.</li>
+        <li>Scheduling information when you book a consultation.</li>
+        <li>Payment information when you pay us. Card and bank details are collected and processed by our payment processor, and we do not store full card numbers.</li>
+      </UL>
+      <H3>Information collected automatically</H3>
+      <UL>
+        <li>Device and usage data, such as IP address, browser type, device type, pages viewed, referring URL, and the date and time of your visit.</li>
+        <li>Marketing attribution data, such as UTM parameters and ad click identifiers (for example, Meta's fbclid), which tell us which ad or link brought you to the Site.</li>
+        <li>Cookie and pixel data, as described in Section 4.</li>
+        <li>Session interaction data, such as clicks, scrolling, and mouse movement, collected by our analytics tool as described in Section 4.</li>
+      </UL>
+      <H3>Information from others</H3>
+      <p>
+        We may receive information about you from referral sources, your advisors, counterparties in a
+        transaction, public records such as state business filings, and our service providers.
+      </p>
 
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                1. Information We Collect
-              </h2>
-              <p>
-                We may collect the following categories of personal information: (i) identifiers (e.g., name, email address, phone number, and IP address); (ii) internet activity (e.g., browsing history, pages visited, and other interaction data collected through cookies and analytics tools); and (iii) other information you provide (e.g., any information you voluntarily submit via contact forms or service inquiries).
-              </p>
+      <H2>2. How We Use Information</H2>
+      <UL>
+        <li>To respond to your inquiry, schedule consultations, and communicate with you by email, phone, and text.</li>
+        <li>To run conflict checks and evaluate whether we can take on a matter.</li>
+        <li>To provide legal services, manage engagements, and process payments.</li>
+        <li>To operate, secure, and improve the Site, and to understand how visitors use it.</li>
+        <li>To measure and improve our advertising, including reporting conversions to advertising platforms.</li>
+        <li>To comply with legal and professional obligations and to protect our rights.</li>
+      </UL>
 
-              <p>
-                If you provide your phone number through our website, forms, scheduling tools, or other communication channels, you consent to receive SMS (text) messages from Legal Halp.
-              </p>
+      <H2>3. How We Share Information</H2>
+      <p>
+        We do not sell personal information for money. We share information only as described below.
+      </p>
+      <UL>
+        <li>
+          Service providers that help us operate the practice and the Site, including website hosting
+          (Vercel), our client relationship and messaging platform, scheduling (Calendly), payment
+          processing (Stripe), analytics (Microsoft Clarity), and email and document tools. These providers
+          may use information only to perform services for us.
+        </li>
+        <li>
+          Advertising platforms. We use the Meta Pixel and Meta's Conversions API to measure ad
+          performance. When you submit a form, book a call, or make a payment, we may send Meta
+          event data along with your email address and phone number in hashed (encrypted) form so Meta
+          can match the event to an ad.
+        </li>
+        <li>
+          Professionals and counterparties involved in your matter, such as co-counsel, referral counsel,
+          accountants, or opposing parties, when you direct us to or when needed to carry out the engagement.
+        </li>
+        <li>
+          Legal and safety purposes, when required by law, court order, or professional rules, or to
+          protect the rights and safety of Legal Halp, our clients, or others.
+        </li>
+        <li>
+          Business transfers, if our practice is transferred or combined with another law practice, subject
+          to the professional rules that protect client information.
+        </li>
+      </UL>
+      <p>
+        Some state privacy laws treat the use of advertising pixels as a "sale" or "sharing" of personal
+        information. You can opt out of this use as described in Section 6.
+      </p>
 
-              <p>These messages may include:</p>
+      <H2>4. Cookies, Pixels, and Analytics</H2>
+      <p>We and our providers use cookies, pixels, and similar technologies:</p>
+      <UL>
+        <li>
+          <span className="font-semibold text-slate-900">Meta Pixel.</span> Records page views and actions on
+          the Site so we can measure and target our ads on Facebook and Instagram. You can manage ad
+          preferences in your Meta account settings.
+        </li>
+        <li>
+          <span className="font-semibold text-slate-900">Microsoft Clarity.</span> Records how visitors
+          interact with pages, including clicks, scrolling, and mouse movement, and produces heatmaps and
+          session replays that help us improve the Site. Microsoft processes this data under its privacy
+          statement.
+        </li>
+        <li>
+          <span className="font-semibold text-slate-900">Essential storage.</span> We store marketing
+          attribution data in your browser for the length of your visit so that a form you submit can be
+          credited to the ad or link that brought you here.
+        </li>
+      </UL>
+      <p>
+        You can block or delete cookies through your browser settings and use browser tools or extensions
+        that limit tracking. Some parts of the Site may not work as intended if you do. The Site does not
+        currently respond to "Do Not Track" browser signals.
+      </p>
 
-              <ul className="list-disc pl-6 space-y-1 text-slate-700">
-                <li>Appointment confirmations and reminders</li>
-                <li>Updates regarding your inquiry or services</li>
-                <li>Account notifications</li>
-                <li>Promotional or marketing communications (if you have opted in)</li>
-              </ul>
+      <H2>5. Text Messages (SMS)</H2>
+      <p>
+        If you provide your mobile number and opt in, we may send text messages about your inquiry,
+        consultation scheduling, appointment reminders, document requests, and service updates. Message
+        frequency varies. Message and data rates may apply. Reply STOP to opt out at any time, or HELP
+        for help. You can also email <Email />.
+      </p>
+      <p className="font-medium text-slate-900">
+        No mobile information will be shared with third parties or affiliates for marketing or
+        promotional purposes. All of the categories of sharing described in this Policy exclude text
+        messaging originator opt-in data and consent; this information will not be shared with any
+        third parties.
+      </p>
+      <p>
+        We may share mobile numbers with the messaging service providers that deliver our texts, solely
+        to send the messages you requested.
+      </p>
 
-              <p>
-                Message frequency varies.<br />
-                Message and data rates may apply.
-              </p>
+      <H2>6. Your Choices and Privacy Rights</H2>
+      <p>
+        Depending on where you live, you may have the right to request access to the personal
+        information we hold about you, to correct it, to delete it, to receive a copy in a portable
+        format, and to opt out of targeted advertising or the "sale" or "sharing" of personal information.
+        We extend these requests to all visitors, regardless of where you live, subject to the
+        exceptions below.
+      </p>
+      <p>
+        To make a request, email <Email /> with "Privacy Request" in the subject line and tell us what you
+        are asking for. We will verify your identity before acting on a request and will respond within
+        the time required by applicable law, generally 45 days. You may use an authorized agent, and you
+        may appeal a decision by replying to our response. We will not discriminate against you for
+        exercising your rights.
+      </p>
+      <p>
+        Some information cannot be deleted. We must keep client files, conflict records, trust account
+        records, and billing records for the periods required by the Ohio Rules of Professional
+        Conduct and other law.
+      </p>
+      <p>
+        You can unsubscribe from marketing emails using the link in the email, and stop text messages by
+        replying STOP.
+      </p>
 
-              <p>
-                You may opt out of receiving SMS messages at any time by replying STOP to any message you receive from us. After you send STOP, we may send you a confirmation message to confirm that you have been unsubscribed. You will no longer receive SMS messages from us unless you opt in again.
-              </p>
+      <H2>7. Data Retention</H2>
+      <p>
+        We keep personal information only as long as needed for the purposes described in this Policy.
+        Inquiry and marketing data is generally kept while it remains useful for responding to you and
+        measuring our marketing. Client files and related records are kept for the periods required by
+        professional rules, law, and our file retention policy, and then securely destroyed.
+      </p>
 
-              <p>
-                For assistance, reply HELP or contact us at{" "}
-                <a href="mailto:assistant@legalhalp.com" className="text-blue-600 hover:text-blue-500 underline">
-                  assistant@legalhalp.com
-                </a>
-                .
-              </p>
+      <H2>8. Data Security</H2>
+      <p>
+        We use reasonable administrative, technical, and physical safeguards to protect personal
+        information, including encrypted connections and access controls. We may use reputable
+        technology tools, including AI-assisted tools, to support our work, and we select and configure
+        them to protect client confidentiality. No method of transmission or storage is completely
+        secure, and we cannot guarantee absolute security. Email and text messages are not fully secure
+        channels, so please do not send highly sensitive information by those methods unless we have
+        agreed on a secure alternative.
+      </p>
 
-              <h3 className="text-lg font-bold text-slate-900 mt-8 mb-3">
-                Mobile Information Sharing
-              </h3>
-              <p>
-                We do not sell, rent, or share your mobile information (including phone numbers) with third parties for marketing or promotional purposes.
-              </p>
-              <ul className="list-disc pl-6 space-y-1 text-slate-700">
-                <li>Mobile information will not be shared with third parties or affiliates for marketing purposes.</li>
-                <li>We may share information with service providers who assist us in delivering messaging services (such as SMS platforms), but only under strict confidentiality agreements and solely for the purpose of operating our services.</li>
-              </ul>
+      <H2>9. Children</H2>
+      <p>
+        The Site is intended for adults and businesses. We do not knowingly collect personal information
+        from anyone under 18. If you believe a minor has provided information to us, contact us and we
+        will delete it.
+      </p>
 
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                2. How We Use Your Information
-              </h2>
-              <p>
-                We may use your information to: (i) communicate with you and respond to inquiries; (ii) provide legal content, newsletters, or promotional materials (with your consent); (iii) improve and secure our website; and (iv) comply with applicable laws and regulations.
-              </p>
+      <H2>10. Third-Party Sites</H2>
+      <p>
+        The Site links to and embeds third-party services, such as Calendly, Stripe, and social media
+        platforms. Their collection and use of information is governed by their own privacy policies.
+      </p>
 
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                3. How We Share Information
-              </h2>
-              <p>
-                We do not sell or rent your personal information. We may share it with: (i) trusted service providers (e.g., web hosting, analytics, marketing tools) under strict confidentiality obligations; and/or (ii) legal authorities, when required by law or to protect our legal rights.
-              </p>
+      <H2>11. Changes to This Policy</H2>
+      <p>
+        We may update this Policy from time to time. The updated version will be posted on this page with
+        a new effective date. If we make material changes, we may also notify you by other means.
+      </p>
 
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                4. Cookies and Tracking Technologies
-              </h2>
-              <p>
-                We use cookies and similar technologies for functionality, performance, and analytics. You can control cookie preferences via your browser settings.
-              </p>
-
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                5. Your Privacy Rights (California Residents)
-              </h2>
-              <p>
-                If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA):
-              </p>
-              <ul className="list-disc pl-6 space-y-3 text-slate-700">
-                <li>
-                  <strong>Right to Know:</strong> You may request information about the categories and specific pieces of personal information we have collected about you.
-                </li>
-                <li>
-                  <strong>Right to Delete:</strong> You may request that we delete the personal information we have collected from you (subject to certain exceptions).
-                </li>
-                <li>
-                  <strong>Right to Opt Out of Sale:</strong> We do not sell your personal information, so no opt-out is necessary.
-                </li>
-                <li>
-                  <strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights.
-                </li>
-              </ul>
-              <p>
-                To exercise your rights, email{" "}
-                <a href="mailto:assistant@legalhalp.com" className="text-blue-600 hover:text-blue-500 underline">
-                  assistant@legalhalp.com
-                </a>
-                {" "}with "CCPA Request" in the subject line. We may need to verify your identity before responding.
-              </p>
-
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                6. Data Security
-              </h2>
-              <p>
-                We use reasonable technical and administrative measures to safeguard your data. However, no transmission over the internet is 100% secure.
-              </p>
-
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                7. Children's Privacy
-              </h2>
-              <p>
-                Our website is not intended for children under 18, and we do not knowingly collect information from minors.
-              </p>
-
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                8. Third-Party Links
-              </h2>
-              <p>
-                We may link to other websites. We are not responsible for their privacy practices and encourage you to review their privacy policies.
-              </p>
-
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                9. Changes to This Policy
-              </h2>
-              <p>
-                We may update this Policy periodically. The "Effective Date" will reflect the most recent changes. We encourage you to review this page regularly.
-              </p>
-
-              <h2 className="text-xl font-bold text-slate-900 mt-10 mb-3">
-                10. Contact Us
-              </h2>
-              <p>
-                For any privacy-related questions or to exercise your rights, email{" "}
-                <a href="mailto:assistant@legalhalp.com" className="text-blue-600 hover:text-blue-500 underline">
-                  assistant@legalhalp.com
-                </a>
-                .
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex flex-col items-center mb-6">
-            <img src="/logo.png" alt="Legal Halp" className="h-10 brightness-0 invert opacity-80 mb-1" />
-            <p className="text-sm text-slate-500 mt-1">
-              by Joshua Halpern, Esq.
-            </p>
-          </div>
-
-          <div className="flex justify-center gap-6 mb-6 text-sm">
-            <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms &amp; Conditions</Link>
-            <Link to="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-            <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
-          </div>
-
-          <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            Disclaimer: The information provided on this website does not, and is
-            not intended to, constitute legal advice; instead, all information,
-            content, and materials available on this site are for general
-            informational purposes only.
-          </p>
-
-          <div className="text-xs text-slate-700">
-            &copy; {new Date().getFullYear()} Legal Halp. All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>
+      <H2>12. Contact</H2>
+      <p>
+        Questions about this Policy or our privacy practices can be sent to the contact below. See also our{" "}
+        <Link to="/terms" className="text-blue-600 hover:text-blue-500 underline">Terms &amp; Conditions</Link>.
+      </p>
+      <ContactBlock />
+    </LegalPageLayout>
   );
 };
 

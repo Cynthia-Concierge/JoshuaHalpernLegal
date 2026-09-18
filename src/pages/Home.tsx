@@ -564,7 +564,7 @@ const Home: React.FC = () => {
           </p>
 
           <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            By providing your phone number, you agree to receive text messages from Legal Halp Law. Message and data rates may apply. Reply STOP to opt out.
+            By providing your phone number, you agree to receive text messages from Legal Halp. Message and data rates may apply. Reply STOP to opt out.
           </p>
 
           <div className="text-xs text-slate-700">

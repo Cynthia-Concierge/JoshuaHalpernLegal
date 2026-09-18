@@ -126,8 +126,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
           {/* Header */}
           <div className="mb-5 sm:mb-8">
             <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
-              Stop Paying by the Hour.<br />
-              <span className="text-emerald-600">Get Your Business Lawyer on Call.</span>
+              Put a General Counsel<br />
+              <span className="text-blue-600">Inside Your Business.</span>
             </h3>
             <p className="text-slate-400 text-[12px] tracking-wide uppercase font-medium mt-1">
               Takes under a minute
@@ -185,14 +185,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
             {/* Business Info */}
             <div className="group">
               <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Tell me about your business and what you need help with
+                Tell me about your company and what you need covered
               </label>
               <textarea
                 name="additionalInfo"
                 required
                 minLength={10}
                 rows={3}
-                placeholder="A sentence or two about your business and your legal needs."
+                placeholder="Your business, your entities, and what's on your plate (deals, contracts, governance)."
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300 resize-none"
               />
             </div>
@@ -203,14 +203,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 type="submit"
                 className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] bg-slate-900 hover:bg-slate-800 text-white"
               >
-                <span>Schedule My Free Call</span>
+                <span>Request My Consultation</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
 
             <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
               <Lock className="w-3 h-3" />
-              <span>Protected by attorney-client privilege. No obligation.</span>
+              <span>Confidential. No obligation.</span>
             </div>
           </form>
           </div>
@@ -230,7 +230,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
               <div className="mb-6 sm:mb-7">
                 <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
-                  One quick thing before we book your call —
+                  One quick thing before we book your call:
                 </h3>
 
                 <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
@@ -246,7 +246,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                     ))}
                   </div>
                   <p className="text-slate-500 text-[13px] leading-relaxed mt-4 font-medium">
-                    Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
+                    Business matter? You&apos;re in the right place: deals, contracts, governance, real estate, and strategy.
                   </p>
                 </div>
               </div>
@@ -257,7 +257,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   onClick={handleConfirmSubmit}
                   className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] bg-slate-900 hover:bg-slate-800 text-white"
                 >
-                  <span>Yes, this is a business matter — Submit</span>
+                  <span>Yes, this is a business matter. Submit</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
 
@@ -272,7 +272,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
               <div className="mt-5 flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
                 <Lock className="w-3 h-3" />
-                <span>Protected by attorney-client privilege. No obligation.</span>
+                <span>Confidential. No obligation.</span>
               </div>
             </div>
           )}

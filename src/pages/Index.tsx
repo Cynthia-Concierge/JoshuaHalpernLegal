@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ContactModal from "@/components/ContactModal";
 import { FORM_SUBMIT_URL } from "@/config";
 import { getAttribution } from "@/utils/attribution";
@@ -13,32 +14,34 @@ declare global {
 }
 import {
   FileCheck,
-  MessageCircle,
   Users,
-  Shield,
   Briefcase,
+  Building2,
   Handshake,
+  Landmark,
   ArrowRight,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  Clock,
   DollarSign,
   Phone,
-  AlertCircle,
   Scale,
-  GraduationCap,
   Star,
-  ChevronLeft,
-  ChevronRight,
+  UserCheck,
+  FileText,
 } from "lucide-react";
+
+const DOT_PATTERN = {
+  backgroundImage:
+    "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
+  backgroundSize: "32px 32px",
+};
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [showMiniPlayer, setShowMiniPlayer] = useState(false);
   const [miniDismissed, setMiniDismissed] = useState(false);
-  const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const miniVideoRef = useRef<HTMLVideoElement>(null);
@@ -57,7 +60,6 @@ const Index = () => {
         const isPlaying = video && !video.paused && !video.ended;
         if (!entry.isIntersecting && isPlaying && !miniDismissed) {
           setShowMiniPlayer(true);
-          // Sync mini player to main video time
           requestAnimationFrame(() => {
             if (miniVideoRef.current && video) {
               miniVideoRef.current.currentTime = video.currentTime;
@@ -67,7 +69,6 @@ const Index = () => {
             }
           });
         } else if (entry.isIntersecting && showMiniPlayer) {
-          // Return to main video
           const mini = miniVideoRef.current;
           const main = videoRef.current;
           if (mini && main) {
@@ -86,8 +87,9 @@ const Index = () => {
 
   // SEO: set page-specific meta tags for /lawyeroncall
   useEffect(() => {
-    const ogTitle = "Your On-Demand Lawyer Without Paying $500/Hour | Legal Halp";
-    const ogDesc = "Fractional in-house counsel for growing businesses. Flat monthly fee. No hourly surprises.";
+    const ogTitle = "Outside General Counsel, Embedded in Your Business | Legal Halp";
+    const ogDesc =
+      "Big-firm corporate counsel on a fixed monthly retainer. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.";
     const ogImage = "https://josh-halpern-law.vercel.app/og-lawyer-on-call.png";
 
     document.title = ogTitle;
@@ -108,101 +110,51 @@ const Index = () => {
     setMeta("name", "twitter:image", ogImage);
 
     return () => {
-      document.title = "Legal Halp \u2013 Your Lawyer on Speed Dial";
+      document.title = "Legal Halp";
     };
   }, []);
 
-  const scrollTestimonials = (direction: 'left' | 'right') => {
-    if (testimonialScrollRef.current) {
-      const scrollAmount = 470; // Card width (450px) + gap (20px)
-      const newPosition = direction === 'left'
-        ? testimonialScrollRef.current.scrollLeft - scrollAmount
-        : testimonialScrollRef.current.scrollLeft + scrollAmount;
-
-      testimonialScrollRef.current.scrollTo({
-        left: newPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const whatYouGet = [
-    { icon: FileCheck, title: "Contracts & Agreements", desc: "Drafting, reviewing, and negotiating vendor agreements, client contracts, NDAs, and partnership deals" },
-    { icon: Users, title: "Employment Law", desc: "Offer letters, terminations, employee handbooks, equity compensation plans, and HR compliance" },
-    { icon: Shield, title: "Brand & IP Protection", desc: "Trademark filings, copyright registration, website terms of service, and privacy policies" },
-    { icon: Briefcase, title: "Business Strategy", desc: "Entity structuring (LLC vs S-Corp), operating agreements, compliance, and regulatory guidance" },
-    { icon: Handshake, title: "Deal Negotiation", desc: "Strategic counsel on partnerships, vendor terms, investor agreements, and key business deals" },
-    { icon: MessageCircle, title: "Direct Access", desc: "Text, email, or call your attorney directly. No gatekeepers, no assistants, no billable surprises" },
-  ];
-
-  const painPoints = [
-    {
-      text: "You got a $4,000 invoice for a contract review that took ",
-      highlight: "2 hours",
-      highlightType: "circle" as const
-    },
-    {
-      text: "You waited ",
-      highlight: "3 weeks",
-      highlightType: "underline" as const,
-      textAfter: " for your lawyer to return a simple email"
-    },
-    {
-      text: "You ",
-      highlight: "skipped legal review",
-      highlightType: "strikethrough" as const,
-      textAfter: " on a deal because you couldn't afford the hourly rate"
-    },
-    {
-      text: "You're using ",
-      highlight: "Google and ChatGPT",
-      highlightType: "underline" as const,
-      textAfter: " for legal questions because real lawyers are too expensive"
-    },
-  ];
-
-  const steps = [
-    { num: "1", title: "Tell Us About Your Business", desc: "Fill out a quick intake form with your info and legal needs. Takes under a minute." },
-    { num: "2", title: "We'll Reach Out to Schedule a Call", desc: "Our team will contact you as soon as possible to set up a brief intro call and see if we're the right fit." },
-    { num: "3", title: "Start Getting Legal Done", desc: "Once onboarded, text, email, or call your attorney whenever you need something. Flat fee. No surprises." },
+  const coverage = [
+    { icon: Handshake, title: "Deals & Transactions", desc: "Acquisitions, dispositions, partner buy-ins and buyouts, joint ventures, and the negotiation that gets them closed." },
+    { icon: Landmark, title: "Entity Structure & Governance", desc: "Multi-entity structures, operating agreements, member and board matters, restructurings, and ownership changes." },
+    { icon: FileCheck, title: "Contracts", desc: "Customer, vendor, and partner agreements drafted, reviewed, and negotiated with your leverage in mind." },
+    { icon: Building2, title: "Real Estate & Leasing", desc: "Acquisitions, holding structures, commercial leases, and the financing documents that come with them." },
+    { icon: Users, title: "Employment & Compliance", desc: "Executive agreements, equity and incentive plans, separations, handbooks, and regulatory questions." },
+    { icon: Briefcase, title: "Strategic Counsel for Owners", desc: "A senior sounding board on risk, disputes, and big decisions before they become expensive." },
   ];
 
   const faqs = [
     {
+      question: "What does \"embedded\" actually mean?",
+      answer: "It means you have one senior attorney who learns your entities, your contracts, your people, and your deals, and stays with you month after month. You call, text, or email directly. I join the calls with counterparties, lenders, brokers, and your CPA. You stop re-explaining your business every time something comes up.",
+    },
+    {
       question: "How is this different from hiring a law firm?",
-      answer: "Law firms bill hourly. Every email, every call, every 6-minute increment costs you money. With Legal Halp, you pay one flat monthly fee and get unlimited access to your attorney. No timers. No surprise invoices. Just legal support when you need it."
+      answer: "A firm bills by the hour and staffs your matter with whoever is available. Here, you have a fixed monthly fee and the same senior attorney on everything. No timers, no surprise invoices, and no hesitation about picking up the phone.",
     },
     {
-      question: "Can't I just use ChatGPT, Claude, or Grok for legal questions?",
-      answer: "Here's the thing: AI is incredibly powerful for legal work — when wielded by someone who knows what they're doing. I use AI daily to accelerate research, draft initial documents, and analyze complex scenarios. But AI without legal judgment is like giving someone a scalpel without medical training. You don't know what information is critical, what's a red flag, which clauses protect you versus expose you, or how to structure a negotiation. A trained attorney knows what to feed AI, how to direct it, what questions to ask, and — most importantly — what it gets wrong. AI hallucinates case law, misses jurisdiction-specific nuances, and can't assess risk or strategy. You're not just paying for legal knowledge; you're paying for the judgment to use every tool — including AI — correctly. That's the difference between a DIY disaster and bulletproof legal work."
-    },
-    {
-      question: "What can you do that AI can't?",
-      answer: "The right question is: what can a lawyer using AI do that you can't do alone? AI is a tool — a very powerful one — but it's only as effective as the person directing it. I know which contract clauses matter for YOUR industry and which are boilerplate noise. I know when a 'standard' NDA is actually tilted against you. I know how to structure equity splits to avoid future disasters, and how to negotiate terms that protect your leverage. AI can draft language, but it can't tell you if you're getting screwed or if a deal structure will blow up in 18 months. I use AI to work faster and more efficiently — but the strategy, judgment, and accountability are human. When opposing counsel pushes back, when the state rejects your filing, when a contract dispute lands on your desk — you need someone who knows what went wrong and how to fix it. That's what you're paying for: expertise that knows how to use AI as a force multiplier, not a replacement."
+      question: "Can you handle M&A and larger transactions?",
+      answer: "Yes. I trained in the corporate transactional group of a national law firm, and acquisitions, sales, restructurings, and real estate transactions are core to the practice. For a major transaction, we agree on scope before work starts, including whether it sits inside the retainer or is handled as a separate fixed fee. You know the number up front.",
     },
     {
       question: "Is a real attorney handling my work?",
-      answer: "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of experience, including BigLaw. I personally handle every client. You're never talking to a paralegal or a chatbot."
+      answer: "Yes. I'm Joshua Halpern, a former BigLaw corporate attorney, and I personally handle every client. No paralegals, no junior associates, no call center.",
     },
     {
-      question: "What's NOT included?",
-      answer: "Courtroom litigation (I'm business counsel, not a trial lawyer), regulatory filings requiring specialized licensing (SEC, patent prosecution), and work outside your plan scope. If you need something beyond your tier, we'll quote it upfront — no surprises."
+      question: "What's not included?",
+      answer: "Courtroom litigation and court appearances. I'm business counsel, not a trial lawyer. When a dispute is headed to court, I coordinate with trusted litigation counsel. Highly specialized filings such as patent prosecution or SEC registration are also outside scope. Anything outside your retainer is flagged and quoted before work starts.",
     },
     {
       question: "How fast do you respond?",
-      answer: "24-48 hours on the Essential plan. Same-day on Business and Full-Service. Urgent matters are always prioritized regardless of plan."
+      answer: "Same business day on Ongoing and General Counsel retainers, and within 24 to 48 hours on Essential. Deal deadlines and urgent matters are always prioritized.",
     },
     {
-      question: "Can I cancel anytime?",
-      answer: "Yes. Month-to-month. No long-term contracts. 30 days notice. Most clients stay because they save thousands compared to hourly billing."
+      question: "Do you use AI?",
+      answer: "Yes, as a tool. It makes research and first drafts faster, which is part of how a fixed fee works. The judgment, strategy, and accountability are mine. AI does not know which clause matters in your industry or when a deal structure will cause problems in 18 months.",
     },
     {
-      question: "What if I don't use it one month?",
-      answer: "You're still covered. Legal needs are unpredictable — you might go a month with no issues, then suddenly need contract review, an employment termination, or a cease & desist response. The retainer ensures I'm available when you need me, not scrambling to find an attorney during a crisis. Think of it like insurance: you pay for peace of mind and immediate access, not just usage."
-    },
-    {
-      question: "How is this different from LegalZoom?",
-      answer: "LegalZoom sells templates. I'm your attorney. You get personalized strategy, custom drafting, and someone who actually understands your business. When something complex comes up, you call me — not a customer service line."
+      question: "Is there a long-term contract?",
+      answer: "No. Retainers are month-to-month with 30 days notice to cancel. Clients stay because it works, not because of the fine print.",
     },
   ];
 
@@ -266,6 +218,16 @@ const Index = () => {
     }
   };
 
+  const PrimaryButton = ({ label = "Book a Consultation", className = "" }: { label?: string; className?: string }) => (
+    <button
+      onClick={openModal}
+      className={`inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg ${className}`}
+    >
+      {label}
+      <ArrowRight className="w-5 h-5" />
+    </button>
+  );
+
   return (
     <div className="min-h-screen bg-white pb-20 md:pb-0">
       {/* ── Nav ── */}
@@ -280,79 +242,76 @@ const Index = () => {
             </button>
 
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
-                About Us
+              <button onClick={() => scrollToSection('coverage')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
+                What's Covered
               </button>
-              <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
+              <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
                 How It Works
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
-                Pricing
+              <button onClick={() => scrollToSection('retainer')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
+                Retainers
               </button>
-              <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-brand-navy-darker hover:text-brand-gold-dark transition-colors">
+              <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
                 FAQ
               </button>
             </div>
 
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
             >
-              Get Started
+              Book a Consultation
             </button>
           </div>
         </div>
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-36 overflow-hidden bg-white">
+      <section className="relative pt-28 pb-32 lg:pt-36 lg:pb-44 overflow-hidden bg-slate-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
+        <div className="absolute inset-0 z-0 opacity-[0.04]" style={DOT_PATTERN} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full filter blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-600/10 rounded-full filter blur-[150px]" />
+        </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-navy leading-tight tracking-tight">
-              Your Business Lawyer On Call.{" "}
-              <span className="relative">
-                <span className="relative z-10">Without</span>
-                <span className="absolute bottom-2 md:bottom-3 left-0 right-0 h-3 md:h-4 bg-brand-gold/20 -rotate-1 rounded-sm" />
-              </span>{" "}
-              <span className="text-brand-gold">The Hourly Bill.</span>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <Scale className="w-4 h-4" />
+              Joshua Halpern, Esq.
+            </div>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.15] tracking-[-0.02em]">
+              <span className="block">Big-Firm Corporate Counsel.</span>
+              <span className="block mt-2 text-blue-400">Embedded In Your Business.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto">
-              A dedicated business attorney for a flat monthly fee. Text, email, or call whenever you need something.
+            <p className="text-lg md:text-2xl text-slate-200 leading-relaxed max-w-2xl mx-auto font-medium">
+              Deals, governance, and the everyday legal work, handled by one
+              senior attorney on a fixed monthly fee.
             </p>
 
-            {/* Trust chips */}
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Former BigLaw Attorney</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                <Scale className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-700">10+ Years Experience</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-700">All 50 States</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Month-to-Month</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-700">No Surprise Invoices</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Business & Transactional Law</span>
-              </div>
+            {/* Trust Bar */}
+            <div className="flex flex-col items-stretch sm:items-center sm:flex-row sm:flex-wrap sm:justify-center gap-2.5">
+              {[
+                "Former BigLaw Corporate Attorney",
+                "M&A, Governance & Real Estate",
+                "Outside GC to Multi-Entity Companies",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2.5 bg-white/[0.12] backdrop-blur-sm border border-white/25 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm max-w-full"
+                >
+                  <CheckCircle2 className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
+                  <span className="leading-snug">{item}</span>
+                </div>
+              ))}
             </div>
 
             {/* Video Embed */}
             <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>
-              <div className="aspect-video bg-slate-900 rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+              <div className="aspect-video bg-slate-950 rounded-2xl shadow-2xl shadow-black/40 border-2 border-white/10 overflow-hidden">
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
@@ -366,296 +325,279 @@ const Index = () => {
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="flex flex-col items-center gap-6">
-              {/* Scope Qualifier — above button so it's unmissable */}
-              <div className="max-w-2xl mx-auto w-full">
-                <div className="bg-brand-cream border border-brand-gold/30 rounded-2xl px-6 py-5">
-                  <p className="text-brand-gold-dark uppercase tracking-[0.15em] text-xs font-bold text-center mb-4">
-                    We Do Not Handle These Types of Cases
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
-                      <span key={item} className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 text-xs font-semibold text-brand-navy shadow-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-slate-500 text-xs leading-relaxed mt-4 text-center">
-                    Business matter? You&apos;re in the right place — contracts, formations, employment, compliance, and strategy.
-                  </p>
-                </div>
-              </div>
-
-              <button
-                onClick={openModal}
-                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg shadow-brand-gold/25 hover:shadow-xl hover:shadow-brand-gold/30 transform hover:-translate-y-0.5 transition-all text-lg"
-              >
-                Get Started
-                <ArrowRight className="w-5 h-5" />
-              </button>
-
+            <div className="flex flex-col items-center gap-4">
+              <PrimaryButton />
+              <p className="text-slate-400 text-sm">
+                15-minute call. Fixed monthly fee, quoted before we start.
+              </p>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ── Solution Intro ── */}
-      <section className="py-20 bg-brand-cream relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4 tracking-tight">
-              What If Your Lawyer Worked <span className="text-brand-gold-dark">For</span> You — Not Against Your Budget?
-            </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-              Legal Halp gives you a dedicated business attorney for a flat monthly fee. You text, email, or call when you need something. We handle it. No timers. No invoices for "reviewing your email."
-            </p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
-                <div className="text-3xl font-bold text-brand-gold-dark mb-1">60%</div>
-                <div className="text-sm text-slate-600 font-medium">Less than hourly billing</div>
-              </div>
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
-                <div className="text-3xl font-bold text-brand-gold-dark mb-1">24hr</div>
-                <div className="text-sm text-slate-600 font-medium">Max response time</div>
-              </div>
-              <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
-                <div className="text-3xl font-bold text-brand-gold-dark mb-1">$0</div>
-                <div className="text-sm text-slate-600 font-medium">Surprise invoices</div>
-              </div>
-              <div className="p-5 bg-white rounded-xl border-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default relative overflow-hidden animate-gold-border">
-                <div className="text-3xl font-bold text-brand-gold-dark mb-1">AI+</div>
-                <div className="text-sm text-slate-600 font-medium">Expertise that knows how to use it</div>
-              </div>
-            </div>
-
-            {/* Animated gold border styles */}
-            <style>{`
-              @keyframes gold-border-glow {
-                0%, 100% {
-                  border-color: #D97706;
-                  box-shadow: 0 0 10px rgba(217, 119, 6, 0.3);
-                }
-                50% {
-                  border-color: #F59E0B;
-                  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
-                }
-              }
-
-              .animate-gold-border {
-                animation: gold-border-glow 2s ease-in-out infinite;
-              }
-            `}</style>
-
-            <button
-              onClick={openModal}
-              className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
-            >
-              Get Started
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
+        {/* Bottom fade to white */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-[5] pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.92) 20%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.4) 62%, rgba(255,255,255,0.12) 85%, rgba(255,255,255,0) 100%)",
+          }}
+        />
       </section>
 
       <VideoCarousel />
 
-      {/* ── What You Get ── */}
-      <section className="py-20 bg-brand-cream relative">
+      {/* ── The Gap ── */}
+      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-3 text-center tracking-tight">
-              Everything Your Business Needs. One Fee.
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
+              The Gap Between a Law Firm and a General Counsel
             </h2>
-            <p className="text-lg text-slate-500 text-center mb-10">
-              No nickel-and-diming. No "that's outside scope." Just comprehensive legal support.
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10">
+              Most growing companies are stuck between two bad options.
             </p>
-            <div className="grid md:grid-cols-2 gap-5">
-              {whatYouGet.map((item, i) => {
+
+            <div className="grid sm:grid-cols-2 gap-4 mb-10">
+              {[
+                { label: "Outside firm, per matter", problem: "Senior rates to someone who relearns your business every time." },
+                { label: "In-house counsel", problem: "$250,000 and up, long before the workload justifies the seat." },
+              ].map((item, i) => (
+                <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{item.label}</p>
+                  <p className="text-slate-700 leading-relaxed">{item.problem}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xl md:text-2xl font-semibold text-slate-900 leading-snug mb-6">
+              Legal Halp is the third option: the general counsel function on a
+              fixed monthly fee.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {["Former BigLaw corporate.", "In-house availability.", "Fixed monthly fee."].map((item, i) => (
+                <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
+                  <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── What's Covered ── */}
+      <section id="coverage" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                What's Covered
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Your Legal Department, Not a Help Line
+              </h2>
+              <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+                The work a general counsel handles, from the daily contract to the deal that changes the company.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {coverage.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={i} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-50 text-brand-gold-dark flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <h3 className="font-bold text-brand-navy">{item.title}</h3>
+                  <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+                    <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-slate-900/20">
+                      <Icon className="w-6 h-6" />
                     </div>
-                    <p className="text-slate-600 text-sm leading-relaxed pl-[52px]">{item.desc}</p>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 );
               })}
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
-      </section>
-
-      {/* ── How It Works ── */}
-      <section id="how-it-works" className="py-20 bg-brand-cream relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-10 tracking-tight">
-              Three Steps. That's It.
-            </h2>
-
-            <div className="space-y-6">
-              {steps.map((step, i) => (
-                <div key={i} className="flex items-start gap-5 text-left">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-gold text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-brand-gold/25">
-                    {step.num}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-brand-navy mb-1">{step.title}</h3>
-                    <p className="text-slate-600">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10">
-              <button
-                onClick={openModal}
-                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
-              >
-                Get Started
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="py-20 bg-brand-cream relative">
+      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-8 tracking-tight">
-              Built For Entrepreneurs & Business Owners Who Are Done Overpaying
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight text-center">
+              Built for Companies That Have Outgrown Per-Matter Legal
             </h2>
 
-            <div className="space-y-4 text-left max-w-2xl mx-auto mb-6">
+            <div className="space-y-3 mb-8">
               {[
-                "You're running a real business — not a side project, not an idea on a napkin",
-                "You have legal needs that come up regularly (contracts, hiring, compliance)",
-                "You're earning $500K+ in revenue and need strategic counsel, not templates",
-                "You want to be able to text your lawyer at 9pm without getting a $200 invoice for it",
-                "You want a lawyer who leverages AI to work faster and smarter — not one stuck in 1995",
+                "Legal work comes up every month: contracts, hires, vendors, leases",
+                "You operate through multiple entities, or have partners and investors to answer to",
+                "A deal, acquisition, buyout, or restructuring is on the horizon",
+                "You want one attorney who knows the whole picture, not a new one for every matter",
+                "You need general counsel judgment, but not a $250,000 in-house seat",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200 transition-all hover:-translate-y-1 hover:shadow-xl cursor-default">
-                  <CheckCircle2 className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
-                  <span className="text-brand-navy-darker font-medium">{item}</span>
+                <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-800 font-medium">{item}</span>
                 </div>
               ))}
             </div>
 
-            <p className="text-slate-500 text-sm mb-8">
-              This is not for individuals with one-off legal questions. This is ongoing business counsel.
+            <p className="text-slate-500 text-sm text-center">
+              Need a single project handled instead? Defined projects are quoted as a fixed fee after a consultation.
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
       </section>
 
-      {/* ── Pricing ── */}
-      <section id="pricing" className="py-20 bg-white">
+      {/* ── How It Works ── */}
+      <section id="how-it-works" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Function Health-style headline */}
-            <div className="mb-12">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight text-center mx-auto max-w-4xl">
-                What could cost you{" "}
-                <span className="relative inline-block">
-                  <span className="text-red-400 line-through decoration-2">$50,000</span>
-                </span>{" "}
-                is{" "}
-                <span className="text-brand-gold">$1,500–$3,000/month</span>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                How It Works
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                3 Steps to Your Own General Counsel
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto text-center">
-                One lawsuit. One contract dispute. One employee issue. That's all it takes.
+            </div>
+
+            <div>
+              {[
+                { step: "1", title: "Book a Consultation", description: "Walk me through your business, your entities, and what's on your plate." },
+                { step: "2", title: "Set Your Monthly Retainer", description: "A fixed monthly fee scoped to your company. You know the number before we start." },
+                { step: "3", title: "I Become Your Legal Department", description: "Contracts, deals, governance, and everything in between. Call, text, or email whenever something comes up." },
+              ].map((item, index) => (
+                <div key={index} className="flex gap-6 md:gap-8 items-start relative">
+                  {index < 2 && (
+                    <div className="absolute left-[27px] md:left-[31px] top-[60px] w-0.5 h-[calc(100%-40px)] bg-slate-200" />
+                  )}
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-900/20 relative z-10">
+                    <span className="text-white font-bold text-xl">{item.step}</span>
+                  </div>
+                  <div className="pb-12 md:pb-16">
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 text-base md:text-lg leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <PrimaryButton />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Retainer ── */}
+      <section id="retainer" className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={DOT_PATTERN} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-[150px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
+                Outside General Counsel
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Your General Counsel,
+                <br />
+                <span className="text-blue-400">On a Fixed Monthly Retainer.</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
+                One senior attorney who knows your entities, your contracts, and
+                your deals. No timers. No surprise invoices.
               </p>
             </div>
 
-            {/* Tier cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8 text-left max-w-5xl mx-auto md:items-stretch md:pt-4">
-              {/* Card 1 — Essential counsel */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                <h3 className="text-xl font-bold text-brand-navy mb-2">Essential counsel</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses that need a low-volume monthly flat fee arrangement. Contract reviews, quick questions, and practical guidance before issues get expensive.
-                </p>
-              </div>
-
-              {/* Card 2 — Ongoing counsel (most popular) */}
-              <div className="relative bg-white border-2 border-brand-gold rounded-2xl p-6 shadow-xl md:-translate-y-2 hover:-translate-y-3 transition-all duration-300 flex flex-col">
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
-                  Most Popular
-                </span>
-                <h3 className="text-xl font-bold text-brand-navy mb-2">Ongoing counsel</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses that need regular legal support each month. Contracts, employment, compliance, and entity management.
-                </p>
-              </div>
-
-              {/* Card 3 — General counsel */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                <h3 className="text-xl font-bold text-brand-navy mb-2">General counsel</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  For businesses that need a lawyer embedded in operations as a true in-house legal partner. Strategy, deals, and board-level support.
-                </p>
-              </div>
-            </div>
-
-            <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto text-center mb-8">
-              Every option is a monthly flat fee — we&apos;ll match the right level of support to your business on the call.{" "}
-              <span className="font-bold text-brand-navy">Plans from $1,500/mo.</span>
-            </p>
-
-            {/* Risk Reversal */}
-            <div className="bg-brand-cream border border-slate-200 rounded-xl p-6 max-w-2xl mx-auto mb-8">
-              <div className="flex items-start gap-3">
-                <Shield className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
-                <div className="text-left">
-                  <p className="font-bold text-brand-navy mb-1">Zero-Risk Guarantee</p>
-                  <p className="text-slate-700 text-sm">
-                    Month-to-month. No long-term contracts. No cancellation fees. If it's not working, you cancel with 30 days notice. We keep it that simple because the model works — and clients stay because of the savings, not the fine print.
-                  </p>
+            <div className="grid md:grid-cols-3 gap-5 mb-10 md:pt-4">
+              {[
+                { name: "Essential Counsel", price: "From $1,500/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
+                { name: "Ongoing Counsel", price: "From $2,000/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
+                { name: "General Counsel", price: "From $3,500/mo", desc: "Embedded in-house legal partner. Strategy, deals, board-level support.", popular: false },
+              ].map((tier, i) => (
+                <div
+                  key={i}
+                  className={`relative rounded-2xl p-6 transition-all hover:-translate-y-1 ${
+                    tier.popular
+                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2"
+                      : "bg-white/10 backdrop-blur-sm border border-white/20"
+                  }`}
+                >
+                  {tier.popular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className={`text-lg font-bold mb-2 ${tier.popular ? "text-slate-900" : "text-white"}`}>{tier.name}</h3>
+                  <p className={`font-bold text-lg mb-3 ${tier.popular ? "text-blue-600" : "text-blue-400"}`}>{tier.price}</p>
+                  <p className={`text-sm leading-relaxed ${tier.popular ? "text-slate-600" : "text-slate-300"}`}>{tier.desc}</p>
                 </div>
-              </div>
+              ))}
             </div>
 
-            <button
-              onClick={openModal}
-              className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all hover:-translate-y-0.5"
-            >
-              Apply for Service
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="text-center">
+              <PrimaryButton className="px-10" />
+              <p className="text-slate-400 text-sm mt-4">
+                Month-to-month. No long-term contracts. Cancel with 30 days notice.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ── What Makes This Different ── */}
+      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest mb-4">
+                The Difference
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                What Makes This Different
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+              {[
+                { icon: Star, title: "Big-Firm Experience", description: "Trained in the corporate group of a national law firm, advising companies on real deals. The same rigor, without the big-firm overhead." },
+                { icon: DollarSign, title: "One Fixed Monthly Fee", description: "No billable hours and no meter running. Pick up the phone without wondering what it costs. Anything outside scope is flagged before work starts." },
+                { icon: UserCheck, title: "Direct Attorney Access", description: "No paralegals. No junior associates. No call centers. You work with me directly, and I know your business." },
+              ].map((item, index) => (
+                <div key={index} className="text-center md:text-left">
+                  <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-5 mx-auto md:mx-0 shadow-lg shadow-slate-900/20">
+                    <item.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TestimonialCarousel />
+
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 bg-brand-cream relative">
+      <section id="faq" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-10 text-center tracking-tight">
-              Questions? Answers.
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-12 text-center tracking-tight">
+              Questions, Answered
             </h2>
-
 
             <div className="space-y-3">
               {faqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-xl overflow-hidden bg-white">
                   <button
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-brand-cream transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
                   >
-                    <span className="font-semibold text-brand-navy pr-4">{faq.question}</span>
+                    <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
                     {openFaqIndex === index ? (
                       <ChevronUp className="w-5 h-5 text-slate-400 flex-shrink-0" />
                     ) : (
@@ -670,165 +612,18 @@ const Index = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
-      </section>
 
-      {/* ── Testimonials Carousel ── */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4 text-center tracking-tight">
-              What Clients Say
-            </h2>
-            <p className="text-lg text-slate-500 text-center mb-12 max-w-2xl mx-auto">
-              Real business owners who switched from hourly billing to flat-fee legal counsel
-            </p>
-
-            <div className="relative">
-              {/* Left scroll button */}
-              <button
-                onClick={() => scrollTestimonials('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white border border-slate-200 rounded-full p-3 shadow-lg transition-all hover:shadow-xl hover:-translate-x-1"
-                aria-label="Scroll left"
-              >
-                <ChevronLeft className="w-6 h-6 text-slate-700" />
-              </button>
-
-              {/* Right scroll button */}
-              <button
-                onClick={() => scrollTestimonials('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white border border-slate-200 rounded-full p-3 shadow-lg transition-all hover:shadow-xl hover:translate-x-1"
-                aria-label="Scroll right"
-              >
-                <ChevronRight className="w-6 h-6 text-slate-700" />
-              </button>
-
-              {/* Horizontal scroll container */}
-              <div ref={testimonialScrollRef} className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-12">
-                {[
-                  {
-                    quote: "I was paying $400/hour to a downtown firm that took 4 days to respond to emails. Josh reviewed the same vendor contract in 6 hours, caught three liability issues they missed, and saved me $2,500 on one deal. Switched immediately.",
-                    name: "Sarah Chen",
-                    title: "Founder & CEO",
-                    company: "TechFlow SaaS",
-                    revenue: "$800K ARR",
-                    location: "San Francisco, CA"
-                  },
-                  {
-                    quote: "My old attorney billed me $175 to read a two-sentence email. Now I text Josh at 9pm with contract questions and get real answers in 20 minutes. No invoice. No timer. Just actual legal counsel when I need it.",
-                    name: "Marcus Williams",
-                    title: "Owner",
-                    company: "Williams E-commerce",
-                    revenue: "$2.1M revenue",
-                    location: "Austin, TX"
-                  },
-                  {
-                    quote: "Had an employee threaten a lawsuit over termination. My previous firm quoted $8,500 just to draft a severance agreement. Josh handled the entire situation in 48 hours for zero additional cost. Crisis averted, employee settled, no lawsuit.",
-                    name: "Jennifer Park",
-                    title: "Founder",
-                    company: "Park Marketing Group",
-                    revenue: "32 employees",
-                    location: "Chicago, IL"
-                  },
-                  {
-                    quote: "We were hemorrhaging $8K-12K monthly on legal fees with a firm that took weeks to turn around basic contracts. Josh responds same-day, knows our business inside out, and the quality is better. Cut our legal spend by 65%.",
-                    name: "David Torres",
-                    title: "Co-Founder",
-                    company: "BuildRight Construction",
-                    revenue: "$5.2M revenue",
-                    location: "Phoenix, AZ"
-                  },
-                  {
-                    quote: "Needed a partnership agreement for bringing on a co-founder. Previous attorney quoted me $6,500 and 3-4 weeks. Josh delivered a custom agreement in 48 hours with better terms than I would've known to ask for. Now he's on retainer.",
-                    name: "Amanda Foster",
-                    title: "Managing Partner",
-                    company: "Foster & Associates",
-                    revenue: "Professional services",
-                    location: "Denver, CO"
-                  },
-                  {
-                    quote: "I was running my entire business on LegalZoom templates because I couldn't afford hourly billing. Josh found gaps in my operating agreement, client contracts, and IP assignment that could've bankrupted me in a dispute. Now I'm actually protected.",
-                    name: "Ryan Mitchell",
-                    title: "Founder",
-                    company: "MitchTech Consulting",
-                    revenue: "$1.2M revenue",
-                    location: "Seattle, WA"
-                  },
-                  {
-                    quote: "The psychology of flat-fee billing is underrated. I actually ask questions now instead of googling and hoping for the best. Had a trademark issue come up last month — got a 30-minute strategy call within 4 hours. No invoice. Just handled.",
-                    name: "Lisa Nguyen",
-                    title: "CEO",
-                    company: "Nguyen Digital",
-                    revenue: "$1.8M agency",
-                    location: "Los Angeles, CA"
-                  },
-                  {
-                    quote: "Josh caught a non-compete clause buried in a software vendor contract that would've prevented us from serving our three largest clients. One clause review paid for an entire year of his retainer. That's the value of having someone who actually reads.",
-                    name: "James Patterson",
-                    title: "Owner",
-                    company: "Patterson Logistics",
-                    revenue: "$3.4M revenue",
-                    location: "Dallas, TX"
-                  },
-                  {
-                    quote: "Hired my first employee and had no idea what I was doing. Josh drafted the offer letter, employment agreement, handbook, and IP assignment in 72 hours. My previous attorney would've billed $4,000+ for this. It's included in my monthly fee.",
-                    name: "Priya Sharma",
-                    title: "Founder",
-                    company: "Sharma Analytics",
-                    revenue: "$650K ARR",
-                    location: "Boston, MA"
-                  },
-                  {
-                    quote: "We were about to sign a lease on office space when Josh red-flagged a personal guarantee clause that would've put my house on the line. Renegotiated it out in 24 hours. One catch like that and you understand why you need real legal counsel, not Google.",
-                    name: "Kevin O'Brien",
-                    title: "CEO",
-                    company: "O'Brien Media Group",
-                    revenue: "42 employees",
-                    location: "Miami, FL"
-                  },
-                  {
-                    quote: "Switched from a $450/hour firm to Josh's flat-fee model and the difference is night and day. Same quality work, faster turnaround, and I don't have a panic attack every time I need legal advice. This is how legal should work.",
-                    name: "Tiffany Rodriguez",
-                    title: "Co-Founder",
-                    company: "Rodriguez & Lee CPAs",
-                    revenue: "$2.8M practice",
-                    location: "San Diego, CA"
-                  },
-                  {
-                    quote: "Had a client threatening litigation over a project dispute. Josh drafted a response letter that was firm but professional, cited case law I'd never heard of, and the client backed down within 48 hours. That's BigLaw expertise without the BigLaw bill.",
-                    name: "Michael Zhang",
-                    title: "Principal",
-                    company: "Zhang Design Studio",
-                    revenue: "18 employees",
-                    location: "Portland, OR"
-                  }
-                ].map((testimonial, i) => (
-                  <div
-                    key={i}
-                    className="flex-shrink-0 w-[90%] md:w-[450px] snap-center"
-                  >
-                    <div className="bg-brand-cream border border-slate-200 rounded-xl p-8 h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
-                      <div className="flex items-center gap-1 mb-4">
-                        {[...Array(5)].map((_, j) => (
-                          <Star key={j} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                        ))}
-                      </div>
-                      <p className="text-slate-700 leading-relaxed mb-6 flex-grow text-base">
-                        "{testimonial.quote}"
-                      </p>
-                      <div className="border-t border-slate-300 pt-4">
-                        <p className="font-bold text-brand-navy text-lg">{testimonial.name}</p>
-                        <p className="text-sm text-slate-600 font-medium">{testimonial.title}</p>
-                        <p className="text-sm text-slate-500">{testimonial.company}</p>
-                        <div className="flex items-center justify-between mt-2">
-                          <p className="text-xs text-slate-400">{testimonial.revenue}</p>
-                          <p className="text-xs text-slate-400">{testimonial.location}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            {/* Scope qualifier */}
+            <div className="mt-12 bg-white border border-slate-200 rounded-2xl px-6 py-5">
+              <p className="text-slate-900 uppercase tracking-[0.15em] text-xs font-bold text-center mb-4">
+                Business Counsel Only. Not Handled Here:
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
+                  <span key={item} className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-full px-3.5 py-1.5 text-xs font-semibold text-slate-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
@@ -837,25 +632,32 @@ const Index = () => {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-20 bg-brand-cream">
+      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy">
-              Stop Asking AI for Legal Advice.<br />
-              Start Having a Lawyer on Your Team.
-            </h2>
-            <p className="text-lg text-slate-600 max-w-xl mx-auto">
-              Apply for on-demand legal counsel. We work with a limited number of clients to ensure exceptional service and attention.
-            </p>
-            <div className="flex flex-col items-center gap-3">
+          <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            <div className="relative z-10">
+              <FileText className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Ready for a General Counsel Who Knows Your Business?
+              </h3>
+              <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Book a consultation. We'll talk through your company, what you
+                need covered, and whether a retainer is the right fit.
+              </p>
               <button
                 onClick={openModal}
-                className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
               >
-                Get Started
-                <ArrowRight className="w-5 h-5" />
+                <Phone className="w-5 h-5" />
+                Book a Consultation
               </button>
-              <p className="text-sm text-slate-500">Selective intake. Quality over quantity.</p>
             </div>
           </div>
         </div>
@@ -867,9 +669,9 @@ const Index = () => {
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-white/95 backdrop-blur-sm border-t border-slate-200 shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
         <button
           onClick={openModal}
-          className="flex items-center justify-center gap-2 w-full bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-4 px-6 rounded-xl transition-colors"
+          className="flex items-center justify-center gap-2 w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-6 rounded-xl transition-colors"
         >
-          Get Started
+          Book a Consultation
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>

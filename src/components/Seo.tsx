@@ -53,9 +53,9 @@ const PAGE_META: Record<string, PageMeta> = {
       "Attorney-formed LLCs and corporations with a custom operating agreement, EIN, and compliance guidance. Flat fee, disclosed upfront.",
   },
   "/lawyeroncall": {
-    title: "A Business Lawyer on a Flat Monthly Fee | Legal Halp",
+    title: "Outside General Counsel, Embedded in Your Business | Legal Halp",
     description:
-      "Ask a business attorney your question and get a real answer. Flat monthly pricing, no hourly billing, no obligation.",
+      "Big-firm corporate counsel on a fixed monthly retainer. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.",
   },
   "/realestate": {
     title: "Real Estate Legal Services | Legal Halp",

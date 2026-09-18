@@ -881,7 +881,7 @@ const Services: React.FC = () => {
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto">
               A defined project on a fixed fee, quoted before work begins. For ongoing
               counsel, deals, and portfolio work, see{" "}
-              <Link to="/lawyer-on-call" className="text-blue-600 font-semibold hover:underline">
+              <Link to="/outside-general-counsel" className="text-blue-600 font-semibold hover:underline">
                 Outside General Counsel
               </Link>
               .
@@ -988,7 +988,7 @@ const Services: React.FC = () => {
                 </p>
               </div>
               <Link
-                to="/lawyer-on-call"
+                to="/outside-general-counsel"
                 className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5 flex-shrink-0 whitespace-nowrap"
               >
                 See Retainer Tiers

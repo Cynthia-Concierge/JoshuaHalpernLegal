@@ -318,7 +318,7 @@ const RepresentativeMatters: React.FC = () => {
                   Schedule a Call
                 </Link>
                 <Link
-                  to="/lawyer-on-call"
+                  to="/outside-general-counsel"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-1 transition-all text-lg"
                 >
                   Outside General Counsel

@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/lawyer-on-call", "destination": "/outside-general-counsel", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]

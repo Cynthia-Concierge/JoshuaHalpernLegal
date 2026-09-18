@@ -259,7 +259,8 @@ const LawyerOnCall: React.FC = () => {
                 What's Included
               </h2>
               <p className="text-lg text-slate-500 mt-3">
-                One fee. No "that's outside scope."
+                The work a general counsel handles, under one monthly fee.
+                Major transactions are scoped with you before work starts.
               </p>
             </div>
 

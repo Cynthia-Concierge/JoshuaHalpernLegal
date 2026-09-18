@@ -17,7 +17,7 @@ const DEFAULT_META: PageMeta = {
 
 const PAGE_META: Record<string, PageMeta> = {
   "/": DEFAULT_META,
-  "/lawyer-on-call": {
+  "/outside-general-counsel": {
     title: "Outside General Counsel on a Flat Monthly Fee | Legal Halp",
     description:
       "Your in-house legal function, outsourced. Deals, governance, contracting and entity management from one senior attorney. Plans from $2,000/mo, month to month.",

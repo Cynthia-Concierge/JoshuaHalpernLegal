@@ -333,52 +333,20 @@ const Home: React.FC = () => {
               ))}
             </div>
 
-            {/* Pricing Tier Preview */}
-            <div className="grid md:grid-cols-3 gap-5 mb-10">
-              {[
-                {
-                  name: "Essential Counsel",
-                  price: "$2,000/mo",
-                  desc: "Contract reviews, quick questions, practical guidance.",
-                  popular: false,
-                },
-                {
-                  name: "Ongoing Counsel",
-                  price: "$3,500/mo",
-                  desc: "Contracts, employment, compliance, and entity management.",
-                  popular: true,
-                },
-                {
-                  name: "General Counsel",
-                  price: "From $5,000/mo",
-                  desc: "Embedded in-house legal partner. Strategy, deals, board-level support.",
-                  popular: false,
-                },
-              ].map((tier, i) => (
-                <div
-                  key={i}
-                  className={`relative rounded-2xl p-6 transition-all hover:-translate-y-1 ${
-                    tier.popular
-                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2"
-                      : "bg-white/10 backdrop-blur-sm border border-white/20"
-                  }`}
-                >
-                  {tier.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
-                      Most Popular
-                    </span>
-                  )}
-                  <h3 className={`text-lg font-bold mb-2 ${tier.popular ? "text-slate-900" : "text-white"}`}>
-                    {tier.name}
-                  </h3>
-                  <p className={`font-bold text-lg mb-3 ${tier.popular ? "text-blue-600" : "text-blue-400"}`}>
-                    {tier.price}
-                  </p>
-                  <p className={`text-sm leading-relaxed ${tier.popular ? "text-slate-600" : "text-slate-300"}`}>
-                    {tier.desc}
-                  </p>
-                </div>
-              ))}
+            {/* Retainer teaser (full plans live on /outside-general-counsel) */}
+            <div className="text-center mb-10">
+              <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-3">
+                Monthly Retainers
+              </p>
+              <p className="text-4xl md:text-5xl font-extrabold text-white">
+                From $2,000
+                <span className="text-xl md:text-2xl text-slate-400 font-semibold">/mo</span>
+              </p>
+              <p className="text-slate-300 text-base md:text-lg mt-4 max-w-xl mx-auto">
+                Three levels of support, from essential counsel to a fully
+                embedded general counsel. Your fee is set on the call, scoped
+                to your company.
+              </p>
             </div>
 
             <div className="text-center">
@@ -391,10 +359,10 @@ const Home: React.FC = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
-                  to="/lawyer-on-call"
+                  to="/outside-general-counsel"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-10 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
                 >
-                  Compare Retainer Plans
+                  See Retainer Plans
                 </Link>
               </div>
               <p className="text-slate-400 text-sm mt-4">

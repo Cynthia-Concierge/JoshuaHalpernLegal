@@ -66,7 +66,8 @@ const Layout = () => {
         <Route path="/services/brand-protection" element={<Navigate to="/services#brand" replace />} />
         <Route path="/services/real-estate-llc" element={<Navigate to="/services#realestate" replace />} />
         <Route path="/services/website-compliance" element={<Navigate to="/services#online" replace />} />
-        <Route path="/lawyer-on-call" element={<LawyerOnCall />} />
+        <Route path="/outside-general-counsel" element={<LawyerOnCall />} />
+        <Route path="/lawyer-on-call" element={<Navigate to="/outside-general-counsel" replace />} />
 
         <Route path="/representative-matters" element={<RepresentativeMatters />} />
         <Route path="/formation" element={<Formation />} />

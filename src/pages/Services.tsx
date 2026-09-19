@@ -22,6 +22,8 @@ import {
   Home,
   Globe,
   AlertTriangle,
+  ChevronLeft,
+  ChevronRight,
   Info,
   PhoneCall,
 } from "lucide-react";
@@ -844,6 +846,103 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
 );
 
 /* -------------------------------------------------- */
+/* Track Tabs                                         */
+/* -------------------------------------------------- */
+
+const TrackTabs: React.FC<{
+  categories: ServiceCategory[];
+  activeTab: string;
+  onSelect: (id: string) => void;
+}> = ({ categories, activeTab, onSelect }) => {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = React.useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, [checkScroll, categories.length]);
+
+  // Keep the selected pill visible when the tab changes from a link or hash
+  useEffect(() => {
+    const el = scrollRef.current;
+    const active = el?.querySelector<HTMLElement>("[data-active='true']");
+    active?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }, [activeTab]);
+
+  const nudge = (direction: -1 | 1) => {
+    scrollRef.current?.scrollBy({ left: direction * 220, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative flex-1 min-w-0">
+      <div
+        ref={scrollRef}
+        onScroll={checkScroll}
+        className="flex gap-1 overflow-x-auto no-scrollbar lg:flex-wrap lg:overflow-visible"
+      >
+        {categories.map((cat) => {
+          const Icon = cat.icon;
+          const isActive = cat.id === activeTab;
+          return (
+            <button
+              key={cat.id}
+              type="button"
+              data-active={isActive}
+              onClick={() => onSelect(cat.id)}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
+                isActive
+                  ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {cat.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {canScrollLeft && (
+        <>
+          <div className="lg:hidden pointer-events-none absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white to-transparent" />
+          <button
+            type="button"
+            onClick={() => nudge(-1)}
+            aria-label="Scroll categories left"
+            className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center"
+          >
+            <ChevronLeft className="w-4 h-4 text-slate-600" />
+          </button>
+        </>
+      )}
+
+      {canScrollRight && (
+        <>
+          <div className="lg:hidden pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent" />
+          <button
+            type="button"
+            onClick={() => nudge(1)}
+            aria-label="Scroll categories right"
+            className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center"
+          >
+            <ChevronRight className="w-4 h-4 text-slate-600" />
+          </button>
+        </>
+      )}
+    </div>
+  );
+};
+
+/* -------------------------------------------------- */
 /* Page Component                                     */
 /* -------------------------------------------------- */
 
@@ -913,38 +1012,29 @@ const Services: React.FC = () => {
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto py-3 space-y-2">
-            {TRACKS.map((track) => (
-              <div key={track.id} className="flex items-center gap-3">
-                <span className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-slate-400 w-28 flex-shrink-0">
-                  {track.label}
-                </span>
-                <div className="flex gap-1 overflow-x-auto no-scrollbar">
-                  {SERVICE_CATEGORIES.filter((c) => c.track === track.id).map(
-                    (cat) => {
-                      const Icon = cat.icon;
-                      const isActive = cat.id === activeTab;
-                      return (
-                        <button
-                          key={cat.id}
-                          type="button"
-                          onClick={() => {
-                            setActiveTab(cat.id);
-                          }}
-                          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
-                            isActive
-                              ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20"
-                              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                          }`}
-                        >
-                          <Icon className="w-4 h-4" />
-                          {cat.label}
-                        </button>
-                      );
-                    }
-                  )}
+            {TRACKS.map((track) => {
+              const trackCategories = SERVICE_CATEGORIES.filter(
+                (c) => c.track === track.id
+              );
+              return (
+                <div key={track.id} className="flex items-start gap-3">
+                  <span className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-slate-400 w-28 flex-shrink-0 pt-3.5 leading-none">
+                    {track.label}
+                    <span className="block mt-1 text-slate-300 normal-case tracking-normal text-[11px] font-semibold">
+                      {trackCategories.length} areas
+                    </span>
+                  </span>
+                  <TrackTabs
+                    categories={trackCategories}
+                    activeTab={activeTab}
+                    onSelect={setActiveTab}
+                  />
                 </div>
-              </div>
-            ))}
+              );
+            })}
+            <p className="lg:hidden text-[11px] text-slate-400 font-medium pt-0.5">
+              Swipe or tap the arrows to see all {SERVICE_CATEGORIES.length} practice areas.
+            </p>
           </div>
         </div>
       </section>

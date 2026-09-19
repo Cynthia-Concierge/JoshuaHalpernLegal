@@ -11,6 +11,10 @@ import {
   Building2,
   Globe,
   PenTool,
+  Handshake,
+  Layers,
+  Warehouse,
+  Gavel,
   Sparkles,
   ArrowRight,
   Star,
@@ -457,12 +461,15 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
+                { icon: Handshake, title: "Deals & Transactions", note: "Buying, selling, partner buyouts", slug: "/services#deals" },
+                { icon: Layers, title: "Governance & Entity Cleanup", note: "Operating agreements, holding companies", slug: "/services#governance" },
                 { icon: Briefcase, title: "Business Formation", note: "Entities, operating agreements, S-Corps", slug: "/services#business" },
+                { icon: Warehouse, title: "Commercial Real Estate", note: "Purchases, leases, financing review", slug: "/services#commercialre" },
                 { icon: Building2, title: "Real Estate Holding Structures", note: "LLCs, deeds, 1031 support", slug: "/services#realestate" },
                 { icon: PenTool, title: "Contract Drafting", note: "Drafting, review, negotiation", slug: "/services#contracts" },
+                { icon: Gavel, title: "Demand Letters & Disputes", note: "Demands, collections, settlements", slug: "/services#disputes" },
                 { icon: Shield, title: "Estate Planning", note: "Trusts, wills, powers of attorney", slug: "/services#family" },
                 { icon: Sparkles, title: "Brand Protection", note: "Trademarks and IP", slug: "/services#brand" },
-                { icon: Globe, title: "Website Compliance", note: "Terms, privacy, e-commerce", slug: "/services#online" },
               ].map((service, index) => (
                 <Link
                   key={index}

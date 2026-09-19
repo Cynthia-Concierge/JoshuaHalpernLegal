@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
+  DEALS_CATEGORY,
+  GOVERNANCE_CATEGORY,
+  COMMERCIAL_RE_CATEGORY,
+  DISPUTES_CATEGORY,
+  EXTRA_CONTRACT_PACKAGES,
+  EXTRA_ESTATE_PACKAGES,
+} from "./services/additional-categories";
+import {
   Scale,
   Shield,
   Phone,
@@ -49,6 +57,8 @@ interface ServiceCategory {
 /* -------------------------------------------------- */
 
 const SERVICE_CATEGORIES: ServiceCategory[] = [
+  DEALS_CATEGORY,
+  GOVERNANCE_CATEGORY,
   {
     id: "business",
     icon: Building2,
@@ -242,6 +252,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "NFA items require ATF approval. A Gun Trust simplifies the process, allows multiple people to legally possess your firearms, and avoids probate headaches when you pass away.",
         stripeLink: "https://buy.stripe.com/bJefZh3DA2nTbWhf0S3oA04",
       },
+      ...EXTRA_ESTATE_PACKAGES,
     ],
   },
   {
@@ -346,6 +357,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Handshake deals with suppliers fall apart when quality drops or deliveries are late. A solid agreement protects your supply chain and gives you recourse when things go wrong.",
         stripeLink: "https://buy.stripe.com/9B6eVd2zwbYtbWhf0S3oA05",
       },
+      ...EXTRA_CONTRACT_PACKAGES,
     ],
   },
   {
@@ -508,6 +520,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
       },
     ],
   },
+  COMMERCIAL_RE_CATEGORY,
   {
     id: "realestate",
     icon: Home,
@@ -590,6 +603,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
       },
     ],
   },
+  DISPUTES_CATEGORY,
   {
     id: "online",
     icon: Globe,

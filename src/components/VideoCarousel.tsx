@@ -262,62 +262,63 @@ const VideoCarousel: React.FC = () => {
   return (
     <section id="about" className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Meet Josh Section + Credentials */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-shrink-0 mx-auto md:mx-0">
-                <img
-                  src="/josh-halpern-headshot.png"
-                  alt="Josh Halpern"
-                  className="w-28 h-28 rounded-2xl object-cover"
-                />
+        {/* About Josh */}
+        <div className="max-w-5xl mx-auto mb-20">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
+            <div className="relative flex-shrink-0 mx-auto md:mx-0">
+              <div className="absolute -inset-3 bg-gradient-to-br from-blue-500/15 to-blue-400/5 rounded-3xl blur-xl" />
+              <img
+                src="/josh-halpern-headshot.png"
+                alt="Josh Halpern"
+                className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shadow-lg shadow-slate-900/10"
+              />
+            </div>
+            <div>
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                About
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Meet Josh Halpern
+              </h2>
+              <p className="text-slate-500 font-semibold mt-2 mb-6">Founder, Legal Halp</p>
+              <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
+                <p className="text-slate-900 font-semibold text-lg md:text-xl">
+                  BigLaw trained. Built for companies that need a lawyer who
+                  already knows the business.
+                </p>
+                <p>
+                  I left the billable hour behind to become the general counsel
+                  growing companies can't yet hire in-house. One fixed monthly
+                  fee. Call, text, or email whenever something comes up.
+                </p>
+                <p className="text-slate-900 font-semibold">
+                  Every matter is handled by me personally. Never handed off.
+                </p>
               </div>
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-1">
-                  Meet Josh Halpern
-                </h2>
-                <p className="text-brand-gold-dark font-semibold mb-4">Founder, Legal Halp</p>
-                <div className="space-y-3 text-brand-navy-darker leading-relaxed">
-                  <p className="text-lg font-semibold text-brand-navy">
-                    BigLaw trained. Built for companies that need a lawyer who already knows the business.
-                  </p>
-                  <p>
-                    I left the billable hour behind to become the general counsel growing companies can't yet hire in-house. One fixed monthly fee. Call, text, or email whenever something comes up.
-                  </p>
-                  <p className="font-semibold text-brand-navy">
-                    Every matter is handled by me personally. Never handed off.
-                  </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
+            {[
+              { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
+              { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former BigLaw Associate" },
+              { icon: Shield, primary: "Licensed in Ohio", secondary: "Partnered nationwide" },
+              { icon: FileText, primary: "1,000+", secondary: "Estate plans" },
+              { icon: Briefcase, primary: "500+", secondary: "Businesses protected" },
+              { icon: TrendingUp, primary: "$250M+", secondary: "Transactions closed" },
+            ].map(({ icon: Icon, primary, secondary }, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 bg-slate-50 hover:bg-white border border-slate-200 hover:border-slate-300 rounded-xl px-4 py-3.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-blue-600" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-slate-900 font-bold text-sm leading-tight break-words">{primary}</p>
+                  <p className="text-slate-500 text-xs leading-tight mt-0.5 break-words">{secondary}</p>
                 </div>
               </div>
-            </div>
-
-            {/* Credentials */}
-            <div className="mt-8 pt-8 border-t border-slate-100">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {[
-                  { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
-                  { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former BigLaw Associate" },
-                  { icon: Shield, primary: "Licensed in Ohio", secondary: "Partnered nationwide" },
-                  { icon: FileText, primary: "1,000+", secondary: "Estate plans" },
-                  { icon: Briefcase, primary: "500+", secondary: "Businesses protected" },
-                  { icon: TrendingUp, primary: "$250M+", secondary: "Transactions closed" },
-                ].map(({ icon: Icon, primary, secondary }, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3"
-                  >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-brand-gold-dark" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-brand-navy font-bold text-sm leading-tight break-words">{primary}</p>
-                      <p className="text-slate-500 text-xs leading-tight mt-0.5 break-words">{secondary}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -325,10 +326,10 @@ const VideoCarousel: React.FC = () => {
           {/* Header */}
           <div className="flex items-end justify-between mb-10">
             <div>
-              <span className="inline-block py-1.5 px-4 rounded-full bg-rose-50 text-rose-600 text-xs font-bold uppercase tracking-widest mb-4">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest mb-4">
                 Social Media
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-navy tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
                 Get to Know Legal Halp
               </h2>
               <p className="text-slate-500 text-lg mt-2">

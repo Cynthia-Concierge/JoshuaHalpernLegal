@@ -325,6 +325,24 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Scope qualifier, directly under the video so it is unmissable */}
+            <div className="max-w-2xl mx-auto w-full bg-white/[0.07] backdrop-blur-sm border border-white/15 rounded-2xl px-5 py-4">
+              <p className="text-blue-300 uppercase tracking-[0.15em] text-[11px] font-bold text-center mb-3">
+                Business Counsel Only. Not Handled Here:
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 rounded-full px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors duration-300"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             <div className="flex flex-col items-center gap-4">
               <PrimaryButton />
               <p className="text-slate-400 text-sm">
@@ -613,21 +631,6 @@ const Index = () => {
                   )}
                 </div>
               ))}
-            </div>
-
-            {/* Scope qualifier */}
-            <div className="mt-12 bg-white border border-slate-200 rounded-2xl px-6 py-5">
-              <p className="text-slate-900 uppercase tracking-[0.15em] text-xs font-bold text-center mb-4">
-                Business Counsel Only. Not Handled Here:
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-full px-3.5 py-1.5 text-xs font-semibold text-slate-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </div>

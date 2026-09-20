@@ -267,7 +267,7 @@ const Index = () => {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-32 lg:pt-36 lg:pb-44 overflow-hidden bg-slate-900">
+      <section className="relative pt-28 pb-44 lg:pt-36 lg:pb-60 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div className="absolute inset-0 z-0 opacity-[0.04]" style={DOT_PATTERN} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none overflow-hidden">
@@ -301,7 +301,7 @@ const Index = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2.5 bg-white/[0.12] backdrop-blur-sm border border-white/25 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm max-w-full"
+                  className="flex items-center gap-2.5 bg-white/[0.12] hover:bg-white/[0.18] backdrop-blur-sm border border-white/25 hover:border-white/40 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-default max-w-full"
                 >
                   <CheckCircle2 className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
                   <span className="leading-snug">{item}</span>
@@ -334,12 +334,14 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Bottom fade to white */}
+        {/* Bottom fade to white: tall smoothstep ramp that stays near-transparent
+            through the upper half so the dark hero carries further down, then
+            eases into white only near the section edge */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-[5] pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-80 md:h-[28rem] z-[5] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.92) 20%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.4) 62%, rgba(255,255,255,0.12) 85%, rgba(255,255,255,0) 100%)",
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.008) 18%, rgba(255,255,255,0.03) 32%, rgba(255,255,255,0.075) 45%, rgba(255,255,255,0.15) 56%, rgba(255,255,255,0.25) 66%, rgba(255,255,255,0.38) 74%, rgba(255,255,255,0.52) 81%, rgba(255,255,255,0.67) 87%, rgba(255,255,255,0.8) 92%, rgba(255,255,255,0.91) 96%, rgba(255,255,255,0.975) 98.5%, rgba(255,255,255,1) 100%)",
           }}
         />
       </section>

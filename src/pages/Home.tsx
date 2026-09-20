@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 1: Hero                               */}
       {/* ============================================= */}
-      <section className="relative pt-12 pb-40 lg:pt-20 lg:pb-56 overflow-hidden bg-slate-900">
+      <section className="relative pt-12 pb-52 lg:pt-20 lg:pb-72 overflow-hidden bg-slate-900">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div
@@ -94,7 +94,7 @@ const Home: React.FC = () => {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-2.5 bg-white/[0.12] backdrop-blur-sm border border-white/25 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm max-w-full"
+                      className="group flex items-center gap-2.5 bg-white/[0.12] hover:bg-white/[0.18] backdrop-blur-sm border border-white/25 hover:border-white/40 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-default max-w-full"
                     >
                       <CheckCircle2 className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
                       <span className="leading-snug">{item}</span>
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
                 />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-6 bg-white rounded-xl shadow-lg shadow-black/10 px-4 py-3 flex items-center gap-3">
+              <div className="absolute -bottom-4 -left-6 bg-white rounded-xl shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/15 hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-default px-4 py-3 flex items-center gap-3">
                 <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
@@ -137,7 +137,7 @@ const Home: React.FC = () => {
                 />
               </div>
               {/* Floating badge, mobile version */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-lg shadow-black/10 px-4 py-3 flex items-center gap-3">
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/15 transition-all duration-300 ease-out cursor-default px-4 py-3 flex items-center gap-3">
                 <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
@@ -150,13 +150,14 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom fade to white: eased multi-stop ramp, layered above the
-            background but below content so headline and pills stay crisp */}
+        {/* Bottom fade to white: tall smoothstep ramp that stays near-transparent
+            through the upper half so the dark hero carries further down, then
+            eases into white only near the section edge */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-48 md:h-64 z-[5] pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-80 md:h-[28rem] z-[5] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.995) 6%, rgba(255,255,255,0.97) 14%, rgba(255,255,255,0.92) 22%, rgba(255,255,255,0.845) 30%, rgba(255,255,255,0.75) 38%, rgba(255,255,255,0.64) 46%, rgba(255,255,255,0.52) 54%, rgba(255,255,255,0.4) 62%, rgba(255,255,255,0.29) 70%, rgba(255,255,255,0.19) 78%, rgba(255,255,255,0.11) 85%, rgba(255,255,255,0.05) 91%, rgba(255,255,255,0.015) 96%, rgba(255,255,255,0) 100%)",
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.008) 18%, rgba(255,255,255,0.03) 32%, rgba(255,255,255,0.075) 45%, rgba(255,255,255,0.15) 56%, rgba(255,255,255,0.25) 66%, rgba(255,255,255,0.38) 74%, rgba(255,255,255,0.52) 81%, rgba(255,255,255,0.67) 87%, rgba(255,255,255,0.8) 92%, rgba(255,255,255,0.91) 96%, rgba(255,255,255,0.975) 98.5%, rgba(255,255,255,1) 100%)",
           }}
         />
       </section>
@@ -210,7 +211,7 @@ const Home: React.FC = () => {
 
             <div className="flex flex-wrap gap-3">
               {["Former BigLaw corporate.", "In-house availability.", "Fixed monthly fee."].map((item, i) => (
-                <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
+                <span key={i} className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200/80 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-default">
                   <CheckCircle2 className="w-4 h-4 text-blue-500" />
                   {item}
                 </span>

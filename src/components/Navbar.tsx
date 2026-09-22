@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { to: "/representative-matters", label: "Representative Matters" },
   { to: "/services", label: "Project Work" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ];
 
 const MOBILE_EXTRA_LINKS = [{ to: "/faq", label: "FAQ" }];

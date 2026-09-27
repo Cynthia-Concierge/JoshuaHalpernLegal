@@ -106,6 +106,20 @@ const Contact: React.FC = () => {
       <section className="py-16 md:py-24 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
+            <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
+              <p className="text-sm font-semibold text-slate-900 mb-1">
+                Before you book, a quick note on what I do
+              </p>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                Legal Halp is a virtual business and transactional practice:
+                entity formation, contracts, real estate, estate planning, and
+                outside general counsel work. I do not take lawsuits, court
+                appearances, criminal, family, or personal injury matters. If
+                you're already in a dispute headed to court, this call isn't the
+                right fit, and your state or local bar association's lawyer
+                referral service is the fastest route to the right attorney.
+              </p>
+            </div>
             <div
               ref={containerRef}
               style={{ minWidth: "320px", height: "700px" }}

@@ -86,26 +86,26 @@ const Home: React.FC = () => {
               </div>
 
               {/* Credentials + scope, one quiet block under the CTAs */}
-              <div className="pt-6 border-t border-white/10 max-w-xl mx-auto lg:mx-0 space-y-3">
-                <ul className="flex flex-wrap justify-center lg:justify-start items-center gap-x-3 gap-y-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.14em] text-slate-300">
+              <div className="pt-8 border-t border-white/10 max-w-xl mx-auto lg:mx-0 space-y-6">
+                <ul className="space-y-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-300">
                   {[
                     "Former BigLaw Corporate Attorney",
                     "M&A, Governance & Real Estate",
                     "Outside GC to Multi-Entity Companies",
                   ].map((item, i) => (
-                    <React.Fragment key={i}>
-                      {i > 0 && (
-                        <li aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-blue-400/70" />
-                      )}
-                      <li>{item}</li>
-                    </React.Fragment>
+                    <li key={i} className="flex items-center justify-center lg:justify-start gap-3">
+                      <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  <AlertTriangle className="inline w-3.5 h-3.5 text-amber-400 mr-1.5 -mt-0.5" />
-                  <span className="text-slate-200 font-semibold">Business and transactional matters only.</span>{" "}
-                  No litigation, court appearances, criminal, family, or personal injury cases.
-                </p>
+                <div className="flex items-start justify-center lg:justify-start gap-2.5 text-[13px] text-slate-400 leading-relaxed">
+                  <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-left">
+                    <span className="text-slate-200 font-semibold">Business and transactional matters only.</span>{" "}
+                    No litigation, court appearances, criminal, family, or personal injury cases.
+                  </p>
+                </div>
               </div>
             </div>
 

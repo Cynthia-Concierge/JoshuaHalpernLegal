@@ -85,30 +85,27 @@ const Home: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Scope notice */}
-              <p className="text-sm text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0 !mt-5">
-                <AlertTriangle className="inline w-3.5 h-3.5 text-amber-400 mr-1.5 -mt-0.5" />
-                <span className="text-slate-200 font-semibold">Business and transactional matters only.</span>{" "}
-                No litigation, court appearances, criminal, family, or personal injury cases.
-              </p>
-
-              {/* Trust Bar */}
-              <div className="pt-6">
-                <div className="flex flex-col items-stretch sm:items-center sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start gap-2.5">
+              {/* Credentials + scope, one quiet block under the CTAs */}
+              <div className="pt-6 border-t border-white/10 max-w-xl mx-auto lg:mx-0 space-y-3">
+                <ul className="flex flex-wrap justify-center lg:justify-start items-center gap-x-3 gap-y-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.14em] text-slate-300">
                   {[
                     "Former BigLaw Corporate Attorney",
                     "M&A, Governance & Real Estate",
                     "Outside GC to Multi-Entity Companies",
                   ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="group flex items-center gap-2.5 bg-white/[0.12] hover:bg-white/[0.18] backdrop-blur-sm border border-white/25 hover:border-white/40 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-default max-w-full"
-                    >
-                      <CheckCircle2 className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
-                      <span className="leading-snug">{item}</span>
-                    </div>
+                    <React.Fragment key={i}>
+                      {i > 0 && (
+                        <li aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-blue-400/70" />
+                      )}
+                      <li>{item}</li>
+                    </React.Fragment>
                   ))}
-                </div>
+                </ul>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  <AlertTriangle className="inline w-3.5 h-3.5 text-amber-400 mr-1.5 -mt-0.5" />
+                  <span className="text-slate-200 font-semibold">Business and transactional matters only.</span>{" "}
+                  No litigation, court appearances, criminal, family, or personal injury cases.
+                </p>
               </div>
             </div>
 

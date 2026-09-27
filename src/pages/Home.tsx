@@ -84,16 +84,13 @@ const Home: React.FC = () => {
                   See Representative Matters
                 </Link>
               </div>
+
               {/* Scope notice */}
-              <div className="flex justify-center lg:justify-start">
-                <p className="inline-flex items-start sm:items-center gap-2 bg-amber-400/10 border border-amber-400/30 text-amber-100 text-xs sm:text-sm rounded-xl sm:rounded-full px-4 py-2 max-w-xl text-left">
-                  <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5 sm:mt-0" />
-                  <span>
-                    <span className="font-bold">Business and transactional matters only.</span>{" "}
-                    No litigation, court appearances, criminal, family, or personal injury cases.
-                  </span>
-                </p>
-              </div>
+              <p className="text-sm text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0 !mt-5">
+                <AlertTriangle className="inline w-3.5 h-3.5 text-amber-400 mr-1.5 -mt-0.5" />
+                <span className="text-slate-200 font-semibold">Business and transactional matters only.</span>{" "}
+                No litigation, court appearances, criminal, family, or personal injury cases.
+              </p>
 
               {/* Trust Bar */}
               <div className="pt-6">

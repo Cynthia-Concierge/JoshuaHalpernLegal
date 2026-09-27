@@ -338,7 +338,7 @@ const RepresentativeMatters: React.FC = () => {
           <img
             src="/logo.png"
             alt="Legal Halp"
-            className="h-10 brightness-0 invert opacity-80 mb-1 mx-auto"
+            className="h-10 mb-1 mx-auto"
           />
           <p className="text-sm text-slate-500 mb-5">by Joshua Halpern, Esq.</p>
 

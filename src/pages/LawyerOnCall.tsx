@@ -518,7 +518,7 @@ const LawyerOnCall: React.FC = () => {
             <img
               src="/logo.png"
               alt="Legal Halp"
-              className="h-10 brightness-0 invert opacity-80 mb-1"
+              className="h-10 mb-1"
             />
             <p className="text-sm text-slate-500 mt-1">
               by Joshua Halpern, Esq.

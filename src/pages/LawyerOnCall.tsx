@@ -516,7 +516,7 @@ const LawyerOnCall: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-col items-center mb-6">
             <img
-              src="/logo.png"
+              src="/logo-white.svg"
               alt="Legal Halp"
               className="h-10 mb-1"
             />

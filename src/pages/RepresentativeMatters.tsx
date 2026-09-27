@@ -336,7 +336,7 @@ const RepresentativeMatters: React.FC = () => {
       <footer className="bg-slate-950 text-slate-400 py-10 border-t border-slate-800">
         <div className="container mx-auto px-4 text-center">
           <img
-            src="/logo.png"
+            src="/logo-white.svg"
             alt="Legal Halp"
             className="h-10 mb-1 mx-auto"
           />

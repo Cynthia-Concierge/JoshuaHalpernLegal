@@ -55,7 +55,8 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ title, effectiveDate,
     <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 text-center">
         <div className="flex flex-col items-center mb-6">
-          <img src="/logo-white.svg" alt="Legal Halp" className="h-10 mb-1" />
+          <img src="/logo-white.svg" alt="Legal Halp" className="h-10 mb-4" />
+          <p className="text-sm text-slate-500">Legal Halp</p>
           <p className="text-sm text-slate-500 mt-1">by Joshua Halpern, Esq.</p>
         </div>
         <div className="flex justify-center flex-wrap gap-6 mb-6 text-sm">

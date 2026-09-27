@@ -148,8 +148,9 @@ const BookingThankYou: React.FC = () => {
             <img
               src="/logo-white.svg"
               alt="Legal Halp"
-              className="h-10 mb-1"
+              className="h-10 mb-4"
             />
+            <p className="text-sm text-slate-500">Legal Halp</p>
             <p className="text-sm text-slate-500 mt-1">
               by Joshua Halpern, Esq.
             </p>

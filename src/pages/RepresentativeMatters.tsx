@@ -338,8 +338,9 @@ const RepresentativeMatters: React.FC = () => {
           <img
             src="/logo-white.svg"
             alt="Legal Halp"
-            className="h-10 mb-1 mx-auto"
+            className="h-10 mb-4 mx-auto"
           />
+          <p className="text-sm text-slate-500">Legal Halp</p>
           <p className="text-sm text-slate-500 mb-5">by Joshua Halpern, Esq.</p>
 
           <div className="flex justify-center gap-6 mb-5 text-sm">

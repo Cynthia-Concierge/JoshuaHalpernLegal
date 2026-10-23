@@ -121,7 +121,7 @@ const RealEstate = () => {
   const pricingTiers = [
     {
       name: "Essential",
-      price: "$1,500",
+      price: "$2,500",
       desc: "For investors with 1–5 properties",
       features: [
         "Closing review and contract drafting",
@@ -133,7 +133,7 @@ const RealEstate = () => {
     },
     {
       name: "Business",
-      price: "$2,500",
+      price: "$4,000",
       desc: "For investors with 5–20 doors and active dealflow",
       features: [
         "Everything in Essential, plus:",
@@ -147,7 +147,7 @@ const RealEstate = () => {
     },
     {
       name: "Full-Service",
-      price: "$5,000",
+      price: "$6,000",
       desc: "For investors with 20+ doors / active acquisition",
       features: [
         "Everything in Business, plus:",
@@ -492,7 +492,7 @@ const RealEstate = () => {
                   <span className="text-red-400 line-through decoration-2">$50,000</span>
                 </span>{" "}
                 is{" "}
-                <span className="text-brand-gold">$1,500/month</span>
+                <span className="text-brand-gold">$2,500/month</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto text-center">
                 One bad closing. One overcharging vendor. One tenant claim that reaches your personal assets. That's all it takes.

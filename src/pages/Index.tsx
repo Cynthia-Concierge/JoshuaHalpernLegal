@@ -534,9 +534,9 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-5 mb-10 md:pt-4">
               {[
-                { name: "Essential Counsel", price: "$2,000/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
-                { name: "Ongoing Counsel", price: "$3,500/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
-                { name: "General Counsel", price: "From $5,000/mo", desc: "Embedded in-house legal partner. Strategy, deals, board-level support.", popular: false },
+                { name: "Essential Counsel", price: "$2,500/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
+                { name: "Ongoing Counsel", price: "$4,000/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
+                { name: "General Counsel", price: "From $6,000/mo", desc: "Embedded in-house legal partner. Strategy, deals, board-level support.", popular: false },
               ].map((tier, i) => (
                 <div
                   key={i}

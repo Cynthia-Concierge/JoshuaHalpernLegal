@@ -101,7 +101,7 @@ const faqs = [
 const pricingTiers = [
   {
     name: "Essential Counsel",
-    price: "$2,000/mo",
+    price: "$2,500/mo",
     description:
       "Contract review, quick calls, and guidance before issues get expensive.",
     features: [
@@ -115,7 +115,7 @@ const pricingTiers = [
   },
   {
     name: "Ongoing Counsel",
-    price: "$3,500/mo",
+    price: "$4,000/mo",
     description:
       "Regular support. Contracting, employment, compliance, entity management.",
     features: [
@@ -130,7 +130,7 @@ const pricingTiers = [
   },
   {
     name: "General Counsel",
-    price: "From $5,000/mo",
+    price: "From $6,000/mo",
     description:
       "The in-house legal function, outsourced. For companies running real deals.",
     features: [

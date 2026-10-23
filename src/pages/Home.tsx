@@ -349,7 +349,7 @@ const Home: React.FC = () => {
                 Monthly Retainers
               </p>
               <p className="text-4xl md:text-5xl font-extrabold text-white">
-                From $2,000
+                From $2,500
                 <span className="text-xl md:text-2xl text-slate-400 font-semibold">/mo</span>
               </p>
               <p className="text-slate-300 text-base md:text-lg mt-4 max-w-xl mx-auto">

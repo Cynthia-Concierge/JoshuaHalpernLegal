@@ -29,6 +29,7 @@ import {
   Star,
   UserCheck,
   FileText,
+  XCircle,
 } from "lucide-react";
 
 const DOT_PATTERN = {
@@ -369,37 +370,76 @@ const Index = () => {
       {/* ── The Gap ── */}
       <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
-              The Gap Between a Law Firm and a General Counsel
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-12 tracking-tight leading-tight text-center">
+              Two Bad Options. One Better One.
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10">
-              Most growing companies are stuck between two bad options.
-            </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 mb-10">
+            <div className="grid md:grid-cols-3 gap-5 md:items-stretch">
               {[
-                { label: "Outside firm, per matter", problem: "Senior rates to someone who relearns your business every time." },
-                { label: "In-house counsel", problem: "$250,000 and up, long before the workload justifies the seat." },
-              ].map((item, i) => (
-                <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{item.label}</p>
-                  <p className="text-slate-700 leading-relaxed">{item.problem}</p>
+                {
+                  label: "Law Firm",
+                  price: "$400+/hr",
+                  highlight: false,
+                  points: [
+                    { good: false, text: "Billed by the hour" },
+                    { good: false, text: "Relearns your business" },
+                    { good: false, text: "Surprise invoices" },
+                  ],
+                },
+                {
+                  label: "In-House Hire",
+                  price: "$250K+/yr",
+                  highlight: false,
+                  points: [
+                    { good: true, text: "Knows your business" },
+                    { good: false, text: "Salary, benefits, overhead" },
+                    { good: false, text: "Full-time cost, part-time need" },
+                  ],
+                },
+                {
+                  label: "Legal Halp",
+                  price: "From $2,500/mo",
+                  highlight: true,
+                  points: [
+                    { good: true, text: "Knows your business" },
+                    { good: true, text: "One fixed monthly fee" },
+                    { good: true, text: "Former BigLaw corporate" },
+                  ],
+                },
+              ].map((col, i) => (
+                <div
+                  key={i}
+                  className={`relative rounded-2xl p-6 md:p-8 ${
+                    col.highlight
+                      ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 md:-translate-y-2"
+                      : "bg-slate-50 border border-slate-200"
+                  }`}
+                >
+                  {col.highlight && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                      The Better Option
+                    </span>
+                  )}
+                  <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
+                    {col.label}
+                  </p>
+                  <p className={`text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
+                    {col.price}
+                  </p>
+                  <ul className="space-y-3">
+                    {col.points.map((p, j) => (
+                      <li key={j} className="flex items-center gap-3">
+                        {p.good ? (
+                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 ${col.highlight ? "text-blue-400" : "text-emerald-500"}`} />
+                        ) : (
+                          <XCircle className="w-5 h-5 flex-shrink-0 text-red-400" />
+                        )}
+                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-700"}`}>{p.text}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-
-            <p className="text-xl md:text-2xl font-semibold text-slate-900 leading-snug mb-6">
-              Legal Halp is the third option: the general counsel function on a
-              fixed monthly fee.
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              {["Former BigLaw corporate.", "One attorney on every matter.", "Fixed monthly fee."].map((item, i) => (
-                <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
-                  <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                  {item}
-                </span>
               ))}
             </div>
           </div>

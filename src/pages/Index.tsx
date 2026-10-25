@@ -371,9 +371,14 @@ const Index = () => {
       <section className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-12 tracking-tight leading-tight text-center">
-              Two Bad Options. One Better One.
-            </h2>
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                The Comparison
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Two Bad Options. One Better One.
+              </h2>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-5 md:items-stretch">
               {[

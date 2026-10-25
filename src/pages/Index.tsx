@@ -126,11 +126,11 @@ const Index = () => {
   const faqs = [
     {
       question: "What does \"embedded\" actually mean?",
-      answer: "It means you have one senior attorney who learns your entities, your contracts, your people, and your deals, and stays with you month after month. You call, text, or email directly. I join the calls with counterparties, lenders, brokers, and your CPA. You stop re-explaining your business every time something comes up.",
+      answer: "It means you have one senior attorney who learns your entities, your contracts, your people, and your deals, and stays with you month after month. You email me directly, and urgent matters get a call. I join the calls with counterparties, lenders, brokers, and your CPA. You stop re-explaining your business every time something comes up.",
     },
     {
       question: "How is this different from hiring a law firm?",
-      answer: "A firm bills by the hour and staffs your matter with whoever is available. Here, you have a fixed monthly fee and the same senior attorney on everything. No timers, no surprise invoices, and no hesitation about picking up the phone.",
+      answer: "A firm bills by the hour and staffs your matter with whoever is available. Here, you have a fixed monthly fee and the same senior attorney on everything. No timers, no surprise invoices, and no hesitation about reaching out.",
     },
     {
       question: "Can you handle M&A and larger transactions?",
@@ -146,7 +146,7 @@ const Index = () => {
     },
     {
       question: "How fast do you respond?",
-      answer: "Same business day on Ongoing and General Counsel retainers, and within 24 to 48 hours on Essential. Deal deadlines and urgent matters are always prioritized.",
+      answer: "Email is the main channel. Replies come within one business day on Ongoing and General Counsel retainers, and within two business days on Essential. Business hours are 9 to 5 on business days. Urgent matters get a call, and deal deadlines are always prioritized.",
     },
     {
       question: "Do you use AI?",
@@ -346,7 +346,7 @@ const Index = () => {
             <div className="flex flex-col items-center gap-4">
               <PrimaryButton />
               <p className="text-slate-400 text-sm">
-                15-minute call. Fixed monthly fee, quoted before we start.
+                Retainers from $2,500/month. 15-minute call.
               </p>
             </div>
           </div>
@@ -395,7 +395,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              {["Former BigLaw corporate.", "In-house availability.", "Fixed monthly fee."].map((item, i) => (
+              {["Former BigLaw corporate.", "One attorney on every matter.", "Fixed monthly fee."].map((item, i) => (
                 <span key={i} className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 font-semibold px-4 py-2 rounded-lg text-base">
                   <CheckCircle2 className="w-4 h-4 text-blue-500" />
                   {item}
@@ -486,7 +486,7 @@ const Index = () => {
               {[
                 { step: "1", title: "Book a Consultation", description: "Walk me through your business, your entities, and what's on your plate." },
                 { step: "2", title: "Set Your Monthly Retainer", description: "A fixed monthly fee scoped to your company. You know the number before we start." },
-                { step: "3", title: "I Become Your Legal Department", description: "Contracts, deals, governance, and everything in between. Call, text, or email whenever something comes up." },
+                { step: "3", title: "I Become Your Outside General Counsel", description: "Contracts, deals, governance, and everything in between. Email whenever something comes up. Urgent matters get a call." },
               ].map((item, index) => (
                 <div key={index} className="flex gap-6 md:gap-8 items-start relative">
                   {index < 2 && (
@@ -536,7 +536,7 @@ const Index = () => {
               {[
                 { name: "Essential Counsel", price: "$2,500/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
                 { name: "Ongoing Counsel", price: "$4,000/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
-                { name: "General Counsel", price: "From $6,000/mo", desc: "Embedded in-house legal partner. Strategy, deals, board-level support.", popular: false },
+                { name: "General Counsel", price: "From $6,000/mo", desc: "Your outside general counsel. Strategy, deals, board-level support.", popular: false },
               ].map((tier, i) => (
                 <div
                   key={i}
@@ -557,6 +557,10 @@ const Index = () => {
                 </div>
               ))}
             </div>
+
+            <p className="text-center text-slate-300 text-base md:text-lg mb-8">
+              About $30K a year, compared with $250K or more for an in-house hire.
+            </p>
 
             <div className="text-center">
               <PrimaryButton className="px-10" />
@@ -584,7 +588,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
               {[
                 { icon: Star, title: "Big-Firm Experience", description: "Trained in the corporate group of a national law firm, advising companies on real deals. The same rigor, without the big-firm overhead." },
-                { icon: DollarSign, title: "One Fixed Monthly Fee", description: "No billable hours and no meter running. Pick up the phone without wondering what it costs. Anything outside scope is flagged before work starts." },
+                { icon: DollarSign, title: "One Fixed Monthly Fee", description: "No billable hours and no meter running. Reach out without wondering what it costs. Anything outside scope is flagged before work starts." },
                 { icon: UserCheck, title: "Direct Attorney Access", description: "No paralegals. No junior associates. No call centers. You work with me directly, and I know your business." },
               ].map((item, index) => (
                 <div key={index} className="text-center md:text-left">

@@ -11,13 +11,6 @@ interface Testimonial {
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "I was quoted $3,500 by another firm to set up my LLC. Josh did it for $1,000, explained everything clearly, and I had my operating agreement in 5 days. This is how legal services should work.",
-    name: "Sarah K.",
-    role: "Wellness Studio Owner",
-    service: "LLC Formation",
-  },
-  {
-    quote:
       "We'd been putting off estate planning for years because lawyers made it feel so complicated and expensive. Josh made it simple. We finally have peace of mind knowing our kids are taken care of.",
     name: "Mike & Lisa T.",
     role: "Real Estate Investors",
@@ -53,7 +46,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "Having Josh on retainer is like having a general counsel without the $250k salary. I text him about contract questions, vendor issues, whatever comes up. Flat monthly fee, no meter running. It's changed how I run my business.",
+      "Having Josh on retainer is like having a general counsel without the $250k salary. I email him about contract questions, vendor issues, whatever comes up. Flat monthly fee, no meter running. It's changed how I run my business.",
     name: "Chris M.",
     role: "Manufacturing Company CEO",
     service: "Lawyer-on-Call",

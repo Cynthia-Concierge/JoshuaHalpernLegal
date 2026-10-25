@@ -53,9 +53,9 @@ export default async function handler() {
       },
       [
         h('div', { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, [
-          h('div', { display: 'flex', alignItems: 'center', fontSize: 32, fontWeight: 800 }, [
-            { type: 'img', props: { src: LOGO, width: 34, height: 46, style: { marginRight: 16 } } },
-            'Legal Halp',
+          h('div', { display: 'flex', alignItems: 'center', background: '#ffffff', borderRadius: 14, padding: '10px 18px' }, [
+            // The same logo file used in the site navigation (1093x315).
+            { type: 'img', props: { src: 'https://legalhalplaw.com/logo.png', width: 174, height: 50 } },
           ]),
           h(
             'div',

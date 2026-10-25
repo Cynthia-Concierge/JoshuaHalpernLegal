@@ -91,7 +91,7 @@ const Index = () => {
     const ogTitle = "Outside General Counsel, Embedded in Your Business | Legal Halp";
     const ogDesc =
       "Big-firm corporate counsel on a fixed monthly retainer. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.";
-    const ogImage = "https://legalhalplaw.com/api/og?v=2";
+    const ogImage = "https://legalhalplaw.com/api/og?v=3";
 
     document.title = ogTitle;
 

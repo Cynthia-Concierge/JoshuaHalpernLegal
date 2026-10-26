@@ -91,7 +91,7 @@ const Index = () => {
     const ogTitle = "Outside General Counsel, Embedded in Your Business | Legal Halp";
     const ogDesc =
       "Big-firm corporate counsel on a fixed monthly retainer. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.";
-    const ogImage = "https://legalhalplaw.com/api/og?v=3";
+    const ogImage = "https://legalhalplaw.com/api/og?v=4";
 
     document.title = ogTitle;
 
@@ -139,7 +139,7 @@ const Index = () => {
     },
     {
       question: "Is a real attorney handling my work?",
-      answer: "Yes. I'm Joshua Halpern, a former BigLaw corporate attorney, and I personally handle every client. No paralegals, no junior associates, no call center.",
+      answer: "Yes. I'm Joshua Halpern. I trained in the corporate group of a national law firm, and I personally handle every client. No paralegals, no junior associates, no call center.",
     },
     {
       question: "What's not included?",
@@ -296,7 +296,7 @@ const Index = () => {
             {/* Trust Bar */}
             <div className="flex flex-col items-stretch sm:items-center sm:flex-row sm:flex-wrap sm:justify-center gap-2.5">
               {[
-                "Former BigLaw Corporate Attorney",
+                "Big-Firm M&A and Corporate Experience",
                 "M&A, Governance & Real Estate",
                 "Outside GC to Multi-Entity Companies",
               ].map((item, i) => (

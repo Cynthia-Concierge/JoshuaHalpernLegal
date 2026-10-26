@@ -78,8 +78,7 @@ export default async function handler() {
           h('div', { display: 'flex', color: '#60a5fa' }, 'On a Fixed Monthly Fee.'),
         ]),
         h('div', { display: 'flex', marginTop: 'auto' }, [
-          chip('Former BigLaw Corporate Attorney'),
-          chip('M&A, Governance & Real Estate'),
+          chip('Big-Firm M&A and Corporate Experience'),
           chip('No Hourly Billing'),
         ]),
       ]

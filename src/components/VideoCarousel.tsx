@@ -283,13 +283,13 @@ const VideoCarousel: React.FC = () => {
               <p className="text-slate-500 font-semibold mt-2 mb-6">Founder, Legal Halp</p>
               <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p className="text-slate-900 font-semibold text-lg md:text-xl">
-                  BigLaw trained. Built for companies that need a lawyer who
+                  Big-firm trained. Built for companies that need a lawyer who
                   already knows the business.
                 </p>
                 <p>
                   I left the billable hour behind to become the general counsel
                   growing companies can't yet hire in-house. One fixed monthly
-                  fee. Call, text, or email whenever something comes up.
+                  fee. Email whenever something comes up; urgent matters get a call.
                 </p>
                 <p className="text-slate-900 font-semibold">
                   Every matter is handled by me personally. Never handed off.
@@ -300,7 +300,7 @@ const VideoCarousel: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
             {[
               { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
-              { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former BigLaw Associate" },
+              { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former Corporate Associate" },
               { icon: Shield, primary: "Licensed in Ohio", secondary: "Partnered nationwide" },
               { icon: FileText, primary: "1,000+", secondary: "Estate plans" },
               { icon: Briefcase, primary: "500+", secondary: "Businesses protected" },

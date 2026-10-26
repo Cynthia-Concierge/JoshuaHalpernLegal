@@ -69,7 +69,7 @@ const faqs = [
   {
     question: "Is a real attorney handling my work?",
     answer:
-      "Yes. I'm Josh Halpern, 10+ years of corporate and transactional practice including BigLaw. I handle every matter personally.",
+      "Yes. I'm Josh Halpern, 10+ years of corporate and transactional practice, including at a national law firm. I handle every matter personally.",
   },
   {
     question: "Do you handle acquisitions and larger transactions?",
@@ -225,7 +225,7 @@ const LawyerOnCall: React.FC = () => {
             <div className="pt-4">
               <div className="flex flex-wrap items-center justify-center gap-2.5">
                 {[
-                  { icon: GraduationCap, label: "Former BigLaw Corporate Attorney" },
+                  { icon: GraduationCap, label: "Big-Firm M&A and Corporate Experience" },
                   { icon: Scale, label: "10+ Years Transactional Practice" },
                   { icon: Handshake, label: "M&A & Deal Execution" },
                   { icon: Star, label: "Month-to-Month" },

@@ -94,7 +94,7 @@ const RealEstate = () => {
     },
     {
       question: "Is a real attorney handling my work?",
-      answer: "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of experience, including BigLaw. I personally handle every client. You're never talking to a paralegal or a chatbot."
+      answer: "Yes. I'm Josh Halpern, a licensed attorney with 10+ years of experience, including at a national law firm. I personally handle every client. You're never talking to a paralegal or a chatbot."
     },
     {
       question: "Can you handle work in any state?",
@@ -271,7 +271,7 @@ const RealEstate = () => {
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="w-4 h-4 text-brand-gold" />
-                <span>Former BigLaw Attorney</span>
+                <span>Big-Firm Trained Attorney</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Scale className="w-4 h-4 text-brand-gold" />

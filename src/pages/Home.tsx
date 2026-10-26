@@ -90,7 +90,7 @@ const Home: React.FC = () => {
               <div className="pt-8 border-t border-white/10 max-w-xl mx-auto lg:mx-0 space-y-6">
                 <ul className="space-y-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-300">
                   {[
-                    "Former BigLaw Corporate Attorney",
+                    "Big-Firm M&A and Corporate Experience",
                     "M&A, Governance & Real Estate",
                     "Outside GC to Multi-Entity Companies",
                   ].map((item, i) => (

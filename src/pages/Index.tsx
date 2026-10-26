@@ -409,7 +409,7 @@ const Index = () => {
                   points: [
                     { good: true, text: "Knows your business" },
                     { good: true, text: "One fixed monthly fee" },
-                    { good: true, text: "Former BigLaw corporate" },
+                    { good: true, text: "Big-firm deal experience" },
                   ],
                 },
               ].map((col, i) => (

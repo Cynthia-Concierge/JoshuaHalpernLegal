@@ -1108,7 +1108,7 @@ const Services: React.FC = () => {
                 <p className="text-slate-600 leading-relaxed">
                   Deals, governance, and day-to-day legal support run through
                   the Outside General Counsel retainer, priced monthly rather
-                  than per matter. Acquisitions and larger deals are scoped on a call.
+                  than per matter.
                 </p>
               </div>
               <Link

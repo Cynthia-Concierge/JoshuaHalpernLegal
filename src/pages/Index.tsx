@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import HeroFade from "@/components/HeroFade";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
@@ -268,7 +269,7 @@ const Index = () => {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-slate-900">
+      <section className="relative pt-28 pb-28 lg:pt-36 lg:pb-40 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div className="absolute inset-0 z-0 opacity-[0.04]" style={DOT_PATTERN} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none">
@@ -353,6 +354,7 @@ const Index = () => {
           </div>
         </div>
 
+        <HeroFade to="slate" />
       </section>
 
       <VideoCarousel />

@@ -1,4 +1,5 @@
 import SiteFooter from "@/components/SiteFooter";
+import HeroFade from "@/components/HeroFade";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -174,6 +175,7 @@ const Formation: React.FC = () => {
           </div>
         </div>
 
+        <HeroFade to="white" />
       </section>
 
       {/* Trust Bar */}

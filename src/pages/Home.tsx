@@ -1,4 +1,5 @@
 import SiteFooter from "@/components/SiteFooter";
+import HeroFade from "@/components/HeroFade";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 1: Hero                               */}
       {/* ============================================= */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-slate-900">
+      <section className="relative pt-12 pb-28 lg:pt-20 lg:pb-40 overflow-hidden bg-slate-900">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div
@@ -159,8 +160,7 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero flows straight into the dark General Counsel section; a faint hairline marks the break */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent z-[5] pointer-events-none" />
+        <HeroFade to="slate" />
       </section>
 
       {/* ============================================= */}
@@ -168,30 +168,20 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       <section
         id="retainer"
-        className="py-20 md:py-28 bg-slate-900 relative overflow-hidden"
+        className="py-20 md:py-28 bg-slate-50 relative overflow-hidden"
       >
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-[150px] pointer-events-none" />
-
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
                 Outside General Counsel
               </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Your General Counsel,
                 <br />
-                <span className="text-blue-400">On a Fixed Monthly Retainer.</span>
+                <span className="text-blue-600">On a Fixed Monthly Retainer.</span>
               </h2>
-              <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
                 One senior attorney who knows your entities, your contracts, and
                 your deals. No timers. No surprise invoices.
               </p>
@@ -209,39 +199,39 @@ const Home: React.FC = () => {
               ].map(({ icon: Icon, text }, i) => (
                 <div
                   key={i}
-                  className="group relative overflow-hidden flex items-center gap-3 bg-white/[0.06] border border-white/10 rounded-xl px-4 py-3.5 cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/[0.1] hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20"
+                  className="group relative overflow-hidden flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-3.5 cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10"
                 >
                   {/* Light sweep on hover */}
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+                    className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
                   />
                   {/* Accent bar */}
                   <span
                     aria-hidden="true"
-                    className="absolute left-0 top-0 h-full w-1 bg-blue-400 scale-y-0 origin-center transition-transform duration-300 ease-out group-hover:scale-y-100"
+                    className="absolute left-0 top-0 h-full w-1 bg-blue-500 scale-y-0 origin-center transition-transform duration-300 ease-out group-hover:scale-y-100"
                   />
-                  <div className="relative flex-shrink-0 w-9 h-9 rounded-lg bg-blue-500/15 border border-blue-400/20 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-500 group-hover:border-blue-400 group-hover:scale-110 group-hover:-rotate-6">
-                    <Icon className="w-[18px] h-[18px] text-blue-300 transition-colors duration-300 group-hover:text-white" />
+                  <div className="relative flex-shrink-0 w-9 h-9 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:scale-110 group-hover:-rotate-6">
+                    <Icon className="w-[18px] h-[18px] text-blue-600 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="relative text-white font-medium transition-transform duration-300 group-hover:translate-x-0.5">
+                  <span className="relative text-slate-800 font-medium transition-transform duration-300 group-hover:translate-x-0.5">
                     {text}
                   </span>
-                  <CheckCircle2 className="relative ml-auto w-4 h-4 text-blue-400 flex-shrink-0 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                  <CheckCircle2 className="relative ml-auto w-4 h-4 text-blue-500 flex-shrink-0 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                 </div>
               ))}
             </div>
 
             {/* Retainer teaser (full plans live on /outside-general-counsel) */}
             <div className="text-center mb-10">
-              <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-3">
+              <p className="text-blue-600 text-xs font-bold uppercase tracking-widest mb-3">
                 Monthly Retainers
               </p>
-              <p className="text-4xl md:text-5xl font-extrabold text-white">
+              <p className="text-4xl md:text-5xl font-extrabold text-slate-900">
                 From $2,500
-                <span className="text-xl md:text-2xl text-slate-400 font-semibold">/mo</span>
+                <span className="text-xl md:text-2xl text-slate-500 font-semibold">/mo</span>
               </p>
-              <p className="text-slate-300 text-base md:text-lg mt-4 max-w-xl mx-auto">
+              <p className="text-slate-600 text-base md:text-lg mt-4 max-w-xl mx-auto">
                 Three levels of support, from essential counsel to a fully
                 embedded general counsel. Your fee is set on the call, scoped
                 to your company.
@@ -252,19 +242,19 @@ const Home: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
                 >
                   Book a Consultation
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   to="/outside-general-counsel"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-10 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-bold py-4 px-10 rounded-xl border border-slate-300 hover:border-slate-400 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
                 >
                   See Retainer Plans
                 </Link>
               </div>
-              <p className="text-slate-400 text-sm mt-4">
+              <p className="text-slate-500 text-sm mt-4">
                 Month-to-month. No long-term contracts. Cancel with 30 days notice.
               </p>
             </div>

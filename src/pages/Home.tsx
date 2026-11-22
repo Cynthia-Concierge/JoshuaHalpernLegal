@@ -34,7 +34,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 1: Hero                               */}
       {/* ============================================= */}
-      <section className="relative pt-12 pb-52 lg:pt-20 lg:pb-72 overflow-hidden bg-slate-900">
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-slate-900">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div
@@ -159,16 +159,8 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom fade to white: tall smoothstep ramp that stays near-transparent
-            through the upper half so the dark hero carries further down, then
-            eases into white only near the section edge */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-80 md:h-[28rem] z-[5] pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.008) 18%, rgba(255,255,255,0.03) 32%, rgba(255,255,255,0.075) 45%, rgba(255,255,255,0.15) 56%, rgba(255,255,255,0.25) 66%, rgba(255,255,255,0.38) 74%, rgba(255,255,255,0.52) 81%, rgba(255,255,255,0.67) 87%, rgba(255,255,255,0.8) 92%, rgba(255,255,255,0.91) 96%, rgba(255,255,255,0.975) 98.5%, rgba(255,255,255,1) 100%)",
-          }}
-        />
+        {/* Hero flows straight into the dark General Counsel section; a faint hairline marks the break */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent z-[5] pointer-events-none" />
       </section>
 
       {/* ============================================= */}

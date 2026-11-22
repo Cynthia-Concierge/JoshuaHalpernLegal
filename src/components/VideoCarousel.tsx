@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, GraduationCap, Building2, Shield, FileText, Briefcase, TrendingUp } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, GraduationCap, Building2, Award, FileText, Briefcase, TrendingUp } from "lucide-react";
 
 interface VideoItem {
   id: number;
@@ -320,7 +320,7 @@ const VideoCarousel: React.FC = () => {
             {[
               { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
               { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former Corporate Associate" },
-              { icon: Shield, primary: "Licensed in Ohio", secondary: "Partnered nationwide" },
+              { icon: Award, primary: "Since 2017", secondary: "Practicing corporate attorney" },
               { icon: FileText, primary: "1,000+", secondary: "Estate plans" },
               { icon: Briefcase, primary: "500+", secondary: "Businesses protected" },
               { icon: TrendingUp, primary: "$250M+", secondary: "Transactions closed" },

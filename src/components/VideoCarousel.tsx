@@ -306,7 +306,7 @@ const VideoCarousel: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
             {[
               { icon: GraduationCap, primary: "Cleveland-Marshall", secondary: "J.D., College of Law" },
-              { icon: Building2, primary: "Taft Stettinius & Hollister", secondary: "Former Corporate Associate" },
+              { icon: Building2, primary: "Major Corporate Law Firm", secondary: "Former Corporate Associate" },
               { icon: Shield, primary: "Licensed in Ohio", secondary: "Partnered nationwide" },
               { icon: FileText, primary: "1,000+", secondary: "Estate plans" },
               { icon: Briefcase, primary: "500+", secondary: "Businesses protected" },

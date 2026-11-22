@@ -13,7 +13,7 @@ export const TRADE_NAME = "Legal Halp";
 export const RESPONSIBLE_ATTORNEY = "Joshua B. Halpern, Esq.";
 export const OFFICE_ADDRESS = "6545 Market Ave. N., Suite 100, North Canton, OH 44721";
 export const OFFICE_PHONE = "(216) 223-2818";
-export const CONTACT_EMAIL = "assistant@legalhalp.com";
+export const CONTACT_EMAIL = "cynthia@legalhalp.com";
 
 export const LEGAL_LINKS = [
   { to: "/terms", label: "Terms & Conditions" },

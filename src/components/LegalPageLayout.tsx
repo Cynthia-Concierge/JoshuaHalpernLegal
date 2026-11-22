@@ -1,7 +1,7 @@
 import React from "react";
 import SiteFooter, { LegalLinks } from "@/components/SiteFooter";
 
-export const CONTACT_EMAIL = "assistant@legalhalp.com";
+export const CONTACT_EMAIL = "cynthia@legalhalp.com";
 
 export const H2: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <h2 className="text-xl md:text-2xl font-bold text-slate-900 mt-12 mb-3 tracking-tight">{children}</h2>

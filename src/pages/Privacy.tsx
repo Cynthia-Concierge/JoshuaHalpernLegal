@@ -85,8 +85,9 @@ const Privacy = () => {
         <li>
           Advertising platforms. We use the Meta Pixel and Meta's Conversions API to measure ad
           performance. When you submit a form, book a call, or make a payment, we may send Meta event data
-          along with your email address and phone number in hashed (encrypted) form so Meta can match the
-          event to an ad. We do not send Meta the substance of your legal inquiry.
+          with your name, email address, phone number, and state in hashed (encrypted) form so Meta can
+          match the event to an ad, along with general lead categories such as the type of service
+          requested and type of business. We do not send Meta the written description of your matter.
         </li>
         <li>
           Professionals and counterparties involved in your matter, such as co-counsel, referral counsel,

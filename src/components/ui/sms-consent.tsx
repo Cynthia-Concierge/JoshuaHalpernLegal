@@ -19,7 +19,7 @@ export const SmsConsent: React.FC<SmsConsentProps> = ({ checked, onChange, error
             className="sr-only peer"
           />
           <div
-            className={`w-5 h-5 rounded border-2 transition-all flex items-center justify-center ${
+            className={`w-5 h-5 rounded border-2 transition-all flex items-center justify-center peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-2 ${
               checked
                 ? "bg-slate-900 border-slate-900"
                 : error

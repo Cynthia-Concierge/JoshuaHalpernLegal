@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
 import Seo from "./components/Seo";
+import A11yEnhancer from "./components/A11yEnhancer";
 import { captureAttributionFromUrl } from "./utils/attribution";
 
 const ScrollToTop = () => {
@@ -49,10 +50,18 @@ const Layout = () => {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <ScrollToTop />
       <Seo />
       <AttributionCapture />
+      <A11yEnhancer />
       {!hideNavbar && <Navbar />}
+      <div id="main-content" tabIndex={-1} className="outline-none">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lawyeroncall" element={<Index />} />
@@ -83,6 +92,7 @@ const Layout = () => {
         <Route path="/realestate" element={<RealEstate />} />
         <Route path="/realestate/thank-you" element={<RealEstateThankYou />} />
       </Routes>
+      </div>
     </>
   );
 };

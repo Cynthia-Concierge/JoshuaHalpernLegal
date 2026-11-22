@@ -27,6 +27,8 @@ export const ContactBlock: React.FC = () => (
     <br />
     Attn: Joshua B. Halpern, Esq.
     <br />
+    6545 Market Ave. N., Suite 100, North Canton, OH 44721
+    <br />
     <Email />
     <br />
     <a href="tel:+12162232818" className="text-blue-600 hover:text-blue-500 underline">
@@ -43,7 +45,7 @@ interface LegalPageLayoutProps {
 
 const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ title, effectiveDate, children }) => (
   <div className="min-h-screen bg-white">
-    <main id="main-content" className="py-16 md:py-24">
+    <div className="py-16 md:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-3 tracking-tight">{title}</h1>
@@ -55,7 +57,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ title, effectiveDate,
           <div className="space-y-4 text-slate-700 text-base md:text-lg leading-relaxed">{children}</div>
         </div>
       </div>
-    </main>
+    </div>
 
     <SiteFooter />
   </div>

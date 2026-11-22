@@ -13,11 +13,11 @@ const Accessibility = () => {
 
       <H2>1. What We Do</H2>
       <UL>
-        <li>Use semantic page structure, headings, and labeled navigation so screen readers can move through pages.</li>
+        <li>Use page structure, headings, labeled navigation, and a skip-to-content link so screen readers and keyboard users can move through pages.</li>
         <li>Provide text alternatives for meaningful images.</li>
-        <li>Label form fields and make forms usable with a keyboard.</li>
-        <li>Maintain readable text sizes and color contrast, and support browser zoom.</li>
-        <li>Allow videos to be paused and muted, and avoid content that flashes.</li>
+        <li>Label form fields, show a visible focus indicator, and make forms usable with a keyboard.</li>
+        <li>Work to maintain readable text and color contrast, and support browser zoom.</li>
+        <li>Allow videos to be paused and muted, avoid content that flashes, and reduce animation for visitors whose device is set to reduce motion.</li>
         <li>Review new pages and features for accessibility as we build them.</li>
       </UL>
 

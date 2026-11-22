@@ -25,6 +25,7 @@ import {
   AlertTriangle,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Info,
   PhoneCall,
 } from "lucide-react";
@@ -956,11 +957,13 @@ const Services: React.FC = () => {
   useEffect(() => {
     if (SERVICE_CATEGORIES.some((c) => c.id === hashId)) {
       setActiveTab(hashId);
-      requestAnimationFrame(() => {
+      // Wait until after the global scroll-to-top on route change, then jump to the menu
+      const t = setTimeout(() => {
         document
           .getElementById("packages")
           ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+      }, 120);
+      return () => clearTimeout(t);
     }
   }, [hashId]);
 
@@ -1012,7 +1015,37 @@ const Services: React.FC = () => {
         className="sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm scroll-mt-16"
       >
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto py-3 space-y-2">
+          <div className="max-w-5xl mx-auto py-3">
+            {/* Mobile: one clean dropdown for all practice areas */}
+            <div className="lg:hidden">
+              <label htmlFor="practice-area" className="block text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-1.5">
+                Practice Area
+              </label>
+              <div className="relative">
+                <select
+                  id="practice-area"
+                  value={activeTab}
+                  onChange={(e) => {
+                    setActiveTab(e.target.value);
+                    document.getElementById("packages")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="w-full appearance-none bg-slate-900 text-white font-semibold text-base rounded-xl pl-4 pr-11 py-3 shadow-lg shadow-slate-900/20 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  {TRACKS.map((track) => (
+                    <optgroup key={track.id} label={track.label}>
+                      {SERVICE_CATEGORIES.filter((c) => c.track === track.id).map((c) => (
+                        <option key={c.id} value={c.id}>
+                          {c.label}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+                <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white" />
+              </div>
+            </div>
+            {/* Desktop: grouped tabs */}
+            <div className="hidden lg:block space-y-2">
             {TRACKS.map((track) => {
               const trackCategories = SERVICE_CATEGORIES.filter(
                 (c) => c.track === track.id
@@ -1033,9 +1066,7 @@ const Services: React.FC = () => {
                 </div>
               );
             })}
-            <p className="lg:hidden text-[11px] text-slate-400 font-medium pt-0.5">
-              Swipe or tap the arrows to see all {SERVICE_CATEGORIES.length} practice areas.
-            </p>
+            </div>
           </div>
         </div>
       </section>

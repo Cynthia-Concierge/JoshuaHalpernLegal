@@ -1031,15 +1031,13 @@ const Services: React.FC = () => {
                   }}
                   className="w-full appearance-none bg-slate-900 text-white font-semibold text-base rounded-xl pl-4 pr-11 py-3 shadow-lg shadow-slate-900/20 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  {TRACKS.map((track) => (
-                    <optgroup key={track.id} label={track.label}>
-                      {SERVICE_CATEGORIES.filter((c) => c.track === track.id).map((c) => (
-                        <option key={c.id} value={c.id}>
-                          {c.label}
-                        </option>
-                      ))}
-                    </optgroup>
-                  ))}
+                  {TRACKS.flatMap((track) =>
+                    SERVICE_CATEGORIES.filter((c) => c.track === track.id).map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {c.label}
+                      </option>
+                    ))
+                  )}
                 </select>
                 <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white" />
               </div>

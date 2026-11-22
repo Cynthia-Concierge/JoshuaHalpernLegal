@@ -269,7 +269,7 @@ export const COMMERCIAL_RE_CATEGORY: ServiceCategory = {
         "A commercial lease is usually the second largest contract a business signs, and the landlord's form is written entirely for the landlord.",
     },
     {
-      name: "Deed Preparation & Title Transfer",
+      name: "Title Transfer to an LLC or Trust",
       price: QUOTED,
       whoItsFor:
         "Owners moving property into an LLC or trust, or transferring between related parties.",

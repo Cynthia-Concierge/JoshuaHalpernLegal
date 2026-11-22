@@ -738,6 +738,70 @@ const isSelfServe = (pkg: ServicePackage) => {
   return Number.isFinite(amount) && amount > 0 && amount < CHECKOUT_CEILING;
 };
 
+/* One-line, plain-English summary shown on each project card */
+const SUMMARIES: Record<string, string> = {
+  "Buying a Business": "LOI, purchase agreement, due diligence, and closing documents for your acquisition.",
+  "Selling Your Business": "LOI, purchase agreement, and closing terms negotiated to protect your price and limit your risk.",
+  "Partner Buyout or Member Exit": "Buyout agreement, payment terms, releases, and updated ownership records for a clean exit.",
+  "Letter of Intent & Term Sheet": "Your letter of intent or term sheet drafted or reviewed before you commit to a deal.",
+  "Seller Financing & Promissory Note Package": "Promissory note, security agreement, and guaranty so a financed deal gets paid back.",
+  "Investor & Capital Raise Documents": "SAFE, convertible note, or equity documents for raising money from private investors.",
+  "Operating Agreement Restatement": "An updated operating agreement that matches how your company actually runs today.",
+  "Holding Company & Multi-Entity Structure": "A holding company structure that separates your businesses and assets into the right entities.",
+  "Corporate Cleanup & Records": "Good standing, ownership records, and missing approvals fixed before a sale, loan, or audit.",
+  "Buy-Sell & Succession Agreement": "What happens if an owner dies, becomes disabled, divorces, or walks away, decided in advance.",
+  "Entity Conversion or Domestication": "Converting your entity type or moving your company to another state.",
+  "Dissolution & Wind-Down": "Approvals, state filings, and creditor notices to close a business properly.",
+  "Basic LLC Formation": "LLC filing, custom operating agreement, and EIN for a single-owner business.",
+  "Advanced LLC Formation": "A multi-member LLC with an operating agreement covering splits, voting, and exits.",
+  "S-Corp Election & Formation": "Entity formation and S-corp election, coordinated with your CPA.",
+  "Non-Profit Formation (501c3)": "Nonprofit formation, bylaws, and the IRS 501(c)(3) application.",
+  "Foreign LLC Registration": "Registering your existing company to do business in a new state.",
+  "Estate Planning (Single)": "Revocable trust, will, power of attorney, and healthcare directive for one person.",
+  "Estate Planning (Married)": "Joint trust, wills, powers of attorney, and healthcare directives for both spouses.",
+  "Minor's Trust": "A trust that controls when and how your children receive money.",
+  "Special Needs Trust": "A trust that provides for a loved one without putting government benefits at risk.",
+  "Gun Trust / NFA Trust": "An NFA trust to hold regulated firearms and lawfully share possession.",
+  "Trust Funding & Asset Transfers": "Moving your accounts and business interests into your trust so it actually works.",
+  "Estate Plan Review & Update": "A review and update of your existing plan after family, life, or business changes.",
+  "Business Owner Estate Plan": "A complete estate plan that also covers ownership and succession of your business.",
+  "Basic Contract Drafting or Review": "One contract drafted or reviewed, with a plain-English summary of the key terms.",
+  "Advanced Contract Package": "Deeper review, redlines, and negotiation strategy for high-value or complex contracts.",
+  "SaaS Terms of Service Package": "Terms of service covering subscriptions, billing, liability, and acceptable use.",
+  "Lease Agreement Drafting/Review": "A residential or commercial lease drafted or reviewed.",
+  "Vendor/Supplier Agreement": "A vendor or supplier agreement covering pricing, quality, delivery, and remedies.",
+  "Master Services Agreement (MSA)": "One master agreement plus a statement of work template for repeat client work.",
+  "Contract Redline & Negotiation": "A redline of the other side's contract, negotiated on your behalf.",
+  "Distribution, Reseller & Supply Agreements": "Distribution, reseller, or supply agreements covering territory, pricing, and liability.",
+  "Hire an Employee Package": "Offer letter, employment terms, and confidentiality protections for a new hire.",
+  "Engage an Independent Contractor": "A contractor agreement with IP ownership and proper worker classification.",
+  "Employee Termination Package": "A severance agreement and release to part ways with an employee cleanly.",
+  "Equity Compensation Package": "Stock option plan, grant agreements, and vesting schedules for your team.",
+  "Employee Handbook Creation": "A custom employee handbook with state-specific policies.",
+  "Brand + IP Protection Package": "A preliminary trademark search and a plan to protect your brand name.",
+  "Full Trademark Filing (USPTO)": "Federal trademark search, application, and filing with the USPTO.",
+  "Domain Name Dispute Resolution": "A UDRP complaint to recover a domain registered in bad faith.",
+  "Commercial Purchase & Sale": "Purchase agreement, title and survey review, and closing for commercial property.",
+  "Commercial Lease: Landlord or Tenant": "Lease review, redline, and negotiation for landlords or tenants.",
+  "Title Transfer to an LLC or Trust": "Moving property into an LLC or trust, with the deed and recording handled through your title company.",
+  "Loan & Financing Document Review": "Loan, guaranty, and security documents reviewed before you sign.",
+  "Land & Development Acquisition": "Purchase or option agreement and diligence for land you plan to build on or hold.",
+  "Real Estate Investor Package": "An LLC to hold your rental property, with the title transfer coordinated through your title company.",
+  "1031 Exchange Documentation": "Legal review of your 1031 exchange, coordinated with your qualified intermediary and CPA.",
+  "Rental Property Purchase Review": "Purchase agreement, title, and lease review before you buy a rental property.",
+  "Lease Agreement Templates Package": "Reusable, state-specific lease templates and notices for your rentals.",
+  "Attorney Demand Letter": "A demand letter on firm letterhead to resolve a dispute without going to court.",
+  "Commercial Collections": "Demand and settlement documents to collect past-due invoices.",
+  "Settlement & Release Agreement": "A settlement and release agreement that documents your resolution so it holds.",
+  "Contract Dispute Strategy Review": "A clear read on your position and options early in a contract dispute.",
+  "Litigation Referral & Oversight": "Referral to vetted litigation counsel, plus coordination of the business side. No court appearances.",
+  "Website Compliance Package": "Privacy policy, terms, and a compliance review for your website or online store.",
+  "DMCA Agent Registration": "DMCA agent registration and a takedown policy for your platform.",
+  "Affiliate Program Legal Setup": "An affiliate agreement with commission terms and FTC disclosure rules.",
+  "Copyright Registration": "Copyright registration for your original work with the U.S. Copyright Office.",
+  "Influencer/Creator Legal Package": "A brand deal agreement covering content rights, payment, and FTC disclosures.",
+};
+
 const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-slate-200/40 transition-all duration-300 overflow-hidden flex flex-col">
     <div className="p-5 md:p-7 flex flex-col flex-1">
@@ -749,27 +813,7 @@ const PackageCard: React.FC<{ pkg: ServicePackage }> = ({ pkg }) => (
           Fixed fee
         </span>
       </div>
-      <p className="text-slate-500 text-sm leading-relaxed mb-4">{pkg.whoItsFor}</p>
-
-      <ul className="space-y-1.5 mb-5">
-        {pkg.includes.slice(0, 3).map((item, i) => (
-          <li key={i} className="flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
-            <span className="text-slate-700 text-sm leading-snug">{item}</span>
-          </li>
-        ))}
-        {pkg.includes.length > 3 && (
-          <li className="text-slate-500 text-sm pl-[26px]">+ {pkg.includes.length - 3} more</li>
-        )}
-      </ul>
-
-      {pkg.notIncluded && pkg.notIncluded.length > 0 && (
-        <p className="flex items-start gap-2 text-slate-500 text-xs leading-relaxed mb-5">
-          <Info className="w-3.5 h-3.5 text-slate-400 flex-shrink-0 mt-0.5" />
-          <span><span className="font-semibold text-slate-600">Not included:</span> {pkg.notIncluded.join(" ")}</span>
-        </p>
-      )}
-
+      <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-5">{SUMMARIES[pkg.name] ?? pkg.whoItsFor}</p>
       <Link
         to="/contact"
         className="mt-auto flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 text-sm md:text-base active:scale-95"

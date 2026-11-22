@@ -371,7 +371,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 5: How It Works                       */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
@@ -434,8 +434,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 6: What Makes This Different          */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-1/3 h-full bg-slate-50 skew-x-12 transform -translate-x-1/4 z-0" />
+      <section className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
@@ -496,7 +495,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       <section
         id="pricing"
-        className="py-16 md:py-20 bg-white border-t border-slate-200"
+        className="py-16 md:py-20 bg-slate-50"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
@@ -560,7 +559,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       <section
         id="consultation"
-        className="py-20 md:py-28 bg-slate-50 border-t border-slate-200"
+        className="py-20 md:py-28 bg-white"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">

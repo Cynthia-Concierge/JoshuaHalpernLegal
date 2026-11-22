@@ -260,7 +260,7 @@ const VideoCarousel: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+    <section id="about" className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* About Josh */}
         <div className="max-w-5xl mx-auto mb-20">
@@ -314,7 +314,7 @@ const VideoCarousel: React.FC = () => {
             ].map(({ icon: Icon, primary, secondary }, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 bg-slate-50 hover:bg-white border border-slate-200 hover:border-slate-300 rounded-xl px-4 py-3.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                className="flex items-center gap-3 bg-white border border-slate-200 hover:border-slate-300 rounded-xl px-4 py-3.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out"
               >
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center">
                   <Icon className="w-5 h-5 text-blue-600" />

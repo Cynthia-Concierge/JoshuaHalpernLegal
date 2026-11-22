@@ -71,14 +71,12 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
       </section>
 
       {/* ============================================= */}
       {/* THE STORY                                     */}
       {/* ============================================= */}
-      <section className="py-16 md:py-20 bg-white border-t border-slate-200">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto space-y-5 text-lg text-slate-600 leading-relaxed">
             <p className="text-xl md:text-2xl font-semibold text-slate-900">
@@ -161,8 +159,7 @@ const About: React.FC = () => {
       {/* ============================================= */}
       {/* VALUES — How I Work                           */}
       {/* ============================================= */}
-      <section className="py-16 md:py-20 bg-white border-t border-slate-200 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 skew-x-12 transform translate-x-1/4 z-0" />
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden">
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">

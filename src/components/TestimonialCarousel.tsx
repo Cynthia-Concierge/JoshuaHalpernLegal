@@ -170,7 +170,7 @@ const TestimonialCarousel: React.FC = () => {
 
   return (
     <section
-      className="py-20 md:py-28 bg-white border-t border-slate-200"
+      className="py-20 md:py-28 bg-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}

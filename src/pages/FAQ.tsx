@@ -135,7 +135,7 @@ const FAQ: React.FC = () => {
       {/* ============================================= */}
       {/* FAQ ACCORDION                                 */}
       {/* ============================================= */}
-      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto space-y-4">
             {FAQS.map((item, index) => (
@@ -155,7 +155,7 @@ const FAQ: React.FC = () => {
       {/* ============================================= */}
       {/* FINAL CTA                                     */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">
             <div

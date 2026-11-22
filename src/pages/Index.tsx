@@ -268,7 +268,7 @@ const Index = () => {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-44 lg:pt-36 lg:pb-60 overflow-hidden bg-slate-900">
+      <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
         <div className="absolute inset-0 z-0 opacity-[0.04]" style={DOT_PATTERN} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-0 pointer-events-none">
@@ -353,22 +353,12 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Bottom fade to white: tall smoothstep ramp that stays near-transparent
-            through the upper half so the dark hero carries further down, then
-            eases into white only near the section edge */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-80 md:h-[28rem] z-[5] pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.008) 18%, rgba(255,255,255,0.03) 32%, rgba(255,255,255,0.075) 45%, rgba(255,255,255,0.15) 56%, rgba(255,255,255,0.25) 66%, rgba(255,255,255,0.38) 74%, rgba(255,255,255,0.52) 81%, rgba(255,255,255,0.67) 87%, rgba(255,255,255,0.8) 92%, rgba(255,255,255,0.91) 96%, rgba(255,255,255,0.975) 98.5%, rgba(255,255,255,1) 100%)",
-          }}
-        />
       </section>
 
       <VideoCarousel />
 
       {/* ── The Gap ── */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -618,7 +608,7 @@ const Index = () => {
       </section>
 
       {/* ── What Makes This Different ── */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">

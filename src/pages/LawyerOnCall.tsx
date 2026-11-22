@@ -245,14 +245,12 @@ const LawyerOnCall: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom fade to white */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
       </section>
 
       {/* ============================================= */}
       {/* WHAT YOU GET                                  */}
       {/* ============================================= */}
-      <section className="py-16 md:py-20 bg-white border-t border-slate-200">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
@@ -476,7 +474,7 @@ const LawyerOnCall: React.FC = () => {
       {/* ============================================= */}
       {/* FINAL CTA                                     */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">
             <div

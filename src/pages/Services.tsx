@@ -1082,7 +1082,7 @@ const Services: React.FC = () => {
       {/* ============================================= */}
       {/* OUTSIDE GC CALLOUT                            */}
       {/* ============================================= */}
-      <section className="py-12 md:py-16 bg-slate-50 border-t border-slate-200">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
             <div className="flex flex-col md:flex-row md:items-center gap-6">
@@ -1116,7 +1116,7 @@ const Services: React.FC = () => {
       {/* ============================================= */}
       <section
         id="consultation"
-        className="py-20 md:py-28 bg-white border-t border-slate-200"
+        className="py-20 md:py-28 bg-slate-50"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">

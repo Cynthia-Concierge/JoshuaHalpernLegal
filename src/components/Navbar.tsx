@@ -7,7 +7,6 @@ const NAV_LINKS = [
   { to: "/outside-general-counsel", label: "Outside General Counsel" },
   { to: "/representative-matters", label: "Representative Matters" },
   { to: "/services", label: "Project Work" },
-  { to: "/about", label: "About" },
 ];
 
 const MOBILE_EXTRA_LINKS = [{ to: "/faq", label: "FAQ" }];

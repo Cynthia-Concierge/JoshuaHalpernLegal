@@ -26,7 +26,6 @@ const AttributionCapture = () => {
 import Index from "./pages/Index";
 import ThankYou from "./pages/ThankYou";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Services from "./pages/Services";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
@@ -66,7 +65,7 @@ const Layout = () => {
         <Route path="/" element={<Home />} />
         <Route path="/lawyeroncall" element={<Index />} />
         <Route path="/lawyeroncall/thank-you" element={<ThankYou />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Navigate to="/" replace />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />

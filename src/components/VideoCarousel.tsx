@@ -283,16 +283,18 @@ const VideoCarousel: React.FC = () => {
               <p className="text-slate-500 font-semibold mt-2 mb-6">Founder, Legal Halp</p>
               <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p className="text-slate-900 font-semibold text-lg md:text-xl">
-                  Big-firm trained. Built for companies that need a lawyer who
-                  already knows the business.
+                  I'd rather be in your corner than on the clock.
                 </p>
                 <p>
-                  I left the billable hour behind to become the general counsel
-                  growing companies can't yet hire in-house. One fixed monthly
-                  fee. Email whenever something comes up; urgent matters get a call.
+                  I did deal work at Taft before starting Legal Halp in 2018.
+                  These days I'm outside general counsel for owners running real
+                  companies: contractors, real estate investors, logistics and
+                  service businesses, and founders juggling a stack of LLCs. You
+                  get one flat monthly fee, plain-English answers, and a lawyer
+                  who actually knows what you're building.
                 </p>
                 <p className="text-slate-900 font-semibold">
-                  Every matter is handled by me personally. Never handed off.
+                  When you email, you get me. Not an associate, not a call center.
                 </p>
               </div>
             </div>

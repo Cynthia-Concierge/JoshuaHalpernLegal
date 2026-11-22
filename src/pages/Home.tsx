@@ -21,6 +21,8 @@ import {
   UserCheck,
   AlertTriangle,
   XCircle,
+  Users,
+  Compass,
 } from "lucide-react";
 import VideoCarousel from "@/components/VideoCarousel";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
@@ -168,12 +170,10 @@ const Home: React.FC = () => {
         />
       </section>
 
-      <VideoCarousel />
-
       {/* ============================================= */}
-      {/* SECTION 2: The Gap                            */}
+      {/* SECTION 2: The Comparison                     */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -257,7 +257,121 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 3: How It Works                       */}
+      {/* SECTION 3: Retainer (Primary Offering)        */}
+      {/* ============================================= */}
+      <section
+        id="retainer"
+        className="py-20 md:py-28 bg-slate-900 relative overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-[150px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
+                Outside General Counsel
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Your General Counsel,
+                <br />
+                <span className="text-blue-400">On a Fixed Monthly Retainer.</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
+                One senior attorney who knows your entities, your contracts, and
+                your deals. No timers. No surprise invoices.
+              </p>
+            </div>
+
+            {/* What's covered */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-12">
+              {[
+                { icon: PenTool, text: "Contract drafting and review" },
+                { icon: Handshake, text: "Deals and transactions" },
+                { icon: Layers, text: "Entity structure and governance" },
+                { icon: Building2, text: "Real estate and leasing" },
+                { icon: Users, text: "Employment and compliance" },
+                { icon: Compass, text: "Strategic counsel for owners" },
+              ].map(({ icon: Icon, text }, i) => (
+                <div
+                  key={i}
+                  className="group relative overflow-hidden flex items-center gap-3 bg-white/[0.06] border border-white/10 rounded-xl px-4 py-3.5 cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/[0.1] hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20"
+                >
+                  {/* Light sweep on hover */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+                  />
+                  {/* Accent bar */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-0 h-full w-1 bg-blue-400 scale-y-0 origin-center transition-transform duration-300 ease-out group-hover:scale-y-100"
+                  />
+                  <div className="relative flex-shrink-0 w-9 h-9 rounded-lg bg-blue-500/15 border border-blue-400/20 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-500 group-hover:border-blue-400 group-hover:scale-110 group-hover:-rotate-6">
+                    <Icon className="w-[18px] h-[18px] text-blue-300 transition-colors duration-300 group-hover:text-white" />
+                  </div>
+                  <span className="relative text-white font-medium transition-transform duration-300 group-hover:translate-x-0.5">
+                    {text}
+                  </span>
+                  <CheckCircle2 className="relative ml-auto w-4 h-4 text-blue-400 flex-shrink-0 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                </div>
+              ))}
+            </div>
+
+            {/* Retainer teaser (full plans live on /outside-general-counsel) */}
+            <div className="text-center mb-10">
+              <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-3">
+                Monthly Retainers
+              </p>
+              <p className="text-4xl md:text-5xl font-extrabold text-white">
+                From $2,500
+                <span className="text-xl md:text-2xl text-slate-400 font-semibold">/mo</span>
+              </p>
+              <p className="text-slate-300 text-base md:text-lg mt-4 max-w-xl mx-auto">
+                Three levels of support, from essential counsel to a fully
+                embedded general counsel. Your fee is set on the call, scoped
+                to your company.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
+                >
+                  Book a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  to="/outside-general-counsel"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-10 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
+                >
+                  See Retainer Plans
+                </Link>
+              </div>
+              <p className="text-slate-400 text-sm mt-4">
+                Month-to-month. No long-term contracts. Cancel with 30 days notice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* SECTION 4: About + Videos                     */}
+      {/* ============================================= */}
+      <VideoCarousel />
+
+      {/* ============================================= */}
+      {/* SECTION 5: How It Works                       */}
       {/* ============================================= */}
       <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
@@ -320,104 +434,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 4: Retainer (Primary Offering)        */}
+      {/* SECTION 6: What Makes This Different          */}
       {/* ============================================= */}
-      <section
-        id="retainer"
-        className="py-20 md:py-28 bg-slate-900 relative overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-[150px] pointer-events-none" />
-
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
-                Outside General Counsel
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Your General Counsel,
-                <br />
-                <span className="text-blue-400">On a Fixed Monthly Retainer.</span>
-              </h2>
-              <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
-                One senior attorney who knows your entities, your contracts, and
-                your deals. No timers. No surprise invoices.
-              </p>
-            </div>
-
-            {/* What's covered */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-12">
-              {[
-                "Contract drafting and review",
-                "Deals and transactions",
-                "Entity structure and governance",
-                "Real estate and leasing",
-                "Employment and compliance",
-                "Strategic counsel for owners",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-2.5 bg-white/[0.06] border border-white/10 rounded-xl px-4 py-3"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <span className="text-white font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Retainer teaser (full plans live on /outside-general-counsel) */}
-            <div className="text-center mb-10">
-              <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-3">
-                Monthly Retainers
-              </p>
-              <p className="text-4xl md:text-5xl font-extrabold text-white">
-                From $2,500
-                <span className="text-xl md:text-2xl text-slate-400 font-semibold">/mo</span>
-              </p>
-              <p className="text-slate-300 text-base md:text-lg mt-4 max-w-xl mx-auto">
-                Three levels of support, from essential counsel to a fully
-                embedded general counsel. Your fee is set on the call, scoped
-                to your company.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-lg shadow-blue-500/25 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-lg"
-                >
-                  Book a Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link
-                  to="/outside-general-counsel"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold py-4 px-10 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
-                >
-                  See Retainer Plans
-                </Link>
-              </div>
-              <p className="text-slate-400 text-sm mt-4">
-                Month-to-month. No long-term contracts. Cancel with 30 days notice.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
-      {/* SECTION 5: What Makes This Different          */}
-      {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-1/3 h-full bg-slate-100/30 skew-x-12 transform -translate-x-1/4 z-0" />
+      <section className="py-20 md:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-slate-50 skew-x-12 transform -translate-x-1/4 z-0" />
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
@@ -469,12 +489,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 6: Testimonials                       */}
+      {/* SECTION 7: Testimonials                       */}
       {/* ============================================= */}
       <TestimonialCarousel />
 
       {/* ============================================= */}
-      {/* SECTION 7: Project Work (Secondary Offering)  */}
+      {/* SECTION 8: Project Work (Secondary Offering)  */}
       {/* ============================================= */}
       <section
         id="pricing"
@@ -538,7 +558,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 8: Final CTA                          */}
+      {/* SECTION 9: Final CTA                          */}
       {/* ============================================= */}
       <section
         id="consultation"

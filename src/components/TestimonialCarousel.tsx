@@ -170,7 +170,7 @@ const TestimonialCarousel: React.FC = () => {
 
   return (
     <section
-      className="py-20 md:py-28 bg-white"
+      className="py-20 md:py-28 bg-slate-50"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -179,7 +179,7 @@ const TestimonialCarousel: React.FC = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
               Testimonials
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -234,7 +234,7 @@ const TestimonialCarousel: React.FC = () => {
                 <div
                   key={index}
                   data-tcard
-                  className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-100 relative"
+                  className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center bg-white rounded-2xl p-8 md:p-10 border border-slate-200 relative"
                 >
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (

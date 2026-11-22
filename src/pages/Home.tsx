@@ -209,7 +209,7 @@ const Home: React.FC = () => {
                   {/* Accent bar */}
                   <span
                     aria-hidden="true"
-                    className="absolute left-0 top-0 h-full w-1 bg-blue-500 scale-y-0 origin-center transition-transform duration-300 ease-out group-hover:scale-y-100"
+                    className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100"
                   />
                   <div className="relative flex-shrink-0 w-9 h-9 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:scale-110 group-hover:-rotate-6">
                     <Icon className="w-[18px] h-[18px] text-blue-600 transition-colors duration-300 group-hover:text-white" />
@@ -321,7 +321,7 @@ const Home: React.FC = () => {
                   {/* Light sweep + accent bar on hover */}
                   <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
                     <span className={`absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent ${col.highlight ? "via-white/10" : "via-blue-100/70"} to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full`} />
-                    <span className="absolute left-0 top-0 h-full w-1 bg-blue-500 scale-y-0 origin-center transition-transform duration-300 ease-out group-hover:scale-y-100" />
+                    <span className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
                   </span>
                   {col.highlight && (
                     <span className="absolute z-10 -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
@@ -361,7 +361,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 5: How It Works                       */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
@@ -424,7 +424,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* SECTION 6: What Makes This Different          */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
+      <section className="py-20 md:py-28 bg-white relative overflow-hidden">
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
@@ -485,7 +485,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       <section
         id="pricing"
-        className="py-16 md:py-20 bg-slate-50"
+        className="py-16 md:py-20 bg-white"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
@@ -549,7 +549,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       <section
         id="consultation"
-        className="py-20 md:py-28 bg-white"
+        className="py-20 md:py-28 bg-slate-50"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">

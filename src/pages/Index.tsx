@@ -360,7 +360,7 @@ const Index = () => {
       <VideoCarousel />
 
       {/* ── The Gap ── */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -444,7 +444,7 @@ const Index = () => {
       </section>
 
       {/* ── What's Covered ── */}
-      <section id="coverage" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section id="coverage" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
@@ -477,7 +477,7 @@ const Index = () => {
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight text-center">
@@ -507,7 +507,7 @@ const Index = () => {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section id="how-it-works" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
@@ -644,7 +644,7 @@ const Index = () => {
       <TestimonialCarousel />
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
+      <section id="faq" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-12 text-center tracking-tight">
@@ -678,7 +678,7 @@ const Index = () => {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">
             <div

@@ -260,12 +260,13 @@ const VideoCarousel: React.FC = () => {
   };
 
   return (
+    <>
     <section id="about" className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* About Josh */}
-        <div className="max-w-5xl mx-auto mb-20">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
-            <div className="relative flex-shrink-0 mx-auto md:mx-0">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col items-center text-center">
+            <div className="relative mb-6">
               <div className="absolute -inset-3 bg-gradient-to-br from-blue-500/15 to-blue-400/5 rounded-3xl blur-xl" />
               <img
                 src="/josh-halpern-headshot.png"
@@ -273,34 +274,32 @@ const VideoCarousel: React.FC = () => {
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shadow-lg shadow-slate-900/10"
               />
             </div>
-            <div>
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                About
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Meet Josh Halpern
-              </h2>
-              <p className="text-slate-500 font-semibold mt-2 mb-6">Founder, Legal Halp</p>
-              <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
-                <p className="text-slate-900 font-semibold text-lg md:text-xl">
-                  I started my career at a major corporate law firm, where I saw
-                  firsthand how big firms bill their clients.
-                </p>
-                <p>
-                  It's an old way of practicing law. Meanwhile, I kept getting
-                  calls from owners who needed everyday corporate help that big
-                  firms weren't interested in. Their choices were expensive
-                  outside lawyers, doing it themselves, or hiring someone
-                  in-house on a salary they couldn't justify. So I built a
-                  better option. I'm easy to reach, I move fast, I use
-                  technology and AI to work smarter, and I get to know your
-                  business inside and out. Same big-firm training, without the
-                  big-firm bill.
-                </p>
-                <p className="text-slate-900 font-semibold">
-                  A lawyer on your team, not on your payroll.
-                </p>
-              </div>
+            <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+              About
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Meet Josh Halpern
+            </h2>
+            <p className="text-slate-500 font-semibold mt-2 mb-6">Founder, Legal Halp</p>
+            <div className="max-w-3xl mx-auto space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
+              <p className="text-slate-900 font-semibold text-lg md:text-xl">
+                I started my career at a major corporate law firm, where I saw
+                firsthand how big firms bill their clients.
+              </p>
+              <p>
+                It's an old way of practicing law. Meanwhile, I kept getting
+                calls from owners who needed everyday corporate help that big
+                firms weren't interested in. Their choices were expensive
+                outside lawyers, doing it themselves, or hiring someone
+                in-house on a salary they couldn't justify. So I built a
+                better option. I'm easy to reach, I move fast, I use
+                technology and AI to work smarter, and I get to know your
+                business inside and out. Same big-firm training, without the
+                big-firm bill.
+              </p>
+              <p className="text-slate-900 font-semibold">
+                A lawyer on your team, not on your payroll.
+              </p>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
@@ -327,6 +326,12 @@ const VideoCarousel: React.FC = () => {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+
+    {/* Social videos: separate section */}
+    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8">
 
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -383,6 +388,7 @@ const VideoCarousel: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -283,8 +283,8 @@ const VideoCarousel: React.FC = () => {
               <p className="text-slate-500 font-semibold mt-2 mb-6">Founder, Legal Halp</p>
               <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p className="text-slate-900 font-semibold text-lg md:text-xl">
-                  I came up at a major corporate law firm, and I saw firsthand
-                  how they bill their clients.
+                  I started my career at a major corporate law firm, where I saw
+                  firsthand how big firms bill their clients.
                 </p>
                 <p>
                   It's an old way of practicing law. Meanwhile, I kept getting

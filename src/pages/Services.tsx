@@ -996,8 +996,8 @@ const Services: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto">
-              A defined project on a fixed fee, quoted before work begins. For ongoing
-              counsel, deals, and portfolio work, see{" "}
+              A defined project on a fixed fee, quoted before work begins. Need ongoing
+              monthly counsel for your business? See{" "}
               <Link to="/outside-general-counsel" className="text-blue-600 font-semibold hover:underline">
                 Outside General Counsel
               </Link>

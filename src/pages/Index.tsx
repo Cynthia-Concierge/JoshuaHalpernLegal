@@ -407,30 +407,34 @@ const Index = () => {
               ].map((col, i) => (
                 <div
                   key={i}
-                  className={`relative rounded-2xl p-6 md:p-8 ${
+                  className={`group relative rounded-2xl p-6 md:p-8 cursor-default transition-all duration-300 ease-out ${
                     col.highlight
-                      ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 md:-translate-y-2"
-                      : "bg-slate-50 border border-slate-200"
+                      ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 hover:-translate-y-1 md:-translate-y-2 md:hover:-translate-y-4 hover:shadow-blue-500/40 hover:ring-blue-400"
+                      : "bg-white border border-slate-200 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-slate-900/10"
                   }`}
                 >
+                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
+                    <span className={`absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent ${col.highlight ? "via-white/10" : "via-blue-100/70"} to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full`} />
+                    <span className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  </span>
                   {col.highlight && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                    <span className="absolute z-10 -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
                       The Better Option
                     </span>
                   )}
-                  <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
+                  <p className={`relative text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
                     {col.label}
                   </p>
-                  <p className={`text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
+                  <p className={`relative text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
                     {col.price}
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="relative space-y-3">
                     {col.points.map((p, j) => (
-                      <li key={j} className="flex items-center gap-3">
+                      <li key={j} className="flex items-center gap-3 transition-transform duration-300 group-hover:translate-x-0.5">
                         {p.good ? (
-                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 ${col.highlight ? "text-blue-400" : "text-emerald-500"}`} />
+                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 ${col.highlight ? "text-blue-400" : "text-emerald-500"}`} />
                         ) : (
-                          <XCircle className="w-5 h-5 flex-shrink-0 text-red-400" />
+                          <XCircle className="w-5 h-5 flex-shrink-0 text-red-400 transition-transform duration-300 group-hover:scale-110" />
                         )}
                         <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-700"}`}>{p.text}</span>
                       </li>
@@ -462,12 +466,14 @@ const Index = () => {
               {coverage.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
-                    <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-slate-900/20">
+                  <div key={i} className="group relative overflow-hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-blue-300">
+                    <span aria-hidden="true" className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                    <span aria-hidden="true" className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                    <div className="relative w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-slate-900/20 transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110 group-hover:-rotate-6">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                    <h3 className="relative text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="relative text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 );
               })}
@@ -492,7 +498,7 @@ const Index = () => {
                 "You want one attorney who knows the whole picture, not a new one for every matter",
                 "You need general counsel judgment, but not a $250,000 in-house seat",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200">
                   <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-800 font-medium">{item}</span>
                 </div>
@@ -509,7 +515,7 @@ const Index = () => {
       {/* ── How It Works ── */}
       <section id="how-it-works" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
                 How It Works
@@ -519,28 +525,24 @@ const Index = () => {
               </h2>
             </div>
 
-            <div>
+            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+              <div aria-hidden="true" className="hidden md:block absolute top-8 left-[16.66%] right-[16.66%] h-0.5 bg-slate-200" />
               {[
                 { step: "1", title: "Book a Consultation", description: "Walk me through your business, your entities, and what's on your plate." },
                 { step: "2", title: "Set Your Monthly Retainer", description: "A fixed monthly fee scoped to your company. You know the number before we start." },
                 { step: "3", title: "I Become Your Outside General Counsel", description: "Contracts, deals, governance, and everything in between. Email whenever something comes up. Urgent matters get a call." },
               ].map((item, index) => (
-                <div key={index} className="flex gap-6 md:gap-8 items-start relative">
-                  {index < 2 && (
-                    <div className="absolute left-[27px] md:left-[31px] top-[60px] w-0.5 h-[calc(100%-40px)] bg-slate-200" />
-                  )}
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-900/20 relative z-10">
+                <div key={index} className="relative flex flex-col items-center text-center">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20 relative z-10 mb-5">
                     <span className="text-white font-bold text-xl">{item.step}</span>
                   </div>
-                  <div className="pb-12 md:pb-16">
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                    <p className="text-slate-600 text-base md:text-lg leading-relaxed">{item.description}</p>
-                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-xs">{item.description}</p>
                 </div>
               ))}
             </div>
 
-            <div className="text-center">
+            <div className="text-center mt-12">
               <PrimaryButton />
             </div>
           </div>
@@ -548,22 +550,19 @@ const Index = () => {
       </section>
 
       {/* ── Retainer ── */}
-      <section id="retainer" className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]" style={DOT_PATTERN} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-[150px] pointer-events-none" />
-
+      <section id="retainer" className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
                 Outside General Counsel
               </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Your General Counsel,
                 <br />
-                <span className="text-blue-400">On a Fixed Monthly Retainer.</span>
+                <span className="text-blue-600">On a Fixed Monthly Retainer.</span>
               </h2>
-              <p className="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
                 One senior attorney who knows your entities, your contracts, and
                 your deals. No timers. No surprise invoices.
               </p>
@@ -577,31 +576,35 @@ const Index = () => {
               ].map((tier, i) => (
                 <div
                   key={i}
-                  className={`relative rounded-2xl p-6 transition-all hover:-translate-y-1 ${
+                  className={`group relative rounded-2xl p-6 text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 ${
                     tier.popular
-                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2"
-                      : "bg-white/10 backdrop-blur-sm border border-white/20"
+                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2 md:hover:-translate-y-4"
+                      : "bg-white border border-slate-200 hover:border-blue-300"
                   }`}
                 >
+                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                    <span className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  </span>
                   {tier.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                    <span className="absolute z-10 -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
                       Most Popular
                     </span>
                   )}
-                  <h3 className={`text-lg font-bold mb-2 ${tier.popular ? "text-slate-900" : "text-white"}`}>{tier.name}</h3>
-                  <p className={`font-bold text-lg mb-3 ${tier.popular ? "text-blue-600" : "text-blue-400"}`}>{tier.price}</p>
-                  <p className={`text-sm leading-relaxed ${tier.popular ? "text-slate-600" : "text-slate-300"}`}>{tier.desc}</p>
+                  <h3 className="relative text-lg font-bold mb-2 text-slate-900">{tier.name}</h3>
+                  <p className="relative font-bold text-lg mb-3 text-blue-600">{tier.price}</p>
+                  <p className="relative text-sm leading-relaxed text-slate-600">{tier.desc}</p>
                 </div>
               ))}
             </div>
 
-            <p className="text-center text-slate-300 text-base md:text-lg mb-8">
+            <p className="text-center text-slate-600 text-base md:text-lg mb-8">
               About $30K a year, compared with $250K or more for an in-house hire.
             </p>
 
             <div className="text-center">
               <PrimaryButton className="px-10" />
-              <p className="text-slate-400 text-sm mt-4">
+              <p className="text-slate-500 text-sm mt-4">
                 Month-to-month. No long-term contracts. Cancel with 30 days notice.
               </p>
             </div>

@@ -171,92 +171,6 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* SECTION 2: The Comparison                     */}
-      {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                The Comparison
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Two Bad Options. One Better One.
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-5 md:items-stretch">
-              {[
-                {
-                  label: "Law Firm",
-                  price: "$400+/hr",
-                  highlight: false,
-                  points: [
-                    { good: false, text: "Billed by the hour" },
-                    { good: false, text: "Relearns your business" },
-                    { good: false, text: "Surprise invoices" },
-                  ],
-                },
-                {
-                  label: "In-House Hire",
-                  price: "$250K+/yr",
-                  highlight: false,
-                  points: [
-                    { good: true, text: "Knows your business" },
-                    { good: false, text: "Salary, benefits, overhead" },
-                    { good: false, text: "Full-time cost, part-time need" },
-                  ],
-                },
-                {
-                  label: "Legal Halp",
-                  price: "From $2,500/mo",
-                  highlight: true,
-                  points: [
-                    { good: true, text: "Knows your business" },
-                    { good: true, text: "One fixed monthly fee" },
-                    { good: true, text: "Big-firm deal experience" },
-                  ],
-                },
-              ].map((col, i) => (
-                <div
-                  key={i}
-                  className={`relative rounded-2xl p-6 md:p-8 ${
-                    col.highlight
-                      ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 md:-translate-y-2"
-                      : "bg-slate-50 border border-slate-200"
-                  }`}
-                >
-                  {col.highlight && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
-                      The Better Option
-                    </span>
-                  )}
-                  <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
-                    {col.label}
-                  </p>
-                  <p className={`text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
-                    {col.price}
-                  </p>
-                  <ul className="space-y-3">
-                    {col.points.map((p, j) => (
-                      <li key={j} className="flex items-center gap-3">
-                        {p.good ? (
-                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 ${col.highlight ? "text-blue-400" : "text-emerald-500"}`} />
-                        ) : (
-                          <XCircle className="w-5 h-5 flex-shrink-0 text-red-400" />
-                        )}
-                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-700"}`}>{p.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
       {/* SECTION 3: Retainer (Primary Offering)        */}
       {/* ============================================= */}
       <section
@@ -360,6 +274,97 @@ const Home: React.FC = () => {
               <p className="text-slate-400 text-sm mt-4">
                 Month-to-month. No long-term contracts. Cancel with 30 days notice.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
+      {/* SECTION 3: The Comparison                     */}
+      {/* ============================================= */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                The Comparison
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Two Bad Options. One Better One.
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5 md:items-stretch">
+              {[
+                {
+                  label: "Law Firm",
+                  price: "$400+/hr",
+                  highlight: false,
+                  points: [
+                    { good: false, text: "Billed by the hour" },
+                    { good: false, text: "Relearns your business" },
+                    { good: false, text: "Surprise invoices" },
+                  ],
+                },
+                {
+                  label: "In-House Hire",
+                  price: "$250K+/yr",
+                  highlight: false,
+                  points: [
+                    { good: true, text: "Knows your business" },
+                    { good: false, text: "Salary, benefits, overhead" },
+                    { good: false, text: "Full-time cost, part-time need" },
+                  ],
+                },
+                {
+                  label: "Legal Halp",
+                  price: "From $2,500/mo",
+                  highlight: true,
+                  points: [
+                    { good: true, text: "Knows your business" },
+                    { good: true, text: "One fixed monthly fee" },
+                    { good: true, text: "Big-firm deal experience" },
+                  ],
+                },
+              ].map((col, i) => (
+                <div
+                  key={i}
+                  className={`group relative rounded-2xl p-6 md:p-8 cursor-default transition-all duration-300 ease-out ${
+                    col.highlight
+                      ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 hover:-translate-y-1 md:-translate-y-2 md:hover:-translate-y-4 hover:shadow-blue-500/40 hover:ring-blue-400"
+                      : "bg-slate-50 border border-slate-200 hover:-translate-y-1 hover:bg-white hover:border-blue-300 hover:shadow-xl hover:shadow-slate-900/10"
+                  }`}
+                >
+                  {/* Light sweep + accent bar on hover */}
+                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
+                    <span className={`absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent ${col.highlight ? "via-white/10" : "via-blue-100/70"} to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full`} />
+                    <span className="absolute left-0 top-0 h-full w-1 bg-blue-500 scale-y-0 origin-center transition-transform duration-300 ease-out group-hover:scale-y-100" />
+                  </span>
+                  {col.highlight && (
+                    <span className="absolute z-10 -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                      The Better Option
+                    </span>
+                  )}
+                  <p className={`relative text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
+                    {col.label}
+                  </p>
+                  <p className={`relative text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
+                    {col.price}
+                  </p>
+                  <ul className="relative space-y-3">
+                    {col.points.map((p, j) => (
+                      <li key={j} className="flex items-center gap-3 transition-transform duration-300 group-hover:translate-x-0.5">
+                        {p.good ? (
+                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 ${col.highlight ? "text-blue-400" : "text-emerald-500"}`} />
+                        ) : (
+                          <XCircle className="w-5 h-5 flex-shrink-0 text-red-400 transition-transform duration-300 group-hover:scale-110" />
+                        )}
+                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-700"}`}>{p.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>

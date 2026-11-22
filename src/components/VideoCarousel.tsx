@@ -300,9 +300,12 @@ const VideoCarousel: React.FC = () => {
                 business inside and out. Same big-firm training, without the
                 big-firm bill.
               </p>
-              <p className="text-slate-900 font-semibold">
-                A lawyer on your team, not on your payroll.
+            </div>
+            <div className="mt-10">
+              <p className="text-3xl md:text-4xl font-extrabold italic text-slate-900 tracking-tight leading-tight">
+                A lawyer on your team, <span className="text-blue-600">not on your payroll.</span>
               </p>
+              <span aria-hidden="true" className="block mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-blue-600 to-blue-400" />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">

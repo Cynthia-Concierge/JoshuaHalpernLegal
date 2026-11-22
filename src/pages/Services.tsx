@@ -989,8 +989,7 @@ const Services: React.FC = () => {
       {/* TAB NAVIGATION                                */}
       {/* ============================================= */}
       <section
-        id="packages"
-        className="sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm scroll-mt-16"
+        className="lg:hidden sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto py-3">
@@ -1020,29 +1019,6 @@ const Services: React.FC = () => {
                 <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white" />
               </div>
             </div>
-            {/* Desktop: grouped tabs */}
-            <div className="hidden lg:block space-y-2">
-            {TRACKS.map((track) => {
-              const trackCategories = SERVICE_CATEGORIES.filter(
-                (c) => c.track === track.id
-              );
-              return (
-                <div key={track.id} className="flex items-start gap-3">
-                  <span className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-slate-400 w-28 flex-shrink-0 pt-3.5 leading-none">
-                    {track.label}
-                    <span className="block mt-1 text-slate-300 normal-case tracking-normal text-[11px] font-semibold">
-                      {trackCategories.length} areas
-                    </span>
-                  </span>
-                  <TrackTabs
-                    categories={trackCategories}
-                    activeTab={activeTab}
-                    onSelect={setActiveTab}
-                  />
-                </div>
-              );
-            })}
-            </div>
           </div>
         </div>
       </section>
@@ -1050,30 +1026,66 @@ const Services: React.FC = () => {
       {/* ============================================= */}
       {/* SERVICE PACKAGES                              */}
       {/* ============================================= */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      <section id="packages" className="py-16 md:py-24 bg-slate-50 scroll-mt-40 lg:scroll-mt-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            {/* Category header */}
-            <div className="flex items-center gap-4 mb-10">
-              <div className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20">
-                <activeCategory.icon className="w-6 h-6" />
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
-                {activeCategory.label}
-              </h2>
-            </div>
+          <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+            {/* Desktop: clean practice area list */}
+            <aside className="hidden lg:block">
+              <nav aria-label="Practice areas" className="sticky top-24">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-3 px-3">
+                  Practice Areas
+                </p>
+                <ul className="space-y-0.5">
+                  {TRACKS.flatMap((track) => SERVICE_CATEGORIES.filter((c) => c.track === track.id)).map((cat) => {
+                    const Icon = cat.icon;
+                    const isActive = cat.id === activeTab;
+                    return (
+                      <li key={cat.id}>
+                        <button
+                          type="button"
+                          aria-current={isActive ? "true" : undefined}
+                          onClick={() => {
+                            setActiveTab(cat.id);
+                            const el = document.getElementById("packages");
+                            if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }}
+                          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-left transition-colors ${
+                            isActive ? "bg-slate-900 text-white shadow-sm" : "text-slate-600 hover:bg-white hover:text-slate-900"
+                          }`}
+                        >
+                          <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-blue-300" : "text-slate-400"}`} />
+                          {cat.label}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+            </aside>
 
-            {/* Package cards */}
-            <div
-              className={`grid gap-8 ${
-                activeCategory.packages.length === 1
-                  ? "grid-cols-1 max-w-xl"
-                  : "grid-cols-1 lg:grid-cols-2"
-              }`}
-            >
-              {activeCategory.packages.map((pkg, index) => (
-                <PackageCard key={index} pkg={pkg} />
-              ))}
+            <div className="min-w-0">
+              {/* Category header */}
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20">
+                  <activeCategory.icon className="w-6 h-6" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                  {activeCategory.label}
+                </h2>
+              </div>
+
+              {/* Package cards */}
+              <div
+                className={`grid gap-6 ${
+                  activeCategory.packages.length === 1
+                    ? "grid-cols-1 max-w-xl"
+                    : "grid-cols-1 md:grid-cols-2"
+                }`}
+              >
+                {activeCategory.packages.map((pkg, index) => (
+                  <PackageCard key={index} pkg={pkg} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

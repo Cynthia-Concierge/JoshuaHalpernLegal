@@ -302,10 +302,22 @@ const VideoCarousel: React.FC = () => {
               </p>
             </div>
             <div className="mt-10">
-              <p className="text-3xl md:text-4xl font-extrabold italic text-slate-900 tracking-tight leading-tight">
-                A lawyer on your team, <span className="text-blue-600">not on your payroll.</span>
+              <p className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                A lawyer on your team,{" "}
+                <span className="relative inline-block italic text-blue-600 pr-1">
+                  not on your payroll.
+                  {/* Hand-drawn marker underline, slightly rising left to right */}
+                  <svg
+                    aria-hidden="true"
+                    className="absolute left-0 -bottom-2 md:-bottom-3 w-full h-3 md:h-4 text-blue-500 pointer-events-none"
+                    viewBox="0 0 300 20"
+                    preserveAspectRatio="none"
+                  >
+                    <path d="M4 16 C 70 14, 150 10, 296 5" stroke="currentColor" strokeWidth="7" strokeLinecap="round" fill="none" opacity="0.55" />
+                    <path d="M10 17 C 90 15, 190 11, 288 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.35" />
+                  </svg>
+                </span>
               </p>
-              <span aria-hidden="true" className="block mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-blue-600 to-blue-400" />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">

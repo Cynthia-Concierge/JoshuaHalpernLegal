@@ -357,10 +357,71 @@ const Index = () => {
         <HeroFade to="slate" />
       </section>
 
-      <VideoCarousel />
+      {/* ── Retainer ── */}
+      <section id="retainer" className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                Outside General Counsel
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Your General Counsel,
+                <br />
+                <span className="text-blue-600">On a Fixed Monthly Retainer.</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
+                One senior attorney who knows your entities, your contracts, and
+                your deals. No timers. No surprise invoices.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5 mb-10 md:pt-4">
+              {[
+                { name: "Essential Counsel", price: "$2,500/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
+                { name: "Ongoing Counsel", price: "$4,000/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
+                { name: "General Counsel", price: "From $6,000/mo", desc: "Your outside general counsel. Strategy, deals, board-level support.", popular: false },
+              ].map((tier, i) => (
+                <div
+                  key={i}
+                  className={`group relative rounded-2xl p-6 text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 ${
+                    tier.popular
+                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2 md:hover:-translate-y-4"
+                      : "bg-white border border-slate-200 hover:border-blue-300"
+                  }`}
+                >
+                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                    <span className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  </span>
+                  {tier.popular && (
+                    <span className="absolute z-10 -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className="relative text-lg font-bold mb-2 text-slate-900">{tier.name}</h3>
+                  <p className="relative font-bold text-lg mb-3 text-blue-600">{tier.price}</p>
+                  <p className="relative text-sm leading-relaxed text-slate-600">{tier.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-center text-slate-600 text-base md:text-lg mb-8">
+              About $30K a year, compared with $250K or more for an in-house hire.
+            </p>
+
+            <div className="text-center">
+              <PrimaryButton className="px-10" />
+              <p className="text-slate-500 text-sm mt-4">
+                Month-to-month. No long-term contracts. Cancel with 30 days notice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── The Gap ── */}
-      <section className="py-20 md:py-28 bg-slate-50">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -447,8 +508,10 @@ const Index = () => {
         </div>
       </section>
 
+      <VideoCarousel />
+
       {/* ── What's Covered ── */}
-      <section id="coverage" className="py-20 md:py-28 bg-white">
+      <section id="coverage" className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
@@ -483,7 +546,7 @@ const Index = () => {
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="py-20 md:py-28 bg-slate-50">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight text-center">
@@ -498,7 +561,7 @@ const Index = () => {
                 "You want one attorney who knows the whole picture, not a new one for every matter",
                 "You need general counsel judgment, but not a $250,000 in-house seat",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200">
+                <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
                   <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-800 font-medium">{item}</span>
                 </div>
@@ -513,7 +576,7 @@ const Index = () => {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="py-20 md:py-28 bg-white">
+      <section id="how-it-works" className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
@@ -544,69 +607,6 @@ const Index = () => {
 
             <div className="text-center mt-12">
               <PrimaryButton />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Retainer ── */}
-      <section id="retainer" className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                Outside General Counsel
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Your General Counsel,
-                <br />
-                <span className="text-blue-600">On a Fixed Monthly Retainer.</span>
-              </h2>
-              <p className="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
-                One senior attorney who knows your entities, your contracts, and
-                your deals. No timers. No surprise invoices.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-5 mb-10 md:pt-4">
-              {[
-                { name: "Essential Counsel", price: "$2,500/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
-                { name: "Ongoing Counsel", price: "$4,000/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
-                { name: "General Counsel", price: "From $6,000/mo", desc: "Your outside general counsel. Strategy, deals, board-level support.", popular: false },
-              ].map((tier, i) => (
-                <div
-                  key={i}
-                  className={`group relative rounded-2xl p-6 text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 ${
-                    tier.popular
-                      ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2 md:hover:-translate-y-4"
-                      : "bg-white border border-slate-200 hover:border-blue-300"
-                  }`}
-                >
-                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                    <span className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                  </span>
-                  {tier.popular && (
-                    <span className="absolute z-10 -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow whitespace-nowrap">
-                      Most Popular
-                    </span>
-                  )}
-                  <h3 className="relative text-lg font-bold mb-2 text-slate-900">{tier.name}</h3>
-                  <p className="relative font-bold text-lg mb-3 text-blue-600">{tier.price}</p>
-                  <p className="relative text-sm leading-relaxed text-slate-600">{tier.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-center text-slate-600 text-base md:text-lg mb-8">
-              About $30K a year, compared with $250K or more for an in-house hire.
-            </p>
-
-            <div className="text-center">
-              <PrimaryButton className="px-10" />
-              <p className="text-slate-500 text-sm mt-4">
-                Month-to-month. No long-term contracts. Cancel with 30 days notice.
-              </p>
             </div>
           </div>
         </div>

@@ -58,16 +58,15 @@ const About: React.FC = () => {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight font-serif max-w-3xl">
-              I Left BigLaw for the Billing Model,{" "}
+              Big-Firm Training.{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                Not the Work
+                A Better Way to Practice.
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-              Former corporate and transactional associate at Taft, Stettinius
-              &amp; Hollister. Now outside general counsel to operating
-              companies, investors, and multi-entity groups.
+              I'm Josh Halpern, outside general counsel to business owners,
+              investors, and multi-entity companies.
             </p>
           </div>
         </div>
@@ -80,19 +79,72 @@ const About: React.FC = () => {
       {/* ============================================= */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto space-y-5 text-lg text-slate-600 leading-relaxed">
-            <p className="text-xl md:text-2xl font-semibold text-slate-900">
-              I left the billing model, not the work.
-            </p>
-            <p>
-              I spent years in the corporate and transactional group of a large
-              firm, working on acquisitions, financings, and governance for
-              closely held companies. The work was excellent. The hourly model
-              was not.
-            </p>
-            <p>
-              Legal Halp is that same practice on a fixed fee. Every matter is
-              handled by me. Every fee is quoted before the work starts.
+          <div className="max-w-3xl mx-auto text-center text-lg text-slate-600 leading-relaxed space-y-12">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Where I Started
+              </h2>
+              <p>
+                I began my career in the corporate and transactional group at
+                Taft Stettinius &amp; Hollister, working on acquisitions,
+                financings, entity structuring, and governance. I was also one
+                of the first attorneys on the firm's expansion into Ann Arbor,
+                representing software and technology companies alongside the
+                University of Michigan and its startup incubator.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Why I Left
+              </h2>
+              <p>
+                The work was great. The billing model wasn't. Every call and
+                email went on the clock in six-minute increments, so clients
+                thought twice before reaching out. And the owners who needed
+                steady, everyday corporate help were the ones big firms were
+                least interested in serving.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Why I Built Legal Halp
+              </h2>
+              <p>
+                Owners were stuck choosing between expensive outside lawyers,
+                doing it themselves, or an in-house hire they couldn't justify.
+                Legal Halp is the option in between: big-firm corporate counsel
+                on a fixed monthly retainer or a flat project fee, quoted before
+                any work starts. You work with me directly, not a junior
+                associate.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                What I Do Today
+              </h2>
+              <p>
+                I serve as outside general counsel to operating companies, real
+                estate investors, and multi-entity groups. That means contracts,
+                deals, entity structure and governance, real estate and leasing,
+                employment, and the bigger strategic questions that come with
+                growth. I'm easy to reach, I move fast, and I use technology and
+                AI to work efficiently, so you get real answers without the
+                big-firm bill.
+              </p>
+            </div>
+
+            <p className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight pt-2">
+              A lawyer on your team,{" "}
+              <span className="relative inline-block italic text-blue-600 pr-1">
+                not on your payroll.
+                <svg aria-hidden="true" className="absolute left-0 -bottom-2 md:-bottom-3 w-full h-3 md:h-4 text-blue-500 pointer-events-none" viewBox="0 0 300 20" preserveAspectRatio="none">
+                  <path d="M4 16 C 70 14, 150 10, 296 5" stroke="currentColor" strokeWidth="7" strokeLinecap="round" fill="none" opacity="0.55" />
+                  <path d="M10 17 C 90 15, 190 11, 288 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.35" />
+                </svg>
+              </span>
             </p>
           </div>
         </div>

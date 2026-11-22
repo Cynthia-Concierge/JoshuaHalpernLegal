@@ -1,32 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { LegalLinks, LegalDisclosure, LEGAL_ENTITY, TRADE_NAME } from "@/components/SiteFooter";
 
+// Footer used on ad landing pages (/lawyeroncall, /realestate).
 const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-800 text-slate-400 py-12 border-t border-slate-600">
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-6">
           <div className="w-14 h-16 overflow-hidden">
-            <img src="/logo.png" alt="Legal Halp" className="h-16 object-cover object-left" style={{width: '56px'}} />
+            <img src="/logo.png" alt="Legal Halp" className="h-16 object-cover object-left" style={{ width: "56px" }} />
           </div>
         </div>
 
-        <div className="flex justify-center gap-6 mb-8 text-sm">
-          <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms &amp; Conditions</Link>
-          <Link to="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-          <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
-        </div>
+        <LegalLinks className="flex justify-center flex-wrap gap-x-6 gap-y-2 mb-8 text-sm" />
 
-        <p className="text-xs text-slate-300 max-w-2xl mx-auto leading-relaxed mb-4">
-          Disclaimer: The information provided on this website does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only. Information on this website may not constitute the most up-to-date legal or other information.
-        </p>
-
-        <p className="text-xs text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          By providing your phone number, you agree to receive text messages from Legal Halp. Message and data rates may apply. Reply STOP to opt out.
-        </p>
+        <LegalDisclosure className="text-xs text-slate-300 max-w-3xl mx-auto leading-relaxed space-y-3" />
 
         <div className="mt-8 text-xs text-slate-400">
-          © {new Date().getFullYear()} Legal Halp. All rights reserved.
+          &copy; {new Date().getFullYear()} {LEGAL_ENTITY} d/b/a {TRADE_NAME}. All rights reserved.
         </div>
       </div>
     </footer>

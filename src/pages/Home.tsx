@@ -1,3 +1,4 @@
+import SiteFooter from "@/components/SiteFooter";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -526,7 +527,7 @@ const Home: React.FC = () => {
                 { icon: Layers, title: "Governance & Entity Cleanup", note: "Operating agreements, holding companies", slug: "/services#governance" },
                 { icon: Briefcase, title: "Business Formation", note: "Entities, operating agreements, S-Corps", slug: "/services#business" },
                 { icon: Warehouse, title: "Commercial Real Estate", note: "Purchases, leases, financing review", slug: "/services#commercialre" },
-                { icon: Building2, title: "Real Estate Holding Structures", note: "LLCs, deeds, 1031 support", slug: "/services#realestate" },
+                { icon: Building2, title: "Real Estate Holding Structures", note: "LLCs, holding companies, 1031 support", slug: "/services#realestate" },
                 { icon: PenTool, title: "Contract Drafting", note: "Drafting, review, negotiation", slug: "/services#contracts" },
                 { icon: Gavel, title: "Demand Letters & Disputes", note: "Demands, collections, settlements", slug: "/services#disputes" },
                 { icon: Shield, title: "Estate Planning", note: "Trusts, wills, powers of attorney", slug: "/services#family" },
@@ -604,43 +605,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* FOOTER                                        */}
       {/* ============================================= */}
-      <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex flex-col items-center mb-6">
-            <img src="/logo-white.svg" alt="Legal Halp" className="h-10 mb-4" />
-            <p className="text-sm text-slate-500">Legal Halp</p>
-            <p className="text-sm text-slate-500 mt-1">
-              by Joshua Halpern, Esq.
-            </p>
-          </div>
-
-          <div className="flex justify-center gap-6 mb-6 text-sm">
-            <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms &amp; Conditions</Link>
-            <Link to="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-            <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
-          </div>
-
-          <p className="text-xs text-slate-600 mb-6">
-            Outside General Counsel &bull; Deals &amp; Transactions &bull;
-            Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning
-          </p>
-
-          <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-4">
-            Disclaimer: The information provided on this website does not, and is
-            not intended to, constitute legal advice; instead, all information,
-            content, and materials available on this site are for general
-            informational purposes only.
-          </p>
-
-          <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            By providing your phone number, you agree to receive text messages from Legal Halp. Message and data rates may apply. Reply STOP to opt out.
-          </p>
-
-          <div className="text-xs text-slate-700">
-            &copy; {new Date().getFullYear()} Legal Halp. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter tagline={<>Outside General Counsel &bull; Deals &amp; Transactions &bull; Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning</>} />
     </div>
   );
 };

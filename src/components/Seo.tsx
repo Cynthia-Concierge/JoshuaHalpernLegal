@@ -104,6 +104,10 @@ const PAGE_META: Record<string, PageMeta> = {
     title: "Payment & Refund Policy | Legal Halp",
     description: "Payment terms and refund policy for Legal Halp engagements.",
   },
+  "/accessibility": {
+    title: "Accessibility Statement | Legal Halp",
+    description: "Legal Halp's commitment to website accessibility and how to request assistance.",
+  },
   "/thank-you": { title: "Thank You | Legal Halp", description: "", noindex: true },
   "/lawyeroncall/thank-you": {
     title: "Thank You | Legal Halp",

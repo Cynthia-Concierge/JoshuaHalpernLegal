@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import SiteFooter, { LegalLinks } from "@/components/SiteFooter";
 
 export const CONTACT_EMAIL = "assistant@legalhalp.com";
 
@@ -23,9 +23,15 @@ export const Email: React.FC = () => (
 
 export const ContactBlock: React.FC = () => (
   <p className="mt-3">
-    <span className="font-semibold text-slate-900">Legal Halp</span>
+    <span className="font-semibold text-slate-900">LH Law Holdings LLC d/b/a Legal Halp</span>
+    <br />
+    Attn: Joshua B. Halpern, Esq.
     <br />
     <Email />
+    <br />
+    <a href="tel:+12162232818" className="text-blue-600 hover:text-blue-500 underline">
+      (216) 223-2818
+    </a>
   </p>
 );
 
@@ -37,40 +43,21 @@ interface LegalPageLayoutProps {
 
 const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ title, effectiveDate, children }) => (
   <div className="min-h-screen bg-white">
-    <section className="py-16 md:py-24">
+    <main id="main-content" className="py-16 md:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-3 tracking-tight">{title}</h1>
           <p className="text-slate-500 mb-4">Effective and last updated: {effectiveDate}</p>
-          <div className="flex flex-wrap gap-2 mb-12 text-sm">
-            <Link to="/terms" className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">Terms &amp; Conditions</Link>
-            <Link to="/privacy" className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">Privacy Policy</Link>
-            <Link to="/payment-policy" className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">Payment &amp; Refund Policy</Link>
-          </div>
+          <LegalLinks
+            className="flex flex-wrap gap-2 mb-12 text-sm"
+            linkClassName="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
+          />
           <div className="space-y-4 text-slate-700 text-base md:text-lg leading-relaxed">{children}</div>
         </div>
       </div>
-    </section>
+    </main>
 
-    <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-      <div className="container mx-auto px-4 text-center">
-        <div className="flex flex-col items-center mb-6">
-          <img src="/logo-white.svg" alt="Legal Halp" className="h-10 mb-4" />
-          <p className="text-sm text-slate-500">Legal Halp</p>
-          <p className="text-sm text-slate-500 mt-1">by Joshua Halpern, Esq.</p>
-        </div>
-        <div className="flex justify-center flex-wrap gap-6 mb-6 text-sm">
-          <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms &amp; Conditions</Link>
-          <Link to="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-          <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
-        </div>
-        <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
-          Attorney Advertising. The information on this website is for general informational purposes
-          only and is not legal advice. Contacting Legal Halp does not create an attorney-client relationship.
-        </p>
-        <div className="text-xs text-slate-700">&copy; {new Date().getFullYear()} Legal Halp. All rights reserved.</div>
-      </div>
-    </footer>
+    <SiteFooter />
   </div>
 );
 

@@ -1,3 +1,4 @@
+import SiteFooter from "@/components/SiteFooter";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -248,40 +249,7 @@ const About: React.FC = () => {
       {/* ============================================= */}
       {/* FOOTER                                        */}
       {/* ============================================= */}
-      <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex flex-col items-center mb-6">
-            <img src="/logo-white.svg" alt="Legal Halp" className="h-10 mb-4" />
-            <p className="text-sm text-slate-500">Legal Halp</p>
-            <p className="text-sm text-slate-500 mt-1">
-              by Joshua Halpern, Esq.
-            </p>
-          </div>
-
-          <div className="flex justify-center gap-6 mb-6 text-sm">
-            <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms &amp; Conditions</Link>
-            <Link to="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-            <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
-          </div>
-
-          <p className="text-xs text-slate-600 mb-6">
-            Mergers &amp; Acquisitions &bull; Outside General Counsel &bull;
-            Entity Structuring &bull; Governance &bull; Commercial Real Estate
-            &bull; Contracts &bull; IP
-          </p>
-
-          <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            Disclaimer: The information provided on this website does not, and is
-            not intended to, constitute legal advice; instead, all information,
-            content, and materials available on this site are for general
-            informational purposes only.
-          </p>
-
-          <div className="text-xs text-slate-700">
-            &copy; {new Date().getFullYear()} Legal Halp. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter tagline={<>Mergers &amp; Acquisitions &bull; Outside General Counsel &bull; Entity Structuring &bull; Governance &bull; Commercial Real Estate &bull; Contracts &bull; IP</>} />
     </div>
   );
 };

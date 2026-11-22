@@ -1,3 +1,4 @@
+import SiteFooter from "@/components/SiteFooter";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -333,44 +334,7 @@ const RepresentativeMatters: React.FC = () => {
       {/* ============================================= */}
       {/* FOOTER                                        */}
       {/* ============================================= */}
-      <footer className="bg-slate-950 text-slate-400 py-10 border-t border-slate-800">
-        <div className="container mx-auto px-4 text-center">
-          <img
-            src="/logo-white.svg"
-            alt="Legal Halp"
-            className="h-10 mb-4 mx-auto"
-          />
-          <p className="text-sm text-slate-500">Legal Halp</p>
-          <p className="text-sm text-slate-500 mb-5">by Joshua Halpern, Esq.</p>
-
-          <div className="flex justify-center gap-6 mb-5 text-sm">
-            <Link to="/terms" className="hover:text-blue-400 transition-colors">
-              Terms
-            </Link>
-            <Link
-              to="/privacy"
-              className="hover:text-blue-400 transition-colors"
-            >
-              Privacy
-            </Link>
-            <Link
-              to="/payment-policy"
-              className="hover:text-blue-400 transition-colors"
-            >
-              Payment &amp; Refunds
-            </Link>
-          </div>
-
-          <p className="text-xs text-slate-600 max-w-xl mx-auto leading-relaxed mb-5">
-            Information on this site is general and is not legal advice. Prior
-            results do not guarantee a similar outcome.
-          </p>
-
-          <div className="text-xs text-slate-700">
-            &copy; {new Date().getFullYear()} Legal Halp. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter tagline={<>Mergers &amp; Acquisitions &bull; Outside General Counsel &bull; Entity Structuring &bull; Governance &bull; Commercial Real Estate &bull; Contracts &bull; IP</>} />
     </div>
   );
 };

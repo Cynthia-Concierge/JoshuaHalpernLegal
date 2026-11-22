@@ -39,6 +39,7 @@ import BookingThankYou from "./pages/BookingThankYou";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import PaymentPolicy from "./pages/PaymentPolicy";
+import Accessibility from "./pages/Accessibility";
 import RealEstate from "./pages/RealEstate";
 import RealEstateThankYou from "./pages/RealEstateThankYou";
 
@@ -77,6 +78,7 @@ const Layout = () => {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/payment-policy" element={<PaymentPolicy />} />
+        <Route path="/accessibility" element={<Accessibility />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/realestate" element={<RealEstate />} />
         <Route path="/realestate/thank-you" element={<RealEstateThankYou />} />

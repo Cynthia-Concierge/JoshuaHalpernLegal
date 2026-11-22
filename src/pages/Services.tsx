@@ -1,3 +1,4 @@
+import SiteFooter from "@/components/SiteFooter";
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -563,7 +564,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Attorney consultation throughout process",
         ],
         whyItMatters:
-          "A 1031 exchange lets you defer capital gains taxes indefinitely. But strict IRS timelines (45 days to identify, 180 days to close) mean one mistake can blow the deal. Get expert guidance.",
+          "A 1031 exchange can let you defer capital gains taxes. But strict IRS timelines (45 days to identify, 180 days to close) mean one mistake can blow the deal. Get the legal side structured right, and coordinate the tax side with your CPA and qualified intermediary.",
         stripeLink: "https://buy.stripe.com/dRmaEXfmi9Ql9O9g4W3oA07",
       },
       {
@@ -1145,39 +1146,7 @@ const Services: React.FC = () => {
       {/* ============================================= */}
       {/* FOOTER                                        */}
       {/* ============================================= */}
-      <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex flex-col items-center mb-6">
-            <img src="/logo-white.svg" alt="Legal Halp" className="h-10 mb-4" />
-            <p className="text-sm text-slate-500">Legal Halp</p>
-            <p className="text-sm text-slate-500 mt-1">
-              by Joshua Halpern, Esq.
-            </p>
-          </div>
-
-          <div className="flex justify-center gap-6 mb-6 text-sm">
-            <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms &amp; Conditions</Link>
-            <Link to="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-            <Link to="/payment-policy" className="hover:text-blue-400 transition-colors">Payment &amp; Refund Policy</Link>
-          </div>
-
-          <p className="text-xs text-slate-600 mb-6">
-            Outside General Counsel &bull; Deals &amp; Transactions &bull;
-            Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning
-          </p>
-
-          <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            Disclaimer: The information provided on this website does not, and is
-            not intended to, constitute legal advice; instead, all information,
-            content, and materials available on this site are for general
-            informational purposes only.
-          </p>
-
-          <div className="text-xs text-slate-700">
-            &copy; {new Date().getFullYear()} Legal Halp. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter tagline={<>Outside General Counsel &bull; Deals &amp; Transactions &bull; Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning</>} />
     </div>
   );
 };

@@ -287,9 +287,12 @@ const VideoCarousel: React.FC = () => {
                 firsthand how big firms bill their clients.
               </p>
               <p>
-                It's an old way of practicing law. Meanwhile, I kept getting
-                calls from owners who needed everyday corporate help that big
-                firms weren't interested in. Their choices were expensive
+                Every call, email, and quick question went on the clock in
+                six-minute increments, so clients hesitated to pick up the
+                phone at all. It's an outdated way to practice law. At the same
+                time, I kept getting calls from owners who needed everyday
+                corporate help that big firms weren't interested in. Their
+                choices were expensive
                 outside lawyers, doing it themselves, or hiring someone
                 in-house on a salary they couldn't justify. So I built a
                 better option. I'm easy to reach, I move fast, I use

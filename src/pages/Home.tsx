@@ -363,7 +363,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
                 How It Works
@@ -373,7 +373,8 @@ const Home: React.FC = () => {
               </h2>
             </div>
 
-            <div className="space-y-0">
+            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+              <div aria-hidden="true" className="hidden md:block absolute top-8 left-[16.66%] right-[16.66%] h-0.5 bg-slate-200" />
               {[
                 {
                   step: "1",
@@ -394,26 +395,12 @@ const Home: React.FC = () => {
                     "Contracts, deals, governance, and everything in between. Email whenever something comes up. Urgent matters get a call.",
                 },
               ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex gap-6 md:gap-8 items-start relative"
-                >
-                  {index < 2 && (
-                    <div className="absolute left-[27px] md:left-[31px] top-[60px] w-0.5 h-[calc(100%-40px)] bg-slate-200" />
-                  )}
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-900/20 relative z-10">
-                    <span className="text-white font-bold text-xl">
-                      {item.step}
-                    </span>
+                <div key={index} className="relative flex flex-col items-center text-center">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20 relative z-10 mb-5">
+                    <span className="text-white font-bold text-xl">{item.step}</span>
                   </div>
-                  <div className="pb-12 md:pb-16">
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 text-base md:text-lg leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-xs">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -458,8 +445,8 @@ const Home: React.FC = () => {
                     "No paralegals. No junior associates. No call centers. You work with me directly, and I know your business.",
                 },
               ].map((item, index) => (
-                <div key={index} className="text-center md:text-left">
-                  <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-5 mx-auto md:mx-0 shadow-lg shadow-slate-900/20">
+                <div key={index} className="text-center">
+                  <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-5 mx-auto shadow-lg shadow-slate-900/20">
                     <item.icon className="w-7 h-7" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">

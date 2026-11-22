@@ -628,8 +628,8 @@ const Index = () => {
                 { icon: DollarSign, title: "One Fixed Monthly Fee", description: "No billable hours and no meter running. Reach out without wondering what it costs. Anything outside scope is flagged before work starts." },
                 { icon: UserCheck, title: "Direct Attorney Access", description: "No paralegals. No junior associates. No call centers. You work with me directly, and I know your business." },
               ].map((item, index) => (
-                <div key={index} className="text-center md:text-left">
-                  <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-5 mx-auto md:mx-0 shadow-lg shadow-slate-900/20">
+                <div key={index} className="text-center">
+                  <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-5 mx-auto shadow-lg shadow-slate-900/20">
                     <item.icon className="w-7 h-7" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>

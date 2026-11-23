@@ -273,7 +273,7 @@ const Home: React.FC = () => {
                 The Comparison
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                The Traditional Options. One Smarter Way.
+                Traditional legal costs too much for what you need.
               </h2>
             </div>
 

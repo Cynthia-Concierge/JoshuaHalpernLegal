@@ -272,8 +272,8 @@ const Home: React.FC = () => {
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
                 The Problem & The Solution
               </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Traditional legal costs too much for what you need.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
+                Traditional legal costs more than it should.
               </h2>
             </div>
 
@@ -315,7 +315,7 @@ const Home: React.FC = () => {
                   className={`group relative rounded-2xl p-6 md:p-8 cursor-default transition-all duration-300 ease-out ${
                     col.highlight
                       ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 hover:-translate-y-1 md:-translate-y-2 md:hover:-translate-y-4 hover:shadow-blue-500/40 hover:ring-blue-400"
-                      : "bg-slate-50 border border-slate-200 hover:-translate-y-1 hover:bg-white hover:border-blue-300 hover:shadow-xl hover:shadow-slate-900/10"
+                      : "bg-white border-2 border-slate-300 shadow-md hover:-translate-y-1 hover:border-slate-400 hover:shadow-xl hover:shadow-slate-900/10"
                   }`}
                 >
                   {/* Light sweep + accent bar on hover */}
@@ -328,7 +328,7 @@ const Home: React.FC = () => {
                       The Better Option
                     </span>
                   )}
-                  <p className={`relative text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
+                  <p className={`relative text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-600"}`}>
                     {col.label}
                   </p>
                   <p className={`relative text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
@@ -342,7 +342,7 @@ const Home: React.FC = () => {
                         ) : (
                           <XCircle className="w-5 h-5 flex-shrink-0 text-red-400 transition-transform duration-300 group-hover:scale-110" />
                         )}
-                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-700"}`}>{p.text}</span>
+                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-800"}`}>{p.text}</span>
                       </li>
                     ))}
                   </ul>

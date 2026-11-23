@@ -305,7 +305,6 @@ const Home: React.FC = () => {
                   highlight: true,
                   points: [
                     { good: true, text: "Same lawyer every time, already up to speed" },
-                    { good: true, text: "One fixed fee covers it all" },
                     { good: true, text: "One fixed monthly fee, no surprises" },
                     { good: true, text: "Big-firm experience without the big-firm cost" },
                   ],

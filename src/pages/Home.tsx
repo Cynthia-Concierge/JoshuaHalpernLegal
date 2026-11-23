@@ -270,7 +270,7 @@ const Home: React.FC = () => {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                The Comparison
+                The Problem & The Solution
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Traditional legal costs too much for what you need.
@@ -280,23 +280,23 @@ const Home: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-5 md:items-stretch">
               {[
                 {
-                  label: "Law Firm",
+                  label: "Hiring a Big Law Firm",
                   price: "$400+/hr",
                   highlight: false,
                   points: [
-                    { good: false, text: "Billed by the hour" },
-                    { good: false, text: "Relearns your business" },
-                    { good: false, text: "Surprise invoices" },
+                    { good: false, text: "Every call and email costs you" },
+                    { good: false, text: "They start from scratch learning your business" },
+                    { good: false, text: "Invoices you never saw coming" },
                   ],
                 },
                 {
-                  label: "In-House Hire",
+                  label: "Hiring a Full-Time Lawyer",
                   price: "$250K+/yr",
                   highlight: false,
                   points: [
-                    { good: true, text: "Knows your business" },
-                    { good: false, text: "Salary, benefits, overhead" },
-                    { good: false, text: "Full-time cost, part-time need" },
+                    { good: true, text: "Knows your business, but costs a fortune" },
+                    { good: false, text: "Salary, benefits, and overhead are all on you" },
+                    { good: false, text: "Full-time pay for a part-time need" },
                   ],
                 },
                 {
@@ -304,9 +304,9 @@ const Home: React.FC = () => {
                   price: "From $2,500/mo",
                   highlight: true,
                   points: [
-                    { good: true, text: "Knows your business" },
-                    { good: true, text: "One fixed monthly fee" },
-                    { good: true, text: "Big-firm deal experience" },
+                    { good: true, text: "Knows your business from day one" },
+                    { good: true, text: "One fixed monthly fee, no surprises" },
+                    { good: true, text: "Big-firm experience without the big-firm cost" },
                   ],
                 },
               ].map((col, i) => (

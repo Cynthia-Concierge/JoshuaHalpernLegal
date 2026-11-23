@@ -273,7 +273,7 @@ const Home: React.FC = () => {
                 The Problem & The Solution
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
-                Traditional legal costs more than it should.
+                Big firms and full-time hires cost too much. There&apos;s a better way.
               </h2>
             </div>
 

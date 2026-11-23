@@ -273,7 +273,7 @@ const Home: React.FC = () => {
                 The Problem & The Solution
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
-                Big firms and full-time hires cost too much. There&apos;s a better way.
+                Big firms and full-time hires cost too much. There's a better way.
               </h2>
             </div>
 
@@ -285,7 +285,7 @@ const Home: React.FC = () => {
                   highlight: false,
                   points: [
                     { good: false, text: "Every call and email costs you" },
-                    { good: false, text: "They start from scratch learning your business" },
+                    { good: false, text: "High hourly rates for every conversation" },
                     { good: false, text: "Invoices you never saw coming" },
                   ],
                 },
@@ -304,7 +304,8 @@ const Home: React.FC = () => {
                   price: "From $2,500/mo",
                   highlight: true,
                   points: [
-                    { good: true, text: "Knows your business from day one" },
+                    { good: true, text: "Same lawyer every time, already up to speed" },
+                    { good: true, text: "One fixed fee covers it all" },
                     { good: true, text: "One fixed monthly fee, no surprises" },
                     { good: true, text: "Big-firm experience without the big-firm cost" },
                   ],
@@ -573,7 +574,7 @@ const Home: React.FC = () => {
       {/* ============================================= */}
       {/* FOOTER                                        */}
       {/* ============================================= */}
-      <SiteFooter tagline={<>Outside General Counsel &bull; Deals &amp; Transactions &bull; Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning</>} />
+      <SiteFooter tagline={<>Outside General Counsel &bull; Deals & Transactions &bull; Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning</>} />
     </div>
   );
 };

@@ -281,7 +281,7 @@ const Home: React.FC = () => {
               {[
                 {
                   label: "Hiring a Big Law Firm",
-                  price: "$400+/hr",
+                  price: "$600+/hr",
                   highlight: false,
                   points: [
                     { good: false, text: "Every call and email costs you" },

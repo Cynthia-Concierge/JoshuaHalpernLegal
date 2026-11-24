@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Lock, Shield, Check } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
+import { isValidPhoneNumber } from 'libphonenumber-js';
 import { SmsConsent } from './ui/sms-consent';
 
 interface LeadFormProps {
@@ -44,8 +45,9 @@ const LeadForm: React.FC<LeadFormProps> = ({ onSubmit }) => {
       return;
     }
 
-    if (!phone || phone.length < 10) {
-      setPhoneError("Please enter a valid phone number.");
+    // A real, complete number is required: follow-up texts cannot reach a mistyped one.
+    if (!phone || !isValidPhoneNumber(phone, 'US')) {
+      setPhoneError("Please enter a valid phone number, including area code.");
       return;
     }
 

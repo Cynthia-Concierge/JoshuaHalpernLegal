@@ -64,7 +64,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     }
 
     // A real, complete number is required: follow-up texts cannot reach a mistyped one.
-    if (!phone || !isValidPhoneNumber(phone, 'US')) {
+    if (!phone || !(isValidPhoneNumber(phone, 'US') || isValidPhoneNumber(phone.replace(/^\+/, ''), 'US'))) {
       setPhoneError("Please enter a valid phone number, including area code.");
       return;
     }

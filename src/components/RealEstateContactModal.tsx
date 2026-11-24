@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { isValidPhoneNumber } from 'libphonenumber-js';
 import { X, Lock, ArrowRight } from 'lucide-react';
 import { PhoneInput } from './ui/phone-input';
 
@@ -47,8 +48,9 @@ const RealEstateContactModal: React.FC<RealEstateContactModalProps> = ({ isOpen,
       return;
     }
 
-    if (!phone || phone.length < 10) {
-      setPhoneError("Please enter a valid phone number.");
+    // A real, complete number is required: follow-up texts cannot reach a mistyped one.
+    if (!phone || !isValidPhoneNumber(phone, 'US')) {
+      setPhoneError("Please enter a valid phone number, including area code.");
       return;
     }
 

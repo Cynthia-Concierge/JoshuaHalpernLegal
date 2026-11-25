@@ -29,6 +29,7 @@ import {
 import VideoCarousel from "@/components/VideoCarousel";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import FaqAccordion from "@/components/FaqAccordion";
+import { HOME_FAQS } from "@/data/faqs";
 
 const Home: React.FC = () => {
   return (
@@ -546,7 +547,16 @@ const Home: React.FC = () => {
                 Questions, Answered
               </h2>
             </div>
-            <FaqAccordion />
+            <FaqAccordion items={HOME_FAQS} />
+            <div className="text-center mt-8">
+              <Link
+                to="/faq"
+                className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-900 transition-colors"
+              >
+                See All Questions
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

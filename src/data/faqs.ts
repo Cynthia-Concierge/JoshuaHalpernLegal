@@ -80,3 +80,17 @@ export const SITE_FAQS: FaqItem[] = [
     answer: "You do. Final documents are delivered to you as the work is completed, and you should keep your own copies. I am not a long-term records custodian, so do not rely on me to store your company records after an engagement ends.",
   },
 ];
+
+// The short list shown on the homepage; the full list lives on /faq.
+const HOME_FAQ_QUESTIONS = [
+  "How is this different from hiring a traditional law firm?",
+  "What's included in my monthly fee?",
+  "How do I reach you, and how fast will you respond?",
+  "How do you use AI?",
+  "What happens if my business gets sued or needs to go to court?",
+  "Is there a long-term contract?",
+];
+
+export const HOME_FAQS: FaqItem[] = HOME_FAQ_QUESTIONS.map(
+  (q) => SITE_FAQS.find((f) => f.question === q),
+).filter((f): f is FaqItem => Boolean(f));

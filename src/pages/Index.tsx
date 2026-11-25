@@ -426,33 +426,33 @@ const Index = () => {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                The Comparison
+                The Problem & The Solution
               </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Two Bad Options. One Better One.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
+                Big firms and full-time hires cost too much. There's a better way.
               </h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-5 md:items-stretch">
               {[
                 {
-                  label: "Law Firm",
-                  price: "$400+/hr",
+                  label: "Hiring a Big Law Firm",
+                  price: "$600+/hr",
                   highlight: false,
                   points: [
-                    { good: false, text: "Billed by the hour" },
-                    { good: false, text: "Relearns your business" },
-                    { good: false, text: "Surprise invoices" },
+                    { good: false, text: "Every call and email costs you" },
+                    { good: false, text: "High hourly rates for every conversation" },
+                    { good: false, text: "Invoices you never saw coming" },
                   ],
                 },
                 {
-                  label: "In-House Hire",
+                  label: "Hiring a Full-Time Lawyer",
                   price: "$250K+/yr",
                   highlight: false,
                   points: [
-                    { good: true, text: "Knows your business" },
-                    { good: false, text: "Salary, benefits, overhead" },
-                    { good: false, text: "Full-time cost, part-time need" },
+                    { good: true, text: "Knows your business, but costs a fortune" },
+                    { good: false, text: "Salary, benefits, and overhead are all on you" },
+                    { good: false, text: "Full-time pay for a part-time need" },
                   ],
                 },
                 {
@@ -460,9 +460,9 @@ const Index = () => {
                   price: "From $2,500/mo",
                   highlight: true,
                   points: [
-                    { good: true, text: "Knows your business" },
-                    { good: true, text: "One fixed monthly fee" },
-                    { good: true, text: "Big-firm deal experience" },
+                    { good: true, text: "Same lawyer every time, already up to speed" },
+                    { good: true, text: "One fixed monthly fee, no surprises" },
+                    { good: true, text: "Big-firm experience without the big-firm cost" },
                   ],
                 },
               ].map((col, i) => (
@@ -471,7 +471,7 @@ const Index = () => {
                   className={`group relative rounded-2xl p-6 md:p-8 cursor-default transition-all duration-300 ease-out ${
                     col.highlight
                       ? "bg-slate-900 text-white shadow-2xl shadow-blue-500/20 ring-2 ring-blue-500 hover:-translate-y-1 md:-translate-y-2 md:hover:-translate-y-4 hover:shadow-blue-500/40 hover:ring-blue-400"
-                      : "bg-white border border-slate-200 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-slate-900/10"
+                      : "bg-white border-2 border-slate-300 shadow-md hover:-translate-y-1 hover:border-slate-400 hover:shadow-xl hover:shadow-slate-900/10"
                   }`}
                 >
                   <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
@@ -483,7 +483,7 @@ const Index = () => {
                       The Better Option
                     </span>
                   )}
-                  <p className={`relative text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-400"}`}>
+                  <p className={`relative text-xs font-bold uppercase tracking-widest mb-2 ${col.highlight ? "text-blue-300" : "text-slate-600"}`}>
                     {col.label}
                   </p>
                   <p className={`relative text-3xl md:text-4xl font-extrabold tracking-tight mb-6 ${col.highlight ? "text-white" : "text-slate-900"}`}>
@@ -497,7 +497,7 @@ const Index = () => {
                         ) : (
                           <XCircle className="w-5 h-5 flex-shrink-0 text-red-400 transition-transform duration-300 group-hover:scale-110" />
                         )}
-                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-700"}`}>{p.text}</span>
+                        <span className={`font-medium ${col.highlight ? "text-slate-100" : "text-slate-800"}`}>{p.text}</span>
                       </li>
                     ))}
                   </ul>

@@ -963,13 +963,13 @@ const Services: React.FC = () => {
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
               <Scale className="w-4 h-4 text-blue-600" />
-              Project Work
+              One-Time Projects
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.08] tracking-tight font-serif">
               Fixed-Fee{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 underline decoration-blue-400/60 underline-offset-8 decoration-4">
-                Project Work
+                Projects
               </span>
             </h1>
 

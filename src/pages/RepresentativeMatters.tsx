@@ -196,7 +196,7 @@ const RepresentativeMatters: React.FC = () => {
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <Scale className="w-4 h-4" />
-              Representative Matters
+              Experience
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.15] tracking-[-0.02em]">

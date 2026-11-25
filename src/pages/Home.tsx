@@ -88,7 +88,7 @@ const Home: React.FC = () => {
                   to="/representative-matters"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl border border-white/20 hover:border-white/30 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
                 >
-                  See Representative Matters
+                  See My Experience
                 </Link>
               </div>
 
@@ -480,7 +480,7 @@ const Home: React.FC = () => {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
               <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest mb-4">
-                Project Work
+                One-Time Projects
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
                 Need a Single Project Handled?
@@ -525,7 +525,7 @@ const Home: React.FC = () => {
                 to="/services"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-900 transition-colors"
               >
-                View All Project Work
+                View All One-Time Projects
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

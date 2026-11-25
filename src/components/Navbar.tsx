@@ -5,8 +5,8 @@ import { Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/outside-general-counsel", label: "Outside General Counsel" },
-  { to: "/representative-matters", label: "Representative Matters" },
-  { to: "/services", label: "Project Work" },
+  { to: "/services", label: "One-Time Projects" },
+  { to: "/representative-matters", label: "Experience" },
   { to: "/faq", label: "FAQ" },
 ];
 
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
               to="/contact"
               className="ml-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold text-sm py-2 px-5 rounded-lg shadow-sm transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
-              Book a Call
+              Book a Consultation
             </Link>
           </nav>
 
@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
             onClick={() => setMobileOpen(false)}
             className="block text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-6 rounded-xl shadow-sm mt-2"
           >
-            Book a Call
+            Book a Consultation
           </Link>
         </nav>
       </div>

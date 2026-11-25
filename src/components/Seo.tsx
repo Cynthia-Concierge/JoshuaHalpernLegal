@@ -23,12 +23,12 @@ const PAGE_META: Record<string, PageMeta> = {
       "Your in-house legal function, outsourced. Deals, governance, contracting and entity management from one senior attorney. Plans from $2,500/mo, month to month.",
   },
   "/representative-matters": {
-    title: "Representative Matters | Legal Halp",
+    title: "Experience | Legal Halp",
     description:
       "Anonymized corporate and transactional matters: M&A and exits, outside general counsel engagements, entity restructuring, commercial real estate, governance and IP.",
   },
   "/services": {
-    title: "Fixed-Fee Project Work | Legal Halp",
+    title: "One-Time Projects, Fixed Fees | Legal Halp",
     description:
       "Defined legal projects on a fixed fee, quoted before work begins: business formation, contracts, employment, trademarks, real estate holding structures, and estate planning.",
   },

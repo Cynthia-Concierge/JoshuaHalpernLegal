@@ -1,12 +1,9 @@
-<svg width="64" height="64" viewBox="0 0 48 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- LH monogram traced from actual brand logo -->
-  <!-- Proportions: 160x239 original, stroke ~17.5% of width -->
-  <!-- L vertical (full height left bar) -->
-  <rect x="0" y="0" width="8" height="64" fill="#F5A623"/>
-  <!-- H crossbar -->
-  <rect x="8" y="29" width="24" height="7" fill="#F5A623"/>
-  <!-- H right bar (full height, level with left bar) -->
-  <rect x="32" y="0" width="8" height="64" fill="#F5A623"/>
-  <!-- Bottom bar -->
-  <rect x="8" y="57" width="24" height="7" fill="#F5A623"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="10.5 70 68 68">
+  <!-- LH monogram: same geometry as /logo-white.svg, centered on a square canvas so browser tabs don't distort it -->
+  <g fill="#F2B13E">
+    <rect x="21" y="72" width="7" height="64"/>
+    <rect x="61" y="72" width="7" height="64"/>
+    <rect x="21" y="100.5" width="47" height="7"/>
+    <rect x="21" y="129" width="35" height="7"/>
+  </g>
 </svg>

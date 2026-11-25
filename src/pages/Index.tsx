@@ -118,12 +118,12 @@ const Index = () => {
   }, []);
 
   const coverage = [
-    { icon: Handshake, title: "Deals & Transactions", desc: "Acquisitions, dispositions, partner buy-ins and buyouts, joint ventures, and the negotiation that gets them closed." },
-    { icon: Landmark, title: "Entity Structure & Governance", desc: "Multi-entity structures, operating agreements, member and board matters, restructurings, and ownership changes." },
-    { icon: FileCheck, title: "Contracts", desc: "Customer, vendor, and partner agreements drafted, reviewed, and negotiated with your leverage in mind." },
-    { icon: Building2, title: "Real Estate & Leasing", desc: "Acquisitions, holding structures, commercial leases, and the financing documents that come with them." },
-    { icon: Users, title: "Employment & Compliance", desc: "Executive agreements, equity and incentive plans, separations, handbooks, and regulatory questions." },
-    { icon: Briefcase, title: "Strategic Counsel for Owners", desc: "A senior sounding board on risk, disputes, and big decisions before they become expensive." },
+    { icon: Handshake, title: "Deals & Transactions", desc: "Buying or selling a business, partner buy-ins and buyouts, and joint ventures, from negotiation through the closing documents." },
+    { icon: Landmark, title: "Entity Structure & Governance", desc: "Holding companies, multi-entity structures, operating agreements, partner and member matters, and ownership changes." },
+    { icon: FileCheck, title: "Contracts", desc: "Customer, vendor, contractor, and partner agreements drafted, reviewed, and negotiated with your leverage in mind." },
+    { icon: Building2, title: "Real Estate & Leasing", desc: "Holding structures for investment property, purchase agreements, and commercial leases, coordinated with your title company and lender." },
+    { icon: Users, title: "Employees & Contractors", desc: "Offer letters, employment and contractor agreements, handbooks, separations, and worker classification questions." },
+    { icon: Briefcase, title: "Strategic Counsel for Owners", desc: "A sounding board on risk and big decisions, plus coordination with outside litigation and specialist counsel when you need them." },
   ];
 
   const faqs = SITE_FAQS;
@@ -539,17 +539,22 @@ const Index = () => {
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight text-center">
-              Built for Companies That Have Outgrown Per-Matter Legal
-            </h2>
+            <div className="text-center mb-10">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                Who It's For
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Built for Owners Who Need a Lawyer Every Month
+              </h2>
+            </div>
 
             <div className="space-y-3 mb-8">
               {[
-                "Legal work comes up every month: contracts, hires, vendors, leases",
-                "You operate through multiple entities, or have partners and investors to answer to",
+                "Legal questions come up every month: contracts, hires, vendors, leases",
+                "You run more than one company, or have partners and investors to answer to",
                 "A deal, acquisition, buyout, or restructuring is on the horizon",
                 "You want one attorney who knows the whole picture, not a new one for every matter",
-                "You need general counsel judgment, but not a $250,000 in-house seat",
+                "You need general counsel judgment, but not a $250,000 in-house hire",
               ].map((item, i) => (
                 <div key={i} className="group relative overflow-hidden flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200 cursor-default transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10">
                   <span aria-hidden="true" className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />

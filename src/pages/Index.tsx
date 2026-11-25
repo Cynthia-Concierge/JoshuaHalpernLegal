@@ -509,10 +509,10 @@ const Index = () => {
                 What's Covered
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Your Legal Department, Not a Help Line
+                Everything a General Counsel Handles. One Monthly Fee.
               </h2>
               <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
-                The work a general counsel handles, from the daily contract to the deal that changes the company.
+                From the everyday contract to the deal that changes your company, handled by one attorney who already knows your business.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -551,9 +551,11 @@ const Index = () => {
                 "You want one attorney who knows the whole picture, not a new one for every matter",
                 "You need general counsel judgment, but not a $250,000 in-house seat",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-800 font-medium">{item}</span>
+                <div key={i} className="group relative overflow-hidden flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200 cursor-default transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10">
+                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                  <span aria-hidden="true" className="absolute left-0 top-0 w-full h-0.5 bg-blue-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  <CheckCircle2 className="relative w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="relative text-slate-800 font-medium transition-transform duration-300 group-hover:translate-x-0.5">{item}</span>
                 </div>
               ))}
             </div>

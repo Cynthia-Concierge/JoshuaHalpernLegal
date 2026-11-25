@@ -139,9 +139,10 @@ const pricingTiers = [
       "Investor and partner matters",
       "Multi-entity oversight",
       "Coordination with your CPA, lenders, and brokers",
+      "Coordination with outside litigation, arbitration, and mediation counsel",
       "Deal deadlines prioritized",
     ],
-    excluded: ["Litigation and court appearances"],
+    excluded: [] as string[],
     popular: false,
   },
   {
@@ -155,7 +156,7 @@ const pricingTiers = [
       "Referral counsel management across jurisdictions",
       "Engagement scoped after a structure review",
     ],
-    excluded: ["Litigation and court appearances"],
+    excluded: [] as string[],
     popular: false,
   },
 ];
@@ -225,7 +226,7 @@ const LawyerOnCall: React.FC = () => {
               <div className="flex flex-wrap items-center justify-center gap-2.5">
                 {[
                   { icon: GraduationCap, label: "Big-Firm M&A and Corporate Experience" },
-                  { icon: Scale, label: "10+ Years Transactional Practice" },
+                  { icon: Scale, label: "Practicing Since 2017" },
                   { icon: Handshake, label: "M&A & Deal Execution" },
                   { icon: Star, label: "Month-to-Month" },
                   { icon: DollarSign, label: "No Surprise Invoices" },

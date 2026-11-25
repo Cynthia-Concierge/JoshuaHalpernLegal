@@ -212,18 +212,21 @@ const Index = () => {
             </button>
 
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection('coverage')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
-                What's Covered
-              </button>
-              <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
-                How It Works
-              </button>
-              <button onClick={() => scrollToSection('retainer')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
-                Retainers
-              </button>
-              <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">
-                FAQ
-              </button>
+              {[
+                { id: "retainer", label: "Pricing" },
+                { id: "about", label: "About Josh" },
+                { id: "coverage", label: "What's Covered" },
+                { id: "how-it-works", label: "How It Works" },
+                { id: "faq", label: "FAQ" },
+              ].map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                >
+                  {link.label}
+                </button>
+              ))}
             </div>
 
             <button

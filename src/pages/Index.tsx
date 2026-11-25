@@ -376,15 +376,15 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-5 mb-10 md:pt-4">
+            <div className="grid md:grid-cols-3 gap-5 mb-10 md:pt-4 md:items-stretch">
               {[
-                { name: "Essential Counsel", price: "$2,500/mo", desc: "Contract reviews, quick questions, practical guidance.", popular: false },
-                { name: "Ongoing Counsel", price: "$4,000/mo", desc: "Contracts, employment, compliance, and entity management.", popular: true },
-                { name: "General Counsel", price: "From $6,000/mo", desc: "Your outside general counsel. Strategy, deals, board-level support.", popular: false },
+                { name: "Essential Counsel", price: "$2,500", bestFor: "For owners who need a lawyer to run things by.", included: ["Email access for legal questions", "Review of standard contracts you receive", "Practical, plain-English guidance", "Replies within 2 business days"], excluded: ["Drafting new agreements", "Deals and transactions"], popular: false },
+                { name: "Ongoing Counsel", price: "$3,500", bestFor: "For businesses with legal work every month.", included: ["Everything in Essential", "Contract drafting and negotiation", "Employment documents and policies", "Entity and governance upkeep", "Replies within 1 business day, calls for urgent matters"], excluded: ["Deals, acquisitions, and restructurings"], popular: true },
+                { name: "General Counsel", price: "From $6,000", bestFor: "For multi-entity companies and owners doing deals.", included: ["Everything in Ongoing", "Deals and transactions, scoped up front", "Investor and partner matters", "Multi-entity oversight", "Coordination with your CPA, lenders, and brokers", "Deal deadlines prioritized"], excluded: ["Litigation and court appearances"], popular: false },
               ].map((tier, i) => (
                 <div
                   key={i}
-                  className={`group relative rounded-2xl p-6 text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 ${
+                  className={`group relative flex flex-col rounded-2xl p-6 md:p-7 text-left cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 ${
                     tier.popular
                       ? "bg-white border-2 border-blue-500 shadow-xl md:-translate-y-2 md:hover:-translate-y-4"
                       : "bg-white border border-slate-200 hover:border-blue-300"
@@ -399,9 +399,23 @@ const Index = () => {
                       Most Popular
                     </span>
                   )}
-                  <h3 className="relative text-lg font-bold mb-2 text-slate-900">{tier.name}</h3>
-                  <p className="relative font-bold text-lg mb-3 text-blue-600">{tier.price}</p>
-                  <p className="relative text-sm leading-relaxed text-slate-600">{tier.desc}</p>
+                  <h3 className="relative text-lg font-bold text-slate-900">{tier.name}</h3>
+                  <p className="relative mt-2 text-3xl font-extrabold tracking-tight text-blue-600">{tier.price}<span className="text-base font-semibold text-slate-500">/mo</span></p>
+                  <p className="relative mt-2 text-sm text-slate-600 leading-relaxed">{tier.bestFor}</p>
+                  <ul className="relative mt-5 pt-5 border-t border-slate-200 space-y-2.5 text-sm">
+                    {tier.included.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-slate-800">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 text-blue-600 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                    {tier.excluded.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-slate-400">
+                        <XCircle className="w-4 h-4 mt-0.5 text-slate-300 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

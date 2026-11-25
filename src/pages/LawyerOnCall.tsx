@@ -131,7 +131,7 @@ const pricingTiers = [
   },
   {
     name: "General Counsel",
-    price: "From $6,000/mo",
+    price: "From $5,000/mo",
     description: "For multi-entity companies and owners doing deals.",
     features: [
       "Everything in Ongoing",

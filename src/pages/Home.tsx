@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import VideoCarousel from "@/components/VideoCarousel";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import FaqAccordion from "@/components/FaqAccordion";
 
 const Home: React.FC = () => {
   return (
@@ -532,11 +533,30 @@ const Home: React.FC = () => {
       </section>
 
       {/* ============================================= */}
+      {/* SECTION 9: FAQ                                */}
+      {/* ============================================= */}
+      <section id="faq" className="py-20 md:py-28 bg-slate-50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+                FAQ
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Questions, Answered
+              </h2>
+            </div>
+            <FaqAccordion />
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================= */}
       {/* SECTION 9: Final CTA                          */}
       {/* ============================================= */}
       <section
         id="consultation"
-        className="py-20 md:py-28 bg-slate-50"
+        className="py-20 md:py-28 bg-white"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">

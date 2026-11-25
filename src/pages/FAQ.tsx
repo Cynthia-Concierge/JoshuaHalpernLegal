@@ -2,64 +2,11 @@ import SiteFooter from "@/components/SiteFooter";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Phone, ChevronDown, HelpCircle } from "lucide-react";
+import { SITE_FAQS, type FaqItem } from "@/data/faqs";
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+type FAQItem = FaqItem;
 
-const FAQS: FAQItem[] = [
-  {
-    question: "What kind of legal services do you offer?",
-    answer:
-      "We offer flat-fee legal packages for LLC formation, contracts, hiring (both employees and contractors), estate planning, real estate, and general business counsel. Everything is tailored, attorney-drafted, and designed to be practical, protective, and affordable.",
-  },
-  {
-    question: "How does your flat-fee pricing work?",
-    answer:
-      "We charge a transparent flat fee for each package or service. No hourly billing, no hidden charges. You'll know exactly what you're paying for before any work begins.",
-  },
-  {
-    question: "Can I speak directly with an attorney?",
-    answer:
-      "Yes. Every package includes direct access to a licensed attorney for your questions, legal advice, and personalized guidance. You won't be passed off to a call center or paralegal.",
-  },
-  {
-    question: "Do you offer custom contracts or just templates?",
-    answer:
-      "All contracts are custom-drafted or tailored to your business and specific needs. We don't just hand you a template. We make sure the agreement actually fits what you're doing and protects your interests.",
-  },
-  {
-    question: "Can you help if I'm in a different state?",
-    answer:
-      "Yes. We represent clients in many states and can assist with business law matters, contracts, and estate planning across most jurisdictions. We'll let you know upfront if something requires a local attorney referral.",
-  },
-  {
-    question: "Is everything done virtually?",
-    answer:
-      "Yes. We operate a modern virtual law firm, meaning everything is handled securely through phone, email, and video calls. We work around your schedule and handle everything without the need for in-person meetings.",
-  },
-  {
-    question: "Do you offer ongoing legal support or just one-time packages?",
-    answer:
-      "Both. Our packages include post-engagement support, and we also offer ongoing legal counsel for businesses that need a trusted legal advisor on hand.",
-  },
-  {
-    question: "How long does it take to complete my package?",
-    answer:
-      "Turnaround time depends on the package, but most legal documents are delivered within 5–10 business days. Expedited service is available if needed.",
-  },
-  {
-    question: "What if I need help with something not listed?",
-    answer:
-      "Just reach out. We offer custom services and can usually create a solution or refer you to the right resource. If it's a legal issue you're facing, we're here to help, or get you to someone who can.",
-  },
-  {
-    question: "Do you handle litigation or disputes?",
-    answer:
-      "We focus on proactive legal services, meaning we help you avoid problems before they happen. If you're facing a dispute or lawsuit, we'll connect you with a trusted litigation attorney in our network.",
-  },
-];
+const FAQS: FAQItem[] = SITE_FAQS;
 
 const AccordionItem: React.FC<{
   item: FAQItem;
@@ -126,7 +73,7 @@ const FAQ: React.FC = () => {
 
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Everything you need to know about working with Legal Halp. Can't
-              find what you're looking for? Book a free call and ask directly.
+              find what you're looking for? Book a consultation and ask directly.
             </p>
           </div>
         </div>
@@ -173,15 +120,15 @@ const FAQ: React.FC = () => {
                 Still Have Questions?
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Book a free 15-minute call. No sales pitch, just a straight
-                conversation about what you need.
+                Book a consultation. We'll talk through your company, what you
+                need covered, and whether a retainer or a fixed-fee project fits.
               </p>
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
               >
                 <Phone className="w-5 h-5" />
-                Schedule Your Free Call
+                Book a Consultation
               </Link>
             </div>
           </div>
@@ -191,7 +138,7 @@ const FAQ: React.FC = () => {
       {/* ============================================= */}
       {/* FOOTER                                        */}
       {/* ============================================= */}
-      <SiteFooter tagline={<>LLC Formation &bull; Estate Planning &bull; Contracts &bull; IP Protection &bull; Real Estate &bull; Business Law</>} />
+      <SiteFooter tagline={<>Outside General Counsel &bull; Deals & Transactions &bull; Governance &bull; Contracts &bull; Real Estate &bull; Estate Planning</>} />
     </div>
   );
 };

@@ -7,9 +7,10 @@ const NAV_LINKS = [
   { to: "/outside-general-counsel", label: "Outside General Counsel" },
   { to: "/representative-matters", label: "Representative Matters" },
   { to: "/services", label: "Project Work" },
+  { to: "/faq", label: "FAQ" },
 ];
 
-const MOBILE_EXTRA_LINKS = [{ to: "/faq", label: "FAQ" }];
+const MOBILE_EXTRA_LINKS: { to: string; label: string }[] = [];
 
 const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

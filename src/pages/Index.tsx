@@ -289,24 +289,32 @@ const Index = () => {
               <span className="block mt-2 text-blue-400">Embedded In Your Business.</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-slate-200 leading-relaxed max-w-2xl mx-auto font-medium">
-              Deals, governance, and the everyday legal work, handled by one
-              senior attorney on a fixed monthly fee.
+            <p className="fade-in-up text-lg md:text-2xl text-slate-300 leading-relaxed max-w-2xl mx-auto font-medium" style={{ animationDelay: "0.15s" }}>
+              Deals, governance, and the everyday legal work, handled by{" "}
+              <span className="text-white font-bold">one senior attorney</span> on{" "}
+              <span className="relative inline-block text-white font-bold whitespace-nowrap">
+                one fixed monthly fee.
+                <svg aria-hidden="true" className="marker-draw absolute left-0 -bottom-1.5 md:-bottom-2 w-full h-2.5 md:h-3 text-blue-400 pointer-events-none" viewBox="0 0 300 20" preserveAspectRatio="none">
+                  <path d="M4 15 C 70 13, 150 10, 296 6" stroke="currentColor" strokeWidth="7" strokeLinecap="round" fill="none" opacity="0.7" />
+                </svg>
+              </span>
             </p>
 
             {/* Trust Bar */}
             <div className="flex flex-col items-stretch sm:items-center sm:flex-row sm:flex-wrap sm:justify-center gap-2.5">
               {[
                 "Big-Firm M&A and Corporate Experience",
-                "M&A, Governance & Real Estate",
-                "Outside GC to Multi-Entity Companies",
+                "No Hourly Billing, No Surprise Invoices",
+                "Month-to-Month, No Long-Term Contract",
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2.5 bg-white/[0.12] hover:bg-white/[0.18] backdrop-blur-sm border border-white/25 hover:border-white/40 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-default max-w-full"
+                  className="fade-in-up group relative overflow-hidden flex items-center gap-2.5 bg-white/[0.12] hover:bg-white/[0.18] backdrop-blur-sm border border-white/25 hover:border-blue-400/60 text-white text-sm md:text-base font-semibold px-4 py-3 sm:py-2.5 rounded-2xl sm:rounded-full shadow-sm hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 ease-out cursor-default max-w-full"
+                  style={{ animationDelay: `${0.35 + i * 0.12}s` }}
                 >
-                  <CheckCircle2 className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
-                  <span className="leading-snug">{item}</span>
+                  <span aria-hidden="true" className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                  <CheckCircle2 className="relative w-[18px] h-[18px] md:w-5 md:h-5 text-blue-400 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:text-blue-300" />
+                  <span className="relative leading-snug">{item}</span>
                 </div>
               ))}
             </div>

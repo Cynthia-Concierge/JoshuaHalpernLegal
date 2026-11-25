@@ -32,6 +32,7 @@ import {
   UserCheck,
   FileText,
   XCircle,
+  AlertTriangle,
 } from "lucide-react";
 
 const DOT_PATTERN = {
@@ -231,7 +232,7 @@ const Index = () => {
 
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-2 rounded-lg transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap"
             >
               Book a Consultation
             </button>
@@ -261,14 +262,14 @@ const Index = () => {
             </h1>
 
             <p className="fade-in-up text-lg md:text-2xl text-slate-300 leading-relaxed max-w-2xl mx-auto font-medium" style={{ animationDelay: "0.15s" }}>
-              Deals, governance, and the everyday legal work, handled by{" "}
-              <span className="text-white font-bold">one senior attorney</span> on{" "}
+              <span className="text-white font-bold">Your company's own lawyer</span> on{" "}
               <span className="relative inline-block text-white font-bold whitespace-nowrap">
                 one fixed monthly fee.
                 <svg aria-hidden="true" className="marker-draw absolute left-0 -bottom-1.5 md:-bottom-2 w-full h-2.5 md:h-3 text-blue-400 pointer-events-none" viewBox="0 0 300 20" preserveAspectRatio="none">
                   <path d="M4 15 C 70 13, 150 10, 296 6" stroke="currentColor" strokeWidth="7" strokeLinecap="round" fill="none" opacity="0.7" />
                 </svg>
               </span>
+              {" "}Contracts, deals, and everyday legal questions, without hourly billing.
             </p>
 
             {/* Trust Bar */}
@@ -290,8 +291,18 @@ const Index = () => {
               ))}
             </div>
 
+            <div className="flex flex-col items-center gap-3">
+              <PrimaryButton />
+              <p className="text-slate-400 text-sm">
+                Retainers from $2,500/month. 15-minute call.
+              </p>
+            </div>
+
             {/* Video Embed */}
-            <div className="w-full max-w-3xl mx-auto" ref={videoContainerRef}>
+            <div className="w-full max-w-3xl mx-auto pt-2" ref={videoContainerRef}>
+              <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.15em] mb-3">
+                Watch: How It Works (4 min)
+              </p>
               <div className="aspect-video bg-slate-950 rounded-2xl shadow-2xl shadow-black/40 border-2 border-white/10 overflow-hidden">
                 <video
                   ref={videoRef}
@@ -306,28 +317,12 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Scope qualifier, directly under the video so it is unmissable */}
-            <div className="max-w-2xl mx-auto w-full bg-white/[0.07] backdrop-blur-sm border border-white/15 rounded-2xl px-5 py-4">
-              <p className="text-blue-300 uppercase tracking-[0.15em] text-[11px] font-bold text-center mb-3">
-                Business Counsel Only. Not Handled Here:
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 rounded-full px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors duration-300"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-4">
-              <PrimaryButton />
-              <p className="text-slate-400 text-sm">
-                Retainers from $2,500/month. 15-minute call.
+            {/* Scope qualifier */}
+            <div className="max-w-2xl mx-auto flex items-start justify-center gap-2.5 text-[13px] text-slate-400 leading-relaxed">
+              <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+              <p className="text-left">
+                <span className="text-slate-200 font-semibold">Business and transactional matters only.</span>{" "}
+                No litigation, court appearances, criminal, family, personal injury, or immigration cases.
               </p>
             </div>
           </div>

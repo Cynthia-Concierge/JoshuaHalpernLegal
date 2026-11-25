@@ -417,10 +417,10 @@ const LawyerOnCall: React.FC = () => {
                 <Shield className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
                 <div className="text-left">
                   <p className="font-bold text-slate-900 mb-1">
-                    Zero-Risk Guarantee
+                    No Long-Term Commitment
                   </p>
                   <p className="text-slate-700 text-sm">
-                    Month-to-month. No contracts, no cancellation fees. Cancel
+                    Month-to-month. No long-term contract, no cancellation fees. Cancel
                     with 30 days notice.
                   </p>
                 </div>
@@ -431,59 +431,9 @@ const LawyerOnCall: React.FC = () => {
       </section>
 
       {/* ============================================= */}
-      {/* FAQ                                           */}
-      {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
-                FAQ
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Questions? Answers.
-              </h2>
-            </div>
-
-            <div className="space-y-3">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-slate-200 rounded-xl overflow-hidden bg-white"
-                >
-                  <button
-                    onClick={() =>
-                      setOpenFaqIndex(openFaqIndex === index ? null : index)
-                    }
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
-                  >
-                    <span className="font-semibold text-slate-900 pr-4">
-                      {faq.question}
-                    </span>
-                    {openFaqIndex === index ? (
-                      <ChevronUp className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                    )}
-                  </button>
-                  {openFaqIndex === index && (
-                    <div className="px-6 py-4 border-t border-slate-100">
-                      <p className="text-slate-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================= */}
       {/* FINAL CTA                                     */}
       {/* ============================================= */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden text-center">
             <div
@@ -498,19 +448,19 @@ const LawyerOnCall: React.FC = () => {
             <div className="relative z-10">
               <Shield className="w-12 h-12 text-blue-400 mx-auto mb-6" />
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Let's Look At What's Actually In Front of You
+                Get a General Counsel Without the $250K Salary
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Book a 15-minute call. We will go through the entity structure,
-                what is on the docket, and what the right level of support
-                looks like. You will have a number before any work begins.
+                Book a short consultation. We'll talk through your business, and
+                you'll leave with a recommended plan and a fixed monthly price.
+                No obligation.
               </p>
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 transition-all text-lg"
               >
                 <Phone className="w-5 h-5" />
-                Schedule Your Free Call
+                Book a Consultation
               </Link>
             </div>
           </div>

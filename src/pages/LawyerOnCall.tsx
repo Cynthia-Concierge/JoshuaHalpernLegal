@@ -3,6 +3,7 @@ import HeroFade from "@/components/HeroFade";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  XCircle,
   Scale,
   Shield,
   Phone,
@@ -48,7 +49,7 @@ const whatYouGet = [
   {
     icon: Building2,
     title: "Commercial Real Estate",
-    desc: "Acquisitions, leasing on both sides, title and escrow.",
+    desc: "Acquisitions, leasing on both sides, and coordination with title.",
   },
   {
     icon: Users,
@@ -58,7 +59,7 @@ const whatYouGet = [
   {
     icon: MessageCircle,
     title: "Direct Access",
-    desc: "Text, email or call me directly. No gatekeepers, no timers.",
+    desc: "Email me directly, and urgent matters get a call. No gatekeepers, no timers.",
   },
 ];
 
@@ -71,12 +72,12 @@ const faqs = [
   {
     question: "Is a real attorney handling my work?",
     answer:
-      "Yes. I'm Josh Halpern, 10+ years of corporate and transactional practice, including at a national law firm. I handle every matter personally.",
+      "Yes. I'm Josh Halpern, a corporate and transactional attorney practicing since 2017, including at a national law firm. I handle every matter personally.",
   },
   {
     question: "Do you handle acquisitions and larger transactions?",
     answer:
-      "Yes. Acquisitions, buyouts, holding company restructuring, joint ventures and investor documentation are core practice. Deal work is scoped and quoted separately from the monthly fee.",
+      "Yes. Acquisitions, buyouts, holding company restructuring, joint ventures and investor documentation are core practice. Deal work is part of the General Counsel plan and is scoped up front, so you know the number before work starts.",
   },
   {
     question: "What's NOT included?",
@@ -86,7 +87,7 @@ const faqs = [
   {
     question: "How fast do you respond?",
     answer:
-      "24-48 hours on the Essential plan. Same-day on Ongoing and General Counsel. Urgent matters are always prioritized regardless of plan.",
+      "Email is the main channel. Replies come within 2 business days on Essential and within 1 business day on Ongoing and General Counsel. Business hours are 9 to 5 on business days. Urgent matters get a call, and deal deadlines are always prioritized.",
   },
   {
     question: "Can I cancel anytime?",
@@ -104,61 +105,57 @@ const pricingTiers = [
   {
     name: "Essential Counsel",
     price: "$2,500/mo",
-    description:
-      "Contract review, quick calls, and guidance before issues get expensive.",
+    description: "For owners who need a lawyer to run things by.",
     features: [
-      "Monthly on-call access",
-      "Contract review & drafting",
-      "Quick legal questions answered",
-      "Priority response (48 hours)",
-      "Email & text access",
+      "Email access for legal questions",
+      "Review of standard contracts you receive",
+      "Practical, plain-English guidance",
+      "Replies within 2 business days",
     ],
+    excluded: ["Drafting new agreements", "Deals and transactions"],
     popular: false,
   },
   {
     name: "Ongoing Counsel",
-    price: "$4,000/mo",
-    description:
-      "Regular support. Contracting, employment, compliance, entity management.",
+    price: "$3,500/mo",
+    description: "For businesses with legal work every month.",
     features: [
       "Everything in Essential",
-      "Employment agreements & HR support",
-      "Compliance & entity management",
-      "Same-day priority response",
-      "Quarterly strategy sessions",
-      "Rollover hours for lighter months",
+      "Contract drafting and negotiation",
+      "Employment documents and policies",
+      "Entity and governance upkeep",
+      "Replies within 1 business day, calls for urgent matters",
     ],
+    excluded: ["Deals, acquisitions, and restructurings"],
     popular: true,
   },
   {
     name: "General Counsel",
     price: "From $6,000/mo",
-    description:
-      "The in-house legal function, outsourced. For companies running real deals.",
+    description: "For multi-entity companies and owners doing deals.",
     features: [
       "Everything in Ongoing",
-      "M&A, buyouts & deal execution",
-      "Holding company & entity structuring",
-      "Governance, equity & investor documentation",
-      "Commercial real estate & leasing",
-      "Board and management meeting attendance",
-      "Coordination with your CPA and advisors",
+      "Deals and transactions, scoped up front",
+      "Investor and partner matters",
+      "Multi-entity oversight",
+      "Coordination with your CPA, lenders, and brokers",
+      "Deal deadlines prioritized",
     ],
+    excluded: ["Litigation and court appearances"],
     popular: false,
   },
   {
     name: "Portfolio Counsel",
     price: "Scoped to the portfolio",
-    description:
-      "For multi-entity groups spanning several operating companies at once.",
+    description: "For groups running several operating companies at once.",
     features: [
       "Everything in General Counsel",
       "Multi-entity and intercompany governance",
       "Portfolio-wide contracting standards",
-      "Standing diligence and records discipline",
       "Referral counsel management across jurisdictions",
       "Engagement scoped after a structure review",
     ],
+    excluded: ["Litigation and court appearances"],
     popular: false,
   },
 ];
@@ -383,6 +380,15 @@ const LawyerOnCall: React.FC = () => {
                         {feature}
                       </li>
                     ))}
+                    {tier.excluded.map((item, xi) => (
+                      <li
+                        key={`x-${xi}`}
+                        className="flex items-start gap-2 text-sm text-slate-400"
+                      >
+                        <XCircle className="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                   <Link
                     to="/contact"
@@ -400,8 +406,8 @@ const LawyerOnCall: React.FC = () => {
             </div>
 
             <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-8">
-              Fee matched to the structure and workload on the call. Deal work
-              is quoted separately.
+              Fee matched to the structure and workload on the call. Larger
+              deals are scoped up front, so you know the number before work starts.
             </p>
 
             {/* Risk Reversal */}

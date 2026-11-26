@@ -121,7 +121,7 @@ const FAQ: React.FC = () => {
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                 Book a consultation. We'll talk through your company, what you
-                need covered, and whether a retainer or a fixed-fee project fits.
+                need covered, and whether a monthly plan or a fixed-fee project fits.
               </p>
               <Link
                 to="/contact"

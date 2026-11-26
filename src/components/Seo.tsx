@@ -45,7 +45,7 @@ const PAGE_META: Record<string, PageMeta> = {
   "/faq": {
     title: "Frequently Asked Questions | Legal Halp",
     description:
-      "How the flat-fee and monthly retainer models work, what is included, response times, and what falls outside scope.",
+      "How monthly plans and fixed-fee projects work, what is included, response times, and what falls outside scope.",
   },
   "/formation": {
     title: "LLC & Business Formation | Legal Halp",
@@ -55,7 +55,7 @@ const PAGE_META: Record<string, PageMeta> = {
   "/lawyeroncall": {
     title: "Outside General Counsel, Embedded in Your Business | Legal Halp",
     description:
-      "Big-firm corporate counsel on a fixed monthly retainer. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.",
+      "Big-firm corporate counsel on one fixed monthly fee. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.",
   },
   "/realestate": {
     title: "Real Estate Legal Services | Legal Halp",

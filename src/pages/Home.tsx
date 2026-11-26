@@ -181,7 +181,7 @@ const Home: React.FC = () => {
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Your General Counsel,
                 <br />
-                <span className="text-blue-600">On a Fixed Monthly Retainer.</span>
+                <span className="text-blue-600">On One Fixed Monthly Fee.</span>
               </h2>
               <p className="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
                 One senior attorney who knows your entities, your contracts, and
@@ -224,10 +224,10 @@ const Home: React.FC = () => {
               ))}
             </div>
 
-            {/* Retainer teaser (full plans live on /outside-general-counsel) */}
+            {/* Monthly plan teaser (full plans live on /outside-general-counsel) */}
             <div className="text-center mb-10">
               <p className="text-blue-600 text-xs font-bold uppercase tracking-widest mb-3">
-                Monthly Retainers
+                Monthly Plans
               </p>
               <p className="text-4xl md:text-5xl font-extrabold text-slate-900">
                 From $2,500
@@ -253,7 +253,7 @@ const Home: React.FC = () => {
                   to="/outside-general-counsel"
                   className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-bold py-4 px-10 rounded-xl border border-slate-300 hover:border-slate-400 transform hover:-translate-y-0.5 transition-all duration-200 text-lg"
                 >
-                  See Retainer Plans
+                  See Monthly Plans
                 </Link>
               </div>
               <p className="text-slate-500 text-sm mt-4">
@@ -386,7 +386,7 @@ const Home: React.FC = () => {
                 },
                 {
                   step: "2",
-                  title: "Set Your Monthly Retainer",
+                  title: "Choose Your Monthly Plan",
                   description:
                     "A fixed monthly fee scoped to your company. You know the number before we start.",
                 },
@@ -486,7 +486,7 @@ const Home: React.FC = () => {
                 Need a Single Project Handled?
               </h2>
               <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-                Not ready for a retainer? Defined projects are handled on a
+                Not ready for a monthly plan? Defined projects are handled on a
                 fixed fee, scoped and quoted on a call before any work begins.
               </p>
             </div>
@@ -586,7 +586,7 @@ const Home: React.FC = () => {
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                 Book a consultation. We'll talk through your company, what you
-                need covered, and whether a retainer is the right fit.
+                need covered, and whether a monthly plan is the right fit.
               </p>
               <Link
                 to="/contact"

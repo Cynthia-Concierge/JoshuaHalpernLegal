@@ -16,7 +16,7 @@ const PaymentPolicy = () => {
       <p>We do not bill by the hour. Our work is offered in two ways:</p>
       <UL>
         <li>
-          <span className="font-semibold text-slate-900">Monthly retainers.</span> A fixed monthly fee for
+          <span className="font-semibold text-slate-900">Monthly plans.</span> A fixed monthly fee for
           ongoing outside general counsel services within an agreed scope. The fee is set during your
           consultation based on your company's structure and needs.
         </li>
@@ -73,14 +73,14 @@ const PaymentPolicy = () => {
         </li>
       </UL>
 
-      <H2>5. Monthly Retainers: Recurring Billing and Cancellation</H2>
+      <H2>5. Monthly Plans: Recurring Billing and Cancellation</H2>
       <UL>
-        <li>Retainers are billed monthly, in advance, on your billing date, starting when your engagement agreement is signed.</li>
+        <li>Monthly plans are billed monthly, in advance, on your billing date, starting when your engagement agreement is signed.</li>
         <li>
           If you pay by card or ACH on file, you authorize Legal Halp to charge that payment method
-          automatically each month until the retainer is canceled.
+          automatically each month until the monthly plan is canceled.
         </li>
-        <li>Retainers are month-to-month. There is no long-term commitment and no cancellation fee.</li>
+        <li>Monthly plans are month-to-month. There is no long-term commitment and no cancellation fee.</li>
         <li>
           You may cancel at any time by giving 30 days written notice by email to <Email />. Service
           continues, and billing applies, through the end of the notice period.
@@ -102,7 +102,7 @@ const PaymentPolicy = () => {
           point.
         </li>
         <li>
-          For monthly retainers, any prepaid portion that has not been earned when the engagement ends will
+          For monthly plans, any prepaid portion that has not been earned when the engagement ends will
           be refunded as required by the professional rules.
         </li>
         <li>

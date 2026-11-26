@@ -17,7 +17,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     question: "What's included in my monthly fee?",
-    answer: "Each plan has a defined scope, outlined in the retainer plans and confirmed in writing in your engagement letter. Within that scope, the fee stays the same whether you send me two requests or twenty. Anything outside it is flagged and quoted in writing before any work begins. You will never get a surprise invoice.",
+    answer: "Each plan has a defined scope, outlined in the monthly plans and confirmed in writing in your engagement letter. Within that scope, the fee stays the same whether you send me two requests or twenty. Anything outside it is flagged and quoted in writing before any work begins. You will never get a surprise invoice.",
   },
   {
     question: "What if I need more than my plan covers?",
@@ -69,7 +69,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     question: "What if I have a slow month?",
-    answer: "You are still covered. The value of a retainer is having counsel who already knows your business the moment something comes up, not scrambling to find and brief a new lawyer mid-crisis.",
+    answer: "You are still covered. The value of a monthly plan is having counsel who already knows your business the moment something comes up, not scrambling to find and brief a new lawyer mid-crisis.",
   },
   {
     question: "What happens after I book a consultation?",

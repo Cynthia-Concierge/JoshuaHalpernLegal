@@ -93,7 +93,7 @@ const Index = () => {
   useEffect(() => {
     const ogTitle = "Outside General Counsel, Embedded in Your Business | Legal Halp";
     const ogDesc =
-      "Big-firm corporate counsel on a fixed monthly retainer. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.";
+      "Big-firm corporate counsel on one fixed monthly fee. Deals, governance, contracts, and real estate, handled by one senior attorney who knows your business.";
     const ogImage = "https://legalhalplaw.com/api/og?v=4";
 
     document.title = ogTitle;
@@ -294,7 +294,7 @@ const Index = () => {
             <div className="flex flex-col items-center gap-3">
               <PrimaryButton />
               <p className="text-slate-400 text-sm">
-                Retainers from $2,500/month. 15-minute call.
+                Monthly plans from $2,500. 15-minute call.
               </p>
             </div>
 
@@ -342,7 +342,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Your General Counsel,
                 <br />
-                <span className="text-blue-600">On a Fixed Monthly Retainer.</span>
+                <span className="text-blue-600">On One Fixed Monthly Fee.</span>
               </h2>
               <p className="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
                 One senior attorney who knows your entities, your contracts, and
@@ -587,7 +587,7 @@ const Index = () => {
               <div aria-hidden="true" className="hidden md:block absolute top-8 left-[16.66%] right-[16.66%] h-0.5 bg-slate-200" />
               {[
                 { step: "1", title: "Book a Consultation", description: "Walk me through your business, your entities, and what's on your plate." },
-                { step: "2", title: "Set Your Monthly Retainer", description: "A fixed monthly fee scoped to your company. You know the number before we start." },
+                { step: "2", title: "Choose Your Monthly Plan", description: "A fixed monthly fee scoped to your company. You know the number before we start." },
                 { step: "3", title: "I Become Your Outside General Counsel", description: "Contracts, deals, governance, and everything in between. Email whenever something comes up. Urgent matters get a call." },
               ].map((item, index) => (
                 <div key={index} className="relative flex flex-col items-center text-center">
@@ -693,7 +693,7 @@ const Index = () => {
               </h3>
               <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                 Book a consultation. We'll talk through your company, what you
-                need covered, and whether a retainer is the right fit.
+                need covered, and whether a monthly plan is the right fit.
               </p>
               <button
                 onClick={openModal}

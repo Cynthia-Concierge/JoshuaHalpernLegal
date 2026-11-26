@@ -1107,15 +1107,15 @@ const Services: React.FC = () => {
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
                   Deals, governance, and day-to-day legal support run through
-                  the Outside General Counsel retainer, priced monthly rather
-                  than per matter.
+                  an Outside General Counsel monthly plan, one fixed fee rather
+                  than a bill per matter.
                 </p>
               </div>
               <Link
                 to="/outside-general-counsel"
                 className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:-translate-y-0.5 flex-shrink-0 whitespace-nowrap"
               >
-                See Retainer Tiers
+                See Monthly Plans
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

@@ -97,7 +97,7 @@ const faqs = [
   {
     question: "What if I don't use it one month?",
     answer:
-      "You're still covered. The retainer means I'm available the week something breaks, not scrambling to find counsel mid-crisis.",
+      "You're still covered. Your monthly plan means I'm available the week something breaks, not scrambling to find counsel mid-crisis.",
   },
 ];
 

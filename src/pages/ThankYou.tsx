@@ -77,7 +77,7 @@ const ThankYou = () => {
           <div className="space-y-3">
             {[
               "Your company, your entities, and what's on your plate",
-              "What a monthly retainer would cover for your business",
+              "What a monthly plan would cover for your business",
               "Whether it's the right fit (no pressure either way)",
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">

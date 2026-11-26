@@ -125,7 +125,7 @@ const Terms = () => {
 
       <H2>8. Pricing and Services</H2>
       <p>
-        Retainer pricing and service descriptions on the Site are general and may change at any time
+        Monthly plan pricing and service descriptions on the Site are general and may change at any time
         without notice. They are not offers. Your actual fee and scope of work are set only in your signed
         engagement agreement. Fees, billing, cancellation, and refunds are governed by your engagement
         agreement and our <A to="/payment-policy">Payment &amp; Refund Policy</A>.

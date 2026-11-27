@@ -11,6 +11,8 @@ interface ContactModalProps {
     name: string;
     email: string;
     phone: string;
+    businessType?: string;
+    state?: string;
     additionalInfo?: string;
   }) => void;
 }
@@ -19,17 +21,57 @@ interface PendingSubmission {
   name: string;
   email: string;
   phone: string;
+  businessType: string;
+  state: string;
   additionalInfo: string;
 }
+
+const US_STATES = [
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+  "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+  "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
+  "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+  "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
+];
+
+const REVENUE_OPTIONS = ["Under $250K", "$250K to $1M", "$1M to $5M", "$5M+"];
+
+const NOT_HANDLED = [
+  "Lawsuits & litigation",
+  "Court appearances",
+  "Criminal defense",
+  "Family law & divorce",
+  "Personal injury",
+  "Immigration",
+];
+
+const LABEL = "block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest";
+const INPUT = "w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300";
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+const Disclaimer = () => (
+  <div className="text-center space-y-1">
+    <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
+      <Lock className="w-3 h-3" />
+      <span>Confidential. No obligation.</span>
+    </div>
+    <p className="text-[10px] text-slate-400 leading-snug">
+      Submitting this form does not create an attorney-client relationship.
+    </p>
+  </div>
+);
+
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }) => {
   const [phone, setPhone] = useState("");
+  const [revenue, setRevenue] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [revenueError, setRevenueError] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [pendingSubmission, setPendingSubmission] = useState<PendingSubmission | null>(null);
 
@@ -56,6 +98,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
     const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+    const state = (form.elements.namedItem("state") as HTMLSelectElement).value;
     const additionalInfo = (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement).value.trim();
 
     if (!isValidEmail(email)) {
@@ -69,7 +112,19 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
       return;
     }
 
-    setPendingSubmission({ name, email, phone, additionalInfo });
+    if (!revenue) {
+      setRevenueError("Please choose your company's annual revenue.");
+      return;
+    }
+
+    setPendingSubmission({
+      name,
+      email,
+      phone,
+      businessType: `Annual revenue: ${revenue}`,
+      state,
+      additionalInfo,
+    });
     setShowConfirmation(true);
   };
 
@@ -139,32 +194,20 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
           <form className="space-y-3.5 sm:space-y-5" onSubmit={handleSubmit}>
             {/* Full Name */}
             <div className="group">
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Your full name"
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300"
-              />
+              <label className={LABEL}>Full Name</label>
+              <input type="text" name="name" required placeholder="Your full name" className={INPUT} />
             </div>
 
             {/* Email */}
             <div className="group">
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Email
-              </label>
+              <label className={LABEL}>Email</label>
               <input
                 type="email"
                 name="email"
                 required
                 placeholder="you@company.com"
                 onChange={handleEmailChange}
-                className={`w-full px-4 py-3.5 rounded-xl border ${
-                  emailError ? "border-red-400 focus:border-red-400" : "border-slate-200 focus:border-slate-900"
-                } focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300`}
+                className={`${INPUT} ${emailError ? "border-red-400 focus:border-red-400" : ""}`}
               />
               {emailError && (
                 <p className="mt-1.5 text-xs text-red-500">{emailError}</p>
@@ -173,9 +216,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
 
             {/* Phone */}
             <div className="group">
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Best Number to Text You
-              </label>
+              <label className={LABEL}>Best Number to Text You</label>
               <PhoneInput
                 value={phone}
                 onChange={handlePhoneChange}
@@ -184,18 +225,51 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               />
             </div>
 
+            {/* State */}
+            <div className="group">
+              <label className={LABEL}>State Your Business Is Based In</label>
+              <select name="state" required defaultValue="" className={`${INPUT} appearance-none`}>
+                <option value="" disabled>Select a state</option>
+                {US_STATES.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Annual revenue */}
+            <div className="group">
+              <label className={LABEL}>Company Annual Revenue</label>
+              <div className="grid grid-cols-2 gap-2">
+                {REVENUE_OPTIONS.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => { setRevenue(option); setRevenueError(""); }}
+                    className={`py-3 px-3 rounded-xl border text-[14px] font-semibold transition-all ${
+                      revenue === option
+                        ? "border-slate-900 bg-slate-900 text-white"
+                        : "border-slate-200 bg-white text-slate-700 hover:border-slate-400"
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              {revenueError && (
+                <p className="mt-1.5 text-xs text-red-500">{revenueError}</p>
+              )}
+            </div>
+
             {/* Business Info */}
             <div className="group">
-              <label className="block text-[11px] font-semibold text-slate-500 mb-2 uppercase tracking-widest">
-                Tell me about your company and what you need covered
-              </label>
+              <label className={LABEL}>Tell me about your company and what you need covered</label>
               <textarea
                 name="additionalInfo"
                 required
                 minLength={10}
                 rows={3}
                 placeholder="Your business, your entities, and what's on your plate (deals, contracts, governance)."
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/5 outline-none transition-all bg-white text-slate-900 text-[15px] placeholder:text-slate-300 resize-none"
+                className={`${INPUT} resize-none`}
               />
             </div>
 
@@ -210,10 +284,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               </button>
             </div>
 
-            <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-              <Lock className="w-3 h-3" />
-              <span>Confidential. No obligation.</span>
-            </div>
+            <Disclaimer />
           </form>
           </div>
 
@@ -230,27 +301,43 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <span>Back</span>
               </button>
 
-              <div className="mb-6 sm:mb-7">
-                <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-2">
-                  One quick thing before we book your call:
-                </h3>
+              <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-5">
+                One quick thing before we book your call:
+              </h3>
 
-                <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-                  <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-4">
-                    We Do Not Handle These Types of Cases
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {["Lawsuits & Litigation", "Court Appearances", "Criminal Defense", "Family Law / Divorce", "Personal Injury", "Immigration"].map((item) => (
-                      <span key={item} className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 text-[12px] font-semibold text-slate-700 shadow-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-slate-500 text-[13px] leading-relaxed mt-4 font-medium">
-                    Business matter? You&apos;re in the right place: deals, contracts, governance, real estate, and strategy.
-                  </p>
-                </div>
+              {/* What we handle */}
+              <div className="mb-5">
+                <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-2">
+                  What we handle
+                </p>
+                <p className="text-slate-600 text-[14px] leading-relaxed">
+                  Business matters: deals, contracts, governance, real estate, and strategy.
+                </p>
+              </div>
+
+              {/* What we don't handle */}
+              <div className="mb-5">
+                <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-2">
+                  What we don't handle
+                </p>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                  {NOT_HANDLED.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[13px] text-slate-600">
+                      <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Pricing */}
+              <div className="mb-6 sm:mb-7 rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
+                <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-1">
+                  Pricing
+                </p>
+                <p className="text-slate-700 text-[14px] leading-relaxed">
+                  Monthly plans start at <span className="font-semibold text-slate-900">$2,500/mo</span>. Flat fee, no hourly billing.
+                </p>
               </div>
 
               <div className="space-y-3 sm:space-y-3.5">
@@ -272,9 +359,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 </button>
               </div>
 
-              <div className="mt-5 flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-                <Lock className="w-3 h-3" />
-                <span>Confidential. No obligation.</span>
+              <div className="mt-5">
+                <Disclaimer />
               </div>
             </div>
           )}

@@ -301,26 +301,26 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 <span>Back</span>
               </button>
 
-              <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-5">
-                One quick thing before we book your call:
+              <h3 className="text-[20px] sm:text-[22px] leading-tight font-bold text-slate-900 tracking-tight mb-5 text-center">
+                Before we book your call
               </h3>
 
               {/* What we handle */}
-              <div className="mb-5">
+              <div className="mb-5 text-center">
                 <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-2">
                   What we handle
                 </p>
                 <p className="text-slate-600 text-[14px] leading-relaxed">
-                  Business matters: deals, contracts, governance, real estate, and strategy.
+                  Ongoing outside general counsel for your business: deals, contracts, governance, real estate, and strategy.
                 </p>
               </div>
 
               {/* What we don't handle */}
-              <div className="mb-5">
+              <div className="mb-5 text-center">
                 <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-2">
                   What we don't handle
                 </p>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 w-fit mx-auto text-left">
                   {NOT_HANDLED.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-[13px] text-slate-600">
                       <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
@@ -331,7 +331,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
               </div>
 
               {/* Pricing */}
-              <div className="mb-6 sm:mb-7 rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
+              <div className="mb-6 sm:mb-7 rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-center">
                 <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-1">
                   Pricing
                 </p>

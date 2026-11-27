@@ -6,7 +6,11 @@ declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     Calendly?: {
-      initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement: HTMLElement;
+        prefill?: { name?: string; email?: string };
+      }) => void;
     };
   }
 }

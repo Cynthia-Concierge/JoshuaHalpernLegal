@@ -305,16 +305,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                 Before we book your call
               </h3>
 
-              {/* What we handle */}
-              <div className="mb-5 text-center">
-                <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-2">
-                  What we handle
-                </p>
-                <p className="text-slate-600 text-[14px] leading-relaxed">
-                  Ongoing outside general counsel for your business: deals, contracts, governance, real estate, and strategy.
-                </p>
-              </div>
-
               {/* What we don't handle */}
               <div className="mb-5 text-center">
                 <p className="text-slate-900 uppercase tracking-[0.15em] text-[11px] font-bold mb-2">
@@ -346,7 +336,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onSubmit }
                   onClick={handleConfirmSubmit}
                   className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 group text-[15px] bg-slate-900 hover:bg-slate-800 text-white"
                 >
-                  <span>Yes, this is a business matter. Submit</span>
+                  <span>Yes, book my call</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
 

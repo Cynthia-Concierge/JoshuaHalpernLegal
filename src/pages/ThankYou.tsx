@@ -6,7 +6,11 @@ declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     Calendly?: {
-      initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement: HTMLElement;
+        prefill?: { name?: string; email?: string };
+      }) => void;
     };
   }
 }
@@ -25,9 +29,24 @@ const ThankYou = () => {
     script.onload = () => {
       const el = document.getElementById("calendly-embed");
       if (el && window.Calendly) {
+        // Name and email carried over from the intake form, if available.
+        let prefill: { name?: string; email?: string } | undefined;
+        try {
+          const raw = sessionStorage.getItem("lh_calendly_prefill");
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            prefill = {
+              name: typeof parsed.name === "string" ? parsed.name : undefined,
+              email: typeof parsed.email === "string" ? parsed.email : undefined,
+            };
+          }
+        } catch {
+          prefill = undefined;
+        }
         window.Calendly.initInlineWidget({
           url: "https://calendly.com/legalhalp/15-minute-legal-consult?hide_gdpr_banner=1&background_color=ffffff&text_color=0f172a&primary_color=3b82f6",
           parentElement: el,
+          ...(prefill ? { prefill } : {}),
         });
       }
     };

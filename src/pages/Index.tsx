@@ -167,6 +167,15 @@ const Index = () => {
       });
 
       if (response.ok) {
+        // Pre-fill the Calendly embed on the thank-you page so they don't retype.
+        try {
+          sessionStorage.setItem('lh_calendly_prefill', JSON.stringify({
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+          }));
+        } catch {
+          // storage unavailable: Calendly just loads empty
+        }
         setIsModalOpen(false);
         navigate('/lawyeroncall/thank-you');
       } else {
